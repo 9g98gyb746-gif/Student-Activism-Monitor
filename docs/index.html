@@ -1,0 +1,385 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Student Activism Monitor</title>
+<style>
+  :root {
+    --paper: #f2f1ec;
+    --paper-raised: #fbfaf7;
+    --ink: #1c2230;
+    --ink-soft: #565f6e;
+    --line: #d8d5c9;
+    --line-strong: #b6b2a2;
+    --alert: #8a3324;
+    --alert-bg: #f4e3de;
+    --ok-bg: #e7e9e2;
+    --font-serif: Georgia, "Iowan Old Style", "Palatino Linotype", serif;
+    --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--font-sans);
+    line-height: 1.45;
+  }
+
+  header {
+    border-bottom: 1px solid var(--line-strong);
+    padding: 2.25rem 1.5rem 1.5rem;
+  }
+
+  .header-inner {
+    max-width: 68rem;
+    margin: 0 auto;
+  }
+
+  h1 {
+    font-family: var(--font-serif);
+    font-weight: 400;
+    font-size: 1.9rem;
+    margin: 0 0 0.35rem;
+    letter-spacing: 0.01em;
+  }
+
+  .subtitle {
+    color: var(--ink-soft);
+    max-width: 42rem;
+    margin: 0;
+    font-size: 0.95rem;
+  }
+
+  .stats {
+    display: flex;
+    gap: 2.25rem;
+    margin-top: 1.4rem;
+    flex-wrap: wrap;
+  }
+
+  .stat .value {
+    font-family: var(--font-serif);
+    font-size: 1.6rem;
+    display: block;
+    line-height: 1;
+  }
+
+  .stat .label {
+    color: var(--ink-soft);
+    font-size: 0.8rem;
+    margin-top: 0.25rem;
+    display: block;
+  }
+
+  main {
+    max-width: 68rem;
+    margin: 0 auto;
+    padding: 1.5rem;
+  }
+
+  .controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    align-items: center;
+    margin-bottom: 1.25rem;
+    padding-bottom: 1.25rem;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .controls input[type="search"],
+  .controls select {
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    padding: 0.45rem 0.6rem;
+    border: 1px solid var(--line-strong);
+    border-radius: 3px;
+    background: var(--paper-raised);
+    color: var(--ink);
+  }
+
+  .controls input[type="search"] {
+    flex: 1 1 14rem;
+    min-width: 10rem;
+  }
+
+  label.checkbox {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.88rem;
+    color: var(--ink-soft);
+    white-space: nowrap;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.88rem;
+  }
+
+  thead th {
+    text-align: left;
+    font-weight: 600;
+    color: var(--ink-soft);
+    font-size: 0.75rem;
+    padding: 0 0.6rem 0.5rem;
+    border-bottom: 1px solid var(--line-strong);
+  }
+
+  tbody td {
+    padding: 0.65rem 0.6rem;
+    border-bottom: 1px solid var(--line);
+    vertical-align: top;
+  }
+
+  tbody tr:hover {
+    background: var(--paper-raised);
+  }
+
+  .title-cell a {
+    color: var(--ink);
+    text-decoration: none;
+  }
+
+  .title-cell a:hover {
+    text-decoration: underline;
+  }
+
+  .meta {
+    color: var(--ink-soft);
+    font-size: 0.8rem;
+    margin-top: 0.15rem;
+  }
+
+  .badge {
+    display: inline-block;
+    padding: 0.15rem 0.5rem;
+    border-radius: 3px;
+    background: var(--ok-bg);
+    color: var(--ink);
+    font-size: 0.75rem;
+    white-space: nowrap;
+  }
+
+  .badge.watchlist {
+    background: var(--alert-bg);
+    color: var(--alert);
+    font-weight: 600;
+  }
+
+  .badge.relevant {
+    background: var(--alert-bg);
+    color: var(--alert);
+  }
+
+  .badge.irrelevant {
+    background: var(--ok-bg);
+    color: var(--ink-soft);
+  }
+
+  .date-cell {
+    white-space: nowrap;
+    color: var(--ink-soft);
+  }
+
+  .empty-state {
+    padding: 3rem 1rem;
+    text-align: center;
+    color: var(--ink-soft);
+  }
+
+  .empty-state p {
+    max-width: 32rem;
+    margin: 0.5rem auto 0;
+  }
+
+  footer {
+    max-width: 68rem;
+    margin: 0 auto;
+    padding: 1.5rem;
+    color: var(--ink-soft);
+    font-size: 0.8rem;
+    border-top: 1px solid var(--line);
+  }
+
+  footer a { color: var(--ink-soft); }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <h1>Student Activism Monitor</h1>
+    <p class="subtitle">
+      Daily news scan for reports of repression and attacks against student
+      activists, via the GDELT Project. Every hit here is a lead to check,
+      not a confirmed incident.
+    </p>
+    <div class="stats" id="stats"></div>
+  </div>
+</header>
+
+<main>
+  <div class="controls">
+    <input type="search" id="search" placeholder="Search title or source…" />
+    <select id="categoryFilter"><option value="">All categories</option></select>
+    <select id="relevanceFilter">
+      <option value="">All relevance</option>
+      <option value="relevant">Marked relevant</option>
+      <option value="irrelevant">Marked irrelevant</option>
+      <option value="untriaged">Untriaged</option>
+    </select>
+    <label class="checkbox">
+      <input type="checkbox" id="watchlistOnly" />
+      Partner countries only
+    </label>
+  </div>
+
+  <div id="tableWrap"></div>
+</main>
+
+<footer>
+  Data collected from the public <a href="https://www.gdeltproject.org/" target="_blank" rel="noopener">GDELT Project</a> DOC 2.0 API.
+  See the repository README for methodology and limitations.
+</footer>
+
+<script>
+  let allRows = [];
+
+  function fmtDate(seendate) {
+    // GDELT seendate is like 20260923T140000Z
+    if (!seendate || seendate.length < 8) return seendate || "";
+    const y = seendate.slice(0, 4), m = seendate.slice(4, 6), d = seendate.slice(6, 8);
+    return `${y}-${m}-${d}`;
+  }
+
+  function relevanceOf(row) {
+    if (!row.relevance) return "untriaged";
+    return row.relevance;
+  }
+
+  function render() {
+    const q = document.getElementById("search").value.trim().toLowerCase();
+    const cat = document.getElementById("categoryFilter").value;
+    const rel = document.getElementById("relevanceFilter").value;
+    const watchlistOnly = document.getElementById("watchlistOnly").checked;
+
+    const filtered = allRows.filter((row) => {
+      if (cat && row.category_id !== cat) return false;
+      if (rel && relevanceOf(row) !== rel) return false;
+      if (watchlistOnly && !row.watchlist_country) return false;
+      if (q) {
+        const haystack = `${row.title} ${row.domain} ${row.sourcecountry}`.toLowerCase();
+        if (!haystack.includes(q)) return false;
+      }
+      return true;
+    });
+
+    const wrap = document.getElementById("tableWrap");
+
+    if (filtered.length === 0) {
+      wrap.innerHTML = `
+        <div class="empty-state">
+          <strong>No hits match yet.</strong>
+          <p>
+            If this is a fresh repo, the first scheduled run hasn't happened
+            — trigger the workflow manually from the Actions tab, or wait
+            for the daily schedule. If you've already run it, try clearing
+            the filters above.
+          </p>
+        </div>`;
+      return;
+    }
+
+    const rowsHtml = filtered
+      .map((row) => {
+        const badges = [];
+        if (row.watchlist_country) {
+          badges.push(`<span class="badge watchlist">${row.watchlist_country}</span>`);
+        }
+        const relStatus = relevanceOf(row);
+        if (relStatus !== "untriaged") {
+          const title = row.relevance_reason ? ` title="${row.relevance_reason.replace(/"/g, "&quot;")}"` : "";
+          badges.push(`<span class="badge ${relStatus}"${title}>${relStatus}</span>`);
+        }
+        return `
+        <tr>
+          <td class="date-cell">${fmtDate(row.seendate)}</td>
+          <td><span class="badge">${row.category_label || row.category_id}</span></td>
+          <td class="title-cell">
+            <a href="${row.url}" target="_blank" rel="noopener">${row.title || row.url}</a>
+            <div class="meta">${row.domain || ""} · ${row.sourcecountry || "unknown source country"} ${badges.join(" ")}</div>
+          </td>
+        </tr>`;
+      })
+      .join("");
+
+    wrap.innerHTML = `
+      <table>
+        <thead>
+          <tr>
+            <th style="width:6.5rem">Date</th>
+            <th style="width:11rem">Category</th>
+            <th>Article</th>
+          </tr>
+        </thead>
+        <tbody>${rowsHtml}</tbody>
+      </table>`;
+  }
+
+  function renderStats() {
+    const total = allRows.length;
+    const cutoff = new Date();
+    cutoff.setDate(cutoff.getDate() - 7);
+    const recent = allRows.filter((r) => {
+      const d = fmtDate(r.seendate);
+      return d && new Date(d) >= cutoff;
+    }).length;
+    const categories = new Set(allRows.map((r) => r.category_id)).size;
+    const watchlistHits = allRows.filter((r) => r.watchlist_country).length;
+
+    document.getElementById("stats").innerHTML = `
+      <div class="stat"><span class="value">${total}</span><span class="label">total hits</span></div>
+      <div class="stat"><span class="value">${recent}</span><span class="label">last 7 days</span></div>
+      <div class="stat"><span class="value">${categories}</span><span class="label">categories</span></div>
+      <div class="stat"><span class="value">${watchlistHits}</span><span class="label">in partner countries</span></div>
+    `;
+  }
+
+  function populateCategoryFilter() {
+    const select = document.getElementById("categoryFilter");
+    const seen = new Map();
+    allRows.forEach((r) => seen.set(r.category_id, r.category_label || r.category_id));
+    [...seen.entries()].sort((a, b) => a[1].localeCompare(b[1])).forEach(([id, label]) => {
+      const opt = document.createElement("option");
+      opt.value = id;
+      opt.textContent = label;
+      select.appendChild(opt);
+    });
+  }
+
+  fetch("data.json")
+    .then((r) => r.json())
+    .then((data) => {
+      allRows = data;
+      renderStats();
+      populateCategoryFilter();
+      render();
+    })
+    .catch(() => {
+      document.getElementById("tableWrap").innerHTML =
+        '<div class="empty-state"><strong>Could not load data.json.</strong></div>';
+    });
+
+  ["search", "categoryFilter", "relevanceFilter", "watchlistOnly"].forEach((id) => {
+    document.getElementById(id).addEventListener("input", render);
+  });
+</script>
+
+</body>
+</html>

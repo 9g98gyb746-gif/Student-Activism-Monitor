@@ -1,0 +1,76 @@
+# Search categories for the GDELT student-activism monitor.
+#
+# Each category is a self-contained GDELT DOC 2.0 API boolean query.
+# Syntax notes:
+#   - Wrap exact phrases in double quotes: "student union"
+#   - Combine with AND / OR / NOT
+#   - Keep queries reasonably short — very long boolean expressions can be
+#     rejected by the API or return unpredictable results.
+#
+# Tune these over time: once you see what noise a category attracts, add
+# NOT (...) terms to exclude recurring false positives (e.g. NOT (football
+# OR "box office") for a query that keeps catching sports or entertainment
+# stories using the word "clash").
+
+categories:
+  - id: physical_violence
+    label: "Physical violence & killings"
+    query: >-
+      ("student activist" OR "student protester" OR "student protesters" OR
+      "student union" OR "campus protest") AND (beaten OR assaulted OR
+      "tear gas" OR shot OR killed OR murdered OR disappeared OR tortured)
+
+  - id: detention_arrest
+    label: "Arrests & detention"
+    query: >-
+      ("student activist" OR "student protester" OR "student union" OR
+      "campus protest") AND (arrested OR detained OR jailed OR imprisoned OR
+      "held in custody" OR "taken into custody")
+
+  - id: legal_harassment
+    label: "Legal harassment & lawfare"
+    query: >-
+      ("student activist" OR "student union" OR "campus protest") AND
+      (charged OR prosecuted OR indicted OR lawsuit OR "criminal case" OR
+      sedition OR "anti-terrorism law" OR "criminalized")
+
+  - id: institutional_sanction
+    label: "Institutional & academic sanctions"
+    query: >-
+      ("student activist" OR "student protester" OR "student union") AND
+      (expelled OR suspended OR "denied degree" OR "disciplinary action" OR
+      "banned from campus" OR "withheld diploma")
+
+  - id: surveillance_intimidation
+    label: "Surveillance, threats & intimidation"
+    query: >-
+      ("student activist" OR "student union") AND (surveillance OR
+      intimidated OR threatened OR harassed OR monitored OR stalked OR
+      "death threat")
+
+  - id: delegitimization
+    label: "Delegitimization & smear campaigns"
+    query: >-
+      ("student activist" OR "student protester" OR "student union") AND
+      ("foreign agent" OR "linked to terrorism" OR discredited OR
+      "smear campaign" OR "national security threat" OR "enemy of the state")
+
+  - id: visa_immigration
+    label: "Visa & immigration retaliation"
+    query: >-
+      ("student activist" OR "international student") AND (deported OR
+      "visa revoked" OR "visa cancelled" OR "visa canceled" OR
+      denationalized OR "denied re-entry")
+
+# Highlighting aid only — does NOT filter the search. SAIH's current
+# partner countries/regions, used to flag rows in the dashboard.
+watchlist_countries:
+  - Afghanistan
+  - Bolivia
+  - Colombia
+  - Myanmar
+  - Norway
+  - Palestine
+  - South Africa
+  - Zambia
+  - Zimbabwe
