@@ -24,7 +24,7 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Fetch new GDELT hits
-        run: python scripts/fetch_gdelt.py
+        run: python -u scripts/fetch_gdelt.py
 
       - name: Triage relevance with Claude (optional)
         env:
