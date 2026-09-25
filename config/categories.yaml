@@ -68,3 +68,23 @@ watchlist_countries:
     aliases: []
   - name: Zimbabwe
     aliases: []
+    
+# Used as a local relevance filter after fetching: a headline must contain
+# the bare word "student(s)" (broad, for reliability against GDELT) AND at
+# least one of these activism-context words to be flagged as a likely
+# match. Rows that don't match aren't discarded — just hidden by default
+# in the dashboard — since a genuinely relevant but oddly-worded headline
+# shouldn't be lost outright.
+context_terms:
+  - activist
+  - activism
+  - protest
+  - demonstrat
+  - rally
+  - union
+  - campus
+  - movement
+  - walkout
+  - boycott
+  - dissident
+  - "sit-in"
