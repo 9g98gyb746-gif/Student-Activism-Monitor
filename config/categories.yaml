@@ -1,76 +1,83 @@
 # Search categories for the GDELT student-activism monitor.
 #
-# Each category is a self-contained GDELT DOC 2.0 API boolean query.
-# Syntax notes:
-#   - Wrap exact phrases in double quotes: "student union"
-#   - Combine with AND / OR / NOT
-#   - Keep queries reasonably short — very long boolean expressions can be
-#     rejected by the API or return unpredictable results.
+# GDELT's free API rate-limits shared/cloud IPs (like GitHub Actions
+# runners) fairly aggressively. Rather than issuing one API request per
+# category (7 requests/run), the fetch script groups categories into a
+# smaller number of broader queries under query_groups below, then tags
+# each returned article with the most specific matching category by
+# checking its headline against each category's own `terms`. This cuts
+# required API calls from 7 to 4, which meaningfully improves reliability.
 #
-# Tune these over time: once you see what noise a category attracts, add
-# NOT (...) terms to exclude recurring false positives (e.g. NOT (football
-# OR "box office") for a query that keeps catching sports or entertainment
-# stories using the word "clash").
+# `terms` for each category are flat OR-able word/phrase lists (no "AND",
+# no nesting) — they're used both to build each group's query and to
+# re-tag results afterward.
+
+identity_terms: >-
+  ("student activist" OR "student protester" OR "student protesters" OR
+  "student union" OR "campus protest" OR "international student")
 
 categories:
   - id: physical_violence
     label: "Physical violence & killings"
-    query: >-
-      ("student activist" OR "student protester" OR "student protesters" OR
-      "student union" OR "campus protest") AND (beaten OR assaulted OR
-      "tear gas" OR shot OR killed OR murdered OR disappeared OR tortured)
+    terms: [beaten, assaulted, "tear gas", shot, killed, murdered, disappeared, tortured]
 
   - id: detention_arrest
     label: "Arrests & detention"
-    query: >-
-      ("student activist" OR "student protester" OR "student union" OR
-      "campus protest") AND (arrested OR detained OR jailed OR imprisoned OR
-      "held in custody" OR "taken into custody")
+    terms: [arrested, detained, jailed, imprisoned, "held in custody", "taken into custody"]
 
   - id: legal_harassment
     label: "Legal harassment & lawfare"
-    query: >-
-      ("student activist" OR "student union" OR "campus protest") AND
-      (charged OR prosecuted OR indicted OR lawsuit OR "criminal case" OR
-      sedition OR "anti-terrorism law" OR "criminalized")
+    terms: [charged, prosecuted, indicted, lawsuit, "criminal case", sedition, "anti-terrorism law", criminalized]
 
   - id: institutional_sanction
     label: "Institutional & academic sanctions"
-    query: >-
-      ("student activist" OR "student protester" OR "student union") AND
-      (expelled OR suspended OR "denied degree" OR "disciplinary action" OR
-      "banned from campus" OR "withheld diploma")
+    terms: [expelled, suspended, "denied degree", "disciplinary action", "banned from campus", "withheld diploma"]
 
   - id: surveillance_intimidation
     label: "Surveillance, threats & intimidation"
-    query: >-
-      ("student activist" OR "student union") AND (surveillance OR
-      intimidated OR threatened OR harassed OR monitored OR stalked OR
-      "death threat")
+    terms: [surveillance, intimidated, threatened, harassed, monitored, stalked, "death threat"]
 
   - id: delegitimization
     label: "Delegitimization & smear campaigns"
-    query: >-
-      ("student activist" OR "student protester" OR "student union") AND
-      ("foreign agent" OR "linked to terrorism" OR discredited OR
-      "smear campaign" OR "national security threat" OR "enemy of the state")
+    terms: ["foreign agent", "linked to terrorism", discredited, "smear campaign", "national security threat", "enemy of the state"]
 
   - id: visa_immigration
     label: "Visa & immigration retaliation"
-    query: >-
-      ("student activist" OR "international student") AND (deported OR
-      "visa revoked" OR "visa cancelled" OR "visa canceled" OR
-      denationalized OR "denied re-entry")
+    terms: [deported, "visa revoked", "visa cancelled", "visa canceled", denationalized, "denied re-entry"]
 
-# Highlighting aid only — does NOT filter the search. SAIH's current
-# partner countries/regions, used to flag rows in the dashboard.
+# The queries actually sent to GDELT — grouped to keep the number of API
+# calls low. Each group lists which category ids it covers; the fetch
+# script builds the combined query and does local re-tagging automatically.
+query_groups:
+  - id: violent_and_detention
+    category_ids: [physical_violence, detention_arrest]
+  - id: legal_and_institutional
+    category_ids: [legal_harassment, institutional_sanction]
+  - id: surveillance_and_delegit
+    category_ids: [surveillance_intimidation, delegitimization]
+  - id: visa_immigration
+    category_ids: [visa_immigration]
+
+# Used to flag rows in the dashboard based on whether the country is
+# mentioned in the article's headline — a proxy for where the incident
+# happened, since GDELT's free API doesn't expose true event-location
+# tagging. Does NOT restrict the search; it's a highlighting aid only.
 watchlist_countries:
-  - Afghanistan
-  - Bolivia
-  - Colombia
-  - Myanmar
-  - Norway
-  - Palestine
-  - South Africa
-  - Zambia
-  - Zimbabwe
+  - name: Afghanistan
+    aliases: []
+  - name: Bolivia
+    aliases: []
+  - name: Colombia
+    aliases: []
+  - name: Myanmar
+    aliases: ["Burma"]
+  - name: Norway
+    aliases: []
+  - name: Palestine
+    aliases: ["Gaza", "West Bank", "Palestinian"]
+  - name: South Africa
+    aliases: []
+  - name: Zambia
+    aliases: []
+  - name: Zimbabwe
+    aliases: []
