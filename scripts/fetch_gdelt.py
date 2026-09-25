@@ -1,20 +1,20 @@
 #!/usr/bin/env python3
 """
-Fetch GDELT DOC 2.0 API hits using a small number of broad, grouped
-queries (see config/categories.yaml), locally re-tag each result with its
-specific category by matching the headline against that category's own
-terms, deduplicate against the existing dataset, and append new rows to
-data/hits.csv.
+Fetch GDELT DOC 2.0 API hits using MANY SIMPLE queries — one per
+individual keyword — rather than fewer complex boolean queries.
 
-Retry policy is deliberately "fail fast": GDELT appears to rate-limit
-GitHub Actions' shared IP ranges fairly persistently, and long exponential
-backoffs just make every run take 40+ minutes without reliably getting
-through. Since each run's 2-day search window overlaps the previous run's,
-a category that fails today gets caught by tomorrow's run instead — so a
-quick couple of retries followed by moving on is the better trade-off.
+Why: testing showed GDELT accepts a simple single-phrase query instantly
+but blocks a compact 12-clause OR'd boolean query immediately, regardless
+of request pacing. This matches other developers' reports that GDELT's
+API doesn't handle compound boolean expressions reliably. So each query
+here is just ("student" OR "students") AND <one term> — at most 3 total
+clauses — traded off against needing ~47 requests instead of ~7.
 
-Progress is saved to data/hits.csv after EACH group, not just once at the
-end, so a cancelled or timed-out run doesn't lose whatever did succeed.
+Retries are deliberately minimal: GDELT's own documentation asks for at
+most one request per 5 seconds, and other users have observed that
+exceeding it can trigger a much longer (~15 minute) cooldown, not just a
+brief one. So a term that fails just gets skipped and picked up by
+tomorrow's overlapping 2-day window instead of retried aggressively today.
 
 Designed to run daily via GitHub Actions (see
 .github/workflows/gdelt-monitor.yml) but works the same run locally:
@@ -39,6 +39,7 @@ FIELDNAMES = [
     "fetched_at",
     "category_id",
     "category_label",
+    "matched_term",
     "title",
     "url",
     "seendate",
@@ -52,10 +53,10 @@ FIELDNAMES = [
 ]
 
 TIMESPAN = "2d"
-MAX_RECORDS = 250
-REQUEST_DELAY_SECONDS = 20
-MAX_RETRIES = 2
-RETRY_BACKOFF_SECONDS = 15
+MAX_RECORDS = 100
+REQUEST_DELAY_SECONDS = 9  # GDELT asks for 1 per 5s; this leaves margin
+MAX_RETRIES = 1
+RETRY_BACKOFF_SECONDS = 12
 
 HEADERS = {
     "User-Agent": (
@@ -76,18 +77,23 @@ def load_config():
         cfg = yaml.safe_load(f)
 
     identity_terms = cfg["identity_terms"]
-    categories_by_id = {c["id"]: c for c in cfg["categories"]}
     watchlist = cfg.get("watchlist_countries", [])
 
-    groups = []
-    for group in cfg["query_groups"]:
-        cats = [categories_by_id[cid] for cid in group["category_ids"]]
-        all_terms = [t for c in cats for t in c["terms"]]
-        term_clause = " OR ".join(quote_if_needed(t) for t in all_terms)
-        query = f"{identity_terms} AND ({term_clause})"
-        groups.append({"id": group["id"], "query": query, "categories": cats})
+    # Flatten to one entry per individual (category, term) pair.
+    tasks = []
+    for category in cfg["categories"]:
+        for term in category["terms"]:
+            query = f"{identity_terms} AND {quote_if_needed(term)}"
+            tasks.append(
+                {
+                    "category_id": category["id"],
+                    "category_label": category["label"],
+                    "term": term,
+                    "query": query,
+                }
+            )
 
-    return groups, categories_by_id, watchlist
+    return tasks, watchlist
 
 
 def load_existing_urls():
@@ -97,11 +103,9 @@ def load_existing_urls():
         return {row["url"] for row in csv.DictReader(f)}
 
 
-def fetch_query(query_id, query):
-    """Fetch one query's articles. Never raises — returns [] on any
-    unrecoverable failure so one bad query can't take down the run.
-    Deliberately fails fast (2 short retries) rather than fighting a
-    possibly-persistent block for many minutes — see module docstring."""
+def fetch_query(label, query):
+    """Fetch one simple query's articles. Never raises — returns [] on any
+    unrecoverable failure so one bad query can't take down the run."""
     params = {
         "query": query,
         "mode": "artlist",
@@ -116,8 +120,8 @@ def fetch_query(query_id, query):
             resp = requests.get(GDELT_URL, params=params, headers=HEADERS, timeout=60)
 
             if resp.status_code == 429:
-                wait = RETRY_BACKOFF_SECONDS * attempt + random.uniform(0, 5)
-                print(f"  ! rate-limited (429) — waiting {wait:.0f}s (attempt {attempt}/{MAX_RETRIES})")
+                wait = RETRY_BACKOFF_SECONDS * attempt
+                print(f"    ! rate-limited (429) — waiting {wait}s (attempt {attempt}/{MAX_RETRIES})")
                 time.sleep(wait)
                 continue
 
@@ -127,28 +131,17 @@ def fetch_query(query_id, query):
                 payload = resp.json()
                 return payload.get("articles", [])
             except ValueError:
-                snippet = resp.text[:150].replace("\n", " ")
-                wait = RETRY_BACKOFF_SECONDS * attempt + random.uniform(0, 5)
-                print(f"  ! non-JSON response for '{query_id}' ({snippet!r}) — retrying in {wait:.0f}s (attempt {attempt}/{MAX_RETRIES})")
-                time.sleep(wait)
-                continue
+                snippet = resp.text[:120].replace("\n", " ")
+                print(f"    ! non-JSON response for '{label}' ({snippet!r}) — skipping")
+                return []
 
         except requests.exceptions.RequestException as e:
-            print(f"  ! request failed for '{query_id}': {e}")
+            print(f"    ! request failed for '{label}': {e}")
             if attempt < MAX_RETRIES:
                 time.sleep(RETRY_BACKOFF_SECONDS)
 
-    print(f"  ! giving up on '{query_id}' after {MAX_RETRIES} attempts (will retry via tomorrow's overlapping window)")
+    print(f"    ! giving up on '{label}' (will retry via tomorrow's overlapping window)")
     return []
-
-
-def match_category(article, categories):
-    title = (article.get("title") or "").lower()
-    for category in categories:
-        for term in category["terms"]:
-            if term.lower() in title:
-                return category
-    return categories[0]
 
 
 def match_watchlist_country(article, watchlist):
@@ -174,28 +167,30 @@ def append_rows(rows):
 
 
 def main():
-    groups, categories_by_id, watchlist = load_config()
+    tasks, watchlist = load_config()
     existing_urls = load_existing_urls()
     fetched_at = datetime.now(timezone.utc).isoformat()
     total_new = 0
+    total_found = 0
 
-    for i, group in enumerate(groups):
-        print(f"[{i + 1}/{len(groups)}] Fetching group: {group['id']}")
-        articles = fetch_query(group["id"], group["query"])
-        print(f"  -> {len(articles)} articles returned")
+    for i, task in enumerate(tasks):
+        label = f"{task['category_id']}:{task['term']}"
+        print(f"[{i + 1}/{len(tasks)}] {label}")
+        articles = fetch_query(label, task["query"])
+        total_found += len(articles)
 
-        group_rows = []
+        rows = []
         for a in articles:
             url = a.get("url", "")
             if not url or url in existing_urls:
                 continue
             existing_urls.add(url)
-            category = match_category(a, group["categories"])
-            group_rows.append(
+            rows.append(
                 {
                     "fetched_at": fetched_at,
-                    "category_id": category["id"],
-                    "category_label": category["label"],
+                    "category_id": task["category_id"],
+                    "category_label": task["category_label"],
+                    "matched_term": task["term"],
                     "title": a.get("title", ""),
                     "url": url,
                     "seendate": a.get("seendate", ""),
@@ -209,17 +204,17 @@ def main():
                 }
             )
 
-        # Save this group's results immediately — a cancelled/timed-out run
-        # still keeps whatever succeeded before that point.
-        append_rows(group_rows)
-        total_new += len(group_rows)
-        if group_rows:
-            print(f"  Saved {len(group_rows)} new row(s) from this group")
+        append_rows(rows)  # save after every single term, not just at the end
+        total_new += len(rows)
+        if rows:
+            print(f"    -> {len(articles)} found, {len(rows)} new, saved")
+        else:
+            print(f"    -> {len(articles)} found, 0 new")
 
-        if i < len(groups) - 1:
-            time.sleep(REQUEST_DELAY_SECONDS)
+        if i < len(tasks) - 1:
+            time.sleep(REQUEST_DELAY_SECONDS + random.uniform(0, 3))
 
-    print(f"Done. {total_new} new row(s) added this run.")
+    print(f"\nDone. {total_found} article(s) matched across all terms; {total_new} new row(s) added.")
 
 
 if __name__ == "__main__":
