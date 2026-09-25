@@ -1,20 +1,20 @@
-# Search categories for the GDELT student-activism monitor.
+# Search terms for the GDELT student-activism monitor.
 #
-# GDELT's free API rate-limits shared/cloud IPs (like GitHub Actions
-# runners) fairly aggressively. Rather than issuing one API request per
-# category (7 requests/run), the fetch script groups categories into a
-# smaller number of broader queries under query_groups below, then tags
-# each returned article with the most specific matching category by
-# checking its headline against each category's own `terms`. This cuts
-# required API calls from 7 to 4, which meaningfully improves reliability.
+# IMPORTANT ARCHITECTURE NOTE: GDELT's DOC API appears to reject/throttle
+# complex boolean queries (many OR'd terms combined) far more aggressively
+# than simple ones, regardless of request timing — confirmed by testing a
+# single-phrase query (worked instantly) against a 12-clause OR'd query
+# (blocked immediately), and consistent with other developers' reports
+# that GDELT "does not parse compound boolean expressions reliably."
 #
-# `terms` for each category are flat OR-able word/phrase lists (no "AND",
-# no nesting) — they're used both to build each group's query and to
-# re-tag results afterward.
+# So instead of one query per category (each OR-ing many synonyms), the
+# fetch script runs ONE SIMPLE QUERY PER INDIVIDUAL TERM: just
+# ("student" OR "students") AND <term> — at most 3 total clauses, no
+# nested OR-of-OR. This means more requests (~47 instead of 7), but each
+# one is about as simple as a query gets, which should be far more
+# reliable than fewer, more complex ones.
 
-identity_terms: >-
-  ("student activist" OR "student protester" OR "student protesters" OR
-  "student union" OR "campus protest" OR "international student")
+identity_terms: '("student" OR "students")'
 
 categories:
   - id: physical_violence
@@ -44,19 +44,6 @@ categories:
   - id: visa_immigration
     label: "Visa & immigration retaliation"
     terms: [deported, "visa revoked", "visa cancelled", "visa canceled", denationalized, "denied re-entry"]
-
-# The queries actually sent to GDELT — grouped to keep the number of API
-# calls low. Each group lists which category ids it covers; the fetch
-# script builds the combined query and does local re-tagging automatically.
-query_groups:
-  - id: violent_and_detention
-    category_ids: [physical_violence, detention_arrest]
-  - id: legal_and_institutional
-    category_ids: [legal_harassment, institutional_sanction]
-  - id: surveillance_and_delegit
-    category_ids: [surveillance_intimidation, delegitimization]
-  - id: visa_immigration
-    category_ids: [visa_immigration]
 
 # Used to flag rows in the dashboard based on whether the country is
 # mentioned in the article's headline — a proxy for where the incident
