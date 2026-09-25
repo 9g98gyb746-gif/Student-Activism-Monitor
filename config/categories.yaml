@@ -68,7 +68,7 @@ watchlist_countries:
     aliases: []
   - name: Zimbabwe
     aliases: []
-    
+
 # Used as a local relevance filter after fetching: a headline must contain
 # the bare word "student(s)" (broad, for reliability against GDELT) AND at
 # least one of these activism-context words to be flagged as a likely
