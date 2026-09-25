@@ -6,9 +6,15 @@ specific category by matching the headline against that category's own
 terms, deduplicate against the existing dataset, and append new rows to
 data/hits.csv.
 
-Fewer, broader queries (instead of one call per category) meaningfully
-reduce how often we get caught by GDELT's rate limiting on shared/cloud
-IPs like GitHub Actions runners.
+Retry policy is deliberately "fail fast": GDELT appears to rate-limit
+GitHub Actions' shared IP ranges fairly persistently, and long exponential
+backoffs just make every run take 40+ minutes without reliably getting
+through. Since each run's 2-day search window overlaps the previous run's,
+a category that fails today gets caught by tomorrow's run instead — so a
+quick couple of retries followed by moving on is the better trade-off.
+
+Progress is saved to data/hits.csv after EACH group, not just once at the
+end, so a cancelled or timed-out run doesn't lose whatever did succeed.
 
 Designed to run daily via GitHub Actions (see
 .github/workflows/gdelt-monitor.yml) but works the same run locally:
@@ -47,13 +53,10 @@ FIELDNAMES = [
 
 TIMESPAN = "2d"
 MAX_RECORDS = 250
-REQUEST_DELAY_SECONDS = 30
-MAX_RETRIES = 5
-RETRY_BACKOFF_SECONDS = 30
+REQUEST_DELAY_SECONDS = 20
+MAX_RETRIES = 2
+RETRY_BACKOFF_SECONDS = 15
 
-# A genuine browser UA, rather than one that self-identifies as a bot —
-# some anti-automation systems treat a declared "bot"/"monitor" UA more
-# suspiciously than an ordinary browser string.
 HEADERS = {
     "User-Agent": (
         "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
@@ -97,9 +100,8 @@ def load_existing_urls():
 def fetch_query(query_id, query):
     """Fetch one query's articles. Never raises — returns [] on any
     unrecoverable failure so one bad query can't take down the run.
-    Retries on BOTH HTTP 429 and on a 200 response that isn't valid JSON
-    (GDELT sometimes returns a plain-text rate-limit message with a 200
-    status instead of a proper 429 — this used to slip past unretried)."""
+    Deliberately fails fast (2 short retries) rather than fighting a
+    possibly-persistent block for many minutes — see module docstring."""
     params = {
         "query": query,
         "mode": "artlist",
@@ -114,7 +116,7 @@ def fetch_query(query_id, query):
             resp = requests.get(GDELT_URL, params=params, headers=HEADERS, timeout=60)
 
             if resp.status_code == 429:
-                wait = RETRY_BACKOFF_SECONDS * (2 ** (attempt - 1)) + random.uniform(0, 10)
+                wait = RETRY_BACKOFF_SECONDS * attempt + random.uniform(0, 5)
                 print(f"  ! rate-limited (429) — waiting {wait:.0f}s (attempt {attempt}/{MAX_RETRIES})")
                 time.sleep(wait)
                 continue
@@ -126,7 +128,7 @@ def fetch_query(query_id, query):
                 return payload.get("articles", [])
             except ValueError:
                 snippet = resp.text[:150].replace("\n", " ")
-                wait = RETRY_BACKOFF_SECONDS * (2 ** (attempt - 1)) + random.uniform(0, 10)
+                wait = RETRY_BACKOFF_SECONDS * attempt + random.uniform(0, 5)
                 print(f"  ! non-JSON response for '{query_id}' ({snippet!r}) — retrying in {wait:.0f}s (attempt {attempt}/{MAX_RETRIES})")
                 time.sleep(wait)
                 continue
@@ -136,15 +138,11 @@ def fetch_query(query_id, query):
             if attempt < MAX_RETRIES:
                 time.sleep(RETRY_BACKOFF_SECONDS)
 
-    print(f"  ! giving up on '{query_id}' after {MAX_RETRIES} attempts")
+    print(f"  ! giving up on '{query_id}' after {MAX_RETRIES} attempts (will retry via tomorrow's overlapping window)")
     return []
 
 
 def match_category(article, categories):
-    """Find which category in this group actually matched, by checking the
-    headline against each category's own terms. Falls back to the first
-    category in the group if nothing matches directly (shouldn't normally
-    happen, since the query already required one of these terms)."""
     title = (article.get("title") or "").lower()
     for category in categories:
         for term in category["terms"]:
@@ -154,12 +152,6 @@ def match_category(article, categories):
 
 
 def match_watchlist_country(article, watchlist):
-    """Best-effort proxy for 'where did this happen': check whether a
-    watchlist country's name or a known alias appears in the article's
-    headline. GDELT's free API doesn't expose true event-location tagging,
-    and a headline-only check will miss cases where the country is only
-    named in the article body — so treat this as a helpful signal, not a
-    reliable filter."""
     title = (article.get("title") or "").lower()
     for country in watchlist:
         names_to_check = [country["name"]] + country.get("aliases", [])
@@ -169,31 +161,37 @@ def match_watchlist_country(article, watchlist):
     return ""
 
 
+def append_rows(rows):
+    if not rows:
+        return
+    file_exists = DATA_PATH.exists()
+    DATA_PATH.parent.mkdir(parents=True, exist_ok=True)
+    with open(DATA_PATH, "a", encoding="utf-8", newline="") as f:
+        writer = csv.DictWriter(f, fieldnames=FIELDNAMES)
+        if not file_exists:
+            writer.writeheader()
+        writer.writerows(rows)
+
+
 def main():
     groups, categories_by_id, watchlist = load_config()
     existing_urls = load_existing_urls()
-    new_rows = []
     fetched_at = datetime.now(timezone.utc).isoformat()
-
-    # Small random delay before the very first request, so simultaneous
-    # scheduled runs (ours and everyone else's on GitHub's shared runners)
-    # don't all hit GDELT in the exact same instant.
-    startup_jitter = random.uniform(0, 15)
-    print(f"Startup jitter: waiting {startup_jitter:.0f}s before first request")
-    time.sleep(startup_jitter)
+    total_new = 0
 
     for i, group in enumerate(groups):
         print(f"[{i + 1}/{len(groups)}] Fetching group: {group['id']}")
         articles = fetch_query(group["id"], group["query"])
         print(f"  -> {len(articles)} articles returned")
 
+        group_rows = []
         for a in articles:
             url = a.get("url", "")
             if not url or url in existing_urls:
                 continue
             existing_urls.add(url)
             category = match_category(a, group["categories"])
-            new_rows.append(
+            group_rows.append(
                 {
                     "fetched_at": fetched_at,
                     "category_id": category["id"],
@@ -211,22 +209,17 @@ def main():
                 }
             )
 
+        # Save this group's results immediately — a cancelled/timed-out run
+        # still keeps whatever succeeded before that point.
+        append_rows(group_rows)
+        total_new += len(group_rows)
+        if group_rows:
+            print(f"  Saved {len(group_rows)} new row(s) from this group")
+
         if i < len(groups) - 1:
             time.sleep(REQUEST_DELAY_SECONDS)
 
-    if not new_rows:
-        print("No new articles found across any group.")
-        return
-
-    file_exists = DATA_PATH.exists()
-    DATA_PATH.parent.mkdir(parents=True, exist_ok=True)
-    with open(DATA_PATH, "a", encoding="utf-8", newline="") as f:
-        writer = csv.DictWriter(f, fieldnames=FIELDNAMES)
-        if not file_exists:
-            writer.writeheader()
-        writer.writerows(new_rows)
-
-    print(f"Appended {len(new_rows)} new rows to {DATA_PATH}")
+    print(f"Done. {total_new} new row(s) added this run.")
 
 
 if __name__ == "__main__":
