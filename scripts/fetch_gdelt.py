@@ -38,11 +38,11 @@ FIELDNAMES = [
     "relevance_reason",
 ]
 
-TIMESPAN = "2d"  # overlaps the previous day's run so a daily cron never gaps
-MAX_RECORDS = 250  # GDELT's per-request cap
-REQUEST_DELAY_SECONDS = 12  # GDELT's free API rate-limits fairly aggressively
-MAX_RETRIES = 3
-RETRY_BACKOFF_SECONDS = 20
+TIMESPAN = "2d"
+MAX_RECORDS = 250
+REQUEST_DELAY_SECONDS = 20  # was 12
+MAX_RETRIES = 4              # was 3
+RETRY_BACKOFF_SECONDS = 30   # was 20
 
 HEADERS = {"User-Agent": "Mozilla/5.0 (compatible; SAIH-student-activism-monitor/1.0)"}
 
