@@ -48,6 +48,7 @@ FIELDNAMES = [
     "sourcecountry",
     "tone",
     "watchlist_country",
+    "context_match",
     "relevance",
     "relevance_reason",
 ]
@@ -78,6 +79,7 @@ def load_config():
 
     identity_terms = cfg["identity_terms"]
     watchlist = cfg.get("watchlist_countries", [])
+    context_terms = [t.lower() for t in cfg.get("context_terms", [])]
 
     # Flatten to one entry per individual (category, term) pair.
     tasks = []
@@ -93,7 +95,7 @@ def load_config():
                 }
             )
 
-    return tasks, watchlist
+    return tasks, watchlist, context_terms
 
 
 def load_existing_urls():
@@ -144,6 +146,16 @@ def fetch_query(label, query):
     return []
 
 
+def has_activism_context(article, context_terms):
+    """Local, free relevance signal: does the headline also contain an
+    activism-context word, alongside the bare 'student(s)' match required
+    by the query itself? Doesn't discard non-matching rows — just flags
+    them, so the dashboard can hide noise by default without permanently
+    losing anything genuinely relevant but oddly worded."""
+    title = (article.get("title") or "").lower()
+    return any(term in title for term in context_terms)
+
+
 def match_watchlist_country(article, watchlist):
     title = (article.get("title") or "").lower()
     for country in watchlist:
@@ -167,7 +179,7 @@ def append_rows(rows):
 
 
 def main():
-    tasks, watchlist = load_config()
+    tasks, watchlist, context_terms = load_config()
     existing_urls = load_existing_urls()
     fetched_at = datetime.now(timezone.utc).isoformat()
     total_new = 0
@@ -199,6 +211,7 @@ def main():
                     "sourcecountry": a.get("sourcecountry", ""),
                     "tone": a.get("tone", ""),
                     "watchlist_country": match_watchlist_country(a, watchlist),
+                    "context_match": "yes" if has_activism_context(a, context_terms) else "no",
                     "relevance": "",
                     "relevance_reason": "",
                 }
