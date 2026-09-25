@@ -15,6 +15,21 @@
     "relevance_reason": ""
   },
   {
+    "fetched_at": "2026-09-25T09:41:12.202455+00:00",
+    "category_id": "surveillance_intimidation",
+    "category_label": "Surveillance, threats & intimidation",
+    "title": "Taking culture as seriously as the enemy",
+    "url": "https://morningstaronline.co.uk/article/taking-culture-seriously-enemy",
+    "seendate": "20260925T080000Z",
+    "domain": "morningstaronline.co.uk",
+    "language": "English",
+    "sourcecountry": "United Kingdom",
+    "tone": "",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": ""
+  },
+  {
     "fetched_at": "2026-09-25T08:35:44.980671+00:00",
     "category_id": "detention_arrest",
     "category_label": "Arrests & detention",
@@ -22,6 +37,21 @@
     "url": "https://www.jagranjosh.com/news/nalsar-students-screen-umar-khalid-documentary-amid-iiit-hyderabad-row-187759",
     "seendate": "20260925T063000Z",
     "domain": "jagranjosh.com",
+    "language": "English",
+    "sourcecountry": "India",
+    "tone": "",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": ""
+  },
+  {
+    "fetched_at": "2026-09-25T09:41:12.202455+00:00",
+    "category_id": "surveillance_intimidation",
+    "category_label": "Surveillance, threats & intimidation",
+    "title": "Covering the bases : from visibility to votes",
+    "url": "https://www.thehindu.com/news/national/covering-the-bases-from-visibility-to-votes/article71502791.ece",
+    "seendate": "20260925T020000Z",
+    "domain": "thehindu.com",
     "language": "English",
     "sourcecountry": "India",
     "tone": "",
