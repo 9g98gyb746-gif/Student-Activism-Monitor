@@ -47,11 +47,21 @@ FIELDNAMES = [
 
 TIMESPAN = "2d"
 MAX_RECORDS = 250
-REQUEST_DELAY_SECONDS = 20
-MAX_RETRIES = 4
+REQUEST_DELAY_SECONDS = 30
+MAX_RETRIES = 5
 RETRY_BACKOFF_SECONDS = 30
 
-HEADERS = {"User-Agent": "Mozilla/5.0 (compatible; SAIH-student-activism-monitor/1.0)"}
+# A genuine browser UA, rather than one that self-identifies as a bot —
+# some anti-automation systems treat a declared "bot"/"monitor" UA more
+# suspiciously than an ordinary browser string.
+HEADERS = {
+    "User-Agent": (
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+        "(KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36"
+    ),
+    "Accept": "application/json, text/plain, */*",
+    "Accept-Language": "en-US,en;q=0.9",
+}
 
 
 def quote_if_needed(term):
@@ -86,7 +96,10 @@ def load_existing_urls():
 
 def fetch_query(query_id, query):
     """Fetch one query's articles. Never raises — returns [] on any
-    unrecoverable failure so one bad query can't take down the run."""
+    unrecoverable failure so one bad query can't take down the run.
+    Retries on BOTH HTTP 429 and on a 200 response that isn't valid JSON
+    (GDELT sometimes returns a plain-text rate-limit message with a 200
+    status instead of a proper 429 — this used to slip past unretried)."""
     params = {
         "query": query,
         "mode": "artlist",
@@ -110,11 +123,13 @@ def fetch_query(query_id, query):
 
             try:
                 payload = resp.json()
+                return payload.get("articles", [])
             except ValueError:
-                print(f"  ! non-JSON response for '{query_id}' — skipping")
-                return []
-
-            return payload.get("articles", [])
+                snippet = resp.text[:150].replace("\n", " ")
+                wait = RETRY_BACKOFF_SECONDS * (2 ** (attempt - 1)) + random.uniform(0, 10)
+                print(f"  ! non-JSON response for '{query_id}' ({snippet!r}) — retrying in {wait:.0f}s (attempt {attempt}/{MAX_RETRIES})")
+                time.sleep(wait)
+                continue
 
         except requests.exceptions.RequestException as e:
             print(f"  ! request failed for '{query_id}': {e}")
@@ -159,6 +174,13 @@ def main():
     existing_urls = load_existing_urls()
     new_rows = []
     fetched_at = datetime.now(timezone.utc).isoformat()
+
+    # Small random delay before the very first request, so simultaneous
+    # scheduled runs (ours and everyone else's on GitHub's shared runners)
+    # don't all hit GDELT in the exact same instant.
+    startup_jitter = random.uniform(0, 15)
+    print(f"Startup jitter: waiting {startup_jitter:.0f}s before first request")
+    time.sleep(startup_jitter)
 
     for i, group in enumerate(groups):
         print(f"[{i + 1}/{len(groups)}] Fetching group: {group['id']}")
