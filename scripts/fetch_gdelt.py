@@ -60,6 +60,8 @@ def load_existing_urls():
         return {row["url"] for row in csv.DictReader(f)}
 
 
+import random  # add this to the imports at the top of the file
+
 def fetch_category(category):
     """Fetch one category's articles. Never raises — returns [] on any
     unrecoverable failure so one bad category can't take down the run."""
@@ -77,8 +79,8 @@ def fetch_category(category):
             resp = requests.get(GDELT_URL, params=params, headers=HEADERS, timeout=60)
 
             if resp.status_code == 429:
-                wait = RETRY_BACKOFF_SECONDS * attempt
-                print(f"  ! rate-limited (429) — waiting {wait}s (attempt {attempt}/{MAX_RETRIES})")
+                wait = RETRY_BACKOFF_SECONDS * (2 ** (attempt - 1)) + random.uniform(0, 10)
+                print(f"  ! rate-limited (429) — waiting {wait:.0f}s (attempt {attempt}/{MAX_RETRIES})")
                 time.sleep(wait)
                 continue
 
