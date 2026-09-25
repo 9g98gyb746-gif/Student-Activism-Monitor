@@ -1,8 +1,14 @@
 #!/usr/bin/env python3
 """
-Fetch GDELT DOC 2.0 API hits for each repression category defined in
-config/categories.yaml, deduplicate against the existing dataset, and
-append new rows to data/hits.csv.
+Fetch GDELT DOC 2.0 API hits using a small number of broad, grouped
+queries (see config/categories.yaml), locally re-tag each result with its
+specific category by matching the headline against that category's own
+terms, deduplicate against the existing dataset, and append new rows to
+data/hits.csv.
+
+Fewer, broader queries (instead of one call per category) meaningfully
+reduce how often we get caught by GDELT's rate limiting on shared/cloud
+IPs like GitHub Actions runners.
 
 Designed to run daily via GitHub Actions (see
 .github/workflows/gdelt-monitor.yml) but works the same run locally:
@@ -10,6 +16,7 @@ Designed to run daily via GitHub Actions (see
     python scripts/fetch_gdelt.py
 """
 import csv
+import random
 import time
 from datetime import datetime, timezone
 from pathlib import Path
@@ -40,17 +47,34 @@ FIELDNAMES = [
 
 TIMESPAN = "2d"
 MAX_RECORDS = 250
-REQUEST_DELAY_SECONDS = 20  # was 12
-MAX_RETRIES = 4              # was 3
-RETRY_BACKOFF_SECONDS = 30   # was 20
+REQUEST_DELAY_SECONDS = 20
+MAX_RETRIES = 4
+RETRY_BACKOFF_SECONDS = 30
 
 HEADERS = {"User-Agent": "Mozilla/5.0 (compatible; SAIH-student-activism-monitor/1.0)"}
+
+
+def quote_if_needed(term):
+    return f'"{term}"' if " " in term else term
 
 
 def load_config():
     with open(CONFIG_PATH, "r", encoding="utf-8") as f:
         cfg = yaml.safe_load(f)
-    return cfg["categories"], set(cfg.get("watchlist_countries", []))
+
+    identity_terms = cfg["identity_terms"]
+    categories_by_id = {c["id"]: c for c in cfg["categories"]}
+    watchlist = cfg.get("watchlist_countries", [])
+
+    groups = []
+    for group in cfg["query_groups"]:
+        cats = [categories_by_id[cid] for cid in group["category_ids"]]
+        all_terms = [t for c in cats for t in c["terms"]]
+        term_clause = " OR ".join(quote_if_needed(t) for t in all_terms)
+        query = f"{identity_terms} AND ({term_clause})"
+        groups.append({"id": group["id"], "query": query, "categories": cats})
+
+    return groups, categories_by_id, watchlist
 
 
 def load_existing_urls():
@@ -60,13 +84,11 @@ def load_existing_urls():
         return {row["url"] for row in csv.DictReader(f)}
 
 
-import random  # add this to the imports at the top of the file
-
-def fetch_category(category):
-    """Fetch one category's articles. Never raises — returns [] on any
-    unrecoverable failure so one bad category can't take down the run."""
+def fetch_query(query_id, query):
+    """Fetch one query's articles. Never raises — returns [] on any
+    unrecoverable failure so one bad query can't take down the run."""
     params = {
-        "query": category["query"],
+        "query": query,
         "mode": "artlist",
         "maxrecords": MAX_RECORDS,
         "format": "json",
@@ -89,37 +111,58 @@ def fetch_category(category):
             try:
                 payload = resp.json()
             except ValueError:
-                print(f"  ! non-JSON response for '{category['id']}' — skipping")
+                print(f"  ! non-JSON response for '{query_id}' — skipping")
                 return []
 
             return payload.get("articles", [])
 
         except requests.exceptions.RequestException as e:
-            print(f"  ! request failed for '{category['id']}': {e}")
+            print(f"  ! request failed for '{query_id}': {e}")
             if attempt < MAX_RETRIES:
                 time.sleep(RETRY_BACKOFF_SECONDS)
 
-    print(f"  ! giving up on '{category['id']}' after {MAX_RETRIES} attempts")
+    print(f"  ! giving up on '{query_id}' after {MAX_RETRIES} attempts")
     return []
 
 
+def match_category(article, categories):
+    """Find which category in this group actually matched, by checking the
+    headline against each category's own terms. Falls back to the first
+    category in the group if nothing matches directly (shouldn't normally
+    happen, since the query already required one of these terms)."""
+    title = (article.get("title") or "").lower()
+    for category in categories:
+        for term in category["terms"]:
+            if term.lower() in title:
+                return category
+    return categories[0]
+
+
 def match_watchlist_country(article, watchlist):
-    # GDELT's sourcecountry is a free-text country name (not ISO), so this
-    # is a simple exact-match heuristic. Refine as needed once you see the
-    # actual values GDELT returns for your regions of interest.
-    source_country = (article.get("sourcecountry") or "").strip()
-    return source_country if source_country in watchlist else ""
+    """Best-effort proxy for 'where did this happen': check whether a
+    watchlist country's name or a known alias appears in the article's
+    headline. GDELT's free API doesn't expose true event-location tagging,
+    and a headline-only check will miss cases where the country is only
+    named in the article body — so treat this as a helpful signal, not a
+    reliable filter."""
+    title = (article.get("title") or "").lower()
+    for country in watchlist:
+        names_to_check = [country["name"]] + country.get("aliases", [])
+        for name in names_to_check:
+            if name.lower() in title:
+                return country["name"]
+    return ""
 
 
 def main():
-    categories, watchlist = load_config()
+    groups, categories_by_id, watchlist = load_config()
     existing_urls = load_existing_urls()
     new_rows = []
     fetched_at = datetime.now(timezone.utc).isoformat()
 
-    for i, category in enumerate(categories):
-        print(f"[{i + 1}/{len(categories)}] Fetching: {category['label']}")
-        articles = fetch_category(category)
+    for i, group in enumerate(groups):
+        print(f"[{i + 1}/{len(groups)}] Fetching group: {group['id']}")
+        articles = fetch_query(group["id"], group["query"])
         print(f"  -> {len(articles)} articles returned")
 
         for a in articles:
@@ -127,6 +170,7 @@ def main():
             if not url or url in existing_urls:
                 continue
             existing_urls.add(url)
+            category = match_category(a, group["categories"])
             new_rows.append(
                 {
                     "fetched_at": fetched_at,
@@ -145,11 +189,11 @@ def main():
                 }
             )
 
-        if i < len(categories) - 1:
+        if i < len(groups) - 1:
             time.sleep(REQUEST_DELAY_SECONDS)
 
     if not new_rows:
-        print("No new articles found across any category.")
+        print("No new articles found across any group.")
         return
 
     file_exists = DATA_PATH.exists()
