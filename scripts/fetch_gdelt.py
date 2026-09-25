@@ -40,7 +40,11 @@ FIELDNAMES = [
 
 TIMESPAN = "2d"  # overlaps the previous day's run so a daily cron never gaps
 MAX_RECORDS = 250  # GDELT's per-request cap
-REQUEST_DELAY_SECONDS = 6  # be polite to the free, shared API
+REQUEST_DELAY_SECONDS = 12  # GDELT's free API rate-limits fairly aggressively
+MAX_RETRIES = 3
+RETRY_BACKOFF_SECONDS = 20
+
+HEADERS = {"User-Agent": "Mozilla/5.0 (compatible; SAIH-student-activism-monitor/1.0)"}
 
 
 def load_config():
@@ -57,6 +61,8 @@ def load_existing_urls():
 
 
 def fetch_category(category):
+    """Fetch one category's articles. Never raises — returns [] on any
+    unrecoverable failure so one bad category can't take down the run."""
     params = {
         "query": category["query"],
         "mode": "artlist",
@@ -65,17 +71,34 @@ def fetch_category(category):
         "timespan": TIMESPAN,
         "sort": "datedesc",
     }
-    resp = requests.get(GDELT_URL, params=params, timeout=60)
-    resp.raise_for_status()
-    try:
-        payload = resp.json()
-    except ValueError:
-        print(
-            f"  ! non-JSON response for '{category['id']}' "
-            "(often means the query was rejected or rate-limited) — skipping"
-        )
-        return []
-    return payload.get("articles", [])
+
+    for attempt in range(1, MAX_RETRIES + 1):
+        try:
+            resp = requests.get(GDELT_URL, params=params, headers=HEADERS, timeout=60)
+
+            if resp.status_code == 429:
+                wait = RETRY_BACKOFF_SECONDS * attempt
+                print(f"  ! rate-limited (429) — waiting {wait}s (attempt {attempt}/{MAX_RETRIES})")
+                time.sleep(wait)
+                continue
+
+            resp.raise_for_status()
+
+            try:
+                payload = resp.json()
+            except ValueError:
+                print(f"  ! non-JSON response for '{category['id']}' — skipping")
+                return []
+
+            return payload.get("articles", [])
+
+        except requests.exceptions.RequestException as e:
+            print(f"  ! request failed for '{category['id']}': {e}")
+            if attempt < MAX_RETRIES:
+                time.sleep(RETRY_BACKOFF_SECONDS)
+
+    print(f"  ! giving up on '{category['id']}' after {MAX_RETRIES} attempts")
+    return []
 
 
 def match_watchlist_country(article, watchlist):
