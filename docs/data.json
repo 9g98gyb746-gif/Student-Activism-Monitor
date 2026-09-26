@@ -1,5 +1,3064 @@
 [
   {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "surveillance_intimidation",
+    "category_label": "Surveillance, threats & intimidation",
+    "title": "surveillance",
+    "url": "Placa histórica de alunos da USP é furtada no centro de SP - 24 / 09 / 2026 - Educao",
+    "seendate": "https://www1.folha.uol.com.br/educacao/2026/09/placa-que-homenageia-protesto-de-alunos-da-usp-em-1973-e-furtada-no-centro-de-sp.shtml",
+    "domain": "20260924T221500Z",
+    "language": "folha.uol.com.br",
+    "sourcecountry": "Portuguese",
+    "tone": "Brazil",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "physical_violence",
+    "category_label": "Physical violence & killings",
+    "title": "murdered",
+    "url": "This . Is . Madness ... ",
+    "seendate": "https://www.zerohedge.com/political/madness",
+    "domain": "20260924T211500Z",
+    "language": "zerohedge.com",
+    "sourcecountry": "English",
+    "tone": "United States",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "physical_violence",
+    "category_label": "Physical violence & killings",
+    "title": "murdered",
+    "url": "Lawyers for Nolan Well family highlight cellphone data , autopsy report and push for investigation",
+    "seendate": "https://www.wfmz.com/news/ap/ap-national/nolan-wells-family-plans-release-of-cellphone-report-amid-calls-for-further-investigation/article_9bae945a-98ca-5742-b68c-cca9b4af2500.html",
+    "domain": "20260925T043000Z",
+    "language": "wfmz.com",
+    "sourcecountry": "English",
+    "tone": "United States",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "surveillance_intimidation",
+    "category_label": "Surveillance, threats & intimidation",
+    "title": "surveillance",
+    "url": "Warrants lead to second arrest of man in west Alabama",
+    "seendate": "https://www.wbrc.com/2026/09/24/warrants-lead-second-arrest-man-west-alabama/",
+    "domain": "20260924T230000Z",
+    "language": "wbrc.com",
+    "sourcecountry": "English",
+    "tone": "United States",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "surveillance_intimidation",
+    "category_label": "Surveillance, threats & intimidation",
+    "title": "surveillance",
+    "url": "Chinese president delivers White House address on second U . S . state visit",
+    "seendate": "https://www.vtcng.com/shelburnenews/state_and_world/world_news/chinese-president-delivers-white-house-address-on-second-u-s-state-visit/article_0259ae97-2a1a-503f-ba16-6409d2cc78a7.html",
+    "domain": "20260924T193000Z",
+    "language": "vtcng.com",
+    "sourcecountry": "English",
+    "tone": "",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "surveillance_intimidation",
+    "category_label": "Surveillance, threats & intimidation",
+    "title": "surveillance",
+    "url": "عاوز 5 آلاف جنيه ، عبارة قادت سائق توكتوك لتفحم جثمانه وإلقائه في ترعة بالمنوفية",
+    "seendate": "https://www.vetogate.com/5738022",
+    "domain": "20260925T020000Z",
+    "language": "vetogate.com",
+    "sourcecountry": "Arabic",
+    "tone": "Egypt",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "physical_violence",
+    "category_label": "Physical violence & killings",
+    "title": "murdered",
+    "url": "Lawyers for Nolan Well family highlight cellphone data , autopsy report and push for investigation",
+    "seendate": "https://www.union-bulletin.com/news/national/lawyers-for-nolan-wells-family-highlight-cellphone-data-autopsy-report-and-push-for-investigation/article_0b662a27-e55c-5c83-ab22-ea6ae0af6ae2.html",
+    "domain": "20260925T053000Z",
+    "language": "union-bulletin.com",
+    "sourcecountry": "English",
+    "tone": "United States",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "physical_violence",
+    "category_label": "Physical violence & killings",
+    "title": "murdered",
+    "url": "October 2026 TV Schedule : Printable What To Watch Calendar Premieres & Finales List",
+    "seendate": "https://www.tvline.com/2268087/october-2026-tv-schedule-what-to-watch-printable-calendar-premieres-finales-list/",
+    "domain": "20260924T231500Z",
+    "language": "tvline.com",
+    "sourcecountry": "English",
+    "tone": "United States",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "physical_violence",
+    "category_label": "Physical violence & killings",
+    "title": "murdered",
+    "url": "What to watch : The Voice Grand Final , MKR , Mobland , Buzzkill and more",
+    "seendate": "https://www.townsvillebulletin.com.au/entertainment/television/reviews-comedyhorror-buzzkill-premieres-on-tubi/news-story/4a7287e41c05c05542683d8c5b1b3eff?nk=30b58a088535cd0b5104a4b59da853b3-1790234215",
+    "domain": "20260924T073000Z",
+    "language": "townsvillebulletin.com.au",
+    "sourcecountry": "English",
+    "tone": "Australia",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "surveillance_intimidation",
+    "category_label": "Surveillance, threats & intimidation",
+    "title": "surveillance",
+    "url": "Japan Wagyu industry unlocks secrets behind $18k carcases | The Land",
+    "seendate": "https://www.theland.com.au/story/9357095/japan-wagyu-industry-unlocks-secrets-behind-18k-carcases/",
+    "domain": "20260924T203000Z",
+    "language": "theland.com.au",
+    "sourcecountry": "English",
+    "tone": "Australia",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "surveillance_intimidation",
+    "category_label": "Surveillance, threats & intimidation",
+    "title": "surveillance",
+    "url": "Japan Wagyu cattle : Australian beef producers gain rare access | The Land",
+    "seendate": "https://www.theland.com.au/story/9354254/japan-wagyu-cattle-australian-beef-producers-gain-rare-access/",
+    "domain": "20260925T004500Z",
+    "language": "theland.com.au",
+    "sourcecountry": "English",
+    "tone": "Australia",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "surveillance_intimidation",
+    "category_label": "Surveillance, threats & intimidation",
+    "title": "surveillance",
+    "url": "Paris : un intervenant en anglais de maternelle écroué pour viol et agression sexuelle sur 22 enfants",
+    "seendate": "https://www.tf1info.fr/justice-faits-divers/paris-un-intervenant-en-anglais-de-maternelle-ecroue-pour-viol-et-agression-sexuelle-sur-22-enfants-2466171.html",
+    "domain": "20260924T200000Z",
+    "language": "tf1info.fr",
+    "sourcecountry": "French",
+    "tone": "",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "surveillance_intimidation",
+    "category_label": "Surveillance, threats & intimidation",
+    "title": "surveillance",
+    "url": "SEP suspende clases por fuertes lluvias y primer puente escolar a finales de septiembre",
+    "seendate": "https://www.terra.com.mx/nacionales/2026/9/24/sep-suspende-clases-por-fuertes-lluvias-y-primer-puente-escolar-a-finales-de-septiembre-72998.html",
+    "domain": "20260924T190000Z",
+    "language": "terra.com.mx",
+    "sourcecountry": "Spanish",
+    "tone": "Mexico",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "surveillance_intimidation",
+    "category_label": "Surveillance, threats & intimidation",
+    "title": "surveillance",
+    "url": "Japan Wagyu cattle : Australian beef producers gain rare access | Stock Journal",
+    "seendate": "https://www.stockjournal.com.au/story/9354254/japan-wagyu-cattle-australian-beef-producers-gain-rare-access/",
+    "domain": "20260924T224500Z",
+    "language": "stockjournal.com.au",
+    "sourcecountry": "English",
+    "tone": "Australia",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "surveillance_intimidation",
+    "category_label": "Surveillance, threats & intimidation",
+    "title": "surveillance",
+    "url": "Japan Wagyu cattle : Australian beef producers gain rare access | Stock & Land",
+    "seendate": "https://www.stockandland.com.au/story/9354254/japan-wagyu-cattle-australian-beef-producers-gain-rare-access/",
+    "domain": "20260924T224500Z",
+    "language": "stockandland.com.au",
+    "sourcecountry": "English",
+    "tone": "Australia",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "surveillance_intimidation",
+    "category_label": "Surveillance, threats & intimidation",
+    "title": "surveillance",
+    "url": "Vinculan a proceso a conductor de plataforma por el feminicidio de Karla Margarita",
+    "seendate": "https://www.sopitas.com/noticias/vinculacion-proceso-conductor-plataforma-feminicidio-karla-margarita/",
+    "domain": "20260924T221500Z",
+    "language": "sopitas.com",
+    "sourcecountry": "Spanish",
+    "tone": "Mexico",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "delegitimization",
+    "category_label": "Delegitimization & smear campaigns",
+    "title": "discredited",
+    "url": "Why it is reasonable to label Nathan Cofna race realism as pseudoscientific",
+    "seendate": "https://www.skeptic.org.uk/2026/09/why-it-is-reasonable-to-label-nathan-cofnass-race-realism-as-pseudoscientific/",
+    "domain": "20260925T093000Z",
+    "language": "skeptic.org.uk",
+    "sourcecountry": "English",
+    "tone": "United Kingdom",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "surveillance_intimidation",
+    "category_label": "Surveillance, threats & intimidation",
+    "title": "surveillance",
+    "url": "النيابة تحقق في واقعة الاعتداء على ممرضة بشبين الكوم .. ونقابة التمريض تتابع الإجراءات القانوني",
+    "seendate": "https://www.shorouknews.com/news/view.aspx?cdate=24092026&id=42796b16-3031-493b-8287-c945bf329410",
+    "domain": "20260924T160000Z",
+    "language": "shorouknews.com",
+    "sourcecountry": "Arabic",
+    "tone": "Egypt",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "delegitimization",
+    "category_label": "Delegitimization & smear campaigns",
+    "title": "discredited",
+    "url": "Padres de Ayotzinapa acusan a CNDH de proteger al Ejército con su recomendación",
+    "seendate": "https://www.sdpnoticias.com/mexico/padres-de-ayotzinapa-acusan-a-cndh-de-proteger-al-ejercito-con-su-recomendacion/",
+    "domain": "20260924T234500Z",
+    "language": "sdpnoticias.com",
+    "sourcecountry": "Spanish",
+    "tone": "Mexico",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "physical_violence",
+    "category_label": "Physical violence & killings",
+    "title": "murdered",
+    "url": "Fiscalía de Morelos investiga otras posibles omisiones en el caso de Claudia Tacoronte",
+    "seendate": "https://www.sdpnoticias.com/estados/fiscalia-de-morelos-investiga-otras-posibles-omisiones-en-el-caso-de-claudia-tacoronte/",
+    "domain": "20260924T234500Z",
+    "language": "sdpnoticias.com",
+    "sourcecountry": "Spanish",
+    "tone": "Mexico",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "surveillance_intimidation",
+    "category_label": "Surveillance, threats & intimidation",
+    "title": "surveillance",
+    "url": "CDMX despliega 400 policías en caseta de Tlalpan ante llegada de normalistas de Ayotzinapa",
+    "seendate": "https://www.sdpnoticias.com/estados/cdmx/cdmx-despliega-400-policias-en-caseta-de-tlalpan-ante-llegada-de-normalistas-de-ayotzinapa/",
+    "domain": "20260924T191500Z",
+    "language": "sdpnoticias.com",
+    "sourcecountry": "Spanish",
+    "tone": "Mexico",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "surveillance_intimidation",
+    "category_label": "Surveillance, threats & intimidation",
+    "title": "surveillance",
+    "url": "Meta gözlükler geliyor , tehlikenin farkında mısınız ? ",
+    "seendate": "https://www.sabah.com.tr/yazarlar/gunaydin/sb-mevlut_tezel/2026/09/25/meta-gozlukler-geliyor-tehlikenin-farkinda-misiniz",
+    "domain": "20260925T071500Z",
+    "language": "sabah.com.tr",
+    "sourcecountry": "Turkish",
+    "tone": "Turkey",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "surveillance_intimidation",
+    "category_label": "Surveillance, threats & intimidation",
+    "title": "surveillance",
+    "url": "Un professeur danglais mis en examen et écroué pour viol , agression sexuelle et violence sur 22 enfants dune école maternelle à Paris",
+    "seendate": "https://www.rtl.fr/actu/justice-faits-divers/un-professeur-d-anglais-mis-en-examen-et-ecroue-pour-viol-agression-sexuelle-et-violence-sur-22-enfants-d-une-ecole-maternelle-a-paris-7900676730",
+    "domain": "20260924T210000Z",
+    "language": "rtl.fr",
+    "sourcecountry": "French",
+    "tone": "France",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "surveillance_intimidation",
+    "category_label": "Surveillance, threats & intimidation",
+    "title": "surveillance",
+    "url": "CCSD police : Henderson elementary worker slapped special needs boy",
+    "seendate": "https://www.reviewjournal.com/crime/police-ccsd-elementary-worker-slapped-special-needs-boy-6-after-he-hit-her-3890682/",
+    "domain": "20260924T220000Z",
+    "language": "reviewjournal.com",
+    "sourcecountry": "English",
+    "tone": "United States",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "surveillance_intimidation",
+    "category_label": "Surveillance, threats & intimidation",
+    "title": "surveillance",
+    "url": "Delhi teen was raped at knifepoint , condom seized from park",
+    "seendate": "https://www.rediff.com/news/report/delhi-aastha-kunj-park-rape-teen-raped-by-three-men/20260924.htm",
+    "domain": "20260924T194500Z",
+    "language": "rediff.com",
+    "sourcecountry": "English",
+    "tone": "India",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "surveillance_intimidation",
+    "category_label": "Surveillance, threats & intimidation",
+    "title": "surveillance",
+    "url": "OPINION : We need to stop Flock cameras before it too late | Opinion",
+    "seendate": "https://www.redandblack.com/opinion/opinion-we-need-to-stop-flock-cameras-before-it-s-too-late/article_f192fac8-b5e3-4144-87dc-524df6da4229.html",
+    "domain": "20260924T154500Z",
+    "language": "redandblack.com",
+    "sourcecountry": "English",
+    "tone": "United States",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "surveillance_intimidation",
+    "category_label": "Surveillance, threats & intimidation",
+    "title": "surveillance",
+    "url": "Japan Wagyu cattle : Australian beef producers gain rare access | Queensland Country Life",
+    "seendate": "https://www.queenslandcountrylife.com.au/story/9354254/japan-wagyu-cattle-australian-beef-producers-gain-rare-access/",
+    "domain": "20260924T213000Z",
+    "language": "queenslandcountrylife.com.au",
+    "sourcecountry": "English",
+    "tone": "Australia",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "surveillance_intimidation",
+    "category_label": "Surveillance, threats & intimidation",
+    "title": "surveillance",
+    "url": "El repunte de covid en septiembre dispara la venta de tests : síntomas y datos del ISCIII",
+    "seendate": "https://www.que.es/2026/09/24/repunte-covid-septiembre-tests/",
+    "domain": "20260924T221500Z",
+    "language": "que.es",
+    "sourcecountry": "Spanish",
+    "tone": "Spain",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "physical_violence",
+    "category_label": "Physical violence & killings",
+    "title": "murdered",
+    "url": "UAE में भारतीय शख्स के 9 टुकड़े कर डिक्की में भरा , पत्नी और बेटा अब भी गायब , फोन पर टेक्सट मैसेज से परिवार को हुआ शक - udupi family man uae man body cut uae alwin prakash kunder",
+    "seendate": "https://www.punjabkesari.in/national/news/udupi-family-man-uae-man-body-cut-uae-alwin-prakash-kunder-2382667",
+    "domain": "20260924T074500Z",
+    "language": "punjabkesari.in",
+    "sourcecountry": "Hindi",
+    "tone": "India",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "physical_violence",
+    "category_label": "Physical violence & killings",
+    "title": "murdered",
+    "url": "इंदिरा गांधी की हत्या के बाद स्कूल नहीं गईं प्रियंका , राहुल के साथ घर पर की पढ़ाई - priyanka did not go to school after indira gandhi s assassination she studied a",
+    "seendate": "https://www.punjabkesari.in/national/news/priyanka-did-not-go-to-school-after-indira-gandhi-s-assassination-she-studied-a-2382993",
+    "domain": "20260924T203000Z",
+    "language": "punjabkesari.in",
+    "sourcecountry": "Hindi",
+    "tone": "India",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "surveillance_intimidation",
+    "category_label": "Surveillance, threats & intimidation",
+    "title": "surveillance",
+    "url": "Controversia en Villa del Rosario por tarea escolar sobre insignias de Farc y ELN",
+    "seendate": "https://www.pulzo.com/nacion/controversia-en-villa-del-rosario-por-tarea-escolar-sobre-insignias-de-farc-y-eln-PP5312665A",
+    "domain": "20260924T230000Z",
+    "language": "pulzo.com",
+    "sourcecountry": "Spanish",
+    "tone": "Colombia",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "physical_violence",
+    "category_label": "Physical violence & killings",
+    "title": "murdered",
+    "url": "Vučič s Mladičom kľučkoval , korupcia v Srbsku zabíjala . Potvrdia voľby silu protestujúcich študentov ? - Svet - Správy",
+    "seendate": "https://www.pravda.sk/spravy/svet/clanok/2047309-vucic-s-mladicom-kluckoval-korupcia-v-srbsku-zabijala-potvrdia-volby-silu-protestujucich-studentov",
+    "domain": "20260925T051500Z",
+    "language": "pravda.sk",
+    "sourcecountry": "Slovak",
+    "tone": "Slovak Republic",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "yes",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "physical_violence",
+    "category_label": "Physical violence & killings",
+    "title": "tear gas",
+    "url": "India  cockroach  movement says will launch protest",
+    "seendate": "https://www.pakistantoday.com.pk/2026/09/24/indias-cockroach-movement-says-will-launch-protest-if-poll-panel-chief-doesnt-quit-in-48-hours",
+    "domain": "20260924T191500Z",
+    "language": "pakistantoday.com.pk",
+    "sourcecountry": "English",
+    "tone": "Pakistan",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "yes",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "physical_violence",
+    "category_label": "Physical violence & killings",
+    "title": "murdered",
+    "url": "5 séries coreanas de ao para assistir na Netflix",
+    "seendate": "https://www.oficinadanet.com.br/netflix/72866-series-coreanas-acao-para-assistir-netflix",
+    "domain": "20260925T011500Z",
+    "language": "oficinadanet.com.br",
+    "sourcecountry": "Portuguese",
+    "tone": "Brazil",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "surveillance_intimidation",
+    "category_label": "Surveillance, threats & intimidation",
+    "title": "surveillance",
+    "url": "Man with knife , yelling  Heil Hitler ! chases Jewish student in Brooklyn , charged with hate crime : NYPD",
+    "seendate": "https://www.nydailynews.com/2026/09/24/man-knife-yelling-heil-hitler-chases-jewish-student-yelling-hate-crime/",
+    "domain": "20260924T194500Z",
+    "language": "nydailynews.com",
+    "sourcecountry": "English",
+    "tone": "United States",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "surveillance_intimidation",
+    "category_label": "Surveillance, threats & intimidation",
+    "title": "surveillance",
+    "url": "  Bad Boy For Life  revisits Sean Comb abuse : NPR",
+    "seendate": "https://www.npr.org/transcripts/nx-s1-5978799",
+    "domain": "20260925T010000Z",
+    "language": "npr.org",
+    "sourcecountry": "English",
+    "tone": "United States",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "physical_violence",
+    "category_label": "Physical violence & killings",
+    "title": "murdered",
+    "url": "Adam Puškár , obžalovaný z vraždy Daniela Tupého , kandiduje do zastupiteľstva v Stupave",
+    "seendate": "https://www.noviny.sk/slovensko/1263504-adam-puskar-obzalovany-z-vrazdy-daniela-tupeho-kandiduje-do-zastupitelstva-v-stupave",
+    "domain": "20260924T143000Z",
+    "language": "noviny.sk",
+    "sourcecountry": "Slovak",
+    "tone": "Slovak Republic",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "surveillance_intimidation",
+    "category_label": "Surveillance, threats & intimidation",
+    "title": "surveillance",
+    "url": "Giannini annuncia misure di sicurezza per le scuole di Roma",
+    "seendate": "https://www.notizie.it/prefetto-giannini-il-piano-per-proteggere-gli-istituti-romani/",
+    "domain": "20260924T191500Z",
+    "language": "notizie.it",
+    "sourcecountry": "Italian",
+    "tone": "Italy",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "surveillance_intimidation",
+    "category_label": "Surveillance, threats & intimidation",
+    "title": "surveillance",
+    "url": "Japan Wagyu cattle : Australian beef producers gain rare access | North Queensland Register",
+    "seendate": "https://www.northqueenslandregister.com.au/story/9354254/japan-wagyu-cattle-australian-beef-producers-gain-rare-access/",
+    "domain": "20260924T193000Z",
+    "language": "northqueenslandregister.com.au",
+    "sourcecountry": "English",
+    "tone": "Australia",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "surveillance_intimidation",
+    "category_label": "Surveillance, threats & intimidation",
+    "title": "surveillance",
+    "url": "  Bad Boy For Life  investigates the culture that enabled Sean Comb alleged abuse",
+    "seendate": "https://www.northcountrypublicradio.org/news/npr/nx-s1-5978799/bad-boy-for-life-investigates-the-culture-that-enabled-sean-combs-alleged-abuse",
+    "domain": "20260924T224500Z",
+    "language": "northcountrypublicradio.org",
+    "sourcecountry": "English",
+    "tone": "United States",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "physical_violence",
+    "category_label": "Physical violence & killings",
+    "title": "murdered",
+    "url": "Edyta została skrzywdzona w dzieciństwie . Terapia wyciągnęła ją z otchłani",
+    "seendate": "https://www.newsweek.pl/polska/spoleczenstwo/edyta-zostala-skrzywdzona-w-dziecinstwie-terapia-wyciagnela-ja-z-otchlani/2pv3dg6",
+    "domain": "20260924T104500Z",
+    "language": "newsweek.pl",
+    "sourcecountry": "Polish",
+    "tone": "Poland",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "surveillance_intimidation",
+    "category_label": "Surveillance, threats & intimidation",
+    "title": "surveillance",
+    "url": "Iran News in Brief – September 25 , 2026",
+    "seendate": "https://www.ncr-iran.org/en/news/iran-news-in-brief-september-25-2026/",
+    "domain": "20260925T094500Z",
+    "language": "ncr-iran.org",
+    "sourcecountry": "English",
+    "tone": "Iran",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "delegitimization",
+    "category_label": "Delegitimization & smear campaigns",
+    "title": "discredited",
+    "url": "Philly activist confesses to faking Black and Palestinian heritage – NBC10 Philadelphia",
+    "seendate": "https://www.nbcphiladelphia.com/news/national-international/philly-activist-confesses-faking-black-palestinian-roots/4468478/",
+    "domain": "20260924T134500Z",
+    "language": "nbcphiladelphia.com",
+    "sourcecountry": "English",
+    "tone": "United States",
+    "watchlist_country": "",
+    "relevance": "Palestine",
+    "relevance_reason": "yes",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "surveillance_intimidation",
+    "category_label": "Surveillance, threats & intimidation",
+    "title": "surveillance",
+    "url": "Man found guilty of stabbing teen boy to death in Drexel Hill",
+    "seendate": "https://www.nbcphiladelphia.com/news/local/man-found-guilty-of-stabbing-teen-boy-to-death-in-drexel-hill/4468832/",
+    "domain": "20260924T221500Z",
+    "language": "nbcphiladelphia.com",
+    "sourcecountry": "English",
+    "tone": "United States",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "surveillance_intimidation",
+    "category_label": "Surveillance, threats & intimidation",
+    "title": "intimidated",
+    "url": "The Exhale Studio , movement and wellness studio , opens in Amherst",
+    "seendate": "https://www.morningjournal.com/2026/09/24/the-exhale-studio-movement-and-wellness-studio-opens-in-amherst/",
+    "domain": "20260924T143000Z",
+    "language": "morningjournal.com",
+    "sourcecountry": "English",
+    "tone": "United States",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "yes",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "surveillance_intimidation",
+    "category_label": "Surveillance, threats & intimidation",
+    "title": "surveillance",
+    "url": "החלימה מסרטן והקימה תוכנית למען חולים צעירים",
+    "seendate": "https://www.mako.co.il/special-more_articles/Article-233b6c328f3a0a1027.htm",
+    "domain": "20260925T011500Z",
+    "language": "mako.co.il",
+    "sourcecountry": "Hebrew",
+    "tone": "Israel",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "surveillance_intimidation",
+    "category_label": "Surveillance, threats & intimidation",
+    "title": "surveillance",
+    "url": "Paris  : le professeur danglais soupçonné de viols et dagressions sexuelles sur des enfants de 3 à 5 ans mis en examen et incarcéré",
+    "seendate": "https://www.leparisien.fr/paris-75/paris-le-professeur-danglais-soupconne-de-viols-et-dagressions-sexuelles-sur-des-enfants-de-3-a-5-ans-mis-en-examen-et-incarcere-24-09-2026-2HQYOMU3TZGWHFKW73MS7KBRUA.php",
+    "domain": "20260924T194500Z",
+    "language": "leparisien.fr",
+    "sourcecountry": "French",
+    "tone": "France",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "surveillance_intimidation",
+    "category_label": "Surveillance, threats & intimidation",
+    "title": "surveillance",
+    "url": "Crans - Montana , il testimone chiave rompe il silenzio : « Ecco cosa facevano i Moretti » ",
+    "seendate": "https://www.leggo.it/esteri/news/24_settembre_2026_crans_montana_gaetan_thomas_barista_testimone_chiave_moretti_intimidivano_dipendenti_giallo_porta_sicurezza_oggi-9783552.html",
+    "domain": "20260924T180000Z",
+    "language": "leggo.it",
+    "sourcecountry": "Italian",
+    "tone": "Italy",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "delegitimization",
+    "category_label": "Delegitimization & smear campaigns",
+    "title": "discredited",
+    "url": "Visite du pape en France  : au pays de la soif",
+    "seendate": "https://www.la-croix.com/a-vif/visite-du-pape-en-france-au-pays-de-la-soif-20260924",
+    "domain": "20260924T190000Z",
+    "language": "la-croix.com",
+    "sourcecountry": "French",
+    "tone": "France",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "surveillance_intimidation",
+    "category_label": "Surveillance, threats & intimidation",
+    "title": "surveillance",
+    "url": "Surveillance video allegedly shows her striking student in cafeteria",
+    "seendate": "https://www.ktiv.com/2026/09/24/school-worker-80-charged-with-abuse-after-allegedly-hitting-student/",
+    "domain": "20260924T143000Z",
+    "language": "ktiv.com",
+    "sourcecountry": "English",
+    "tone": "United States",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "physical_violence",
+    "category_label": "Physical violence & killings",
+    "title": "murdered",
+    "url": "Sub - Inspector son beaten to death at Giridih Maggi Point ; raids underway to find accused , Giridih News in Hindi",
+    "seendate": "https://www.khaskhabar.com/local/jharkhand/giridih-news/crime-news-sub-inspector-son-beaten-to-death-at-giridih-maggi-point-raids-underway-to-find-accused-news-hindi-1-847626-KKN.html",
+    "domain": "20260925T061500Z",
+    "language": "khaskhabar.com",
+    "sourcecountry": "Hindi",
+    "tone": "India",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "physical_violence",
+    "category_label": "Physical violence & killings",
+    "title": "murdered",
+    "url": "Hinter jedem Namen steht ein Schicksal : Ein Klassenfoto aus dem Jahr 1937 als Zeugnis jüdischen Lebens",
+    "seendate": "https://www.juedische-allgemeine.de/kultur/hinter-jedem-namen-steht-ein-schicksal-ein-klassenfoto-aus-dem-jahr-1937-als-zeugnis-juedischen-lebens/",
+    "domain": "20260924T143000Z",
+    "language": "juedische-allgemeine.de",
+    "sourcecountry": "German",
+    "tone": "Germany",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "physical_violence",
+    "category_label": "Physical violence & killings",
+    "title": "murdered",
+    "url": "Full text : Netanyahu address at the U . N . General Assembly - Israel & Jewish News",
+    "seendate": "https://www.jns.org/news/israel-news/full-text-netanyahus-address-at-the-u-n-general-assembly",
+    "domain": "20260925T004500Z",
+    "language": "jns.org",
+    "sourcecountry": "English",
+    "tone": "Israel",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "surveillance_intimidation",
+    "category_label": "Surveillance, threats & intimidation",
+    "title": "surveillance",
+    "url": "Chinese president delivers White House address on second U . S . state visit",
+    "seendate": "https://www.insidenova.com/news/national/chinese-president-delivers-white-house-address-on-second-u-s-state-visit/article_3bb7729e-cbbf-5459-a1f8-448e6ad34ac4.html",
+    "domain": "20260924T203000Z",
+    "language": "insidenova.com",
+    "sourcecountry": "English",
+    "tone": "United States",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "physical_violence",
+    "category_label": "Physical violence & killings",
+    "title": "tear gas",
+    "url": "India Gen Z  cockroach  movement vows to restart protests if election chief doesnt resign",
+    "seendate": "https://www.independent.co.uk/asia/india/gyanesh-kumar-modi-sir-cockroach-party-protest-b3055685.html",
+    "domain": "20260924T190000Z",
+    "language": "independent.co.uk",
+    "sourcecountry": "English",
+    "tone": "United Kingdom",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "yes",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "surveillance_intimidation",
+    "category_label": "Surveillance, threats & intimidation",
+    "title": "surveillance",
+    "url": "Come la sinistra americana sta cambiando idea sul  woke  ",
+    "seendate": "https://www.ilpost.it/2026/09/04/sinistra-americana-woke/?homepagePosition=2.1&referrerPost=3687343",
+    "domain": "20260925T094500Z",
+    "language": "ilpost.it",
+    "sourcecountry": "Italian",
+    "tone": "Italy",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "surveillance_intimidation",
+    "category_label": "Surveillance, threats & intimidation",
+    "title": "surveillance",
+    "url": "Crans Montana , laccusa del barista : « I Moretti intimidivano i dipendenti del locale » ",
+    "seendate": "https://www.ilmattino.it/primopiano/esteri/crans_montana_barista_moretti_intimidivano_dipendenti_locale-9784666.html",
+    "domain": "20260925T081500Z",
+    "language": "ilmattino.it",
+    "sourcecountry": "Italian",
+    "tone": "Italy",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "surveillance_intimidation",
+    "category_label": "Surveillance, threats & intimidation",
+    "title": "surveillance",
+    "url": "BPD arrests 8 Tuesday near Seminary Park",
+    "seendate": "https://www.idsnews.com/article/2026/09/bpd-arrests-8-tuesday-near-seminary-park",
+    "domain": "20260925T000000Z",
+    "language": "idsnews.com",
+    "sourcecountry": "English",
+    "tone": "United States",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "physical_violence",
+    "category_label": "Physical violence & killings",
+    "title": "murdered",
+    "url": "Gabriel Moreno González : El otoño de los patriarcas",
+    "seendate": "https://www.hoy.es/opinion/gabriel-moreno-gonzalez-otono-patriarcas-20260925084814-nt.html",
+    "domain": "20260925T093000Z",
+    "language": "hoy.es",
+    "sourcecountry": "Spanish",
+    "tone": "Spain",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "surveillance_intimidation",
+    "category_label": "Surveillance, threats & intimidation",
+    "title": "surveillance",
+    "url": "Los primeros casos de gripe y especialmente de covid llegan a Extremadura en plena ola de calor",
+    "seendate": "https://www.hoy.es/extremadura/primeros-casos-gripe-especialmente-covid-llegan-extremadura-20260924204315-nt.html",
+    "domain": "20260925T071500Z",
+    "language": "hoy.es",
+    "sourcecountry": "Spanish",
+    "tone": "Spain",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "surveillance_intimidation",
+    "category_label": "Surveillance, threats & intimidation",
+    "title": "surveillance",
+    "url": "  Bad Boy For Life  investigates the culture that enabled Sean Comb alleged abuse",
+    "seendate": "https://www.houstonpublicmedia.org/npr/2026/09/24/nx-s1-5978799/bad-boy-for-life-investigates-the-culture-that-enabled-sean-combs-alleged-abuse/",
+    "domain": "20260925T011500Z",
+    "language": "houstonpublicmedia.org",
+    "sourcecountry": "English",
+    "tone": "United States",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "physical_violence",
+    "category_label": "Physical violence & killings",
+    "title": "murdered",
+    "url": "  Becoming Colorado  documentary series examines the state tales , traditions and tragedies",
+    "seendate": "https://www.gjsentinel.com/news/western_colorado/becoming-colorado-documentary-series-examines-the-states-tales-traditions-and-tragedies/article_096addc3-e407-40cf-9b0f-0c46000650f3.html",
+    "domain": "20260925T073000Z",
+    "language": "gjsentinel.com",
+    "sourcecountry": "English",
+    "tone": "United States",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "physical_violence",
+    "category_label": "Physical violence & killings",
+    "title": "murdered",
+    "url": "What to watch : The Voice Grand Final , MKR , Mobland , Buzzkill and more",
+    "seendate": "https://www.geelongadvertiser.com.au/entertainment/television/reviews-comedyhorror-buzzkill-premieres-on-tubi/news-story/4a7287e41c05c05542683d8c5b1b3eff?nk=9fa073e32d8096e1ce3d4bdbd13dd2de-1790233327",
+    "domain": "20260924T071500Z",
+    "language": "geelongadvertiser.com.au",
+    "sourcecountry": "English",
+    "tone": "Australia",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "physical_violence",
+    "category_label": "Physical violence & killings",
+    "title": "murdered",
+    "url": "  Unabomber  more part of  true crime  fad than film | Entertainment",
+    "seendate": "https://www.galvnews.com/entertainment/free/unabomber-more-part-of-true-crime-fad-than-film/article_e7f524de-56e0-4256-95b1-7f5f4eda2c83.html",
+    "domain": "20260924T071500Z",
+    "language": "galvnews.com",
+    "sourcecountry": "English",
+    "tone": "United States",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "physical_violence",
+    "category_label": "Physical violence & killings",
+    "title": "murdered",
+    "url": "  अप्पन समाचार  की ग्रामीण महिला पत्रकारों के प्रयासों को मिली सराहना",
+    "seendate": "https://www.forwardpress.in/2026/09/news-bihar-community-media-appan-samachar/",
+    "domain": "20260924T090000Z",
+    "language": "forwardpress.in",
+    "sourcecountry": "Hindi",
+    "tone": "India",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "surveillance_intimidation",
+    "category_label": "Surveillance, threats & intimidation",
+    "title": "surveillance",
+    "url": "تبرعات وتلاعب بدرجات الامتحانات وغش ودروس خصوصية .. معلمة تستقيل من عملها وتفضح فساد المنظومة التعليمية",
+    "seendate": "https://www.fj-p.com/434888/%D8%AA%D8%A8%D8%B1%D8%B9%D8%A7%D8%AA-%D9%88%D8%AA%D9%84%D8%A7%D8%B9%D8%A8-%D8%A8%D8%AF%D8%B1%D8%AC%D8%A7%D8%AA-%D8%A7%D9%84%D8%A7%D9%85%D8%AA%D8%AD%D8%A7%D9%86%D8%A7%D8%AA-%D9%88%D8%BA%D8%B4-%D9%88/",
+    "domain": "20260924T190000Z",
+    "language": "fj-p.com",
+    "sourcecountry": "Arabic",
+    "tone": "Egypt",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "surveillance_intimidation",
+    "category_label": "Surveillance, threats & intimidation",
+    "title": "surveillance",
+    "url": "  Des cris , des coups , des attouchements  : un intervenant mis en examen pour agression sexuelle , viol et violence sur 22 enfants dune école maternelle à Paris",
+    "seendate": "https://www.femmeactuelle.fr/actu/news-actu/des-cris-des-coups-des-attouchements-un-intervenant-mis-en-examen-pour-agression-sexuelle-viol-et-violence-sur-22-enfants-dune-ecole-maternelle-a-paris-2211866",
+    "domain": "20260925T093000Z",
+    "language": "femmeactuelle.fr",
+    "sourcecountry": "French",
+    "tone": "France",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "surveillance_intimidation",
+    "category_label": "Surveillance, threats & intimidation",
+    "title": "surveillance",
+    "url": "Uninterpretazione dellIntelligenza artificiale attraverso la lettura storica dei progressi della scienza con la valorizzazione marxiana del General Intellect ( Editoriale di Luciano Vasapollo ) ",
+    "seendate": "https://www.farodiroma.it/uninterpretazione-dellintelligenza-artificiale-attraverso-la-lettura-storica-dei-progressi-della-scienza-con-la-valorizzazione-marxiana-del-general-intellect-editoriale-di-luciano-v/",
+    "domain": "20260924T203000Z",
+    "language": "farodiroma.it",
+    "sourcecountry": "Italian",
+    "tone": "Italy",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "surveillance_intimidation",
+    "category_label": "Surveillance, threats & intimidation",
+    "title": "surveillance",
+    "url": "Japan Wagyu cattle : Australian beef producers gain rare access | Farm Weekly",
+    "seendate": "https://www.farmweekly.com.au/story/9354254/japan-wagyu-cattle-australian-beef-producers-gain-rare-access/",
+    "domain": "20260924T203000Z",
+    "language": "farmweekly.com.au",
+    "sourcecountry": "English",
+    "tone": "Australia",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "surveillance_intimidation",
+    "category_label": "Surveillance, threats & intimidation",
+    "title": "surveillance",
+    "url": "A un año del Fusarium R4T , Ecuador reporta cumplimiento del 96 , 75 % en fincas monitoreadas",
+    "seendate": "https://www.expreso.ec/economia-y-negocios/ano-primer-foco-fusarium-r4t-ecuador-resalta-investigaciones-prevencion-fincas-296964.html",
+    "domain": "20260924T203000Z",
+    "language": "expreso.ec",
+    "sourcecountry": "Spanish",
+    "tone": "Ecuador",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "surveillance_intimidation",
+    "category_label": "Surveillance, threats & intimidation",
+    "title": "surveillance",
+    "url": "Hallan con vida a estudiante reportado como desaparecido ; estaba en su trabajo",
+    "seendate": "https://www.excelsior.com.mx/nacional/hallan-con-vida-estudiante-reportado-como-desaparecido-estaba-trabajo",
+    "domain": "20260925T011500Z",
+    "language": "excelsior.com.mx",
+    "sourcecountry": "Spanish",
+    "tone": "Mexico",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "surveillance_intimidation",
+    "category_label": "Surveillance, threats & intimidation",
+    "title": "surveillance",
+    "url": "Normalistas de Ayotzinapa realizan mitin en Periférico ; exigen reunión con presidenta de CNDH",
+    "seendate": "https://www.excelsior.com.mx/ciudad-de-mexico/normalistas-ayotzinapa-realizan-mitin-periferico-exigen-reunion-con-presidenta-cndh",
+    "domain": "20260924T203000Z",
+    "language": "excelsior.com.mx",
+    "sourcecountry": "Spanish",
+    "tone": "Mexico",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "physical_violence",
+    "category_label": "Physical violence & killings",
+    "title": "murdered",
+    "url": "The Crazy True Story Behind Netflix  UNABOMBER : What Happened to Theodore Kaczynski ? ",
+    "seendate": "https://www.esquire.com/uk/culture/film/a73774208/true-story-netflix-unabomber/",
+    "domain": "20260925T083000Z",
+    "language": "esquire.com",
+    "sourcecountry": "English",
+    "tone": "United States",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "surveillance_intimidation",
+    "category_label": "Surveillance, threats & intimidation",
+    "title": "surveillance",
+    "url": "Colocan ofrenda para recordar a universitarias asesinadas en Morelos",
+    "seendate": "https://www.eluniversal.com.mx/estados/colocan-ofrenda-para-recordar-a-universitarias-asesinadas-en-morelos-fiscal-rinde-informe-sobre-los-casos/",
+    "domain": "20260924T220000Z",
+    "language": "eluniversal.com.mx",
+    "sourcecountry": "Spanish",
+    "tone": "Mexico",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "surveillance_intimidation",
+    "category_label": "Surveillance, threats & intimidation",
+    "title": "surveillance",
+    "url": "Revuelo nacional : La polémica tarea que recibieron niños de primaria",
+    "seendate": "https://www.elnuevodia.com.co/colombia/revuelo-nacionalla-polemica-tarea-que-recibieron-ninos-de-primaria-539866",
+    "domain": "20260924T234500Z",
+    "language": "elnuevodia.com.co",
+    "sourcecountry": "Spanish",
+    "tone": "Colombia",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "delegitimization",
+    "category_label": "Delegitimization & smear campaigns",
+    "title": "discredited",
+    "url": "Recriminan padres de los 43 a CNDH por exculpar al Ejército",
+    "seendate": "https://www.eldiariodechihuahua.mx/nacional/2026/sep/24/recriminan-padres-de-los-43-a-cndh-por-exculpar-al-ejercito-840896.html",
+    "domain": "20260924T221500Z",
+    "language": "eldiariodechihuahua.mx",
+    "sourcecountry": "Spanish",
+    "tone": "Mexico",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "physical_violence",
+    "category_label": "Physical violence & killings",
+    "title": "murdered",
+    "url": "  Ya la mataron , ¿ qué buscan ? ",
+    "seendate": "https://www.eldiariodechihuahua.mx/estado/2026/sep/24/ya-la-mataron-que-buscan-840650.html",
+    "domain": "20260924T143000Z",
+    "language": "eldiariodechihuahua.mx",
+    "sourcecountry": "Spanish",
+    "tone": "Mexico",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "physical_violence",
+    "category_label": "Physical violence & killings",
+    "title": "murdered",
+    "url": "La cuenta de Cuautla",
+    "seendate": "https://www.ejecentral.com.mx/opinion/la-cuenta-de-cuautla",
+    "domain": "20260924T101500Z",
+    "language": "ejecentral.com.mx",
+    "sourcecountry": "Spanish",
+    "tone": "Mexico",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "surveillance_intimidation",
+    "category_label": "Surveillance, threats & intimidation",
+    "title": "surveillance",
+    "url": "Normalistas de Ayotzinapa cierran Periférico : vialidades afectadas , alternativas y todos los detalles de la protesta",
+    "seendate": "https://www.ejecentral.com.mx/nuestro-eje/normalistas-de-ayotzinapa-cierran-periferico-vialidades-afectadas-alternativas-y-todos-los-detalles-de-la-protesta",
+    "domain": "20260925T010000Z",
+    "language": "ejecentral.com.mx",
+    "sourcecountry": "Spanish",
+    "tone": "Mexico",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "yes",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "surveillance_intimidation",
+    "category_label": "Surveillance, threats & intimidation",
+    "title": "surveillance",
+    "url": "Real Existing Degrowth - David E . Gilbert - Dark Degrowth : On Insurgence , Resurgence , and Going Dark",
+    "seendate": "https://www.e-flux.com/architecture/real-existing-degrowth/6783060/dark-degrowth-on-insurgence-resurgence-and-going-dark",
+    "domain": "20260925T064500Z",
+    "language": "e-flux.com",
+    "sourcecountry": "English",
+    "tone": "United States",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "surveillance_intimidation",
+    "category_label": "Surveillance, threats & intimidation",
+    "title": "surveillance",
+    "url": "جامعة القاهرة تعزز منظومة الرعاية الحرجة بقصر العيني بافتتاح وحدتين بعد التطوير",
+    "seendate": "https://www.dostor.org/5715073",
+    "domain": "20260925T084500Z",
+    "language": "dostor.org",
+    "sourcecountry": "Arabic",
+    "tone": "Egypt",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "physical_violence",
+    "category_label": "Physical violence & killings",
+    "title": "murdered",
+    "url": "Video : Estudiante de psicología fue apuñalada por resistir a robo en SJL por Exitosa Noticias",
+    "seendate": "https://www.deperu.com/tv/ekagfEfFaHc.estudiante-de-psicologia-fue-apunalada-por-resistir-a-robo-en-sjl.UCxgO_rak_BKZP8VNVmYqbWg.html",
+    "domain": "20260924T214500Z",
+    "language": "deperu.com",
+    "sourcecountry": "Spanish",
+    "tone": "United States",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "physical_violence",
+    "category_label": "Physical violence & killings",
+    "title": "murdered",
+    "url": "हम बाहर नहीं जा सकते थे , राहुल के साथ घर पर पढ़ाई की ; इंदिरा गांधी की हत्या के बाद कैद जैसा था बचपन , प्रियंका गांधी ने सुनाया पुराना किस्सा",
+    "seendate": "https://www.dainiktribuneonline.com/news/nation/we-couldnt-go-out-we-studied-at-home-with-rahul-priyanka-gandhi-recounts-an-anecdote-about-her-childhood-after-indira-gandhis-assassination/",
+    "domain": "20260924T190000Z",
+    "language": "dainiktribuneonline.com",
+    "sourcecountry": "Hindi",
+    "tone": "India",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "surveillance_intimidation",
+    "category_label": "Surveillance, threats & intimidation",
+    "title": "surveillance",
+    "url": "Analyzing Gaotu Techedu ( NYSE : GOTU ) & ADT ( NYSE : ADT ) ",
+    "seendate": "https://www.dailypolitical.com/2026/09/24/analyzing-gaotu-techedu-nysegotu-adt-nyseadt.html",
+    "domain": "20260924T204500Z",
+    "language": "dailypolitical.com",
+    "sourcecountry": "English",
+    "tone": "United States",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "surveillance_intimidation",
+    "category_label": "Surveillance, threats & intimidation",
+    "title": "surveillance",
+    "url": "Mom living in nightmare after teenage daughter was shot dead inside family home - and her killer is still walking free",
+    "seendate": "https://www.dailymail.com/crime-desk/article-16158879/Lilly-Bova-mother-suspect-shooting.html",
+    "domain": "20260925T081500Z",
+    "language": "dailymail.com",
+    "sourcecountry": "English",
+    "tone": "United States",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "physical_violence",
+    "category_label": "Physical violence & killings",
+    "title": "murdered",
+    "url": "Warped reason female Tennessee death row inmate is demanding all - woman firing squad after torturing love rival to death ... as victim mom wants a front row seat",
+    "seendate": "https://www.dailymail.com/crime-desk/article-16158445/christa-pike-tennessee-execution-firing-squad.html",
+    "domain": "20260925T021500Z",
+    "language": "dailymail.com",
+    "sourcecountry": "English",
+    "tone": "United States",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "surveillance_intimidation",
+    "category_label": "Surveillance, threats & intimidation",
+    "title": "surveillance",
+    "url": "Much - loved teacher sudden disappearance sparked desperate search for him ... but then the sinister truth emerged ending in his arrest",
+    "seendate": "https://www.dailymail.com/crime-desk/article-16157441/Rogie-Legaspi-Baltimore-teacher-sexual-abuse-Pennsylvania.html",
+    "domain": "20260925T000000Z",
+    "language": "dailymail.com",
+    "sourcecountry": "English",
+    "tone": "United States",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "surveillance_intimidation",
+    "category_label": "Surveillance, threats & intimidation",
+    "title": "surveillance",
+    "url": "Smart City Projects Across Thailand : Where They Are Today",
+    "seendate": "https://www.chiangraitimes.com/tech/smart-city-projects-thailand/",
+    "domain": "20260924T224500Z",
+    "language": "chiangraitimes.com",
+    "sourcecountry": "English",
+    "tone": "Thailand",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "surveillance_intimidation",
+    "category_label": "Surveillance, threats & intimidation",
+    "title": "surveillance",
+    "url": "Aastha Kunj gang rape area was already a Delhi Police  dark spot ; but lighting gaps remained – Chennaionline",
+    "seendate": "https://www.chennaionline.com/news/aastha-kunj-gang-rape-area-was-already-a-delhi-police-dark-spot-but-lighting-gaps-remained/",
+    "domain": "20260925T053000Z",
+    "language": "chennaionline.com",
+    "sourcecountry": "English",
+    "tone": "India",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "surveillance_intimidation",
+    "category_label": "Surveillance, threats & intimidation",
+    "title": "intimidated",
+    "url": "Girls Who Lift brings gender inclusivity to the gym",
+    "seendate": "https://www.cavalierdaily.com/article/2026/09/girls-who-lift-brings-gender-inclusivity-to-the-gym",
+    "domain": "20260924T074500Z",
+    "language": "cavalierdaily.com",
+    "sourcecountry": "English",
+    "tone": "United States",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "physical_violence",
+    "category_label": "Physical violence & killings",
+    "title": "murdered",
+    "url": "El recuerdo de Claudia Tacoronte , Gaza y la financiación marcan el inicio del curso en la ULPGC : « Habrá acuerdo antes de los presupuestos » ",
+    "seendate": "https://www.canarias7.es/sociedad/educacion/financiacion-universidades-publicas-marca-arranque-curso-ulpgc-20260924110354-nt.html",
+    "domain": "20260924T143000Z",
+    "language": "canarias7.es",
+    "sourcecountry": "Spanish",
+    "tone": "Spain",
+    "watchlist_country": "",
+    "relevance": "Palestine",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "surveillance_intimidation",
+    "category_label": "Surveillance, threats & intimidation",
+    "title": "surveillance",
+    "url": "Buckeye school struck by lightning minutes after students were let inside",
+    "seendate": "https://www.azfamily.com/2026/09/24/buckeye-school-struck-by-lightning-minutes-after-students-were-let-inside/",
+    "domain": "20260925T004500Z",
+    "language": "azfamily.com",
+    "sourcecountry": "English",
+    "tone": "United States",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "physical_violence",
+    "category_label": "Physical violence & killings",
+    "title": "tear gas",
+    "url": "The Week Biggest News in Brief : Sept . 17 - 23 • The Austin Chronicle",
+    "seendate": "https://www.austinchronicle.com/news/the-weeks-biggest-news-in-brief-sept-17-23/",
+    "domain": "20260924T073000Z",
+    "language": "austinchronicle.com",
+    "sourcecountry": "English",
+    "tone": "United States",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "surveillance_intimidation",
+    "category_label": "Surveillance, threats & intimidation",
+    "title": "surveillance",
+    "url": "Gas station heroin ? ",
+    "seendate": "https://www.americanthinker.com/blog/2026/09/gas-station-heroin/",
+    "domain": "20260924T201500Z",
+    "language": "americanthinker.com",
+    "sourcecountry": "English",
+    "tone": "United States",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "surveillance_intimidation",
+    "category_label": "Surveillance, threats & intimidation",
+    "title": "surveillance",
+    "url": "搬积案石头的人|刑警|破案|第一巨额抢劫案 _ 网易订阅",
+    "seendate": "https://www.163.com/dy/article/L7G265IJ0514CDBK.html",
+    "domain": "20260925T000000Z",
+    "language": "163.com",
+    "sourcecountry": "Chinese",
+    "tone": "China",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "physical_violence",
+    "category_label": "Physical violence & killings",
+    "title": "murdered",
+    "url": "Šeima tiksliai žinojo vietą , kur buvo užkasti palaikai : mamai duotą pažadą Vida ištesėjo po 80 metų",
+    "seendate": "https://www.15min.lt/naujiena/aktualu/lietuva/seima-tiksliai-zinojo-vieta-kur-buvo-uzkasti-palaikai-mamai-duota-pazada-vida-istesejo-po-80-metu-56-2771548",
+    "domain": "20260925T094500Z",
+    "language": "15min.lt",
+    "sourcecountry": "Lithuanian",
+    "tone": "Lithuania",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "physical_violence",
+    "category_label": "Physical violence & killings",
+    "title": "murdered",
+    "url": "Letters - Weekly Worker",
+    "seendate": "https://weeklyworker.co.uk/worker/1602/letters/",
+    "domain": "20260924T190000Z",
+    "language": "weeklyworker.co.uk",
+    "sourcecountry": "English",
+    "tone": "United Kingdom",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "physical_violence",
+    "category_label": "Physical violence & killings",
+    "title": "murdered",
+    "url": "A chink of light",
+    "seendate": "https://weeklyworker.co.uk/worker/1602/a-chink-of-light/",
+    "domain": "20260924T190000Z",
+    "language": "weeklyworker.co.uk",
+    "sourcecountry": "English",
+    "tone": "United Kingdom",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "surveillance_intimidation",
+    "category_label": "Surveillance, threats & intimidation",
+    "title": "surveillance",
+    "url": "UAEMéx alista la edición 18 de la Carrera Atlética del Día de la y el Médico",
+    "seendate": "https://unomasuno.com.mx/deportes/uaemex-alista-la-edicion-18-de-la-carrera-atletica-del-dia-de-la-y-el-medico/",
+    "domain": "20260925T020000Z",
+    "language": "unomasuno.com.mx",
+    "sourcecountry": "Spanish",
+    "tone": "Mexico",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "surveillance_intimidation",
+    "category_label": "Surveillance, threats & intimidation",
+    "title": "intimidated",
+    "url": "Father blames flatmates after BBA student suicide | Kolkata News",
+    "seendate": "https://timesofindia.indiatimes.com/city/kolkata/father-blames-flatmates-after-bba-students-suicide/articleshow/134468319.cms",
+    "domain": "20260924T184500Z",
+    "language": "timesofindia.indiatimes.com",
+    "sourcecountry": "English",
+    "tone": "India",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "surveillance_intimidation",
+    "category_label": "Surveillance, threats & intimidation",
+    "title": "surveillance",
+    "url": "Opinion : Foreign police broke Canadian law and it keeps happening",
+    "seendate": "https://theprovince.com/opinion/op-ed/opinion-foreign-police-broke-canadian-law-and-it-keeps-happening/wcm/ca7d3fe6-6435-4656-9e32-81b4f26fb799",
+    "domain": "20260924T171500Z",
+    "language": "theprovince.com",
+    "sourcecountry": "English",
+    "tone": "Canada",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "surveillance_intimidation",
+    "category_label": "Surveillance, threats & intimidation",
+    "title": "intimidated",
+    "url": "Democracy : Onaiyekan Challenges Politicians , INEC and Media to Protect Citizen Votes",
+    "seendate": "https://thenewsnigeria.com.ng/2026/09/24/democracy-onaiyekan-challenges-politicians-inec-and-media-to-protect-citizens-votes/",
+    "domain": "20260924T210000Z",
+    "language": "thenewsnigeria.com.ng",
+    "sourcecountry": "English",
+    "tone": "Nigeria",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "surveillance_intimidation",
+    "category_label": "Surveillance, threats & intimidation",
+    "title": "surveillance",
+    "url": "Climate crisis is affecting children nutrition",
+    "seendate": "https://theconversation.com/climate-crisis-is-affecting-childrens-nutrition-292745",
+    "domain": "20260924T200000Z",
+    "language": "theconversation.com",
+    "sourcecountry": "English",
+    "tone": "Australia",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "surveillance_intimidation",
+    "category_label": "Surveillance, threats & intimidation",
+    "title": "surveillance",
+    "url": "Ericsson , TSSC launch CoE in Mumbai for 5G , emerging tech skills",
+    "seendate": "https://telecom.economictimes.indiatimes.com/news/5g-corner/ericsson-tssc-launch-coe-in-mumbai-for-5g-emerging-tech-skills/134462413",
+    "domain": "20260924T131500Z",
+    "language": "telecom.economictimes.indiatimes.com",
+    "sourcecountry": "English",
+    "tone": "India",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "surveillance_intimidation",
+    "category_label": "Surveillance, threats & intimidation",
+    "title": "surveillance",
+    "url": "Could AI threaten humanity ? 8 Africans weigh the risks",
+    "seendate": "https://techcabal.com/2026/09/24/could-ai-threaten-humanity-8-africans-weigh-the-risks/",
+    "domain": "20260924T160000Z",
+    "language": "techcabal.com",
+    "sourcecountry": "English",
+    "tone": "Nigeria",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "physical_violence",
+    "category_label": "Physical violence & killings",
+    "title": "murdered",
+    "url": "Premiere 100 Jahre Münchner Kammerspiele : Selbstbewusst den Schorf der Vergangenheit aufkratzen",
+    "seendate": "https://taz.de/Premiere-100-Jahre-Muenchner-Kammerspiele/!6216062/",
+    "domain": "20260924T184500Z",
+    "language": "taz.de",
+    "sourcecountry": "German",
+    "tone": "Germany",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "surveillance_intimidation",
+    "category_label": "Surveillance, threats & intimidation",
+    "title": "surveillance",
+    "url": "King College London Reinstates Pro - Palestine Student Usama Ghanem After Year - Long Campaign",
+    "seendate": "https://roarnews.co.uk/2026/kings-college-london-reinstates-pro-palestine-student-after-year-long-campaign/",
+    "domain": "20260924T131500Z",
+    "language": "roarnews.co.uk",
+    "sourcecountry": "English",
+    "tone": "United Kingdom",
+    "watchlist_country": "",
+    "relevance": "Palestine",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "physical_violence",
+    "category_label": "Physical violence & killings",
+    "title": "murdered",
+    "url": "The rise of the Jim Crow theobros",
+    "seendate": "https://religionnews.com/2026/09/24/the-rise-of-the-jim-crow-theobros/",
+    "domain": "20260924T213000Z",
+    "language": "religionnews.com",
+    "sourcecountry": "English",
+    "tone": "United States",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "surveillance_intimidation",
+    "category_label": "Surveillance, threats & intimidation",
+    "title": "surveillance",
+    "url": "Kwara targets 100 , 000 MT milk , eyes job investment",
+    "seendate": "https://punchng.com/kwara-targets-100000-mt-milk-eyes-job-investment/",
+    "domain": "20260925T003000Z",
+    "language": "punchng.com",
+    "sourcecountry": "English",
+    "tone": "Nigeria",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "physical_violence",
+    "category_label": "Physical violence & killings",
+    "title": "murdered",
+    "url": "FULL TEXT : Netanyahu UN speech as delegates walk out",
+    "seendate": "https://punchng.com/full-text-netanyahus-speech-at-un-general-assembly/",
+    "domain": "20260925T084500Z",
+    "language": "punchng.com",
+    "sourcecountry": "English",
+    "tone": "Nigeria",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "surveillance_intimidation",
+    "category_label": "Surveillance, threats & intimidation",
+    "title": "surveillance",
+    "url": "10 - year blackout cripples Oyo communities",
+    "seendate": "https://punchng.com/10-year-blackout-cripples-oyo-communities/",
+    "domain": "20260925T003000Z",
+    "language": "punchng.com",
+    "sourcecountry": "English",
+    "tone": "Nigeria",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "surveillance_intimidation",
+    "category_label": "Surveillance, threats & intimidation",
+    "title": "surveillance",
+    "url": "IA no es Terminator",
+    "seendate": "https://pulsoslp.com.mx/cienciaytecnologia/ia-no-es-terminator/2089007",
+    "domain": "20260924T234500Z",
+    "language": "pulsoslp.com.mx",
+    "sourcecountry": "Spanish",
+    "tone": "Mexico",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "surveillance_intimidation",
+    "category_label": "Surveillance, threats & intimidation",
+    "title": "intimidated",
+    "url": "Jae Stephens : AUDACITY",
+    "seendate": "https://pitchfork.com/reviews/albums/jae-stephens-audacity/",
+    "domain": "20260925T060000Z",
+    "language": "pitchfork.com",
+    "sourcecountry": "English",
+    "tone": "United States",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "physical_violence",
+    "category_label": "Physical violence & killings",
+    "title": "murdered",
+    "url": "Jak Niemcy i Litwini mordowali Polaków w Ponarach . 85 lat temu zaczęła się rzeź",
+    "seendate": "https://pch24.pl/wiadomosci/jak-niemcy-i-litwini-mordowali-polakow-w-ponarach-85-lat-temu-zaczela-sie-rzez,735906",
+    "domain": "20260924T154500Z",
+    "language": "pch24.pl",
+    "sourcecountry": "Polish",
+    "tone": "Poland",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "physical_violence",
+    "category_label": "Physical violence & killings",
+    "title": "tear gas",
+    "url": "ACLU , Amnesty International criticize NYU  suppression  of pro - Palestinian speech",
+    "seendate": "https://nyunews.com/news/2026/09/24/american-civil-liberties-union-amnesty-international-palestine-report/",
+    "domain": "20260924T113000Z",
+    "language": "nyunews.com",
+    "sourcecountry": "English",
+    "tone": "United States",
+    "watchlist_country": "",
+    "relevance": "Palestine",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "surveillance_intimidation",
+    "category_label": "Surveillance, threats & intimidation",
+    "title": "surveillance",
+    "url": "215 nuevas cotorras pintan los cielos de Margarita con sus vuelos durante 2026",
+    "seendate": "https://notiactual.com/215-nuevas-cotorras-pintan-los-cielos-de-margarita-con-sus-vuelos-durante-2026/",
+    "domain": "20260924T173000Z",
+    "language": "notiactual.com",
+    "sourcecountry": "Spanish",
+    "tone": "Venezuela",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "surveillance_intimidation",
+    "category_label": "Surveillance, threats & intimidation",
+    "title": "surveillance",
+    "url": "De la tecnología educativa a la tecnología como riesgo - Norte de Ciudad Juárez",
+    "seendate": "https://nortedigital.mx/de-la-tecnologia-educativa-a-la-tecnologia-como-riesgo/",
+    "domain": "20260924T184500Z",
+    "language": "nortedigital.mx",
+    "sourcecountry": "Spanish",
+    "tone": "Mexico",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "surveillance_intimidation",
+    "category_label": "Surveillance, threats & intimidation",
+    "title": "surveillance",
+    "url": "newsroomamerica . com",
+    "seendate": "https://newsroomamerica.com/?before=110291",
+    "domain": "20260924T200000Z",
+    "language": "newsroomamerica.com",
+    "sourcecountry": "English",
+    "tone": "United States",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "surveillance_intimidation",
+    "category_label": "Surveillance, threats & intimidation",
+    "title": "surveillance",
+    "url": "newsroomamerica . com",
+    "seendate": "https://newsroomamerica.com/?before=110288",
+    "domain": "20260924T194500Z",
+    "language": "newsroomamerica.com",
+    "sourcecountry": "English",
+    "tone": "United States",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "surveillance_intimidation",
+    "category_label": "Surveillance, threats & intimidation",
+    "title": "surveillance",
+    "url": "newsroomamerica . com",
+    "seendate": "https://newsroomamerica.com/?before=110278",
+    "domain": "20260924T191500Z",
+    "language": "newsroomamerica.com",
+    "sourcecountry": "English",
+    "tone": "United States",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "surveillance_intimidation",
+    "category_label": "Surveillance, threats & intimidation",
+    "title": "surveillance",
+    "url": "newsroomamerica . com",
+    "seendate": "https://newsroomamerica.com/?before=110276",
+    "domain": "20260924T190000Z",
+    "language": "newsroomamerica.com",
+    "sourcecountry": "English",
+    "tone": "United States",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "surveillance_intimidation",
+    "category_label": "Surveillance, threats & intimidation",
+    "title": "surveillance",
+    "url": "newsroomamerica . com",
+    "seendate": "https://newsroomamerica.com/?before=110252",
+    "domain": "20260924T173000Z",
+    "language": "newsroomamerica.com",
+    "sourcecountry": "English",
+    "tone": "United States",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "surveillance_intimidation",
+    "category_label": "Surveillance, threats & intimidation",
+    "title": "surveillance",
+    "url": "Late - Night Chaos Keeps Shibuya Police Busy",
+    "seendate": "https://newsonjapan.com/article/150855.php",
+    "domain": "20260924T194500Z",
+    "language": "newsonjapan.com",
+    "sourcecountry": "English",
+    "tone": "Japan",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "surveillance_intimidation",
+    "category_label": "Surveillance, threats & intimidation",
+    "title": "surveillance",
+    "url": "We want China out of Tibet : Tibetans , Uyghurs hold anti - China protests in Washington over Xis US visit",
+    "seendate": "https://news.webindia123.com/news/Articles/World/20260925/4503289.html",
+    "domain": "20260925T073000Z",
+    "language": "news.webindia123.com",
+    "sourcecountry": "English",
+    "tone": "India",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "yes",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "surveillance_intimidation",
+    "category_label": "Surveillance, threats & intimidation",
+    "title": "surveillance",
+    "url": "Indo - Africa roundtable on WASH held as part of second India International WASH Conference during 9th IIWW 2026",
+    "seendate": "https://news.webindia123.com/news/Articles/World/20260924/4503163.html",
+    "domain": "20260924T191500Z",
+    "language": "news.webindia123.com",
+    "sourcecountry": "English",
+    "tone": "India",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "physical_violence",
+    "category_label": "Physical violence & killings",
+    "title": "murdered",
+    "url": "  Will throw first shoe at traitors : Sanjay Raut backs Rahul Gandhi , says CEC should  turn approver  ",
+    "seendate": "https://news.webindia123.com/news/Articles/India/20260925/4503298.html",
+    "domain": "20260925T073000Z",
+    "language": "news.webindia123.com",
+    "sourcecountry": "English",
+    "tone": "India",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "physical_violence",
+    "category_label": "Physical violence & killings",
+    "title": "murdered",
+    "url": "The Weight of Two Worlds – Mishpacha",
+    "seendate": "https://mishpacha.com/the-weight-of-two-worlds/",
+    "domain": "20260925T010000Z",
+    "language": "mishpacha.com",
+    "sourcecountry": "English",
+    "tone": "Israel",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "physical_violence",
+    "category_label": "Physical violence & killings",
+    "title": "murdered",
+    "url": "Light and Darkness , Intertwined – Mishpacha",
+    "seendate": "https://mishpacha.com/light-and-darkness-intertwined/",
+    "domain": "20260925T010000Z",
+    "language": "mishpacha.com",
+    "sourcecountry": "English",
+    "tone": "Israel",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "physical_violence",
+    "category_label": "Physical violence & killings",
+    "title": "murdered",
+    "url": "10 Cool Facts About The Hulk",
+    "seendate": "https://listverse.com/2014/06/15/10-cool-facts-about-the-hulk/",
+    "domain": "20260924T203000Z",
+    "language": "listverse.com",
+    "sourcecountry": "English",
+    "tone": "United States",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "surveillance_intimidation",
+    "category_label": "Surveillance, threats & intimidation",
+    "title": "surveillance",
+    "url": " ¡ Más camiones ! Tras quejas , reforzarán ruta Loma de Rodriguera en Culiacán",
+    "seendate": "https://lineadirectaportal.com/sinaloa/mas-camiones-tras-quejas-reforzaran-ruta-loma-de-rodriguera-en-culiacan-2026-09-24__1707856",
+    "domain": "20260924T200000Z",
+    "language": "lineadirectaportal.com",
+    "sourcecountry": "Spanish",
+    "tone": "Mexico",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "surveillance_intimidation",
+    "category_label": "Surveillance, threats & intimidation",
+    "title": "surveillance",
+    "url": "El PT cobra la factura",
+    "seendate": "https://laverdad.com.mx/2026/09/el-pt-cobra-la-factura/",
+    "domain": "20260925T071500Z",
+    "language": "laverdad.com.mx",
+    "sourcecountry": "Spanish",
+    "tone": "Mexico",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "physical_violence",
+    "category_label": "Physical violence & killings",
+    "title": "murdered",
+    "url": "Rostros de la violencia",
+    "seendate": "https://lasillarota.com/opinion/columnas/2026/9/24/rostros-de-la-violencia-529742.html",
+    "domain": "20260924T081500Z",
+    "language": "lasillarota.com",
+    "sourcecountry": "Spanish",
+    "tone": "Mexico",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "physical_violence",
+    "category_label": "Physical violence & killings",
+    "title": "murdered",
+    "url": "Rostros de la violencia",
+    "seendate": "https://lasillarota.com/opinion/columnas/2026/9/23/rostros-de-la-violencia-529742.html",
+    "domain": "20260924T170000Z",
+    "language": "lasillarota.com",
+    "sourcecountry": "Spanish",
+    "tone": "Mexico",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "physical_violence",
+    "category_label": "Physical violence & killings",
+    "title": "murdered",
+    "url": "Universitaria de 20 años es asesinada tras resistirse al robo de su celular cerca de estación de Línea 1 en SJL",
+    "seendate": "https://larepublica.pe/sociedad/2026/09/24/universitaria-de-20-anos-es-asesinada-tras-resistirse-al-robo-de-su-celular-cerca-de-estacion-de-linea-1-en-sjl-868296",
+    "domain": "20260924T161500Z",
+    "language": "larepublica.pe",
+    "sourcecountry": "Spanish",
+    "tone": "Peru",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "physical_violence",
+    "category_label": "Physical violence & killings",
+    "title": "murdered",
+    "url": "La Fabricación del Enemigo",
+    "seendate": "https://kaosenlared.net/la-fabricacion-del-enemigo/",
+    "domain": "20260925T091500Z",
+    "language": "kaosenlared.net",
+    "sourcecountry": "Spanish",
+    "tone": "Spain",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "surveillance_intimidation",
+    "category_label": "Surveillance, threats & intimidation",
+    "title": "surveillance",
+    "url": "Hoy Tamaulipas - Columna Letras Prohibidas de Clemente Zapata M . Cabeza de Vaca la triste historia de quien prefirio las veredas",
+    "seendate": "https://hoytamaulipas.net/notas/628089/Columna-Letras-Prohibidas-de-Clemente-Zapata-M.-Cabeza-de-Vaca-la-triste-historia-de-quien-prefirio-las-veredas.html",
+    "domain": "20260925T073000Z",
+    "language": "hoytamaulipas.net",
+    "sourcecountry": "Spanish",
+    "tone": "Mexico",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "surveillance_intimidation",
+    "category_label": "Surveillance, threats & intimidation",
+    "title": "intimidated",
+    "url": "CCSU President Toro resigns following bullying allegations",
+    "seendate": "https://hartfordbusiness.com/article/ccsu-president-resigns-following-complaint-of-bullying-retaliation/",
+    "domain": "20260924T151500Z",
+    "language": "hartfordbusiness.com",
+    "sourcecountry": "English",
+    "tone": "United States",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "surveillance_intimidation",
+    "category_label": "Surveillance, threats & intimidation",
+    "title": "surveillance",
+    "url": "South Hadley could be first in Hampshire County to put stop - arm cameras on school buses",
+    "seendate": "https://gazettenet.com/2026/09/24/south-hadley-could-be-first-in-hampshire-county-to-put-stop-arm-cameras-on-school-buses/",
+    "domain": "20260924T201500Z",
+    "language": "gazettenet.com",
+    "sourcecountry": "English",
+    "tone": "United States",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "physical_violence",
+    "category_label": "Physical violence & killings",
+    "title": "murdered",
+    "url": "Abdul El - Sayed Quietly Headlines Fundraiser Alongside Hamas - Loving Activist Who Urged Jews To Be Sent  Back to Poland , Speaker Who Backs Islamic Militants",
+    "seendate": "https://freebeacon.com/democrats/abdul-el-sayed-quietly-headlines-fundraiser-alongside-hamas-loving-activist-who-urged-jews-to-be-sent-back-to-poland-speaker-who-backs-islamic-militants/",
+    "domain": "20260925T020000Z",
+    "language": "freebeacon.com",
+    "sourcecountry": "English",
+    "tone": "United States",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "yes",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "surveillance_intimidation",
+    "category_label": "Surveillance, threats & intimidation",
+    "title": "surveillance",
+    "url": "Deja violencia escolar a alumno con grave lesión - El Mercurio de Tamaulipas",
+    "seendate": "https://elmercurio.com.mx/la-ciudad/deja-violencia-escolar-a-alumno-con-grave-lesion",
+    "domain": "20260924T204500Z",
+    "language": "elmercurio.com.mx",
+    "sourcecountry": "Spanish",
+    "tone": "Mexico",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "surveillance_intimidation",
+    "category_label": "Surveillance, threats & intimidation",
+    "title": "surveillance",
+    "url": "Despiden con dolor y clamor de justicia a Yoselin Sandoval en Otumba",
+    "seendate": "https://edomex.quadratin.com.mx/despiden-con-dolor-y-clamor-de-justicia-a-yoselin-sandoval-en-otumba/",
+    "domain": "20260924T210000Z",
+    "language": "edomex.quadratin.com.mx",
+    "sourcecountry": "Spanish",
+    "tone": "Mexico",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "physical_violence",
+    "category_label": "Physical violence & killings",
+    "title": "murdered",
+    "url": "Lech Parell : Ponary to jedno z największych miejsc kaźni",
+    "seendate": "https://dzieje.pl/wiadomosci/lech-parell-ponary-jedno-z-najwiekszych-miejsc-kazni",
+    "domain": "20260924T203000Z",
+    "language": "dzieje.pl",
+    "sourcecountry": "Polish",
+    "tone": "Poland",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "surveillance_intimidation",
+    "category_label": "Surveillance, threats & intimidation",
+    "title": "intimidated",
+    "url": "Câte încap într - o viață la 26 de ani ? Molnár Robert și prețul unui vis început devreme",
+    "seendate": "https://covasnamedia.ro/actualitate/cate-incap-intr-o-viata-la-26-de-ani-molnar-robert-si-pretul-unui-vis-inceput-devreme",
+    "domain": "20260924T071500Z",
+    "language": "covasnamedia.ro",
+    "sourcecountry": "Romanian",
+    "tone": "Romania",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "surveillance_intimidation",
+    "category_label": "Surveillance, threats & intimidation",
+    "title": "surveillance",
+    "url": "  We want China out of Tibet : Tibetans , Uyghurs hold anti - China protests in Washington over Xi US visit",
+    "seendate": "https://aninews.in/news/world/us/8220we-want-china-out-of-tibet8221-tibetans-uyghurs-hold-anti-china-protests-in-washington-over-xi8217s-us-visit20260925104859/",
+    "domain": "20260925T054500Z",
+    "language": "aninews.in",
+    "sourcecountry": "English",
+    "tone": "India",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "yes",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "surveillance_intimidation",
+    "category_label": "Surveillance, threats & intimidation",
+    "title": "surveillance",
+    "url": "ABVP protest at BHU continues , students demand Chief Proctor removal over security lapses , auditorium allocation",
+    "seendate": "https://aninews.in/news/national/general-news/abvp-protest-at-bhu-continues-students-demand-chief-proctor8217s-removal-over-security-lapses-auditorium-allocation20260925091648/",
+    "domain": "20260925T054500Z",
+    "language": "aninews.in",
+    "sourcecountry": "English",
+    "tone": "India",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "yes",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "surveillance_intimidation",
+    "category_label": "Surveillance, threats & intimidation",
+    "title": "surveillance",
+    "url": "سلام يخاطب العالم اليوم : استعادة الجنوب بدعم دولي وبقرار لبناني",
+    "seendate": "https://anbaaonline.com/news/342632",
+    "domain": "20260925T053000Z",
+    "language": "anbaaonline.com",
+    "sourcecountry": "Arabic",
+    "tone": "Lebanon",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "physical_violence",
+    "category_label": "Physical violence & killings",
+    "title": "murdered",
+    "url": "En el espejo de Claudia Tacoronte",
+    "seendate": "https://aguilarcamin.nexos.com.mx/en-el-espejo-de-claudia-tacoronte/",
+    "domain": "20260924T100000Z",
+    "language": "aguilarcamin.nexos.com.mx",
+    "sourcecountry": "Spanish",
+    "tone": "Mexico",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "surveillance_intimidation",
+    "category_label": "Surveillance, threats & intimidation",
+    "title": "surveillance",
+    "url": "Marruecos vota entre una baja participación , el descontento de los jóvenes y la sombra de Ceuta",
+    "seendate": "https://acento.com.do/france24/marruecos-vota-entre-una-baja-participacion-el-descontento-de-los-jovenes-y-la-sombra-de-ceuta-9758725.html",
+    "domain": "20260924T221500Z",
+    "language": "acento.com.do",
+    "sourcecountry": "Spanish",
+    "tone": "Dominican Republic",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "surveillance_intimidation",
+    "category_label": "Surveillance, threats & intimidation",
+    "title": "surveillance",
+    "url": "GVSU Issues Security Letter in Wake of a Number of  Incidents  Since School Began | 92 . 7 The Van WYVN",
+    "seendate": "https://927thevan.com/2026/09/24/gvsu-issues-security-letter-in-wake-of-a-number-of-incidents-since-school-began/",
+    "domain": "20260924T143000Z",
+    "language": "927thevan.com",
+    "sourcecountry": "English",
+    "tone": "United States",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "surveillance_intimidation",
+    "category_label": "Surveillance, threats & intimidation",
+    "title": "surveillance",
+    "url": "CDC latest youth behavior report offers a narrower look at teen health",
+    "seendate": "http://www.t-g.com/premium/stories/cdcs-latest-youth-behavior-report-offers-a-narrower-look-at-teen-health,232919",
+    "domain": "20260925T011500Z",
+    "language": "t-g.com",
+    "sourcecountry": "English",
+    "tone": "United States",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "surveillance_intimidation",
+    "category_label": "Surveillance, threats & intimidation",
+    "title": "surveillance",
+    "url": "Indo - Africa roundtable on WASH held as part of second India International WASH Conference during 9th IIWW 2026",
+    "seendate": "http://www.sierraleonetimes.com/news/279329583/indo-africa-roundtable-on-wash-held-as-part-of-second-india-international-wash-conference-during-9th-iiww-2026",
+    "domain": "20260924T191500Z",
+    "language": "sierraleonetimes.com",
+    "sourcecountry": "English",
+    "tone": "Sierra Leone",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "physical_violence",
+    "category_label": "Physical violence & killings",
+    "title": "murdered",
+    "url": "Lawyers for Nolan Well family highlight cellphone data , autopsy report and push for investigation",
+    "seendate": "http://www.rockymounttelegram.com/news/national/lawyers-for-nolan-wells-family-highlight-cellphone-data-autopsy-report-and-push-for-investigation/article_1f4df793-7ab2-5fcf-a09a-8ecc8155da40.html",
+    "domain": "20260925T041500Z",
+    "language": "rockymounttelegram.com",
+    "sourcecountry": "English",
+    "tone": "United States",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "physical_violence",
+    "category_label": "Physical violence & killings",
+    "title": "murdered",
+    "url": "Faces of Oct . 7 exhibition : The battle for memory is not over",
+    "seendate": "http://www.jpost.com/opinion/article-908961",
+    "domain": "20260924T123000Z",
+    "language": "jpost.com",
+    "sourcecountry": "English",
+    "tone": "Israel",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "surveillance_intimidation",
+    "category_label": "Surveillance, threats & intimidation",
+    "title": "surveillance",
+    "url": "Indo - Africa roundtable on WASH held as part of second India International WASH Conference during 9th IIWW 2026",
+    "seendate": "http://www.japanherald.com/news/279329583/indo-africa-roundtable-on-wash-held-as-part-of-second-india-international-wash-conference-during-9th-iiww-2026",
+    "domain": "20260924T200000Z",
+    "language": "japanherald.com",
+    "sourcecountry": "English",
+    "tone": "Japan",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "surveillance_intimidation",
+    "category_label": "Surveillance, threats & intimidation",
+    "title": "surveillance",
+    "url": "Indo - Africa roundtable on WASH held as part of second India International WASH Conference during 9th IIWW 2026",
+    "seendate": "http://www.cambodiantimes.com/news/279329583/indo-africa-roundtable-on-wash-held-as-part-of-second-india-international-wash-conference-during-9th-iiww-2026",
+    "domain": "20260924T191500Z",
+    "language": "cambodiantimes.com",
+    "sourcecountry": "English",
+    "tone": "Cambodia",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "surveillance_intimidation",
+    "category_label": "Surveillance, threats & intimidation",
+    "title": "surveillance",
+    "url": "ICE arrests at Philadelphia International evoke time when airport police helped military catch AWOL Vietnam War soldiers in 1960s",
+    "seendate": "http://www.cambodiantimes.com/news/279328605/ice-arrests-at-philadelphia-international-evoke-time-when-airport-police-helped-military-catch-awol-vietnam-war-soldiers-in-1960s",
+    "domain": "20260924T191500Z",
+    "language": "cambodiantimes.com",
+    "sourcecountry": "English",
+    "tone": "Cambodia",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "surveillance_intimidation",
+    "category_label": "Surveillance, threats & intimidation",
+    "title": "surveillance",
+    "url": "Indo - Africa roundtable on WASH held as part of second India International WASH Conference during 9th IIWW 2026",
+    "seendate": "http://www.calcuttanews.net/news/279329583/indo-africa-roundtable-on-wash-held-as-part-of-second-india-international-wash-conference-during-9th-iiww-2026",
+    "domain": "20260924T190000Z",
+    "language": "calcuttanews.net",
+    "sourcecountry": "English",
+    "tone": "India",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "surveillance_intimidation",
+    "category_label": "Surveillance, threats & intimidation",
+    "title": "surveillance",
+    "url": "Indo - Africa roundtable on WASH held as part of second India International WASH Conference during 9th IIWW 2026",
+    "seendate": "http://www.bruneinews.net/news/279329583/indo-africa-roundtable-on-wash-held-as-part-of-second-india-international-wash-conference-during-9th-iiww-2026",
+    "domain": "20260924T211500Z",
+    "language": "bruneinews.net",
+    "sourcecountry": "English",
+    "tone": "Malaysia",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "surveillance_intimidation",
+    "category_label": "Surveillance, threats & intimidation",
+    "title": "surveillance",
+    "url": "Indo - Africa roundtable on WASH held as part of second India International WASH Conference during 9th IIWW 2026",
+    "seendate": "http://www.bignewsnetwork.com/news/279329583/indo-africa-roundtable-on-wash-held-as-part-of-second-india-international-wash-conference-during-9th-iiww-2026",
+    "domain": "20260924T191500Z",
+    "language": "bignewsnetwork.com",
+    "sourcecountry": "English",
+    "tone": "United States",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "surveillance_intimidation",
+    "category_label": "Surveillance, threats & intimidation",
+    "title": "surveillance",
+    "url": "Indo - Africa roundtable on WASH held as part of second India International WASH Conference during 9th IIWW 2026",
+    "seendate": "http://www.azerbaijannews.net/news/279329583/indo-africa-roundtable-on-wash-held-as-part-of-second-india-international-wash-conference-during-9th-iiww-2026",
+    "domain": "20260924T213000Z",
+    "language": "azerbaijannews.net",
+    "sourcecountry": "English",
+    "tone": "Azerbaijan",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "surveillance_intimidation",
+    "category_label": "Surveillance, threats & intimidation",
+    "title": "surveillance",
+    "url": "Indo - Africa roundtable on WASH held as part of second India International WASH Conference during 9th IIWW 2026",
+    "seendate": "http://www.asiabulletin.com/news/279329583/indo-africa-roundtable-on-wash-held-as-part-of-second-india-international-wash-conference-during-9th-iiww-2026",
+    "domain": "20260924T204500Z",
+    "language": "asiabulletin.com",
+    "sourcecountry": "English",
+    "tone": "China",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
     "fetched_at": "2026-09-25T08:35:44.980671+00:00",
     "category_id": "detention_arrest",
     "category_label": "Arrests & detention",
