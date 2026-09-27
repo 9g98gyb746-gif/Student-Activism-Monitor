@@ -38,6 +38,120 @@
     ]
   },
   {
+    "fetched_at": "2026-09-27T06:35:08.377479+00:00",
+    "category_id": "detention_arrest",
+    "category_label": "Arrests & detention",
+    "title": "detained",
+    "url": "Un tânăr de 19 ani , agresat de un grup de persoane lângă un cămin studențesc . Șase suspecți , reținuți",
+    "seendate": "https://www.zdg.md/stiri/un-tanar-de-19-ani-agresat-de-un-grup-de-persoane-langa-un-camin-studentesc-sase-suspecti-retinuti/",
+    "domain": "20260925T091500Z",
+    "language": "zdg.md",
+    "sourcecountry": "Romanian",
+    "tone": "Moldova",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-27T06:35:08.377479+00:00",
+    "category_id": "detention_arrest",
+    "category_label": "Arrests & detention",
+    "title": "arrested",
+    "url": "Ladro seriale già in cella accusato di altri 7 colpi",
+    "seendate": "https://www.zazoom.it/2026-09-27/ladro-seriale-gia-in-cella-accusato-di-altri-7-colpi/19728182/",
+    "domain": "20260927T040000Z",
+    "language": "zazoom.it",
+    "sourcecountry": "Italian",
+    "tone": "Italy",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-27T06:35:08.377479+00:00",
+    "category_id": "detention_arrest",
+    "category_label": "Arrests & detention",
+    "title": "arrested",
+    "url": "Il teatro della Contraddizione Il prezzo del biglietto è libero E con gli attori si discute di libri",
+    "seendate": "https://www.zazoom.it/2026-09-27/il-teatro-della-contraddizione-il-prezzo-del-biglietto-e-libero-e-con-gli-attori-si-discute-di-libri/19728183/",
+    "domain": "20260927T040000Z",
+    "language": "zazoom.it",
+    "sourcecountry": "Italian",
+    "tone": "Italy",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-27T06:35:08.377479+00:00",
+    "category_id": "detention_arrest",
+    "category_label": "Arrests & detention",
+    "title": "detained",
+    "url": "Okul önündeki saldırıda YENİ GELİŞME ! ",
+    "seendate": "https://www.yenikonya.com.tr/guncel/okul_onundeki_saldirida_yeni_gelisme-1985330",
+    "domain": "20260925T083000Z",
+    "language": "yenikonya.com.tr",
+    "sourcecountry": "Turkish",
+    "tone": "Turkey",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-27T06:35:08.377479+00:00",
+    "category_id": "detention_arrest",
+    "category_label": "Arrests & detention",
+    "title": "arrested",
+    "url": "Venezuela releases dozens of prisoners following meeting between Trump and interim leader – Winnipeg Free Press",
+    "seendate": "https://www.winnipegfreepress.com/world/2026/09/26/venezuela-releases-dozens-of-prisoners-following-meeting-between-trump-and-interim-leader",
+    "domain": "20260927T010000Z",
+    "language": "winnipegfreepress.com",
+    "sourcecountry": "English",
+    "tone": "Canada",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-27T06:35:08.377479+00:00",
+    "category_id": "institutional_sanction",
+    "category_label": "Institutional & academic sanctions",
+    "title": "expelled",
+    "url": "Trump administration moves to limit fixes for systemic racism in schools",
+    "seendate": "https://www.winchesterstar.com/associated_press/washington/trump-administration-moves-to-limit-fixes-for-systemic-racism-in-schools/article_696de3da-8ba2-58fe-a58b-58529ef26945.html",
+    "domain": "20260925T070000Z",
+    "language": "winchesterstar.com",
+    "sourcecountry": "English",
+    "tone": "United States",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
     "fetched_at": "2026-09-26T06:34:17.496269+00:00",
     "category_id": "physical_violence",
     "category_label": "Physical violence & killings",
@@ -46,6 +160,25 @@
     "seendate": "https://www.wfmz.com/news/ap/ap-national/nolan-wells-family-plans-release-of-cellphone-report-amid-calls-for-further-investigation/article_9bae945a-98ca-5742-b68c-cca9b4af2500.html",
     "domain": "20260925T043000Z",
     "language": "wfmz.com",
+    "sourcecountry": "English",
+    "tone": "United States",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-27T06:35:08.377479+00:00",
+    "category_id": "detention_arrest",
+    "category_label": "Arrests & detention",
+    "title": "arrested",
+    "url": "Families devastated after 7 - 1 vote to close Mt . Hermon upper school",
+    "seendate": "https://www.wdsu.com/article/families-devastated-after-7-1-vote-to-close-mt-hermons-upper-school/73878799",
+    "domain": "20260925T073000Z",
+    "language": "wdsu.com",
     "sourcecountry": "English",
     "tone": "United States",
     "watchlist_country": "",
@@ -95,6 +228,25 @@
     ]
   },
   {
+    "fetched_at": "2026-09-27T06:35:08.377479+00:00",
+    "category_id": "detention_arrest",
+    "category_label": "Arrests & detention",
+    "title": "arrested",
+    "url": " „ Lietuvos Katalikų Bažnyčios kronikos  platintojas Paulius Petronis ir mažai žinomi jo pėdsakai",
+    "seendate": "https://www.voruta.lt/lietuvos-kataliku-baznycios-kronikos-platintojas-paulius-petronis-ir-mazai-zinomi-jo-pedsakai/",
+    "domain": "20260925T064500Z",
+    "language": "voruta.lt",
+    "sourcecountry": "Lithuanian",
+    "tone": "Lithuania",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
     "fetched_at": "2026-09-26T06:34:17.496269+00:00",
     "category_id": "surveillance_intimidation",
     "category_label": "Surveillance, threats & intimidation",
@@ -105,6 +257,44 @@
     "language": "vetogate.com",
     "sourcecountry": "Arabic",
     "tone": "Egypt",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-27T06:35:08.377479+00:00",
+    "category_id": "detention_arrest",
+    "category_label": "Arrests & detention",
+    "title": "taken into custody",
+    "url": "After japa … When the dream meets reality",
+    "seendate": "https://www.vanguardngr.com/2026/09/after-japa-when-the-dream-meets-reality/",
+    "domain": "20260925T064500Z",
+    "language": "vanguardngr.com",
+    "sourcecountry": "English",
+    "tone": "Nigeria",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-27T06:35:08.377479+00:00",
+    "category_id": "detention_arrest",
+    "category_label": "Arrests & detention",
+    "title": "taken into custody",
+    "url": "UPDATE : Two dead , four apprehended in Friday night shooting in New Town",
+    "seendate": "https://www.valleynewslive.com/2026/09/26/update-two-dead-four-apprehended-friday-night-shooting-new-town/",
+    "domain": "20260927T003000Z",
+    "language": "valleynewslive.com",
+    "sourcecountry": "English",
+    "tone": "United States",
     "watchlist_country": "",
     "relevance": "",
     "relevance_reason": "no",
@@ -152,6 +342,63 @@
     ]
   },
   {
+    "fetched_at": "2026-09-27T06:35:08.377479+00:00",
+    "category_id": "detention_arrest",
+    "category_label": "Arrests & detention",
+    "title": "detained",
+    "url": "Manisada okul saldırısında 10 şüpheli adliyeye sevk edildi – Güncel Haberler , Son Dakika Haberleri , Turktime Haber Portalı",
+    "seendate": "https://www.turktime.com/haber/manisa-da-okul-saldirisinda-10-supheli-adliyeye-sevk-edildi/754846",
+    "domain": "20260925T073000Z",
+    "language": "turktime.com",
+    "sourcecountry": "Turkish",
+    "tone": "Turkey",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-27T06:35:08.377479+00:00",
+    "category_id": "detention_arrest",
+    "category_label": "Arrests & detention",
+    "title": "arrested",
+    "url": "DU SUV harassment case : Three accused linked to varsity , police now probe  three - station  complaint delay",
+    "seendate": "https://www.tribuneindia.com/news/delhi/du-suv-harassment-case-three-accused-linked-to-varsity-police-now-probe-three-station-complaint-delay/",
+    "domain": "20260927T003000Z",
+    "language": "tribuneindia.com",
+    "sourcecountry": "English",
+    "tone": "India",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-27T06:35:08.377479+00:00",
+    "category_id": "institutional_sanction",
+    "category_label": "Institutional & academic sanctions",
+    "title": "expelled",
+    "url": "Journalists celebrated , inducted - Tribune Chronicle",
+    "seendate": "https://www.tribtoday.com/news/local-news/2026/09/journalists-celebrated-inducted/",
+    "domain": "20260925T080000Z",
+    "language": "tribtoday.com",
+    "sourcecountry": "English",
+    "tone": "United States",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
     "fetched_at": "2026-09-26T06:34:17.496269+00:00",
     "category_id": "physical_violence",
     "category_label": "Physical violence & killings",
@@ -162,6 +409,44 @@
     "language": "townsvillebulletin.com.au",
     "sourcecountry": "English",
     "tone": "Australia",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-27T06:35:08.377479+00:00",
+    "category_id": "institutional_sanction",
+    "category_label": "Institutional & academic sanctions",
+    "title": "suspended",
+    "url": "Just Stop Oil protesters sentenced for Radcliffe Camera paint stunt",
+    "seendate": "https://www.thisisoxfordshire.co.uk/news/26579710.just-stop-oil-protesters-sentenced-radcliffe-camera-paint-stunt/",
+    "domain": "20260925T071500Z",
+    "language": "thisisoxfordshire.co.uk",
+    "sourcecountry": "English",
+    "tone": "United Kingdom",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "yes",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-27T06:35:08.377479+00:00",
+    "category_id": "detention_arrest",
+    "category_label": "Arrests & detention",
+    "title": "arrested",
+    "url": "Former tahfiz school head remanded in sexual assault probe",
+    "seendate": "https://www.thestar.com.my/news/nation/2026/09/27/former-tahfiz-school-head-remanded-in-sexual-assault-probe",
+    "domain": "20260927T051500Z",
+    "language": "thestar.com.my",
+    "sourcecountry": "English",
+    "tone": "Malaysia",
     "watchlist_country": "",
     "relevance": "",
     "relevance_reason": "no",
@@ -200,6 +485,63 @@
     "language": "theland.com.au",
     "sourcecountry": "English",
     "tone": "Australia",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-27T06:35:08.377479+00:00",
+    "category_id": "detention_arrest",
+    "category_label": "Arrests & detention",
+    "title": "arrested",
+    "url": "Three , including minor , arrested for alleged assault of minor girl in Thiruvananthapuram",
+    "seendate": "https://www.thehindu.com/news/national/kerala/three-including-minor-arrested-for-alleged-assault-of-minor-girl-in-thiruvananthapuram/article71507382.ece",
+    "domain": "20260925T070000Z",
+    "language": "thehindu.com",
+    "sourcecountry": "English",
+    "tone": "India",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-27T06:35:08.377479+00:00",
+    "category_id": "detention_arrest",
+    "category_label": "Arrests & detention",
+    "title": "arrested",
+    "url": "Myanmar coup : Former Miss Grand International contestant on her journey from protest leader to resistance fighter and film star",
+    "seendate": "https://www.theage.com.au/national/nsw/meet-the-beauty-queen-turned-freedom-fighter-who-made-her-home-in-australia-20260927-p60q73.html",
+    "domain": "20260927T010000Z",
+    "language": "theage.com.au",
+    "sourcecountry": "English",
+    "tone": "Australia",
+    "watchlist_country": "",
+    "relevance": "Myanmar",
+    "relevance_reason": "yes",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-27T06:35:08.377479+00:00",
+    "category_id": "detention_arrest",
+    "category_label": "Arrests & detention",
+    "title": "arrested",
+    "url": "Venezuela releases dozens of prisoners following meeting between Trump and interim leader",
+    "seendate": "https://www.the-messenger.com/news/world/article_6da6c43a-803a-50e1-a9aa-5dcd99818396.html",
+    "domain": "20260927T010000Z",
+    "language": "the-messenger.com",
+    "sourcecountry": "English",
+    "tone": "United States",
     "watchlist_country": "",
     "relevance": "",
     "relevance_reason": "no",
@@ -304,6 +646,25 @@
     ]
   },
   {
+    "fetched_at": "2026-09-27T06:35:08.377479+00:00",
+    "category_id": "detention_arrest",
+    "category_label": "Arrests & detention",
+    "title": "arrested",
+    "url": "Μασάο Αντάτσι : Ο 87χρονος Ιάπωνας « αντάρτης » του σινεμά επιστρέφει",
+    "seendate": "https://www.sofokleousin.gr/eyzin/masao-antatsi-o-87xronos-iaponas-antartis-tou-sinema-epistrefei",
+    "domain": "20260925T071500Z",
+    "language": "sofokleousin.gr",
+    "sourcecountry": "Greek",
+    "tone": "Greece",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
     "fetched_at": "2026-09-26T06:34:17.496269+00:00",
     "category_id": "delegitimization",
     "category_label": "Delegitimization & smear campaigns",
@@ -323,6 +684,44 @@
     ]
   },
   {
+    "fetched_at": "2026-09-27T06:35:08.377479+00:00",
+    "category_id": "detention_arrest",
+    "category_label": "Arrests & detention",
+    "title": "arrested",
+    "url": "Ινδία : Οι βιασμοί επιμένουν παρά τις αυστηρές ποινές – Το παγκόσμιο πρόβλημα της σεξουαλικής βίας",
+    "seendate": "https://www.skai.gr/news/world/india-oi-viasmoi-epimenoun-para-tis-aystires-poines-to-pagkosmio-provlima-tis-seksoualikis",
+    "domain": "20260925T073000Z",
+    "language": "skai.gr",
+    "sourcecountry": "Greek",
+    "tone": "Greece",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-27T06:35:08.377479+00:00",
+    "category_id": "detention_arrest",
+    "category_label": "Arrests & detention",
+    "title": "detained",
+    "url": "Hate takes many forms : 62 incidents targeting minorities in August",
+    "seendate": "https://www.siasat.com/hate-takes-many-forms-62-incidents-targeting-minorities-in-august-3545805/",
+    "domain": "20260927T040000Z",
+    "language": "siasat.com",
+    "sourcecountry": "English",
+    "tone": "India",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
     "fetched_at": "2026-09-26T06:34:17.496269+00:00",
     "category_id": "surveillance_intimidation",
     "category_label": "Surveillance, threats & intimidation",
@@ -333,6 +732,25 @@
     "language": "shorouknews.com",
     "sourcecountry": "Arabic",
     "tone": "Egypt",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-27T06:35:08.377479+00:00",
+    "category_id": "institutional_sanction",
+    "category_label": "Institutional & academic sanctions",
+    "title": "suspended",
+    "url": "列車故障冒白煙 ！ 他怒 「 5折學生票變原價 」 台鐵道歉了 | 生活 | 三立新聞網 SETN . COM",
+    "seendate": "https://www.setn.com/news/1912847",
+    "domain": "20260925T084500Z",
+    "language": "setn.com",
+    "sourcecountry": "Chinese",
+    "tone": "Taiwan",
     "watchlist_country": "",
     "relevance": "",
     "relevance_reason": "no",
@@ -437,6 +855,25 @@
     ]
   },
   {
+    "fetched_at": "2026-09-27T06:35:08.377479+00:00",
+    "category_id": "institutional_sanction",
+    "category_label": "Institutional & academic sanctions",
+    "title": "expelled",
+    "url": "LETTER : Racial disparities and faulty logic",
+    "seendate": "https://www.reviewjournal.com/opinion/letters/letter-racial-disparities-and-faulty-logic-3891753/",
+    "domain": "20260927T051500Z",
+    "language": "reviewjournal.com",
+    "sourcecountry": "English",
+    "tone": "United States",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
     "fetched_at": "2026-09-26T06:34:17.496269+00:00",
     "category_id": "surveillance_intimidation",
     "category_label": "Surveillance, threats & intimidation",
@@ -447,6 +884,25 @@
     "language": "reviewjournal.com",
     "sourcecountry": "English",
     "tone": "United States",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-27T06:35:08.377479+00:00",
+    "category_id": "detention_arrest",
+    "category_label": "Arrests & detention",
+    "title": "arrested",
+    "url": "Pak PM Sharif dodges questions on Hafiz Saeed , terror at UN",
+    "seendate": "https://www.rediff.com/news/report/pak-pm-sharif-dodges-questions-on-hafiz-saeed-terror-at-un/20260925.htm",
+    "domain": "20260925T091500Z",
+    "language": "rediff.com",
+    "sourcecountry": "English",
+    "tone": "India",
     "watchlist_country": "",
     "relevance": "",
     "relevance_reason": "no",
@@ -570,6 +1026,25 @@
     ]
   },
   {
+    "fetched_at": "2026-09-27T06:35:08.377479+00:00",
+    "category_id": "detention_arrest",
+    "category_label": "Arrests & detention",
+    "title": "arrested",
+    "url": "बर्थडे का दिन बना बुरा सपना , दोस्त के मंदिर गई थी ; कालकाजी गैंगरे * प पीड़िता ने सुनाई आपबीती - birthday turned into a nightmare kalkaji gang ra pe victim recounts her ordeal",
+    "seendate": "https://www.punjabkesari.in/national/news/birthday-turned-into-a-nightmare-kalkaji-gang-ra-pe-victim-recounts-her-ordeal-2383072",
+    "domain": "20260925T070000Z",
+    "language": "punjabkesari.in",
+    "sourcecountry": "Hindi",
+    "tone": "India",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
     "fetched_at": "2026-09-26T06:34:17.496269+00:00",
     "category_id": "surveillance_intimidation",
     "category_label": "Surveillance, threats & intimidation",
@@ -580,6 +1055,25 @@
     "language": "pulzo.com",
     "sourcecountry": "Spanish",
     "tone": "Colombia",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-27T06:35:08.377479+00:00",
+    "category_id": "institutional_sanction",
+    "category_label": "Institutional & academic sanctions",
+    "title": "expelled",
+    "url": "Primera Nacional : Chacarita volvió a perder y sigue en la zona de descenso :: Diario Pregon de Jujuy",
+    "seendate": "https://www.pregon.com.ar/nota/-72717/2026/09/primera-nacional--chacarita-volvio-a-perder-y-sigue-en-la-zona-de-descenso",
+    "domain": "20260927T051500Z",
+    "language": "pregon.com.ar",
+    "sourcecountry": "Spanish",
+    "tone": "Argentina",
     "watchlist_country": "",
     "relevance": "",
     "relevance_reason": "no",
@@ -608,6 +1102,44 @@
     ]
   },
   {
+    "fetched_at": "2026-09-27T06:35:08.377479+00:00",
+    "category_id": "detention_arrest",
+    "category_label": "Arrests & detention",
+    "title": "arrested",
+    "url": "रांची : स्कूल हॉस्टल में 5वीं के छात्र से अप्राकृतिक यौन उत्पीड़न",
+    "seendate": "https://www.prabhatkhabar.com/state/jharkhand/ranchi-5th-grader-sexually-assaulted-by-9th-grader-in-school-hostel-minor-arrested",
+    "domain": "20260927T063000Z",
+    "language": "prabhatkhabar.com",
+    "sourcecountry": "Hindi",
+    "tone": "India",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-27T06:35:08.377479+00:00",
+    "category_id": "institutional_sanction",
+    "category_label": "Institutional & academic sanctions",
+    "title": "expelled",
+    "url": "Ξυλοκέρα : Ένα ιστορικό χωριό της Ηλείας που αρνείται να γίνει « φάντασμα » - PatrisNews",
+    "seendate": "https://www.patrisnews.com/xylokera-ena-istoriko-chorio-tis-ileias-poy-arneitai-na-ginei-fantasma/",
+    "domain": "20260927T063000Z",
+    "language": "patrisnews.com",
+    "sourcecountry": "Greek",
+    "tone": "Greece",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
     "fetched_at": "2026-09-26T06:34:17.496269+00:00",
     "category_id": "physical_violence",
     "category_label": "Physical violence & killings",
@@ -621,6 +1153,25 @@
     "watchlist_country": "",
     "relevance": "",
     "relevance_reason": "yes",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-27T06:35:08.377479+00:00",
+    "category_id": "detention_arrest",
+    "category_label": "Arrests & detention",
+    "title": "taken into custody",
+    "url": "Noida DM Plea : Lawyer Body Questions  Out - Of - Turn  Listing , Muting Of Supreme Court Hearing",
+    "seendate": "https://www.oneindia.com/india/noida-dm-plea-lawyers-body-questions-out-of-turn-listing-muting-of-supreme-court-hearing-8215365.html",
+    "domain": "20260925T070000Z",
+    "language": "oneindia.com",
+    "sourcecountry": "English",
+    "tone": "India",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
     "null": [
       "",
       ""
@@ -646,6 +1197,44 @@
     ]
   },
   {
+    "fetched_at": "2026-09-27T06:35:08.377479+00:00",
+    "category_id": "detention_arrest",
+    "category_label": "Arrests & detention",
+    "title": "detained",
+    "url": "Turgutlu saldırganı ve ailesi adliyeye sevk edildi ... 10 şüpheli savcı karşısında",
+    "seendate": "https://www.odatv.com/guncel/turgutlu-saldirgani-ve-ailesi-adliyeye-sevk-edildi-10-supheli-savci-karsisinda-120163988",
+    "domain": "20260925T071500Z",
+    "language": "odatv.com",
+    "sourcecountry": "Turkish",
+    "tone": "Turkey",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-27T06:35:08.377479+00:00",
+    "category_id": "detention_arrest",
+    "category_label": "Arrests & detention",
+    "title": "arrested",
+    "url": "GOP lawmakers want crimes involving children to be bail eligible",
+    "seendate": "https://www.observertoday.com/news/local-region/2026/09/gop-lawmakers-want-crimes-involving-children-to-be-bail-eligible/",
+    "domain": "20260925T091500Z",
+    "language": "observertoday.com",
+    "sourcecountry": "English",
+    "tone": "United States",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
     "fetched_at": "2026-09-26T06:34:17.496269+00:00",
     "category_id": "surveillance_intimidation",
     "category_label": "Surveillance, threats & intimidation",
@@ -656,6 +1245,44 @@
     "language": "nydailynews.com",
     "sourcecountry": "English",
     "tone": "United States",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-27T06:35:08.377479+00:00",
+    "category_id": "detention_arrest",
+    "category_label": "Arrests & detention",
+    "title": "detained",
+    "url": "Manisada okul önündeki saldırıda yeni gelişme : Adliyeye sevk edildiler",
+    "seendate": "https://www.ntv.com.tr/gundem/galeri-manisada-okul-onundeki-saldirida-yeni-gelisme-adliyeye-sevk-edildiler-1743393",
+    "domain": "20260925T071500Z",
+    "language": "ntv.com.tr",
+    "sourcecountry": "Turkish",
+    "tone": "Turkey",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-27T06:35:08.377479+00:00",
+    "category_id": "institutional_sanction",
+    "category_label": "Institutional & academic sanctions",
+    "title": "suspended",
+    "url": " 【 新聞直擊 】「 海王星 」 出擊 ！ 俄導彈工廠遭猛打 鎧甲防空也挨炸 ！ | 烏克蘭 | 俄軍生產導彈 | 川習會",
+    "seendate": "https://www.ntdtv.com/b5/2026/09/26/a104136649.html",
+    "domain": "20260927T001500Z",
+    "language": "ntdtv.com",
+    "sourcecountry": "Chinese",
+    "tone": "China",
     "watchlist_country": "",
     "relevance": "",
     "relevance_reason": "no",
@@ -779,6 +1406,25 @@
     ]
   },
   {
+    "fetched_at": "2026-09-27T06:35:08.377479+00:00",
+    "category_id": "detention_arrest",
+    "category_label": "Arrests & detention",
+    "title": "arrested",
+    "url": "Two Kuki student leaders from Manipur arrested by NIA in Mizoram",
+    "seendate": "https://www.newindianexpress.com/india/2026/Sep/25/two-kuki-student-leaders-from-manipur-arrested-by-nia-in-mizoram",
+    "domain": "20260925T070000Z",
+    "language": "newindianexpress.com",
+    "sourcecountry": "English",
+    "tone": "India",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
     "fetched_at": "2026-09-26T06:34:17.496269+00:00",
     "category_id": "surveillance_intimidation",
     "category_label": "Surveillance, threats & intimidation",
@@ -855,6 +1501,25 @@
     ]
   },
   {
+    "fetched_at": "2026-09-27T06:35:08.377479+00:00",
+    "category_id": "detention_arrest",
+    "category_label": "Arrests & detention",
+    "title": "detained",
+    "url": "11 öğrencinin yaralandığı silahlı saldırıda 10 şüpheli adliyeye sevk edildi",
+    "seendate": "https://www.milliyet.com.tr/gundem/11-ogrencinin-yaralandigi-silahli-saldirida-10-supheli-adliyeye-sevk-edildi-7667119",
+    "domain": "20260925T064500Z",
+    "language": "milliyet.com.tr",
+    "sourcecountry": "Turkish",
+    "tone": "Turkey",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
     "fetched_at": "2026-09-26T06:34:17.496269+00:00",
     "category_id": "surveillance_intimidation",
     "category_label": "Surveillance, threats & intimidation",
@@ -912,6 +1577,120 @@
     ]
   },
   {
+    "fetched_at": "2026-09-27T06:35:08.377479+00:00",
+    "category_id": "detention_arrest",
+    "category_label": "Arrests & detention",
+    "title": "arrested",
+    "url": "Lattaque de Belleville devrait servir de « signal dalarme » face à lantisémitisme",
+    "seendate": "https://www.lecourriersud.com/nouvelles-nationales/lattaque-de-belleville-devrait-servir-de-signal-dalarme-face-a-lantisemitisme/",
+    "domain": "20260925T091500Z",
+    "language": "lecourriersud.com",
+    "sourcecountry": "French",
+    "tone": "Canada",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-27T06:35:08.377479+00:00",
+    "category_id": "detention_arrest",
+    "category_label": "Arrests & detention",
+    "title": "arrested",
+    "url": "Agustín Argüelles , el tribuno honrado",
+    "seendate": "https://www.lavozdeasturias.es/noticia/opinion/2026/09/25/agustin-arguelles-tribuno-honrado/00031790328951792819300.htm",
+    "domain": "20260927T051500Z",
+    "language": "lavozdeasturias.es",
+    "sourcecountry": "Spanish",
+    "tone": "Spain",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-27T06:35:08.377479+00:00",
+    "category_id": "institutional_sanction",
+    "category_label": "Institutional & academic sanctions",
+    "title": "suspended",
+    "url": "Un cirujano para la educación , por Joan Esculies",
+    "seendate": "https://www.lavanguardia.com/politica/20260925/11643112/cirujano-educacion.html",
+    "domain": "20260925T070000Z",
+    "language": "lavanguardia.com",
+    "sourcecountry": "Spanish",
+    "tone": "Spain",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-27T06:35:08.377479+00:00",
+    "category_id": "institutional_sanction",
+    "category_label": "Institutional & academic sanctions",
+    "title": "suspended",
+    "url": "Trump cancela el financiamiento de servicios para refugiados e inmigrantes : legisladores de EE . UU . consideran medida como  ilegal  ",
+    "seendate": "https://www.latercera.com/mundo/noticia/trump-cancela-el-financiamiento-de-servicios-para-refugiados-e-inmigrantes-legisladores-de-eeuu-consideran-medida-como-ilegal/",
+    "domain": "20260927T003000Z",
+    "language": "latercera.com",
+    "sourcecountry": "Spanish",
+    "tone": "Chile",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-27T06:35:08.377479+00:00",
+    "category_id": "institutional_sanction",
+    "category_label": "Institutional & academic sanctions",
+    "title": "suspended",
+    "url": "Lamezia , non risponde ai magistrati ragazzo che voleva accoltellare docente",
+    "seendate": "https://www.lametino.it/cronaca/lamezia-non-risponde-ai-magistrati-ragazzo-che-voleva-accoltellare-docente.html",
+    "domain": "20260925T091500Z",
+    "language": "lametino.it",
+    "sourcecountry": "Italian",
+    "tone": "Italy",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-27T06:35:08.377479+00:00",
+    "category_id": "institutional_sanction",
+    "category_label": "Institutional & academic sanctions",
+    "title": "expelled",
+    "url": "Jorge Almirón tocó el cielo auriazul con las manos por la obtención de la Superliga Internacional",
+    "seendate": "https://www.lacapital.com.ar/ovacion/jorge-almiron-toco-el-cielo-auriazul-las-manos-la-obtencion-la-superliga-internacional-n10283395.html",
+    "domain": "20260927T003000Z",
+    "language": "lacapital.com.ar",
+    "sourcecountry": "Spanish",
+    "tone": "Argentina",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
     "fetched_at": "2026-09-26T06:34:17.496269+00:00",
     "category_id": "delegitimization",
     "category_label": "Delegitimization & smear campaigns",
@@ -950,6 +1729,25 @@
     ]
   },
   {
+    "fetched_at": "2026-09-27T06:35:08.377479+00:00",
+    "category_id": "detention_arrest",
+    "category_label": "Arrests & detention",
+    "title": "arrested",
+    "url": "חפצים הושלכו , קריאות  אנטישמי  הוטחו : מהומה בביקור בנט בבני ברק",
+    "seendate": "https://www.kipa.co.il/%D7%97%D7%93%D7%A9%D7%95%D7%AA/1232312-0/",
+    "domain": "20260925T070000Z",
+    "language": "kipa.co.il",
+    "sourcecountry": "Hebrew",
+    "tone": "Israel",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
     "fetched_at": "2026-09-26T06:34:17.496269+00:00",
     "category_id": "physical_violence",
     "category_label": "Physical violence & killings",
@@ -960,6 +1758,25 @@
     "language": "khaskhabar.com",
     "sourcecountry": "Hindi",
     "tone": "India",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-27T06:35:08.377479+00:00",
+    "category_id": "detention_arrest",
+    "category_label": "Arrests & detention",
+    "title": "arrested",
+    "url": "Tributes for boy who died in hospital after shooting",
+    "seendate": "https://www.juneesoutherncross.com.au/story/9357145/tributes-for-boy-who-died-in-hospital-after-shooting/",
+    "domain": "20260925T070000Z",
+    "language": "juneesoutherncross.com.au",
+    "sourcecountry": "English",
+    "tone": "Australia",
     "watchlist_country": "",
     "relevance": "",
     "relevance_reason": "no",
@@ -1007,6 +1824,44 @@
     ]
   },
   {
+    "fetched_at": "2026-09-27T06:35:08.377479+00:00",
+    "category_id": "detention_arrest",
+    "category_label": "Arrests & detention",
+    "title": "arrested",
+    "url": "Police arrest juvenile following threat against middle school in Imperial",
+    "seendate": "https://www.ivpressonline.com/news/police-arrest-juvenile-following-threat-against-middle-school-in-imperial/article_01e15930-4c51-4b1c-959b-b22ff6ebc7db.html",
+    "domain": "20260925T084500Z",
+    "language": "ivpressonline.com",
+    "sourcecountry": "English",
+    "tone": "United States",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-27T06:35:08.377479+00:00",
+    "category_id": "legal_harassment",
+    "category_label": "Legal harassment & lawfare",
+    "title": "prosecuted",
+    "url": "Mamdani genocide accusation : Why the silence on Iran ? ",
+    "seendate": "https://www.israelnationalnews.com/news/433685",
+    "domain": "20260927T063000Z",
+    "language": "israelnationalnews.com",
+    "sourcecountry": "English",
+    "tone": "Israel",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
     "fetched_at": "2026-09-26T06:34:17.496269+00:00",
     "category_id": "surveillance_intimidation",
     "category_label": "Surveillance, threats & intimidation",
@@ -1017,6 +1872,25 @@
     "language": "insidenova.com",
     "sourcecountry": "English",
     "tone": "United States",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-27T06:35:08.377479+00:00",
+    "category_id": "detention_arrest",
+    "category_label": "Arrests & detention",
+    "title": "arrested",
+    "url": "Μαργαρίτα Παπανδρέου : Η Αμερικανίδα που έγινε Ελληνίδα … ",
+    "seendate": "https://www.inewsgr.com/351/margarita-papandreou-i-amerikanida-pou-egine-ellinida.htm",
+    "domain": "20260927T063000Z",
+    "language": "inewsgr.com",
+    "sourcecountry": "Greek",
+    "tone": "Greece",
     "watchlist_country": "",
     "relevance": "",
     "relevance_reason": "no",
@@ -1064,6 +1938,25 @@
     ]
   },
   {
+    "fetched_at": "2026-09-27T06:35:08.377479+00:00",
+    "category_id": "institutional_sanction",
+    "category_label": "Institutional & academic sanctions",
+    "title": "suspended",
+    "url": "Come la sinistra americana sta cambiando idea sul  woke  ",
+    "seendate": "https://www.ilpost.it/2026/09/04/sinistra-americana-woke/?homepagePosition=2.1&referrerPost=3687343",
+    "domain": "20260925T094500Z",
+    "language": "ilpost.it",
+    "sourcecountry": "Italian",
+    "tone": "Italy",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
     "fetched_at": "2026-09-26T06:34:17.496269+00:00",
     "category_id": "surveillance_intimidation",
     "category_label": "Surveillance, threats & intimidation",
@@ -1072,6 +1965,25 @@
     "seendate": "https://www.ilmattino.it/primopiano/esteri/crans_montana_barista_moretti_intimidivano_dipendenti_locale-9784666.html",
     "domain": "20260925T081500Z",
     "language": "ilmattino.it",
+    "sourcecountry": "Italian",
+    "tone": "Italy",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-27T06:35:08.377479+00:00",
+    "category_id": "institutional_sanction",
+    "category_label": "Institutional & academic sanctions",
+    "title": "suspended",
+    "url": " « Non c  è mezzo posto libero per mettere le bici ». Pendolari in rivolta contro il Comune : al posto delle rastrelliere vuole mettere parcheggi per auto",
+    "seendate": "https://www.ilgazzettino.it/nordest/pendolari_stazione_treviso_mancano_posti_parcheggi_biciclette-9784596.html",
+    "domain": "20260925T091500Z",
+    "language": "ilgazzettino.it",
     "sourcecountry": "Italian",
     "tone": "Italy",
     "watchlist_country": "",
@@ -1102,7 +2014,45 @@
     ]
   },
   {
+    "fetched_at": "2026-09-27T06:35:08.377479+00:00",
+    "category_id": "institutional_sanction",
+    "category_label": "Institutional & academic sanctions",
+    "title": "suspended",
+    "url": "LYonne : un département qui grouille de petits bonheurs pour Yveline",
+    "seendate": "https://www.ici.fr/emissions/les-petits-bonheurs-ici-auxerre/l-yonne-un-departement-qui-grouille-de-petits-bonheurs-pour-yveline-7028078",
+    "domain": "20260925T073000Z",
+    "language": "ici.fr",
+    "sourcecountry": "French",
+    "tone": "",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
     "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "physical_violence",
+    "category_label": "Physical violence & killings",
+    "title": "murdered",
+    "url": "Gabriel Moreno González : El otoño de los patriarcas",
+    "seendate": "https://www.hoy.es/opinion/gabriel-moreno-gonzalez-otono-patriarcas-20260925084814-nt.html",
+    "domain": "20260925T093000Z",
+    "language": "hoy.es",
+    "sourcecountry": "Spanish",
+    "tone": "Spain",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-27T06:35:08.377479+00:00",
     "category_id": "physical_violence",
     "category_label": "Physical violence & killings",
     "title": "murdered",
@@ -1159,7 +2109,159 @@
     ]
   },
   {
+    "fetched_at": "2026-09-27T06:35:08.377479+00:00",
+    "category_id": "physical_violence",
+    "category_label": "Physical violence & killings",
+    "title": "murdered",
+    "url": "Historias más allá de las cifras : Mahya Nami , una niña de seis años , fue asesinada antes de poder regresar a la escuela",
+    "seendate": "https://www.hispantv.com/noticias/opinion/661177/mas-alla-cifras-mahya-nami-nina-seis-anos-asesinada-escuela",
+    "domain": "20260927T050000Z",
+    "language": "hispantv.com",
+    "sourcecountry": "Spanish",
+    "tone": "Syria",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-27T06:35:08.377479+00:00",
+    "category_id": "institutional_sanction",
+    "category_label": "Institutional & academic sanctions",
+    "title": "suspended",
+    "url": "Politik är inte ett val mellan total seger och total kapitulation – Hufvudstadsbladet",
+    "seendate": "https://www.hbl.fi/opinion/politik-ar-inte-ett-val-mellan-total-seger-och-total-kapitulation/",
+    "domain": "20260925T091500Z",
+    "language": "hbl.fi",
+    "sourcecountry": "Swedish",
+    "tone": "Finland",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-27T06:35:08.377479+00:00",
+    "category_id": "detention_arrest",
+    "category_label": "Arrests & detention",
+    "title": "detained",
+    "url": "Turgutluda okul civarında silahlı saldırı : 11 öğrenci yaralandı , 10 şüpheli adliyeye sevk edildi",
+    "seendate": "https://www.haberport.com/haber/turgutluda-okul-civarinda-silahli-saldiri-11-ogrenci-yaralandi-10-supheli-adliyeye-sevk-edildi/36018",
+    "domain": "20260925T083000Z",
+    "language": "haberport.com",
+    "sourcecountry": "Turkish",
+    "tone": "Turkey",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-27T06:35:08.377479+00:00",
+    "category_id": "detention_arrest",
+    "category_label": "Arrests & detention",
+    "title": "detained",
+    "url": "Manisa Turgutluda 11 öğrenci yaralandı , saldırıda 10 şüpheli adliyeye sevk edildi",
+    "seendate": "https://www.haberler.com/guncel/manisa-turgutlu-da-11-ogrenci-yaralandi-saldirida-20269674-haberi/",
+    "domain": "20260925T081500Z",
+    "language": "haberler.com",
+    "sourcecountry": "Turkish",
+    "tone": "Turkey",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-27T06:35:08.377479+00:00",
+    "category_id": "detention_arrest",
+    "category_label": "Arrests & detention",
+    "title": "arrested",
+    "url": "Endonezyada öğrencisine cinsel saldırıdan hüküm giyen öğretmen gizlice tahliye edildi ! Mağdurlar onu hâlâ cezaevinde sanıyordu",
+    "seendate": "https://www.haberler.com/dunya/endonezya-da-islami-okulda-cinsel-saldiridan-20269325-haberi/",
+    "domain": "20260925T070000Z",
+    "language": "haberler.com",
+    "sourcecountry": "Turkish",
+    "tone": "Turkey",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-27T06:35:08.377479+00:00",
+    "category_id": "detention_arrest",
+    "category_label": "Arrests & detention",
+    "title": "detained",
+    "url": "Manisa Turgutluda saldırıda 11 öğrenci yaralandı , 10 şüpheli adliyeye sevk edildi",
+    "seendate": "https://www.haberler.com/3-sayfa/manisa-turgutlu-da-saldirida-11-ogrenci-yaralandi-20269809-haberi/",
+    "domain": "20260925T083000Z",
+    "language": "haberler.com",
+    "sourcecountry": "Turkish",
+    "tone": "Turkey",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-27T06:35:08.377479+00:00",
+    "category_id": "detention_arrest",
+    "category_label": "Arrests & detention",
+    "title": "arrested",
+    "url": "The Role of Goldman Sachs in Engineering Global Financial Crises",
+    "seendate": "https://www.greanvillepost.com/the-role-of-goldman-sachs-in-engineering-global-financial-crises/",
+    "domain": "20260927T010000Z",
+    "language": "greanvillepost.com",
+    "sourcecountry": "English",
+    "tone": "United States",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
     "fetched_at": "2026-09-26T06:34:17.496269+00:00",
+    "category_id": "physical_violence",
+    "category_label": "Physical violence & killings",
+    "title": "murdered",
+    "url": "  Becoming Colorado  documentary series examines the state tales , traditions and tragedies",
+    "seendate": "https://www.gjsentinel.com/news/western_colorado/becoming-colorado-documentary-series-examines-the-states-tales-traditions-and-tragedies/article_096addc3-e407-40cf-9b0f-0c46000650f3.html",
+    "domain": "20260925T073000Z",
+    "language": "gjsentinel.com",
+    "sourcecountry": "English",
+    "tone": "United States",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-27T06:35:08.377479+00:00",
     "category_id": "physical_violence",
     "category_label": "Physical violence & killings",
     "title": "murdered",
@@ -1216,6 +2318,120 @@
     ]
   },
   {
+    "fetched_at": "2026-09-27T06:35:08.377479+00:00",
+    "category_id": "institutional_sanction",
+    "category_label": "Institutional & academic sanctions",
+    "title": "suspended",
+    "url": "Indore Holkar Science College Acts Against Seven Students After Campus Fight",
+    "seendate": "https://www.freepressjournal.in/indore/indores-holkar-science-college-acts-against-seven-students-after-campus-fight",
+    "domain": "20260927T023000Z",
+    "language": "freepressjournal.in",
+    "sourcecountry": "English",
+    "tone": "India",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "yes",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-27T06:35:08.377479+00:00",
+    "category_id": "detention_arrest",
+    "category_label": "Arrests & detention",
+    "title": "detained",
+    "url": "Academic Future Of Over 40 , 000 MP Nursing Students Remains Uncertain Amid Court Cases",
+    "seendate": "https://www.freepressjournal.in/bhopal/academic-future-of-over-40000-mp-nursing-students-remains-uncertain-amid-court-cases",
+    "domain": "20260927T023000Z",
+    "language": "freepressjournal.in",
+    "sourcecountry": "English",
+    "tone": "India",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-27T06:35:08.377479+00:00",
+    "category_id": "detention_arrest",
+    "category_label": "Arrests & detention",
+    "title": "arrested",
+    "url": "Thousands protest ahead of Mexican president report on missing students",
+    "seendate": "https://www.freemalaysiatoday.com/category/world/2026/09/27/thousands-protest-ahead-of-mexican-president-s-report-on-missing-students",
+    "domain": "20260927T063000Z",
+    "language": "freemalaysiatoday.com",
+    "sourcecountry": "English",
+    "tone": "Malaysia",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "yes",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-27T06:35:08.377479+00:00",
+    "category_id": "detention_arrest",
+    "category_label": "Arrests & detention",
+    "title": "arrested",
+    "url": "Former tahfiz school head held over alleged sexual assault of 3 students",
+    "seendate": "https://www.freemalaysiatoday.com/category/nation/2026/09/27/former-tahfiz-school-head-held-over-alleged-sexual-assault-of-3-students",
+    "domain": "20260927T063000Z",
+    "language": "freemalaysiatoday.com",
+    "sourcecountry": "English",
+    "tone": "Malaysia",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-27T06:35:08.377479+00:00",
+    "category_id": "detention_arrest",
+    "category_label": "Arrests & detention",
+    "title": "arrested",
+    "url": "17 - year - old suspect identified in killing of Westbury High School senior",
+    "seendate": "https://www.fox26houston.com/news/suspect-identified-killing-westbury-high-school-senior",
+    "domain": "20260927T003000Z",
+    "language": "fox26houston.com",
+    "sourcecountry": "English",
+    "tone": "United States",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-27T06:35:08.377479+00:00",
+    "category_id": "detention_arrest",
+    "category_label": "Arrests & detention",
+    "title": "arrested",
+    "url": "Former Tomball ISD coach charged with indecency , sexual performance by a child",
+    "seendate": "https://www.fox26houston.com/news/former-tomball-isd-coach-charged-indecency-sexual-performance-child",
+    "domain": "20260927T003000Z",
+    "language": "fox26houston.com",
+    "sourcecountry": "English",
+    "tone": "United States",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
     "fetched_at": "2026-09-26T06:34:17.496269+00:00",
     "category_id": "physical_violence",
     "category_label": "Physical violence & killings",
@@ -1258,6 +2474,25 @@
     "category_id": "surveillance_intimidation",
     "category_label": "Surveillance, threats & intimidation",
     "title": "surveillance",
+    "url": "  Des cris , des coups , des attouchements  : un intervenant mis en examen pour agression sexuelle , viol et violence sur 22 enfants dune école maternelle à Paris",
+    "seendate": "https://www.femmeactuelle.fr/actu/news-actu/des-cris-des-coups-des-attouchements-un-intervenant-mis-en-examen-pour-agression-sexuelle-viol-et-violence-sur-22-enfants-dune-ecole-maternelle-a-paris-2211866",
+    "domain": "20260925T093000Z",
+    "language": "femmeactuelle.fr",
+    "sourcecountry": "French",
+    "tone": "France",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-27T06:35:08.377479+00:00",
+    "category_id": "detention_arrest",
+    "category_label": "Arrests & detention",
+    "title": "arrested",
     "url": "  Des cris , des coups , des attouchements  : un intervenant mis en examen pour agression sexuelle , viol et violence sur 22 enfants dune école maternelle à Paris",
     "seendate": "https://www.femmeactuelle.fr/actu/news-actu/des-cris-des-coups-des-attouchements-un-intervenant-mis-en-examen-pour-agression-sexuelle-viol-et-violence-sur-22-enfants-dune-ecole-maternelle-a-paris-2211866",
     "domain": "20260925T093000Z",
@@ -1368,6 +2603,44 @@
     ]
   },
   {
+    "fetched_at": "2026-09-27T06:35:08.377479+00:00",
+    "category_id": "detention_arrest",
+    "category_label": "Arrests & detention",
+    "title": "arrested",
+    "url": "A 12 años de su desaparición , recuerdan a normalistas de Ayotzinapa",
+    "seendate": "https://www.excelsior.com.mx/ciudad-de-mexico/marcha-12-anos-desaparicion-normalistas-ayotzinapa",
+    "domain": "20260927T010000Z",
+    "language": "excelsior.com.mx",
+    "sourcecountry": "Spanish",
+    "tone": "Mexico",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-27T06:35:08.377479+00:00",
+    "category_id": "detention_arrest",
+    "category_label": "Arrests & detention",
+    "title": "detained",
+    "url": "Manisadaki okul saldırısına ilişkin gözaltına alınan 10 kişi adliyeye sevk edildi",
+    "seendate": "https://www.evrensel.net/haber/6002008/manisadaki-okul-saldirisina-iliskin-gozaltina-alinan-10-kisi-adliyeye-sevk-edildi",
+    "domain": "20260925T064500Z",
+    "language": "evrensel.net",
+    "sourcecountry": "Turkish",
+    "tone": "Turkey",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
     "fetched_at": "2026-09-26T06:34:17.496269+00:00",
     "category_id": "physical_violence",
     "category_label": "Physical violence & killings",
@@ -1378,6 +2651,63 @@
     "language": "esquire.com",
     "sourcecountry": "English",
     "tone": "United States",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-27T06:35:08.377479+00:00",
+    "category_id": "physical_violence",
+    "category_label": "Physical violence & killings",
+    "title": "murdered",
+    "url": "The Crazy True Story Behind Netflix  UNABOMBER : What Happened to Theodore Kaczynski ? ",
+    "seendate": "https://www.esquire.com/uk/culture/film/a73774208/true-story-netflix-unabomber/",
+    "domain": "20260925T083000Z",
+    "language": "esquire.com",
+    "sourcecountry": "English",
+    "tone": "United States",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-27T06:35:08.377479+00:00",
+    "category_id": "detention_arrest",
+    "category_label": "Arrests & detention",
+    "title": "arrested",
+    "url": "逾百联合国专家联署 吁全球遏制跨国镇压",
+    "seendate": "https://www.epochtimes.com/gb/26/9/25/n14856969.htm",
+    "domain": "20260925T070000Z",
+    "language": "epochtimes.com",
+    "sourcecountry": "Chinese",
+    "tone": "China",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-27T06:35:08.377479+00:00",
+    "category_id": "detention_arrest",
+    "category_label": "Arrests & detention",
+    "title": "detained",
+    "url": "Manisada okul yakınındaki saldırıda gözaltına alınan 10 şüpheli adliyeye sevk edildi",
+    "seendate": "https://www.ensonhaber.com/manisada-okul-yakinindaki-saldirida-gozaltina-alinan-10-supheli-adliyeye-sevk-edildi-h1568383",
+    "domain": "20260925T071500Z",
+    "language": "ensonhaber.com",
+    "sourcecountry": "Turkish",
+    "tone": "Turkey",
     "watchlist_country": "",
     "relevance": "",
     "relevance_reason": "no",
@@ -1406,6 +2736,44 @@
     ]
   },
   {
+    "fetched_at": "2026-09-27T06:35:08.377479+00:00",
+    "category_id": "detention_arrest",
+    "category_label": "Arrests & detention",
+    "title": "arrested",
+    "url": "  Unabomber : de brillante matemático a terrorista ; la historia de Ted Kaczynski que llegó a Netflix",
+    "seendate": "https://www.eluniversal.com.mx/espectaculos/unabomber-de-brillante-matematico-a-terrorista-la-historia-de-ted-kaczynski-que-llego-a-netflix/",
+    "domain": "20260927T001500Z",
+    "language": "eluniversal.com.mx",
+    "sourcecountry": "Spanish",
+    "tone": "Mexico",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-27T06:35:08.377479+00:00",
+    "category_id": "institutional_sanction",
+    "category_label": "Institutional & academic sanctions",
+    "title": "suspended",
+    "url": "Crece el conflicto universitario : paro de hasta 72 horas , reclamo salarial y una nueva marcha federal",
+    "seendate": "https://www.elsol.com.ar/el-pais/crece-el-conflicto-universitario-paro-de-hasta-72-horas-reclamo-salarial-y-una-nueva-marcha-federal/",
+    "domain": "20260927T023000Z",
+    "language": "elsol.com.ar",
+    "sourcecountry": "Spanish",
+    "tone": "Argentina",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
     "fetched_at": "2026-09-26T06:34:17.496269+00:00",
     "category_id": "surveillance_intimidation",
     "category_label": "Surveillance, threats & intimidation",
@@ -1416,6 +2784,25 @@
     "language": "elnuevodia.com.co",
     "sourcecountry": "Spanish",
     "tone": "Colombia",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-27T06:35:08.377479+00:00",
+    "category_id": "detention_arrest",
+    "category_label": "Arrests & detention",
+    "title": "arrested",
+    "url": "Un terrorista que se escondió del FBI : La historia real de  Unabomber , película de crimen en Netflix – El Financiero",
+    "seendate": "https://www.elfinanciero.com.mx/entretenimiento/2026/09/24/cual-es-la-historia-real-de-unabomber-nueva-pelicula-de-crimen-en-netflix/",
+    "domain": "20260925T064500Z",
+    "language": "elfinanciero.com.mx",
+    "sourcecountry": "Spanish",
+    "tone": "Mexico",
     "watchlist_country": "",
     "relevance": "",
     "relevance_reason": "no",
@@ -1501,6 +2888,44 @@
     ]
   },
   {
+    "fetched_at": "2026-09-27T06:35:08.377479+00:00",
+    "category_id": "detention_arrest",
+    "category_label": "Arrests & detention",
+    "title": "arrested",
+    "url": "Family devastated by death of kind man in  frenzied  attack",
+    "seendate": "https://www.edp24.co.uk/news/26580519.family-devastated-death-kind-man-frenzied-attack/",
+    "domain": "20260925T081500Z",
+    "language": "edp24.co.uk",
+    "sourcecountry": "English",
+    "tone": "United Kingdom",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-27T06:35:08.377479+00:00",
+    "category_id": "detention_arrest",
+    "category_label": "Arrests & detention",
+    "title": "arrested",
+    "url": "Tributes for boy who died in hospital after shooting",
+    "seendate": "https://www.edenmagnet.com.au/story/9357145/tributes-for-boy-who-died-in-hospital-after-shooting/",
+    "domain": "20260925T093000Z",
+    "language": "edenmagnet.com.au",
+    "sourcecountry": "English",
+    "tone": "Australia",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
     "fetched_at": "2026-09-26T06:34:17.496269+00:00",
     "category_id": "surveillance_intimidation",
     "category_label": "Surveillance, threats & intimidation",
@@ -1558,6 +2983,25 @@
     ]
   },
   {
+    "fetched_at": "2026-09-27T06:35:08.377479+00:00",
+    "category_id": "institutional_sanction",
+    "category_label": "Institutional & academic sanctions",
+    "title": "suspended",
+    "url": "Video : EXITOSA DEPORTES con ÓSCAR PAZ , JEAN RODRÍGUEZ y CARLOS PANEZ - 24 / 09 / 26 por Exitosa Noticias",
+    "seendate": "https://www.deperu.com/tv/Ggfwzi9uFPI.exitosa-deportes-con-oscar-paz-jean-rodriguez-y-carlos-panez-24-09-26.UCxgO_rak_BKZP8VNVmYqbWg.html",
+    "domain": "20260925T071500Z",
+    "language": "deperu.com",
+    "sourcecountry": "Spanish",
+    "tone": "United States",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
     "fetched_at": "2026-09-26T06:34:17.496269+00:00",
     "category_id": "physical_violence",
     "category_label": "Physical violence & killings",
@@ -1585,6 +3029,44 @@
     "seendate": "https://www.dailypolitical.com/2026/09/24/analyzing-gaotu-techedu-nysegotu-adt-nyseadt.html",
     "domain": "20260924T204500Z",
     "language": "dailypolitical.com",
+    "sourcecountry": "English",
+    "tone": "United States",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-27T06:35:08.377479+00:00",
+    "category_id": "detention_arrest",
+    "category_label": "Arrests & detention",
+    "title": "arrested",
+    "url": "Twisted teacher who started school FIGHT CLUB and encouraged children to attack each other is given shockingly lenient punishment",
+    "seendate": "https://www.dailymail.com/news/article-16158289/Twisted-teacher-school-FIGHT-CLUB-given-lenient-punishment.html",
+    "domain": "20260925T064500Z",
+    "language": "dailymail.com",
+    "sourcecountry": "English",
+    "tone": "United States",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-27T06:35:08.377479+00:00",
+    "category_id": "detention_arrest",
+    "category_label": "Arrests & detention",
+    "title": "arrested",
+    "url": "Being cancelled took a heavy toll on my mental health . That why Im so fearful of Burnham new Ministry of Truth : TOBY YOUNG",
+    "seendate": "https://www.dailymail.com/debate/article-16163103/cancelled-took-heavy-toll-mental-health-fearful-Burnham-new-Ministry-Truth-TOBY-YOUNG.html",
+    "domain": "20260927T003000Z",
+    "language": "dailymail.com",
     "sourcecountry": "English",
     "tone": "United States",
     "watchlist_country": "",
@@ -1653,6 +3135,25 @@
     ]
   },
   {
+    "fetched_at": "2026-09-27T06:35:08.377479+00:00",
+    "category_id": "detention_arrest",
+    "category_label": "Arrests & detention",
+    "title": "arrested",
+    "url": "民進黨創黨40週年 ／ 代夫出征篇 - 只為讓世人知道先生是好人 那些年的美麗島太太們 | 政治",
+    "seendate": "https://www.cna.com.tw:443/news/aipl/202609270027.aspx",
+    "domain": "20260927T051500Z",
+    "language": "cna.com.tw",
+    "sourcecountry": "Chinese",
+    "tone": "Taiwan",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
     "fetched_at": "2026-09-26T06:34:17.496269+00:00",
     "category_id": "surveillance_intimidation",
     "category_label": "Surveillance, threats & intimidation",
@@ -1691,6 +3192,25 @@
     ]
   },
   {
+    "fetched_at": "2026-09-27T06:35:08.377479+00:00",
+    "category_id": "detention_arrest",
+    "category_label": "Arrests & detention",
+    "title": "arrested",
+    "url": "Tributes for boy who died in hospital after shooting",
+    "seendate": "https://www.cessnockadvertiser.com.au/story/9357145/tributes-for-boy-who-died-in-hospital-after-shooting/",
+    "domain": "20260925T093000Z",
+    "language": "cessnockadvertiser.com.au",
+    "sourcecountry": "English",
+    "tone": "Australia",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
     "fetched_at": "2026-09-26T06:34:17.496269+00:00",
     "category_id": "surveillance_intimidation",
     "category_label": "Surveillance, threats & intimidation",
@@ -1701,6 +3221,25 @@
     "language": "cavalierdaily.com",
     "sourcecountry": "English",
     "tone": "United States",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-27T06:35:08.377479+00:00",
+    "category_id": "institutional_sanction",
+    "category_label": "Institutional & academic sanctions",
+    "title": "expelled",
+    "url": "Cano testigo de un partido con polémicas y final escandaloso",
+    "seendate": "https://www.catamarcactual.com.ar/deportes/2026/9/26/cano-testigo-de-un-partido-con-polemicas-y-final-escandaloso-295474.html",
+    "domain": "20260927T003000Z",
+    "language": "catamarcactual.com.ar",
+    "sourcecountry": "Spanish",
+    "tone": "Argentina",
     "watchlist_country": "",
     "relevance": "",
     "relevance_reason": "no",
@@ -1722,6 +3261,139 @@
     "tone": "Spain",
     "watchlist_country": "",
     "relevance": "Palestine",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-27T06:35:08.377479+00:00",
+    "category_id": "institutional_sanction",
+    "category_label": "Institutional & academic sanctions",
+    "title": "suspended",
+    "url": "Verón increpó al árbitro Darío Herrera tras la derrota con Rosario Central :  Es culpa tuya  ",
+    "seendate": "https://www.cadena3.com/noticia/futbol/veron-increpo-al-arbitro-dario-herrera-tras-la-derrota-con-rosario-central-es-culpa-tuya_598123",
+    "domain": "20260927T023000Z",
+    "language": "cadena3.com",
+    "sourcecountry": "Spanish",
+    "tone": "Argentina",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-27T06:35:08.377479+00:00",
+    "category_id": "detention_arrest",
+    "category_label": "Arrests & detention",
+    "title": "arrested",
+    "url": "Myanmar coup : Former Miss Grand International contestant on her journey from protest leader to resistance fighter and film star",
+    "seendate": "https://www.brisbanetimes.com.au/national/nsw/meet-the-beauty-queen-turned-freedom-fighter-who-made-her-home-in-australia-20260927-p60q73.html",
+    "domain": "20260927T001500Z",
+    "language": "brisbanetimes.com.au",
+    "sourcecountry": "English",
+    "tone": "Australia",
+    "watchlist_country": "",
+    "relevance": "Myanmar",
+    "relevance_reason": "yes",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-27T06:35:08.377479+00:00",
+    "category_id": "detention_arrest",
+    "category_label": "Arrests & detention",
+    "title": "detained",
+    "url": "Manisadaki okul saldırısı : Saldırgan dahil 10 kişi adliyeye sevk edildi",
+    "seendate": "https://www.birgun.net/haber/manisa-daki-okul-saldirisi-saldirgan-dahil-10-kisi-adliyeye-sevk-edildi-736810",
+    "domain": "20260925T081500Z",
+    "language": "birgun.net",
+    "sourcecountry": "Turkish",
+    "tone": "Turkey",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-27T06:35:08.377479+00:00",
+    "category_id": "detention_arrest",
+    "category_label": "Arrests & detention",
+    "title": "detained",
+    "url": "2 sene geçti , hâlâ yanıt bulunamadı : Rojine ne oldu ? ",
+    "seendate": "https://www.birgun.net/haber/2-sene-gecti-hala-yanit-bulunamadi-rojine-ne-oldu-737152%20target=_blank%20class=stretched-link",
+    "domain": "20260927T023000Z",
+    "language": "birgun.net",
+    "sourcecountry": "Turkish",
+    "tone": "Turkey",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-27T06:35:08.377479+00:00",
+    "category_id": "detention_arrest",
+    "category_label": "Arrests & detention",
+    "title": "detained",
+    "url": "2 sene geçti , hâlâ yanıt bulunamadı : Rojine ne oldu ? ",
+    "seendate": "https://www.birgun.net/haber/2-sene-gecti-hala-yanit-bulunamadi-rojine-ne-oldu-737152%20target=_blank",
+    "domain": "20260927T050000Z",
+    "language": "birgun.net",
+    "sourcecountry": "Turkish",
+    "tone": "Turkey",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-27T06:35:08.377479+00:00",
+    "category_id": "detention_arrest",
+    "category_label": "Arrests & detention",
+    "title": "detained",
+    "url": "2 sene geçti , hâlâ yanıt bulunamadı : Rojine ne oldu ? ",
+    "seendate": "https://www.birgun.net/haber/2-sene-gecti-hala-yanit-bulunamadi-rojine-ne-oldu-737152%20class=slide-link%20target=_blank",
+    "domain": "20260927T050000Z",
+    "language": "birgun.net",
+    "sourcecountry": "Turkish",
+    "tone": "Turkey",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-27T06:35:08.377479+00:00",
+    "category_id": "detention_arrest",
+    "category_label": "Arrests & detention",
+    "title": "detained",
+    "url": "2 sene geçti , hâlâ yanıt bulunamadı : Rojine ne oldu ? ",
+    "seendate": "https://www.birgun.net/haber/2-sene-gecti-hala-yanit-bulunamadi-rojine-ne-oldu-737152%20class=slide-legend-link%20target=_blank",
+    "domain": "20260927T050000Z",
+    "language": "birgun.net",
+    "sourcecountry": "Turkish",
+    "tone": "Turkey",
+    "watchlist_country": "",
+    "relevance": "",
     "relevance_reason": "no",
     "null": [
       "",
@@ -1767,6 +3439,25 @@
     ]
   },
   {
+    "fetched_at": "2026-09-27T06:35:08.377479+00:00",
+    "category_id": "legal_harassment",
+    "category_label": "Legal harassment & lawfare",
+    "title": "criminal case",
+    "url": "Family of Malaysian girl stabbed to death plans civil suit as mother asks if tragedy could have been prevented",
+    "seendate": "https://www.asiaone.com/malaysia/yap-shing-xuen-case-civil-suit",
+    "domain": "20260925T093000Z",
+    "language": "asiaone.com",
+    "sourcecountry": "English",
+    "tone": "Singapore",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
     "fetched_at": "2026-09-26T06:34:17.496269+00:00",
     "category_id": "surveillance_intimidation",
     "category_label": "Surveillance, threats & intimidation",
@@ -1777,6 +3468,25 @@
     "language": "americanthinker.com",
     "sourcecountry": "English",
     "tone": "United States",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-27T06:35:08.377479+00:00",
+    "category_id": "institutional_sanction",
+    "category_label": "Institutional & academic sanctions",
+    "title": "suspended",
+    "url": "El 42 % de los universitarios se saltan las clases : « Ni la mitad de los días vamos . Los profes no se lo curran » ",
+    "seendate": "https://www.abc.es/sociedad/universitarios-saltan-clases-mitad-dias-vamos-profes-20260927015921-nt.html",
+    "domain": "20260927T003000Z",
+    "language": "abc.es",
+    "sourcecountry": "Spanish",
+    "tone": "Spain",
     "watchlist_country": "",
     "relevance": "",
     "relevance_reason": "no",
@@ -1824,6 +3534,25 @@
     ]
   },
   {
+    "fetched_at": "2026-09-27T06:35:08.377479+00:00",
+    "category_id": "physical_violence",
+    "category_label": "Physical violence & killings",
+    "title": "murdered",
+    "url": "Šeima tiksliai žinojo vietą , kur buvo užkasti palaikai : mamai duotą pažadą Vida ištesėjo po 80 metų",
+    "seendate": "https://www.15min.lt/naujiena/aktualu/lietuva/seima-tiksliai-zinojo-vieta-kur-buvo-uzkasti-palaikai-mamai-duota-pazada-vida-istesejo-po-80-metu-56-2771548",
+    "domain": "20260925T094500Z",
+    "language": "15min.lt",
+    "sourcecountry": "Lithuanian",
+    "tone": "Lithuania",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
     "fetched_at": "2026-09-26T06:34:17.496269+00:00",
     "category_id": "physical_violence",
     "category_label": "Physical violence & killings",
@@ -1853,6 +3582,25 @@
     "language": "weeklyworker.co.uk",
     "sourcecountry": "English",
     "tone": "United Kingdom",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-27T06:35:08.377479+00:00",
+    "category_id": "detention_arrest",
+    "category_label": "Arrests & detention",
+    "title": "arrested",
+    "url": "Nghệ sĩ Hàn Quốc vừa nhảy hip hop vừa nấu phở gà",
+    "seendate": "https://vnexpress.net/nghe-si-han-quoc-vua-nhay-hip-hop-vua-nau-pho-ga-5124441.html",
+    "domain": "20260925T071500Z",
+    "language": "vnexpress.net",
+    "sourcecountry": "Vietnamese",
+    "tone": "Vietnam",
     "watchlist_country": "",
     "relevance": "",
     "relevance_reason": "no",
@@ -1957,6 +3705,25 @@
     ]
   },
   {
+    "fetched_at": "2026-09-27T06:35:08.377479+00:00",
+    "category_id": "detention_arrest",
+    "category_label": "Arrests & detention",
+    "title": "arrested",
+    "url": "Narni . Pillole . Pellegrinaggio allo Speco , premio Waste carbon Free , porchetta a Vigne . Quindi oggi … ",
+    "seendate": "https://terninrete.it/notizie-di-terni-narni-pillole-pellegrinaggio-allo-speco-premio-waste-carbon-free-porchetta-a-vigne-quindi-oggi/",
+    "domain": "20260925T093000Z",
+    "language": "terninrete.it",
+    "sourcecountry": "Italian",
+    "tone": "Italy",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
     "fetched_at": "2026-09-26T06:34:17.496269+00:00",
     "category_id": "surveillance_intimidation",
     "category_label": "Surveillance, threats & intimidation",
@@ -2005,6 +3772,82 @@
     "language": "taz.de",
     "sourcecountry": "German",
     "tone": "Germany",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-27T06:35:08.377479+00:00",
+    "category_id": "institutional_sanction",
+    "category_label": "Institutional & academic sanctions",
+    "title": "suspended",
+    "url": "كيف رفض البرهان الهدنة الانسانية الامريكية والحق السودان بامات طه ؟ ",
+    "seendate": "https://sudanile.com/%D9%83%D9%8A%D9%81-%D8%B1%D9%81%D8%B6-%D8%A7%D9%84%D8%A8%D8%B1%D9%87%D8%A7%D9%86-%D8%A7%D9%84%D9%87%D8%AF%D9%86%D8%A9-%D8%A7%D9%84%D8%A7%D9%86%D8%B3%D8%A7%D9%86%D9%8A%D8%A9-%D8%A7%D9%84%D8%A7%D9%85-2/",
+    "domain": "20260925T091500Z",
+    "language": "sudanile.com",
+    "sourcecountry": "Arabic",
+    "tone": "Sudan",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-27T06:35:08.377479+00:00",
+    "category_id": "detention_arrest",
+    "category_label": "Arrests & detention",
+    "title": "arrested",
+    "url": "حدود القوة وانحسار الهيمنة .. الحركة الإسلامية السودانية ١٩٤٩ – ٢٠٢٦ ( 3",
+    "seendate": "https://sudanile.com/%D8%AD%D8%AF%D9%88%D8%AF-%D8%A7%D9%84%D9%82%D9%88%D8%A9-%D9%88%D8%A7%D9%86%D8%AD%D8%B3%D8%A7%D8%B1-%D8%A7%D9%84%D9%87%D9%8A%D9%85%D9%86%D8%A9-%D8%A7%D9%84%D8%AD%D8%B1%D9%83%D8%A9-%D8%A7%D9%84%D8%A5-3/",
+    "domain": "20260925T091500Z",
+    "language": "sudanile.com",
+    "sourcecountry": "Arabic",
+    "tone": "Sudan",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-27T06:35:08.377479+00:00",
+    "category_id": "detention_arrest",
+    "category_label": "Arrests & detention",
+    "title": "arrested",
+    "url": "Tuyển Việt Nam thi đấu đầy quả cảm , tạo nên màn trình diễn không tưởng trước tuyển Trung Quốc",
+    "seendate": "https://soha.vn/tuyen-viet-nam-thi-dau-day-qua-cam-tao-nen-man-trinh-dien-khong-tuong-truoc-tuyen-trung-quoc-198260925153547704.htm",
+    "domain": "20260925T091500Z",
+    "language": "soha.vn",
+    "sourcecountry": "Vietnamese",
+    "tone": "Vietnam",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-27T06:35:08.377479+00:00",
+    "category_id": "detention_arrest",
+    "category_label": "Arrests & detention",
+    "title": "arrested",
+    "url": "Netflix New Legal Drama Is an Addictive Series You Can Binge This Weekend",
+    "seendate": "https://screenrant.com/habeas-corpus-netflix-new-legal-drama/",
+    "domain": "20260927T040000Z",
+    "language": "screenrant.com",
+    "sourcecountry": "English",
+    "tone": "United States",
     "watchlist_country": "",
     "relevance": "",
     "relevance_reason": "no",
@@ -2090,6 +3933,25 @@
     ]
   },
   {
+    "fetched_at": "2026-09-27T06:35:08.377479+00:00",
+    "category_id": "physical_violence",
+    "category_label": "Physical violence & killings",
+    "title": "murdered",
+    "url": "FULL TEXT : Netanyahu UN speech as delegates walk out",
+    "seendate": "https://punchng.com/full-text-netanyahus-speech-at-un-general-assembly/",
+    "domain": "20260925T084500Z",
+    "language": "punchng.com",
+    "sourcecountry": "English",
+    "tone": "Nigeria",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
     "fetched_at": "2026-09-26T06:34:17.496269+00:00",
     "category_id": "surveillance_intimidation",
     "category_label": "Surveillance, threats & intimidation",
@@ -2119,6 +3981,63 @@
     "language": "pulsoslp.com.mx",
     "sourcecountry": "Spanish",
     "tone": "Mexico",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-27T06:35:08.377479+00:00",
+    "category_id": "detention_arrest",
+    "category_label": "Arrests & detention",
+    "title": "arrested",
+    "url": "IIT - Bombay Student Case | आयआयटीमधील आत्महत्या , जबाबदार कोण ..? ",
+    "seendate": "https://pudhari.news/features/bahar/iit-student-suicides-what-factors-are-behind-the-rising-concern-ap84",
+    "domain": "20260927T023000Z",
+    "language": "pudhari.news",
+    "sourcecountry": "Marathi",
+    "tone": "",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-27T06:35:08.377479+00:00",
+    "category_id": "detention_arrest",
+    "category_label": "Arrests & detention",
+    "title": "detained",
+    "url": "Clipe de groază pentru un tânăr din Chișinău : a fost bătut și umilit de către un grup de adolescenți . Poliția a reținut mai multe persoane",
+    "seendate": "https://protv.md/actualitate/clipe-de-groaza-pentru-un-tanar-din-chisinau-a-fost-batut-si-umilit-de-catre-un-grup-de-adolescenti-politia-a-retinut-mai-multe-persoane---2768149.html",
+    "domain": "20260925T091500Z",
+    "language": "protv.md",
+    "sourcecountry": "Romanian",
+    "tone": "Moldova",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-27T06:35:08.377479+00:00",
+    "category_id": "detention_arrest",
+    "category_label": "Arrests & detention",
+    "title": "arrested",
+    "url": "Сумбур и трепет : 120 лет со дня рождения Дмитрия Шостаковича",
+    "seendate": "https://profile.ru/culture/sumbur-i-trepet-120-let-so-dnya-rozhdeniya-dmitriya-shostakovicha-1904214/",
+    "domain": "20260925T070000Z",
+    "language": "profile.ru",
+    "sourcecountry": "Russian",
+    "tone": "Russia",
     "watchlist_country": "",
     "relevance": "",
     "relevance_reason": "no",
@@ -2394,6 +4313,82 @@
     ]
   },
   {
+    "fetched_at": "2026-09-27T06:35:08.377479+00:00",
+    "category_id": "physical_violence",
+    "category_label": "Physical violence & killings",
+    "title": "murdered",
+    "url": "  Will throw first shoe at traitors : Sanjay Raut backs Rahul Gandhi , says CEC should  turn approver  ",
+    "seendate": "https://news.webindia123.com/news/Articles/India/20260925/4503298.html",
+    "domain": "20260925T073000Z",
+    "language": "news.webindia123.com",
+    "sourcecountry": "English",
+    "tone": "India",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-27T06:35:08.377479+00:00",
+    "category_id": "institutional_sanction",
+    "category_label": "Institutional & academic sanctions",
+    "title": "suspended",
+    "url": "2026齐鲁超赛1 / 4决赛次回合 ， 烟台队3 : 0胜淄博队 ， 总比分4 : 0挺进四强 - 烟台要闻 - 水母网",
+    "seendate": "https://news.shm.com.cn/2026-09/27/content_5508001.htm",
+    "domain": "20260927T010000Z",
+    "language": "news.shm.com.cn",
+    "sourcecountry": "Chinese",
+    "tone": "China",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-27T06:35:08.377479+00:00",
+    "category_id": "detention_arrest",
+    "category_label": "Arrests & detention",
+    "title": "arrested",
+    "url": "大陆学生赴台交流恋上台湾  学姐  国家安全部 ： 她实为间谍 _ 央广网",
+    "seendate": "https://news.cnr.cn/native/gd/20260927/t20260927_527826772.shtml",
+    "domain": "20260927T051500Z",
+    "language": "news.cnr.cn",
+    "sourcecountry": "Chinese",
+    "tone": "",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-27T06:35:08.377479+00:00",
+    "category_id": "institutional_sanction",
+    "category_label": "Institutional & academic sanctions",
+    "title": "expelled",
+    "url": "Trump administration moves to limit fixes for systemic racism in schools",
+    "seendate": "https://mymotherlode.com/news/national/11166868/trump-administration-moves-to-limit-fixes-for-systemic-racism-in-schools.html",
+    "domain": "20260925T081500Z",
+    "language": "mymotherlode.com",
+    "sourcecountry": "English",
+    "tone": "United States",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
     "fetched_at": "2026-09-26T06:34:17.496269+00:00",
     "category_id": "physical_violence",
     "category_label": "Physical violence & killings",
@@ -2440,6 +4435,25 @@
     "seendate": "https://listverse.com/2014/06/15/10-cool-facts-about-the-hulk/",
     "domain": "20260924T203000Z",
     "language": "listverse.com",
+    "sourcecountry": "English",
+    "tone": "United States",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-27T06:35:08.377479+00:00",
+    "category_id": "institutional_sanction",
+    "category_label": "Institutional & academic sanctions",
+    "title": "expelled",
+    "url": "Trump administration moves to limit fixes for systemic racism in schools",
+    "seendate": "https://listenupyall.com/2026/09/24/trump-administration-moves-to-limit-fixes-for-systemic-racism-in-schools/",
+    "domain": "20260925T071500Z",
+    "language": "listenupyall.com",
     "sourcecountry": "English",
     "tone": "United States",
     "watchlist_country": "",
@@ -2546,6 +4560,25 @@
     ]
   },
   {
+    "fetched_at": "2026-09-27T06:35:08.377479+00:00",
+    "category_id": "institutional_sanction",
+    "category_label": "Institutional & academic sanctions",
+    "title": "expelled",
+    "url": "Lucha de clases en el capitalismo en crisis",
+    "seendate": "https://kaosenlared.net/lucha-de-clases-en-el-capitalismo-en-crisis/",
+    "domain": "20260925T091500Z",
+    "language": "kaosenlared.net",
+    "sourcecountry": "Spanish",
+    "tone": "Spain",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
     "fetched_at": "2026-09-26T06:34:17.496269+00:00",
     "category_id": "physical_violence",
     "category_label": "Physical violence & killings",
@@ -2556,6 +4589,63 @@
     "language": "kaosenlared.net",
     "sourcecountry": "Spanish",
     "tone": "Spain",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-27T06:35:08.377479+00:00",
+    "category_id": "physical_violence",
+    "category_label": "Physical violence & killings",
+    "title": "murdered",
+    "url": "La Fabricación del Enemigo",
+    "seendate": "https://kaosenlared.net/la-fabricacion-del-enemigo/",
+    "domain": "20260925T091500Z",
+    "language": "kaosenlared.net",
+    "sourcecountry": "Spanish",
+    "tone": "Spain",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-27T06:35:08.377479+00:00",
+    "category_id": "detention_arrest",
+    "category_label": "Arrests & detention",
+    "title": "arrested",
+    "url": "നിതിൻ രാജിന്റെ ആത്മഹത്യ ; കോളേജ് പ്രിൻസിപ്പലും അധ്യാപികയും പ്രതിപ്പട്ടികയിൽ , മുൻകൂർ ജാമ്യഹർജി നൽകി",
+    "seendate": "https://janayugomonline.com/nithin-rajs-suicide-college-principal-and-teacher-named-as-accused-anticipatory-bail-plea-filed/",
+    "domain": "20260925T071500Z",
+    "language": "janayugomonline.com",
+    "sourcecountry": "Malayalam",
+    "tone": "India",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-27T06:35:08.377479+00:00",
+    "category_id": "detention_arrest",
+    "category_label": "Arrests & detention",
+    "title": "arrested",
+    "url": "Gaurangbhai Sureshbhai Kapariya ... vs State Of Gujarat on 1 September , 2026",
+    "seendate": "https://indiankanoon.org/doc/60552265/",
+    "domain": "20260927T040000Z",
+    "language": "indiankanoon.org",
+    "sourcecountry": "English",
+    "tone": "India",
     "watchlist_country": "",
     "relevance": "",
     "relevance_reason": "no",
@@ -2622,6 +4712,25 @@
     ]
   },
   {
+    "fetched_at": "2026-09-27T06:35:08.377479+00:00",
+    "category_id": "institutional_sanction",
+    "category_label": "Institutional & academic sanctions",
+    "title": "suspended",
+    "url": "Seis hospitais dos EUA param de tratar adolescentes trans após acusao de fraude do governo Trump",
+    "seendate": "https://g1.globo.com/saude/noticia/2026/09/25/seis-hospitais-dos-eua-param-de-tratar-adolescentes-trans-apos-acusacao-de-fraude-do-governo-trump.ghtml",
+    "domain": "20260925T071500Z",
+    "language": "g1.globo.com",
+    "sourcecountry": "Portuguese",
+    "tone": "Brazil",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
     "fetched_at": "2026-09-26T06:34:17.496269+00:00",
     "category_id": "physical_violence",
     "category_label": "Physical violence & killings",
@@ -2635,6 +4744,44 @@
     "watchlist_country": "",
     "relevance": "",
     "relevance_reason": "yes",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-27T06:35:08.377479+00:00",
+    "category_id": "institutional_sanction",
+    "category_label": "Institutional & academic sanctions",
+    "title": "suspended",
+    "url": "文化中国行｜水月同框迎中秋 _ 央广网",
+    "seendate": "https://food.cnr.cn/gstj/20260927/t20260927_527826739.shtml",
+    "domain": "20260927T051500Z",
+    "language": "food.cnr.cn",
+    "sourcecountry": "Chinese",
+    "tone": "",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-27T06:35:08.377479+00:00",
+    "category_id": "detention_arrest",
+    "category_label": "Arrests & detention",
+    "title": "arrested",
+    "url": "Familiares marcham 12 anos após o desaparecimento de 43 estudantes no México",
+    "seendate": "https://executivedigest.sapo.pt/familiares-marcham-12-anos-apos-o-desaparecimento-de-43-estudantes-no-mexico/",
+    "domain": "20260927T023000Z",
+    "language": "executivedigest.sapo.pt",
+    "sourcecountry": "Portuguese",
+    "tone": "",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
     "null": [
       "",
       ""
@@ -2717,6 +4864,82 @@
     ]
   },
   {
+    "fetched_at": "2026-09-27T06:35:08.377479+00:00",
+    "category_id": "detention_arrest",
+    "category_label": "Arrests & detention",
+    "title": "arrested",
+    "url": "Jupiter High students take science out of the classroom for 30 - year fish study",
+    "seendate": "https://cbs12.com/news/local/jupiter-high-students-take-science-out-of-the-classroom-for-30-year-fish-study-september-26-2026",
+    "domain": "20260927T001500Z",
+    "language": "cbs12.com",
+    "sourcecountry": "English",
+    "tone": "United States",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-27T06:35:08.377479+00:00",
+    "category_id": "detention_arrest",
+    "category_label": "Arrests & detention",
+    "title": "arrested",
+    "url": "올해  사이버 도박  검거된 10대만 267명 … 작년 전체 규모 넘었다",
+    "seendate": "https://biz.heraldcorp.com/article/10885037",
+    "domain": "20260927T001500Z",
+    "language": "biz.heraldcorp.com",
+    "sourcecountry": "Korean",
+    "tone": "South Korea",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-27T06:35:08.377479+00:00",
+    "category_id": "detention_arrest",
+    "category_label": "Arrests & detention",
+    "title": "arrested",
+    "url": "Mua đi bán lại sừng động vật quý , hiếm : Trả giá đắt vì thiếu hiểu biết pháp luật",
+    "seendate": "https://baomoi.com/mua-di-ban-lai-sung-dong-vat-quy-hiem-tra-gia-dat-vi-thieu-hieu-biet-phap-luat-c56129774.epi",
+    "domain": "20260925T064500Z",
+    "language": "baomoi.com",
+    "sourcecountry": "Vietnamese",
+    "tone": "Vietnam",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-27T06:35:08.377479+00:00",
+    "category_id": "detention_arrest",
+    "category_label": "Arrests & detention",
+    "title": "arrested",
+    "url": "Cách Quang Hùng MasterD đáp trả lời chê bai",
+    "seendate": "https://baomoi.com/cach-quang-hung-masterd-dap-tra-loi-che-bai-c56141642.epi",
+    "domain": "20260927T040000Z",
+    "language": "baomoi.com",
+    "sourcecountry": "Vietnamese",
+    "tone": "Vietnam",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
     "fetched_at": "2026-09-26T06:34:17.496269+00:00",
     "category_id": "surveillance_intimidation",
     "category_label": "Surveillance, threats & intimidation",
@@ -2743,6 +4966,25 @@
     "url": "ABVP protest at BHU continues , students demand Chief Proctor removal over security lapses , auditorium allocation",
     "seendate": "https://aninews.in/news/national/general-news/abvp-protest-at-bhu-continues-students-demand-chief-proctor8217s-removal-over-security-lapses-auditorium-allocation20260925091648/",
     "domain": "20260925T054500Z",
+    "language": "aninews.in",
+    "sourcecountry": "English",
+    "tone": "India",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "yes",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-27T06:35:08.377479+00:00",
+    "category_id": "institutional_sanction",
+    "category_label": "Institutional & academic sanctions",
+    "title": "suspended",
+    "url": "  Why is this happening in institution like IIT ?: Union Minister Ramdas Athawale demands independent probe into Sahil Wakode death",
+    "seendate": "https://aninews.in/news/national/general-news/8220why-is-this-happening-in-institution-like-iit8221-union-minister-ramdas-athawale-demands-independent-probe-into-sahil-wakodes-death20260925131515/",
+    "domain": "20260925T091500Z",
     "language": "aninews.in",
     "sourcecountry": "English",
     "tone": "India",
@@ -2793,6 +5035,44 @@
     ]
   },
   {
+    "fetched_at": "2026-09-27T06:35:08.377479+00:00",
+    "category_id": "institutional_sanction",
+    "category_label": "Institutional & academic sanctions",
+    "title": "suspended",
+    "url": "Service national : Les jeunes nés entre 2000 et 2006 appelés à régulariser leur situation avant le 2 octobre",
+    "seendate": "https://africanmanager.com/service-national-les-jeunes-nes-entre-2000-et-2006-appeles-a-regulariser-leur-situation-avant-le-2-octobre/",
+    "domain": "20260925T081500Z",
+    "language": "africanmanager.com",
+    "sourcecountry": "French",
+    "tone": "Tunisia",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-27T06:35:08.377479+00:00",
+    "category_id": "detention_arrest",
+    "category_label": "Arrests & detention",
+    "title": "arrested",
+    "url": "Joven de 17 años trata de asesinar a su padre tras hacer pregunta espeluznante a la IA",
+    "seendate": "https://actualidad.rt.com/actualidad/629612-joven-17-anos-trato-asesinar",
+    "domain": "20260927T040000Z",
+    "language": "actualidad.rt.com",
+    "sourcecountry": "Spanish",
+    "tone": "Russia",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
     "fetched_at": "2026-09-26T06:34:17.496269+00:00",
     "category_id": "surveillance_intimidation",
     "category_label": "Surveillance, threats & intimidation",
@@ -2822,6 +5102,25 @@
     "language": "927thevan.com",
     "sourcecountry": "English",
     "tone": "United States",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-27T06:35:08.377479+00:00",
+    "category_id": "institutional_sanction",
+    "category_label": "Institutional & academic sanctions",
+    "title": "expelled",
+    "url": "Radiografía de las  fiestas privadas  en San Juan : ubicaciones secretas , cuánto cuestan las entradas y los avisos tras el caso Uriel",
+    "seendate": "http://www.tiempodesanjuan.com/san-juan/radiografia-de-las-fiestas-privadas-en-san-juan-ubicaciones-secretas-cuanto-cuestan-las-entradas-y-los-avisos-tras-el-caso-uriel_1790448666",
+    "domain": "20260927T023000Z",
+    "language": "tiempodesanjuan.com",
+    "sourcecountry": "Spanish",
+    "tone": "Argentina",
     "watchlist_country": "",
     "relevance": "",
     "relevance_reason": "no",
@@ -2869,6 +5168,25 @@
     ]
   },
   {
+    "fetched_at": "2026-09-27T06:35:08.377479+00:00",
+    "category_id": "institutional_sanction",
+    "category_label": "Institutional & academic sanctions",
+    "title": "expelled",
+    "url": "Trump administration moves to limit fixes for systemic racism in schools",
+    "seendate": "http://www.rockymounttelegram.com/news/state/trump-administration-moves-to-limit-fixes-for-systemic-racism-in-schools/article_d575568e-639c-54aa-ad27-259991691f63.html",
+    "domain": "20260925T081500Z",
+    "language": "rockymounttelegram.com",
+    "sourcecountry": "English",
+    "tone": "United States",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
     "fetched_at": "2026-09-26T06:34:17.496269+00:00",
     "category_id": "physical_violence",
     "category_label": "Physical violence & killings",
@@ -2879,6 +5197,25 @@
     "language": "rockymounttelegram.com",
     "sourcecountry": "English",
     "tone": "United States",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-27T06:35:08.377479+00:00",
+    "category_id": "institutional_sanction",
+    "category_label": "Institutional & academic sanctions",
+    "title": "suspended",
+    "url": "关爱教师 传递幸福 - 中国教育新闻网",
+    "seendate": "http://www.jyb.cn/rmtzgjyb/202605/t20260510_2111476294.html",
+    "domain": "20260927T063000Z",
+    "language": "jyb.cn",
+    "sourcecountry": "Chinese",
+    "tone": "China",
     "watchlist_country": "",
     "relevance": "",
     "relevance_reason": "no",
@@ -2917,6 +5254,25 @@
     "language": "japanherald.com",
     "sourcecountry": "English",
     "tone": "Japan",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-27T06:35:08.377479+00:00",
+    "category_id": "detention_arrest",
+    "category_label": "Arrests & detention",
+    "title": "arrested",
+    "url": "AP News in Brief at 12 : 04 a . m . EDT",
+    "seendate": "http://www.hngnews.com/nation_world/ap-news-in-brief-at-12-04-a-m-edt/article_18c22fc7-9ed7-5928-b058-ccee32cfa0b6.html",
+    "domain": "20260925T070000Z",
+    "language": "hngnews.com",
+    "sourcecountry": "English",
+    "tone": "United States",
     "watchlist_country": "",
     "relevance": "",
     "relevance_reason": "no",
@@ -3050,6 +5406,25 @@
     "language": "asiabulletin.com",
     "sourcecountry": "English",
     "tone": "China",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "no",
+    "null": [
+      "",
+      ""
+    ]
+  },
+  {
+    "fetched_at": "2026-09-27T06:35:08.377479+00:00",
+    "category_id": "detention_arrest",
+    "category_label": "Arrests & detention",
+    "title": "arrested",
+    "url": "Trực tiếp ĐT nữ Việt Nam vs ĐT nữ Trung Quốc tứ kết ASIAD 2026",
+    "seendate": "http://vov.vn/the-thao/truc-tiep-dt-nu-viet-nam-0-0-dt-nu-trung-quoc-bich-thuy-dut-diem-chech-muc-tieu-post1335776.vov",
+    "domain": "20260925T070000Z",
+    "language": "vov.vn",
+    "sourcecountry": "Vietnamese",
+    "tone": "Vietnam",
     "watchlist_country": "",
     "relevance": "",
     "relevance_reason": "no",
