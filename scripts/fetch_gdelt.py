@@ -86,7 +86,7 @@ def load_config():
         cfg = yaml.safe_load(f)
 
     identity_terms = cfg["identity_terms"]
-    watchlist = cfg.get("watchlist_countries", [])
+    watchlist = cfg.get("focus_countries", [])
     context_terms = [t.lower() for t in cfg.get("context_terms", [])]
 
     # Flatten to one entry per individual (category, term) pair.
