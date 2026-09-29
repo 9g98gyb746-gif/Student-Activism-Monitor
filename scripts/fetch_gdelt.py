@@ -39,6 +39,233 @@ FIELDNAMES = [
     "fetched_at",
     "category_id",
     "category_label",
+    "title",
+    "url",
+    "seendate",
+    "domain",
+    "language",
+    "sourcecountry",
+    "tone",
+    "watchlist_country",
+    "relevance",
+    "relevance_reason",
+    "matched_term",
+    "context_match",
+]
+# IMPORTANT: if a new field is ever added to this list in the future, add it
+# to the END, never insert it in the middle. This script only writes a
+# header when the file doesn't already exist yet, so an existing file's
+# header line never automatically updates — inserting a field in the
+# middle silently misaligns every column after it for all future rows
+# without any visible error. (This exact mistake happened once already,
+# with matched_term and context_match, and required a one-time manual
+# repair via scripts/repair_hits_csv.py — see that file for the story.)
+
+TIMESPAN = "2d"
+MAX_RECORDS = 100
+REQUEST_DELAY_SECONDS = 9  # GDELT asks for 1 per 5s; this leaves margin
+MAX_RETRIES = 1
+RETRY_BACKOFF_SECONDS = 12
+
+HEADERS = {
+    "User-Agent": (
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+        "(KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36"
+    ),
+    "Accept": "application/json, text/plain, */*",
+    "Accept-Language": "en-US,en;q=0.9",
+}
+
+
+def quote_if_needed(term):
+    return f'"{term}"' if " " in term else term
+
+
+def load_config():
+    with open(CONFIG_PATH, "r", encoding="utf-8") as f:
+        cfg = yaml.safe_load(f)
+
+    identity_terms = cfg["identity_terms"]
+    watchlist = cfg.get("watchlist_countries", [])
+    context_terms = [t.lower() for t in cfg.get("context_terms", [])]
+
+    # Flatten to one entry per individual (category, term) pair.
+    tasks = []
+    for category in cfg["categories"]:
+        for term in category["terms"]:
+            query = f"{identity_terms} AND {quote_if_needed(term)}"
+            tasks.append(
+                {
+                    "category_id": category["id"],
+                    "category_label": category["label"],
+                    "term": term,
+                    "query": query,
+                }
+            )
+
+    return tasks, watchlist, context_terms
+
+
+def load_existing_urls():
+    if not DATA_PATH.exists():
+        return set()
+    with open(DATA_PATH, "r", encoding="utf-8", newline="") as f:
+        return {row["url"] for row in csv.DictReader(f)}
+
+
+def check_header_is_current():
+    """Loudly warn (in the run's log output) if data/hits.csv's header line
+    doesn't match FIELDNAMES exactly, instead of silently writing
+    misaligned rows underneath a stale header — which is exactly what
+    caused the historical corruption this codebase once needed a manual
+    repair for. This won't happen from ordinary use as long as new fields
+    are always appended at the end of FIELDNAMES (see the comment there)."""
+    if not DATA_PATH.exists():
+        return
+    with open(DATA_PATH, "r", encoding="utf-8", newline="") as f:
+        header = next(csv.reader(f), [])
+    if header != FIELDNAMES:
+        print(
+            "  !! WARNING: data/hits.csv's header does not match this script's "
+            "current FIELDNAMES. New rows may be misaligned with old ones. "
+            "This needs a manual fix — do not ignore this warning."
+        )
+        print(f"     File header : {header}")
+        print(f"     Expected    : {FIELDNAMES}")
+
+
+def fetch_query(label, query):
+    """Fetch one simple query's articles. Never raises — returns [] on any
+    unrecoverable failure so one bad query can't take down the run."""
+    params = {
+        "query": query,
+        "mode": "artlist",
+        "maxrecords": MAX_RECORDS,
+        "format": "json",
+        "timespan": TIMESPAN,
+        "sort": "datedesc",
+    }
+
+    for attempt in range(1, MAX_RETRIES + 1):
+        try:
+            resp = requests.get(GDELT_URL, params=params, headers=HEADERS, timeout=60)
+
+            if resp.status_code == 429:
+                wait = RETRY_BACKOFF_SECONDS * attempt
+                print(f"    ! rate-limited (429) — waiting {wait}s (attempt {attempt}/{MAX_RETRIES})")
+                time.sleep(wait)
+                continue
+
+            resp.raise_for_status()
+
+            try:
+                payload = resp.json()
+                return payload.get("articles", [])
+            except ValueError:
+                snippet = resp.text[:120].replace("\n", " ")
+                print(f"    ! non-JSON response for '{label}' ({snippet!r}) — skipping")
+                return []
+
+        except requests.exceptions.RequestException as e:
+            print(f"    ! request failed for '{label}': {e}")
+            if attempt < MAX_RETRIES:
+                time.sleep(RETRY_BACKOFF_SECONDS)
+
+    print(f"    ! giving up on '{label}' (will retry via tomorrow's overlapping window)")
+    return []
+
+
+def has_activism_context(article, context_terms):
+    """Local, free relevance signal: does the headline also contain an
+    activism-context word, alongside the bare 'student(s)' match required
+    by the query itself? Doesn't discard non-matching rows — just flags
+    them, so the dashboard can hide noise by default without permanently
+    losing anything genuinely relevant but oddly worded."""
+    title = (article.get("title") or "").lower()
+    return any(term in title for term in context_terms)
+
+
+def match_watchlist_country(article, watchlist):
+    title = (article.get("title") or "").lower()
+    for country in watchlist:
+        names_to_check = [country["name"]] + country.get("aliases", [])
+        for name in names_to_check:
+            if name.lower() in title:
+                return country["name"]
+    return ""
+
+
+def append_rows(rows):
+    if not rows:
+        return
+    file_exists = DATA_PATH.exists()
+    DATA_PATH.parent.mkdir(parents=True, exist_ok=True)
+    with open(DATA_PATH, "a", encoding="utf-8", newline="") as f:
+        writer = csv.DictWriter(f, fieldnames=FIELDNAMES)
+        if not file_exists:
+            writer.writeheader()
+        writer.writerows(rows)
+
+
+def main():
+    tasks, watchlist, context_terms = load_config()
+    check_header_is_current()
+    existing_urls = load_existing_urls()
+    fetched_at = datetime.now(timezone.utc).isoformat()
+    total_new = 0
+    total_found = 0
+
+    for i, task in enumerate(tasks):
+        label = f"{task['category_id']}:{task['term']}"
+        print(f"[{i + 1}/{len(tasks)}] {label}")
+        articles = fetch_query(label, task["query"])
+        total_found += len(articles)
+
+        rows = []
+        for a in articles:
+            url = a.get("url", "")
+            if not url or url in existing_urls:
+                continue
+            existing_urls.add(url)
+            rows.append(
+                {
+                    "fetched_at": fetched_at,
+                    "category_id": task["category_id"],
+                    "category_label": task["category_label"],
+                    "matched_term": task["term"],
+                    "title": a.get("title", ""),
+                    "url": url,
+                    "seendate": a.get("seendate", ""),
+                    "domain": a.get("domain", ""),
+                    "language": a.get("language", ""),
+                    "sourcecountry": a.get("sourcecountry", ""),
+                    "tone": a.get("tone", ""),
+                    "watchlist_country": match_watchlist_country(a, watchlist),
+                    "context_match": "yes" if has_activism_context(a, context_terms) else "no",
+                    "relevance": "",
+                    "relevance_reason": "",
+                }
+            )
+
+        append_rows(rows)  # save after every single term, not just at the end
+        total_new += len(rows)
+        if rows:
+            print(f"    -> {len(articles)} found, {len(rows)} new, saved")
+        else:
+            print(f"    -> {len(articles)} found, 0 new")
+
+        if i < len(tasks) - 1:
+            time.sleep(REQUEST_DELAY_SECONDS + random.uniform(0, 3))
+
+    print(f"\nDone. {total_found} article(s) matched across all terms; {total_new} new row(s) added.")
+
+
+if __name__ == "__main__":
+    main()
+FIELDNAMES = [
+    "fetched_at",
+    "category_id",
+    "category_label",
     "matched_term",
     "title",
     "url",
