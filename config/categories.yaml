@@ -1,20 +1,28 @@
 # Search terms for the GDELT student-activism monitor.
 #
-# IMPORTANT ARCHITECTURE NOTE: GDELT's DOC API appears to reject/throttle
-# complex boolean queries (many OR'd terms combined) far more aggressively
-# than simple ones, regardless of request timing — confirmed by testing a
-# single-phrase query (worked instantly) against a 12-clause OR'd query
-# (blocked immediately), and consistent with other developers' reports
-# that GDELT "does not parse compound boolean expressions reliably."
+# ARCHITECTURE NOTE: this config is used by scripts/fetch_ngrams.py, which
+# scans GDELT's Web NGrams dataset locally rather than querying GDELT's
+# search API. That API has been persistently unreliable (GDELT's own
+# maintainer confirmed their search infrastructure is mid-migration and
+# temporarily can't handle normal load) — the ngrams approach sidesteps
+# this entirely, since it only ever downloads small static files, never
+# sends GDELT a query to reject or rate-limit.
 #
-# So instead of one query per category (each OR-ing many synonyms), the
-# fetch script runs ONE SIMPLE QUERY PER INDIVIDUAL TERM: just
-# ("student" OR "students") AND <term> — at most 3 total clauses, no
-# nested OR-of-OR. This means more requests (~47 instead of 7), but each
-# one is about as simple as a query gets, which should be far more
-# reliable than fewer, more complex ones.
-
-identity_terms: '("student" OR "students")'
+# One consequence: there's no query-complexity limit to work around
+# anymore, so identity_phrases can (and should) be activism-specific
+# rather than the bare "student"/"students" the old DOC-API version had
+# to use for reliability. A real-data check found bare "student" produced
+# 80-100% noise per search term — this tighter list fixes that at the
+# source instead of relying entirely on the noise filter afterward.
+identity_phrases:
+  - "student activist"
+  - "student protester"
+  - "student protesters"
+  - "student union"
+  - "students union"
+  - "campus protest"
+  - "student demonstrators"
+  - "student movement"
 
 categories:
   - id: physical_violence
@@ -45,11 +53,10 @@ categories:
     label: "Visa & immigration retaliation"
     terms: [deported, "visa revoked", "visa cancelled", "visa canceled", denationalized, "denied re-entry"]
 
-# Countries highlighted in the dashboard — both SAIH's operating partner
-# countries and other countries documented as case studies across the
-# Activism Under Attack (2023, 2024) and Latin America (2020) reports.
-# This is a highlighting aid, not a search filter; it does not restrict
-# what GDELT is asked for.
+# Used to flag rows in the dashboard based on whether a focus country is
+# mentioned anywhere in the article's FULL TEXT (an upgrade from the old
+# headline-only check, since this dataset covers whole articles). Does
+# NOT restrict the search; it's a highlighting aid only.
 focus_countries:
   - name: Afghanistan
     aliases: []
@@ -90,12 +97,9 @@ focus_countries:
   - name: Indonesia
     aliases: []
 
-# Used as a local relevance filter after fetching: a headline must contain
-# the bare word "student(s)" (broad, for reliability against GDELT) AND at
-# least one of these activism-context words to be flagged as a likely
-# match. Rows that don't match aren't discarded — just hidden by default
-# in the dashboard — since a genuinely relevant but oddly-worded headline
-# shouldn't be lost outright.
+# Local relevance filter: full article text must contain an
+# activism-context word for context_match to be "yes". Non-matches are
+# hidden by default in the dashboard, not discarded.
 context_terms:
   - activist
   - activism
