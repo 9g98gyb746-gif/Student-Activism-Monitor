@@ -236,9 +236,13 @@ def match_watchlist_country(text, watchlist):
 
 
 def process_minute(dt, identity_phrases, categories, watchlist, context_terms, existing_urls):
+    """Returns (rows, file_existed). file_existed distinguishes 'GDELT had
+    no file published for this minute' (a normal gap) from 'a file
+    existed but had no relevant matches' (also normal, but a genuinely
+    different, useful thing to know when checking on the pipeline)."""
     ngrams_text, toc_lines = fetch_minute_files(dt)
     if ngrams_text is None:
-        return []  # no file for this minute — normal gap
+        return [], False  # no file for this minute — normal gap
 
     toc = parse_toc(toc_lines)
     doc_text = build_doc_text(ngrams_text)
@@ -280,7 +284,7 @@ def process_minute(dt, identity_phrases, categories, watchlist, context_terms, e
             }
         )
 
-    return rows
+    return rows, True
 
 
 def append_rows(rows):
@@ -323,17 +327,30 @@ def main():
     )
 
     total_new = 0
-    found_files = 0
+    files_found = 0
     for dt in minutes:
-        rows = process_minute(dt, identity_phrases, categories, watchlist, context_terms, existing_urls)
+        rows, file_existed = process_minute(
+            dt, identity_phrases, categories, watchlist, context_terms, existing_urls
+        )
+        if file_existed:
+            files_found += 1
         if rows:
-            found_files += 1
             append_rows(rows)
             total_new += len(rows)
             print(f"  {dt.strftime('%H:%M')} — {len(rows)} new match(es)")
         save_state(dt)  # advance state even on a miss, so we never get stuck retrying
 
-    print(f"\nDone. Checked {len(minutes)} minute(s), found data in {found_files}, added {total_new} new row(s).")
+    print(
+        f"\nDone. Checked {len(minutes)} minute(s); GDELT had published files for "
+        f"{files_found} of them; added {total_new} new row(s)."
+    )
+    if files_found == 0:
+        print(
+            "Note: zero published files found across this entire window. A single "
+            "quiet run is normal, but if this keeps happening across several "
+            "consecutive runs, that would be worth investigating (unlike zero "
+            "MATCHES, which is expected fairly often)."
+        )
 
 
 if __name__ == "__main__":
