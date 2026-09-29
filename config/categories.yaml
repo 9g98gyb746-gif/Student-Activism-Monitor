@@ -45,11 +45,12 @@ categories:
     label: "Visa & immigration retaliation"
     terms: [deported, "visa revoked", "visa cancelled", "visa canceled", denationalized, "denied re-entry"]
 
-# Used to flag rows in the dashboard based on whether the country is
-# mentioned in the article's headline — a proxy for where the incident
-# happened, since GDELT's free API doesn't expose true event-location
-# tagging. Does NOT restrict the search; it's a highlighting aid only.
-watchlist_countries:
+# Countries highlighted in the dashboard — both SAIH's operating partner
+# countries and other countries documented as case studies across the
+# Activism Under Attack (2023, 2024) and Latin America (2020) reports.
+# This is a highlighting aid, not a search filter; it does not restrict
+# what GDELT is asked for.
+focus_countries:
   - name: Afghanistan
     aliases: []
   - name: Bolivia
@@ -67,6 +68,26 @@ watchlist_countries:
   - name: Zambia
     aliases: []
   - name: Zimbabwe
+    aliases: []
+  - name: Honduras
+    aliases: []
+  - name: United Kingdom
+    aliases: ["UK", "Britain"]
+  - name: Ghana
+    aliases: []
+  - name: Morocco
+    aliases: []
+  - name: Brazil
+    aliases: []
+  - name: Turkey
+    aliases: ["Türkiye"]
+  - name: Chile
+    aliases: []
+  - name: Nicaragua
+    aliases: []
+  - name: Russia
+    aliases: []
+  - name: Indonesia
     aliases: []
 
 # Used as a local relevance filter after fetching: a headline must contain
