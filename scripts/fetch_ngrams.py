@@ -37,6 +37,9 @@ How it works:
     Matches are tagged with category/term, country, and noise-context the
     same way the old script did, just checked against full text instead
     of headline-only.
+  - URLs that look like listing/archive pages (author, tag, category,
+    topic, search, or pagination pages) are skipped even if their text
+    happens to match — see looks_like_listing_page() below for why.
 
 Designed to run frequently via GitHub Actions (every 15 minutes; see
 .github/workflows/gdelt-ngrams-monitor.yml) since each run is cheap and
@@ -55,6 +58,42 @@ from urllib.parse import urlparse
 
 import requests
 import yaml
+
+# URL path segments that reliably indicate a listing/archive page rather
+# than a single article — e.g. an author's full post history, a tag or
+# category feed, a search results page, or a pagination page. These pages
+# sometimes carry misleading metadata claiming they're a single article,
+# and because they can contain dozens of unrelated headlines concatenated
+# together, they're much more prone to false matches (two completely
+# unrelated headlines on the same listing page coincidentally satisfying
+# our identity-phrase-plus-repression-term check) than a genuine article
+# is. Checked as an exact path segment (between slashes), not a raw
+# substring, so this won't reject a genuine article whose slug merely
+# contains one of these words (e.g. "-authors-" or "co-author").
+NON_ARTICLE_PATH_SEGMENTS = {
+    "author",
+    "authors",
+    "tag",
+    "tags",
+    "category",
+    "categories",
+    "topic",
+    "topics",
+    "archive",
+    "archives",
+    "search",
+    "page",
+}
+
+
+def looks_like_listing_page(url):
+    try:
+        path = urlparse(url).path.lower()
+    except Exception:
+        return False
+    segments = [s for s in path.split("/") if s]
+    return any(seg in NON_ARTICLE_PATH_SEGMENTS for seg in segments)
+
 
 ROOT = Path(__file__).resolve().parent.parent
 CONFIG_PATH = ROOT / "config" / "categories.yaml"
@@ -261,6 +300,8 @@ def process_minute(dt, identity_phrases, categories, watchlist, context_terms, e
             continue
         url = rec.get("url", "")
         if not url or url in existing_urls:
+            continue
+        if looks_like_listing_page(url):
             continue
         existing_urls.add(url)
 
