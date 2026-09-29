@@ -1,0 +1,39 @@
+name: GDELT ngrams student activism monitor
+
+on:
+  schedule:
+    - cron: "*/15 * * * *" # every 15 minutes — this dataset is near-realtime
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  fetch-and-publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install requests PyYAML
+
+      - name: Fetch new ngrams matches
+        run: python -u scripts/fetch_ngrams.py
+
+      - name: Build dashboard data
+        run: python -u scripts/build_site_data.py
+
+      - name: Commit and push updates
+        run: |
+          git config user.name "gdelt-monitor-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/hits.csv data/ngrams_state.txt docs/data.json
+          git diff --cached --quiet && echo "No changes to commit" || git commit -m "Update ngrams hits ($(date -u +%FT%H:%M))"
+          git pull --rebase origin main
+          git push
