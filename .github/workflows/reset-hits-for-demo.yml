@@ -3,6 +3,10 @@ name: One-time reset hits.csv for demo
 on:
   workflow_dispatch: {}
 
+concurrency:
+  group: gdelt-data-writer
+  cancel-in-progress: false
+  
 permissions:
   contents: write
 
