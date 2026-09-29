@@ -80,9 +80,10 @@ context_terms:
   - activism
   - protest
   - demonstration
+  - demonstrator
   - rally
-  - student union
-  - students union
+  - "student union"
+  - "students union"
   - movement
   - walkout
   - boycott
