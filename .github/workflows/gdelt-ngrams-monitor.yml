@@ -4,7 +4,11 @@ on:
   schedule:
     - cron: "*/15 * * * *" # every 15 minutes — this dataset is near-realtime
   workflow_dispatch: {}
-
+  
+concurrency:
+  group: gdelt-data-writer
+  cancel-in-progress: false
+  
 permissions:
   contents: write
 
