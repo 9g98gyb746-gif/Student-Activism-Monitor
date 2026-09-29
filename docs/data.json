@@ -1,5 +1,22 @@
 [
   {
+    "fetched_at": "2026-09-29T22:49:10.876641+00:00",
+    "category_id": "detention_arrest",
+    "category_label": "Arrests & detention",
+    "title": "Hong Kong from the Inside",
+    "url": "https://www.chinafile.com/library/nyrb-china-archive/hong-kong-inside",
+    "seendate": "20260929T223200Z",
+    "domain": "chinafile.com",
+    "language": "en",
+    "sourcecountry": "",
+    "tone": "",
+    "watchlist_country": "United Kingdom",
+    "relevance": "",
+    "relevance_reason": "",
+    "matched_term": "arrested",
+    "context_match": "yes"
+  },
+  {
     "fetched_at": "2026-09-29T22:23:45.760837+00:00",
     "category_id": "institutional_sanction",
     "category_label": "Institutional & academic sanctions",
