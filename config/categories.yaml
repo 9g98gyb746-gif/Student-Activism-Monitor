@@ -18,8 +18,9 @@ identity_phrases:
   - "student activist"
   - "student protester"
   - "student protesters"
-  - "student union"
-  - "students union"
+  - "student union leader"
+  - "student union president"
+  - "student union protest"
   - "campus protest"
   - "student demonstrators"
   - "student movement"
@@ -107,8 +108,8 @@ context_terms:
   - demonstration
   - demonstrator
   - rally
-  - "student union"
-  - "students union"
+  - "student union leader"
+  - "student union president"
   - movement
   - walkout
   - boycott
