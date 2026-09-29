@@ -1,0 +1,34 @@
+name: One-time repair hits.csv
+
+on:
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  repair:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Repair data/hits.csv
+        run: python -u scripts/repair_hits_csv.py
+
+      - name: Rebuild dashboard data
+        run: python -u scripts/build_site_data.py
+
+      - name: Commit and push repaired data
+        run: |
+          git config user.name "gdelt-monitor-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/hits.csv docs/data.json
+          git diff --cached --quiet && echo "No changes to commit" || git commit -m "One-time repair: fix misaligned CSV columns"
+          git pull --rebase origin main
+          git push
