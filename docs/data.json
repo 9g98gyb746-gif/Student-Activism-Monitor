@@ -1,5 +1,22 @@
 [
   {
+    "fetched_at": "2026-09-29T11:52:13.221743+00:00",
+    "category_id": "detention_arrest",
+    "category_label": "Arrests & detention",
+    "title": "Columbia threatens to evict student protesters occupying campus building",
+    "url": "https://www.digbycourier.ca/columbia-threatens-to-evict-student-protesters-occupying-campus-building/",
+    "seendate": "20260929T113200Z",
+    "domain": "digbycourier.ca",
+    "language": "en",
+    "sourcecountry": "",
+    "tone": "",
+    "watchlist_country": "Palestine",
+    "relevance": "",
+    "relevance_reason": "",
+    "matched_term": "arrested",
+    "context_match": "yes"
+  },
+  {
     "fetched_at": "2026-09-29T11:36:09.144061+00:00",
     "category_id": "detention_arrest",
     "category_label": "Arrests & detention",
