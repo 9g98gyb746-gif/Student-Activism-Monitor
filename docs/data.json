@@ -1,5 +1,22 @@
 [
   {
+    "fetched_at": "2026-09-30T22:37:01.902692+00:00",
+    "category_id": "physical_violence",
+    "category_label": "Physical violence & killings",
+    "title": "Cornell University's Jane Doe rape case sparks collective rage",
+    "url": "https://www.bostonglobe.com/2026/09/30/metro/cornell-university-jane-doe-assault-case-reopened/",
+    "seendate": "20260930T223100Z",
+    "domain": "bostonglobe.com",
+    "language": "en",
+    "sourcecountry": "",
+    "tone": "",
+    "watchlist_country": "Palestine",
+    "relevance": "",
+    "relevance_reason": "",
+    "matched_term": "assaulted",
+    "context_match": "yes"
+  },
+  {
     "fetched_at": "2026-09-30T22:24:51.025254+00:00",
     "category_id": "institutional_sanction",
     "category_label": "Institutional & academic sanctions",
