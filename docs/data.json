@@ -1,5 +1,22 @@
 [
   {
+    "fetched_at": "2026-09-30T10:39:21.668240+00:00",
+    "category_id": "detention_arrest",
+    "category_label": "Arrests & detention",
+    "title": "In Rare Show Of Dissent Amid Crackdown, Iranian University Students Stage Protest",
+    "url": "https://www.globalsecurity.org/wmd/library/news/iran/2026/09/iran-260929-rferl04.htm",
+    "seendate": "20260930T103200Z",
+    "domain": "globalsecurity.org",
+    "language": "en",
+    "sourcecountry": "",
+    "tone": "",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "",
+    "matched_term": "arrested",
+    "context_match": "yes"
+  },
+  {
     "fetched_at": "2026-09-30T09:25:41.348531+00:00",
     "category_id": "institutional_sanction",
     "category_label": "Institutional & academic sanctions",
