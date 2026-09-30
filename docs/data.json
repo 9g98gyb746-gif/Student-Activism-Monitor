@@ -1,5 +1,22 @@
 [
   {
+    "fetched_at": "2026-09-30T02:23:32.130183+00:00",
+    "category_id": "physical_violence",
+    "category_label": "Physical violence & killings",
+    "title": "Investigators announce a break in Mexico's most notorious unsolved crime",
+    "url": "https://www.adn.com/nation-world/2026/09/29/investigators-announce-a-break-in-mexicos-most-notorious-unsolved-crime/",
+    "seendate": "20260930T021600Z",
+    "domain": "adn.com",
+    "language": "en",
+    "sourcecountry": "",
+    "tone": "",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "",
+    "matched_term": "shot",
+    "context_match": "yes"
+  },
+  {
     "fetched_at": "2026-09-30T01:50:41.654834+00:00",
     "category_id": "institutional_sanction",
     "category_label": "Institutional & academic sanctions",
