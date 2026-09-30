@@ -1,5 +1,22 @@
 [
   {
+    "fetched_at": "2026-09-30T09:25:41.348531+00:00",
+    "category_id": "institutional_sanction",
+    "category_label": "Institutional & academic sanctions",
+    "title": "Lovely Professional University blames outsiders for violence",
+    "url": "https://www.orissapost.com/lovely-professional-university-blames-outsiders-for-violence/",
+    "seendate": "20260930T091700Z",
+    "domain": "orissapost.com",
+    "language": "en",
+    "sourcecountry": "",
+    "tone": "",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "",
+    "matched_term": "suspended",
+    "context_match": "yes"
+  },
+  {
     "fetched_at": "2026-09-30T08:28:14.420147+00:00",
     "category_id": "detention_arrest",
     "category_label": "Arrests & detention",
