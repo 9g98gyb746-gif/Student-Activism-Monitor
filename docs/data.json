@@ -1,5 +1,22 @@
 [
   {
+    "fetched_at": "2026-09-30T21:25:22.083877+00:00",
+    "category_id": "detention_arrest",
+    "category_label": "Arrests & detention",
+    "title": "Caucasian Knot | Pro-European protests in Tbilisi continue for 672 days",
+    "url": "https://www.eng.kavkaz-uzel.eu/articles/79015",
+    "seendate": "20260930T211700Z",
+    "domain": "eng.kavkaz-uzel.eu",
+    "language": "en",
+    "sourcecountry": "",
+    "tone": "",
+    "watchlist_country": "United Kingdom",
+    "relevance": "",
+    "relevance_reason": "",
+    "matched_term": "detained",
+    "context_match": "yes"
+  },
+  {
     "fetched_at": "2026-09-30T21:02:24.753457+00:00",
     "category_id": "physical_violence",
     "category_label": "Physical violence & killings",
