@@ -1,5 +1,22 @@
 [
   {
+    "fetched_at": "2026-09-30T04:25:55.371244+00:00",
+    "category_id": "institutional_sanction",
+    "category_label": "Institutional & academic sanctions",
+    "title": "Harvard reaches agreement with protesters to end encampment",
+    "url": "https://www.northernpen.ca/harvard-reaches-agreement-with-protesters-to-end-encampment/",
+    "seendate": "20260930T041600Z",
+    "domain": "northernpen.ca",
+    "language": "en",
+    "sourcecountry": "",
+    "tone": "",
+    "watchlist_country": "Palestine",
+    "relevance": "",
+    "relevance_reason": "",
+    "matched_term": "suspended",
+    "context_match": "yes"
+  },
+  {
     "fetched_at": "2026-09-30T02:23:32.130183+00:00",
     "category_id": "physical_violence",
     "category_label": "Physical violence & killings",
