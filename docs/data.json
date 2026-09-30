@@ -1,5 +1,22 @@
 [
   {
+    "fetched_at": "2026-09-30T21:02:24.753457+00:00",
+    "category_id": "physical_violence",
+    "category_label": "Physical violence & killings",
+    "title": "Shadows of October: Israel Under Siege",
+    "url": "https://afr.net:443/podcasts/the-middle-east-report-with-john-riley/2026/january/shadows-of-october-israel-under-siege/",
+    "seendate": "20260930T204700Z",
+    "domain": "afr.net:443",
+    "language": "en",
+    "sourcecountry": "",
+    "tone": "",
+    "watchlist_country": "Palestine",
+    "relevance": "",
+    "relevance_reason": "",
+    "matched_term": "shot",
+    "context_match": "yes"
+  },
+  {
     "fetched_at": "2026-09-30T19:50:17.362373+00:00",
     "category_id": "detention_arrest",
     "category_label": "Arrests & detention",
