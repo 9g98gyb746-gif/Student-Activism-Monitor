@@ -1,5 +1,22 @@
 [
   {
+    "fetched_at": "2026-10-01T10:26:35.223679+00:00",
+    "category_id": "surveillance_intimidation",
+    "category_label": "Surveillance, threats & intimidation",
+    "title": "Iran's Regime Intensifies Pressure on Universities as Student Protests Re-emerge",
+    "url": "https://irannewsupdate.com/news/human-rights/irans-regime-intensifies-pressure-on-universities-as-student-protests-re-emerge/",
+    "seendate": "20261001T101600Z",
+    "domain": "irannewsupdate.com",
+    "language": "en",
+    "sourcecountry": "",
+    "tone": "",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "",
+    "matched_term": "surveillance",
+    "context_match": "yes"
+  },
+  {
     "fetched_at": "2026-10-01T09:54:03.919989+00:00",
     "category_id": "physical_violence",
     "category_label": "Physical violence & killings",
