@@ -1,5 +1,22 @@
 [
   {
+    "fetched_at": "2026-10-01T14:57:40.680353+00:00",
+    "category_id": "physical_violence",
+    "category_label": "Physical violence & killings",
+    "title": "Attackers douse teacher in gasoline as student protests rage across France",
+    "url": "https://nypost.com/2026/10/01/world-news/attackers-douse-teacher-in-petrol-as-student-protests-rage-across-france/",
+    "seendate": "20261001T144700Z",
+    "domain": "nypost.com",
+    "language": "en",
+    "sourcecountry": "",
+    "tone": "",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "",
+    "matched_term": "tear gas",
+    "context_match": "yes"
+  },
+  {
     "fetched_at": "2026-10-01T13:44:56.860712+00:00",
     "category_id": "physical_violence",
     "category_label": "Physical violence & killings",
