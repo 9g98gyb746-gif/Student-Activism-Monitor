@@ -1,5 +1,22 @@
 [
   {
+    "fetched_at": "2026-10-01T09:54:03.919989+00:00",
+    "category_id": "physical_violence",
+    "category_label": "Physical violence & killings",
+    "title": "",
+    "url": "https://georgetownvoice.com/2026/10/01/this-isnt-pride-its-contempt-georgetowns-free-speech-paradox/",
+    "seendate": "20261001T094600Z",
+    "domain": "georgetownvoice.com",
+    "language": "en",
+    "sourcecountry": "",
+    "tone": "",
+    "watchlist_country": "Palestine",
+    "relevance": "",
+    "relevance_reason": "",
+    "matched_term": "assaulted",
+    "context_match": "yes"
+  },
+  {
     "fetched_at": "2026-10-01T07:53:45.671057+00:00",
     "category_id": "legal_harassment",
     "category_label": "Legal harassment & lawfare",
