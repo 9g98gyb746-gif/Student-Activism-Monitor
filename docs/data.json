@@ -1,5 +1,22 @@
 [
   {
+    "fetched_at": "2026-10-01T23:35:16.315289+00:00",
+    "category_id": "legal_harassment",
+    "category_label": "Legal harassment & lawfare",
+    "title": "UC asks judge to dismiss DOJ's UCLA antisemitism lawsuit",
+    "url": "https://www.latimes.com/california/story/2026-10-01/uc-asks-judge-dismiss-doj-ucla-antisemitism-lawsuit",
+    "seendate": "20261001T231700Z",
+    "domain": "latimes.com",
+    "language": "en",
+    "sourcecountry": "",
+    "tone": "",
+    "watchlist_country": "Palestine",
+    "relevance": "",
+    "relevance_reason": "",
+    "matched_term": "lawsuit",
+    "context_match": "yes"
+  },
+  {
     "fetched_at": "2026-10-01T23:21:35.021708+00:00",
     "category_id": "physical_violence",
     "category_label": "Physical violence & killings",
