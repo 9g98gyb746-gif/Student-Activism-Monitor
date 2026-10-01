@@ -1,5 +1,22 @@
 [
   {
+    "fetched_at": "2026-10-01T02:52:06.679289+00:00",
+    "category_id": "detention_arrest",
+    "category_label": "Arrests & detention",
+    "title": "Pro-Palestinian Protests: Clashes between students and universities grow tense",
+    "url": "https://www.northernpen.ca/pro-palestinian-protests-clashes-between-students-and-universities-grow-tense/",
+    "seendate": "20261001T024600Z",
+    "domain": "northernpen.ca",
+    "language": "en",
+    "sourcecountry": "",
+    "tone": "",
+    "watchlist_country": "Palestine",
+    "relevance": "",
+    "relevance_reason": "",
+    "matched_term": "arrested",
+    "context_match": "yes"
+  },
+  {
     "fetched_at": "2026-10-01T00:02:12.265781+00:00",
     "category_id": "legal_harassment",
     "category_label": "Legal harassment & lawfare",
