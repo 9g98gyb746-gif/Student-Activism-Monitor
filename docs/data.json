@@ -1,5 +1,22 @@
 [
   {
+    "fetched_at": "2026-10-02T05:24:17.349073+00:00",
+    "category_id": "physical_violence",
+    "category_label": "Physical violence & killings",
+    "title": "Nearly 2,000 arrested as student unrest grips France",
+    "url": "http://www.parisguardian.com/news/279346694/nearly-2000-arrested-as-student-unrest-grips-france",
+    "seendate": "20261002T051600Z",
+    "domain": "parisguardian.com",
+    "language": "en",
+    "sourcecountry": "",
+    "tone": "",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "",
+    "matched_term": "tear gas",
+    "context_match": "yes"
+  },
+  {
     "fetched_at": "2026-10-02T02:23:16.202567+00:00",
     "category_id": "physical_violence",
     "category_label": "Physical violence & killings",
