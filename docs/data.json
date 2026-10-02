@@ -1,5 +1,22 @@
 [
   {
+    "fetched_at": "2026-10-02T05:51:58.691103+00:00",
+    "category_id": "detention_arrest",
+    "category_label": "Arrests & detention",
+    "title": "Fourth nationwide school strike in Germany: 45,000 protest against conscription",
+    "url": "https://www.wsws.org/en/articles/2026/10/02/zwpt-o02.html",
+    "seendate": "20261002T054600Z",
+    "domain": "wsws.org",
+    "language": "en",
+    "sourcecountry": "",
+    "tone": "",
+    "watchlist_country": "Palestine",
+    "relevance": "",
+    "relevance_reason": "",
+    "matched_term": "detained",
+    "context_match": "yes"
+  },
+  {
     "fetched_at": "2026-10-02T05:24:17.349073+00:00",
     "category_id": "physical_violence",
     "category_label": "Physical violence & killings",
