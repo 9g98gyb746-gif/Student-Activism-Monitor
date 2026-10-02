@@ -1,5 +1,22 @@
 [
   {
+    "fetched_at": "2026-10-02T20:23:20.603551+00:00",
+    "category_id": "detention_arrest",
+    "category_label": "Arrests & detention",
+    "title": "Blocked routes and repeated detentions mark SIR protest in Delhi",
+    "url": "https://www.thehindu.com/news/cities/Delhi/blocked-routes-and-repeated-detentions-mark-sir-protest-in-delhi/article71537069.ece",
+    "seendate": "20261002T200200Z",
+    "domain": "thehindu.com",
+    "language": "en",
+    "sourcecountry": "",
+    "tone": "",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "",
+    "matched_term": "detained",
+    "context_match": "yes"
+  },
+  {
     "fetched_at": "2026-10-02T19:38:10.398485+00:00",
     "category_id": "legal_harassment",
     "category_label": "Legal harassment & lawfare",
