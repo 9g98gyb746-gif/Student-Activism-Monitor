@@ -1,5 +1,22 @@
 [
   {
+    "fetched_at": "2026-10-02T19:08:00.894308+00:00",
+    "category_id": "physical_violence",
+    "category_label": "Physical violence & killings",
+    "title": "France: 400 Schools Closed as Student Protests Continue",
+    "url": "https://en.tempo.co/read/2120802/france-400-schools-closed-as-student-protests-continue",
+    "seendate": "20261002T190200Z",
+    "domain": "en.tempo.co",
+    "language": "en",
+    "sourcecountry": "",
+    "tone": "",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "",
+    "matched_term": "tear gas",
+    "context_match": "yes"
+  },
+  {
     "fetched_at": "2026-10-02T18:57:28.893103+00:00",
     "category_id": "detention_arrest",
     "category_label": "Arrests & detention",
