@@ -1,5 +1,22 @@
 [
   {
+    "fetched_at": "2026-10-02T10:52:08.490923+00:00",
+    "category_id": "physical_violence",
+    "category_label": "Physical violence & killings",
+    "title": "WATCH: Police 'open fire' on Rhodes University students",
+    "url": "https://www.citizen.co.za/news/watch-police-open-fire-on-rhodes-university-students/",
+    "seendate": "20261002T104600Z",
+    "domain": "citizen.co.za",
+    "language": "en",
+    "sourcecountry": "",
+    "tone": "",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "",
+    "matched_term": "shot",
+    "context_match": "yes"
+  },
+  {
     "fetched_at": "2026-10-02T10:37:39.437106+00:00",
     "category_id": "detention_arrest",
     "category_label": "Arrests & detention",
