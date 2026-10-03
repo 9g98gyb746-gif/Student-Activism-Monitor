@@ -1,5 +1,22 @@
 [
   {
+    "fetched_at": "2026-10-03T10:40:03.824595+00:00",
+    "category_id": "physical_violence",
+    "category_label": "Physical violence & killings",
+    "title": "One Jihadist After Another",
+    "url": "https://www.catholicworldreport.com/2026/10/02/one-jihadist-after-another/",
+    "seendate": "20261003T103100Z",
+    "domain": "catholicworldreport.com",
+    "language": "en",
+    "sourcecountry": "",
+    "tone": "",
+    "watchlist_country": "Palestine",
+    "relevance": "",
+    "relevance_reason": "",
+    "matched_term": "killed",
+    "context_match": "yes"
+  },
+  {
     "fetched_at": "2026-10-03T10:01:51.011281+00:00",
     "category_id": "institutional_sanction",
     "category_label": "Institutional & academic sanctions",
