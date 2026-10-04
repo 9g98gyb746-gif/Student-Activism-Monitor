@@ -1,5 +1,22 @@
 [
   {
+    "fetched_at": "2026-10-04T23:50:03.354500+00:00",
+    "category_id": "detention_arrest",
+    "category_label": "Arrests & detention",
+    "title": "Mahmoud Khalil in Oakland",
+    "url": "https://www.eastbaytimes.com/2026/10/03/with-deportation-still-hanging-pro-palestine-organizer-appears-in-oakland/",
+    "seendate": "20261004T034600Z",
+    "domain": "eastbaytimes.com",
+    "language": "en",
+    "sourcecountry": "",
+    "tone": "",
+    "watchlist_country": "Palestine",
+    "relevance": "",
+    "relevance_reason": "",
+    "matched_term": "detained",
+    "context_match": "yes"
+  },
+  {
     "fetched_at": "2026-10-04T23:36:36.317993+00:00",
     "category_id": "detention_arrest",
     "category_label": "Arrests & detention",
