@@ -1,5 +1,22 @@
 [
   {
+    "fetched_at": "2026-10-04T02:15:11.352223+00:00",
+    "category_id": "detention_arrest",
+    "category_label": "Arrests & detention",
+    "title": "Thousands arrested in France amid violent student protests: Interior Minister",
+    "url": "https://aa.com.tr/en/europe/thousands-arrested-in-france-amid-violent-student-protests-interior-minister/4077081",
+    "seendate": "20261003T140200Z",
+    "domain": "aa.com.tr",
+    "language": "en",
+    "sourcecountry": "",
+    "tone": "",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "",
+    "matched_term": "arrested",
+    "context_match": "yes"
+  },
+  {
     "fetched_at": "2026-10-03T14:32:30.958393+00:00",
     "category_id": "physical_violence",
     "category_label": "Physical violence & killings",
