@@ -1,5 +1,22 @@
 [
   {
+    "fetched_at": "2026-10-05T10:55:56.193375+00:00",
+    "category_id": "physical_violence",
+    "category_label": "Physical violence & killings",
+    "title": "Hundreds of French high schools shut as new violence erupts",
+    "url": "https://naharnet.com/stories/en/322891-hundreds-of-french-high-schools-shut-as-new-violence-erupts",
+    "seendate": "20261005T104600Z",
+    "domain": "naharnet.com",
+    "language": "en",
+    "sourcecountry": "",
+    "tone": "",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "",
+    "matched_term": "tear gas",
+    "context_match": "yes"
+  },
+  {
     "fetched_at": "2026-10-05T10:42:47.223850+00:00",
     "category_id": "detention_arrest",
     "category_label": "Arrests & detention",
