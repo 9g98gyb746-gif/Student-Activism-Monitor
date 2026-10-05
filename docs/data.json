@@ -1,5 +1,22 @@
 [
   {
+    "fetched_at": "2026-10-05T18:31:05.977295+00:00",
+    "category_id": "institutional_sanction",
+    "category_label": "Institutional & academic sanctions",
+    "title": "MIT's Dr. Yossi Sheffi discusses fighting academic anti-Israel boycotts",
+    "url": "https://www.jpost.com/diaspora/antisemitism/article-910688",
+    "seendate": "20261005T181700Z",
+    "domain": "jpost.com",
+    "language": "en",
+    "sourcecountry": "",
+    "tone": "",
+    "watchlist_country": "Palestine",
+    "relevance": "",
+    "relevance_reason": "",
+    "matched_term": "disciplinary action",
+    "context_match": "yes"
+  },
+  {
     "fetched_at": "2026-10-05T16:56:13.092625+00:00",
     "category_id": "physical_violence",
     "category_label": "Physical violence & killings",
