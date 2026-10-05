@@ -1,5 +1,22 @@
 [
   {
+    "fetched_at": "2026-10-05T10:42:47.223850+00:00",
+    "category_id": "detention_arrest",
+    "category_label": "Arrests & detention",
+    "title": "Hundreds of French schools closed as students maintain protest pressure",
+    "url": "https://www.aol.co.uk/articles/hundreds-french-schools-closed-students-101352000.html",
+    "seendate": "20261005T103100Z",
+    "domain": "aol.co.uk",
+    "language": "en",
+    "sourcecountry": "",
+    "tone": "",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "",
+    "matched_term": "arrested",
+    "context_match": "yes"
+  },
+  {
     "fetched_at": "2026-10-05T10:28:07.547391+00:00",
     "category_id": "detention_arrest",
     "category_label": "Arrests & detention",
