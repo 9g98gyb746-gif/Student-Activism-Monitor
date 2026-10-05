@@ -1,5 +1,22 @@
 [
   {
+    "fetched_at": "2026-10-05T15:58:26.865455+00:00",
+    "category_id": "physical_violence",
+    "category_label": "Physical violence & killings",
+    "title": "Hundreds of French schools shut, teen loses hand in protests",
+    "url": "https://www.dw.com/en/hundreds-of-french-schools-shut-teen-loses-hand-in-protests/a-79542656",
+    "seendate": "20261005T154600Z",
+    "domain": "dw.com",
+    "language": "en",
+    "sourcecountry": "",
+    "tone": "",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "",
+    "matched_term": "tear gas",
+    "context_match": "yes"
+  },
+  {
     "fetched_at": "2026-10-05T15:29:18.175069+00:00",
     "category_id": "legal_harassment",
     "category_label": "Legal harassment & lawfare",
