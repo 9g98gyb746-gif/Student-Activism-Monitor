@@ -1,5 +1,22 @@
 [
   {
+    "fetched_at": "2026-10-05T14:32:48.265730+00:00",
+    "category_id": "legal_harassment",
+    "category_label": "Legal harassment & lawfare",
+    "title": "Daniel Rivero",
+    "url": "https://www.wlrn.org/people/daniel-rivero",
+    "seendate": "20261005T141700Z",
+    "domain": "wlrn.org",
+    "language": "en",
+    "sourcecountry": "",
+    "tone": "",
+    "watchlist_country": "Palestine",
+    "relevance": "",
+    "relevance_reason": "",
+    "matched_term": "lawsuit",
+    "context_match": "yes"
+  },
+  {
     "fetched_at": "2026-10-05T14:12:10.568494+00:00",
     "category_id": "physical_violence",
     "category_label": "Physical violence & killings",
