@@ -1,5 +1,22 @@
 [
   {
+    "fetched_at": "2026-10-05T13:57:59.901539+00:00",
+    "category_id": "physical_violence",
+    "category_label": "Physical violence & killings",
+    "title": "Police grenade takes hand of French teen during student protest",
+    "url": "https://nationalpost.com/news/french-student-protests-teenager-loses-hand-police-grenade",
+    "seendate": "20261005T134700Z",
+    "domain": "nationalpost.com",
+    "language": "en",
+    "sourcecountry": "",
+    "tone": "",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "",
+    "matched_term": "tear gas",
+    "context_match": "yes"
+  },
+  {
     "fetched_at": "2026-10-05T13:42:27.736548+00:00",
     "category_id": "detention_arrest",
     "category_label": "Arrests & detention",
