@@ -1,5 +1,22 @@
 [
   {
+    "fetched_at": "2026-10-05T16:09:50.774064+00:00",
+    "category_id": "institutional_sanction",
+    "category_label": "Institutional & academic sanctions",
+    "title": "France closes hundreds of schools as violent student protests spread",
+    "url": "https://www.thenews.com.pk/latest/1418846-france-closes-hundreds-of-schools-as-violent-student-protests-spread",
+    "seendate": "20261005T160200Z",
+    "domain": "thenews.com.pk",
+    "language": "en",
+    "sourcecountry": "",
+    "tone": "",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "",
+    "matched_term": "suspended",
+    "context_match": "yes"
+  },
+  {
     "fetched_at": "2026-10-05T15:58:26.865455+00:00",
     "category_id": "physical_violence",
     "category_label": "Physical violence & killings",
