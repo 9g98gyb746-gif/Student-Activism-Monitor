@@ -1,5 +1,22 @@
 [
   {
+    "fetched_at": "2026-10-05T06:06:15.295341+00:00",
+    "category_id": "detention_arrest",
+    "category_label": "Arrests & detention",
+    "title": "The Spies for Peace and after – Nicolas Walter",
+    "url": "https://libcom.org/article/spies-peace-and-after-nicolas-walter",
+    "seendate": "20261005T001600Z",
+    "domain": "libcom.org",
+    "language": "en",
+    "sourcecountry": "",
+    "tone": "",
+    "watchlist_country": "United Kingdom",
+    "relevance": "",
+    "relevance_reason": "",
+    "matched_term": "arrested",
+    "context_match": "yes"
+  },
+  {
     "fetched_at": "2026-10-05T05:54:32.221095+00:00",
     "category_id": "detention_arrest",
     "category_label": "Arrests & detention",
