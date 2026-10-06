@@ -1,5 +1,25 @@
 [
   {
+    "fetched_at": "2026-10-06T18:27:49.462049+00:00",
+    "category_id": "detention_arrest",
+    "category_label": "Arrests & detention",
+    "title": "Iran summons French envoy over police crackdown on student protests",
+    "url": "https://www.presstv.co.uk/Detail/2026/10/06/777751/Iran-summons-French-ambassador-excessive-police-force-protesters-education-system-",
+    "seendate": "20261006T181700Z",
+    "domain": "presstv.co.uk",
+    "language": "en",
+    "sourcecountry": "",
+    "tone": "",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "",
+    "matched_term": "arrested",
+    "context_match": "",
+    "scope_tags": "",
+    "country": "France",
+    "region": "Europe"
+  },
+  {
     "fetched_at": "2026-10-06T17:52:08.008616+00:00",
     "category_id": "physical_violence",
     "category_label": "Physical violence & killings",
