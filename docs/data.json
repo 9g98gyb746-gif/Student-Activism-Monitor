@@ -1,5 +1,22 @@
 [
   {
+    "fetched_at": "2026-10-06T06:57:21.286857+00:00",
+    "category_id": "institutional_sanction",
+    "category_label": "Institutional & academic sanctions",
+    "title": "Американски универзитет ишаран со графити поради случај на групно силување",
+    "url": "https://mkd.mk/svet/amerikanski-univerzitet-isharan-so-grafiti-poradi-sluchaj-na-grupno-siluvanje/",
+    "seendate": "20261006T063200Z",
+    "domain": "mkd.mk",
+    "language": "mk",
+    "sourcecountry": "",
+    "tone": "",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "",
+    "matched_term": "expelled",
+    "context_match": "yes"
+  },
+  {
     "fetched_at": "2026-10-06T06:30:47.227013+00:00",
     "category_id": "detention_arrest",
     "category_label": "Arrests & detention",
