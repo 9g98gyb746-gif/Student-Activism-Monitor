@@ -82,7 +82,8 @@
       <option value="irrelevant">Marked irrelevant</option>
       <option value="untriaged">Untriaged</option>
     </select>
-    <label class="checkbox"><input type="checkbox" id="focusOnly" /> Focus countries only</label>
+    <select id="regionFilter"><option value="">All regions</option></select>
+    <label class="checkbox"><input type="checkbox" id="partnerOnly" /> Partner countries only</label>
     <!-- To start with a filter switched on, add the word "checked" inside its <input> tag. -->
     <label class="checkbox"><input type="checkbox" id="hideSchool" /> Hide high-school stories</label>
     <label class="checkbox" title="Sexual exploitation, abuse and harassment"><input type="checkbox" id="hideSeah" /> Hide SEAH-related stories</label>
@@ -93,7 +94,8 @@
 
 <footer>
   Data from the public <a href="https://www.gdeltproject.org/" target="_blank" rel="noopener">GDELT Project</a> Web NGrams dataset.
-  Stories reported by several outlets are grouped into one line. Filters are keyword-based, so they are a guide, not a guarantee.
+  Stories reported by several outlets are grouped into one line. Filters and regions are keyword-based, so they are a guide, not a guarantee.
+  The monitor reads English-language sources only, so countries with little English coverage can look quiet even when a lot is happening.
   See the repository README for methodology and limitations.
 </footer>
 
@@ -111,6 +113,12 @@
     return `${seendate.slice(0, 4)}-${seendate.slice(4, 6)}-${seendate.slice(6, 8)}`;
   }
 
+  const REGION_ORDER = [
+    "North America", "Latin America & Caribbean", "Europe", "Middle East & North Africa",
+    "Southern Africa", "Rest of Sub-Saharan Africa", "South Asia", "Southeast Asia",
+    "East & Central Asia", "Oceania", "Unclear",
+  ];
+  function regionOf(row) { return row.region || "Unclear"; }
   function relevanceOf(row) { return row.relevance ? row.relevance : "untriaged"; }
   function tagsOf(row) { return (row.scope_tags || "").split(";").filter(Boolean); }
 
@@ -140,14 +148,16 @@
     const q = $("search").value.trim().toLowerCase();
     const cat = $("categoryFilter").value;
     const rel = $("relevanceFilter").value;
-    const focusOnly = $("focusOnly").checked;
+    const region = $("regionFilter").value;
+    const partnerOnly = $("partnerOnly").checked;
     const hideSchool = $("hideSchool").checked;
     const hideSeah = $("hideSeah").checked;
 
     const filtered = allRows.filter((row) => {
       if (cat && row.category_id !== cat) return false;
       if (rel && relevanceOf(row) !== rel) return false;
-      if (focusOnly && !row.watchlist_country) return false;
+      if (region && regionOf(row) !== region) return false;
+      if (partnerOnly && !row.watchlist_country) return false;
       const tags = tagsOf(row);
       if (hideSchool && tags.includes("high_school")) return false;
       if (hideSeah && tags.includes("seah")) return false;
@@ -170,8 +180,11 @@
     const rowsHtml = groups.map((g) => {
       const main = g.rows[0];
       const badges = [];
-      const country = g.rows.map((r) => r.watchlist_country).find(Boolean);
-      if (country) badges.push(`<span class="badge watchlist">${esc(country)}</span>`);
+      const partner = g.rows.map((r) => r.watchlist_country).find(Boolean);
+      const country = g.rows.map((r) => r.country).find(Boolean);
+      const place = partner
+        ? `<span class="badge watchlist">${esc(partner)}</span>`
+        : country ? esc(country) : "";
       const tagSet = new Set(g.rows.flatMap(tagsOf));
       if (tagSet.has("high_school")) badges.push(`<span class="badge scope">high school</span>`);
       if (tagSet.has("seah")) badges.push(`<span class="badge scope">SEAH</span>`);
@@ -193,7 +206,7 @@
           <td><span class="badge">${esc(main.category_label || main.category_id)}</span></td>
           <td class="title-cell">
             <a href="${esc(main.url)}" target="_blank" rel="noopener">${esc(main.title || main.url)}</a>
-            <div class="meta">${esc(main.domain || "")} ${badges.join(" ")}</div>
+            <div class="meta">${[esc(main.domain || ""), place].filter(Boolean).join(" · ")} ${badges.join(" ")}</div>
             ${also}
           </td>
         </tr>`;
@@ -219,11 +232,11 @@
       return d && new Date(d) >= cutoff;
     }).length;
     const categories = new Set(allRows.map((r) => r.category_id)).size;
-    const focus = groups.filter((g) => g.rows.some((r) => r.watchlist_country)).length;
+    const partners = groups.filter((g) => g.rows.some((r) => r.watchlist_country)).length;
     const stat = (value, label) => `<div class="stat"><span class="value">${value}</span><span class="label">${label}</span></div>`;
     $("stats").innerHTML =
       stat(groups.length, "stories") + stat(allRows.length, "articles") + stat(recent, "stories, last 7 days") +
-      stat(categories, "categories") + stat(focus, "in focus countries");
+      stat(categories, "categories") + stat(partners, "in partner countries");
   }
 
   function populateCategoryFilter() {
@@ -238,19 +251,38 @@
     });
   }
 
+  function populateRegionFilter() {
+    const select = $("regionFilter");
+    const byRegion = new Map();
+    allRows.forEach((r) => {
+      const k = regionOf(r);
+      if (!byRegion.has(k)) byRegion.set(k, []);
+      byRegion.get(k).push(r);
+    });
+    const known = REGION_ORDER.filter((k) => byRegion.has(k));
+    const extra = [...byRegion.keys()].filter((k) => !REGION_ORDER.includes(k)).sort();
+    [...known, ...extra].forEach((k) => {
+      const opt = document.createElement("option");
+      opt.value = k;
+      opt.textContent = `${k} (${groupRows(byRegion.get(k)).length})`;
+      select.appendChild(opt);
+    });
+  }
+
   fetch("data.json")
     .then((r) => r.json())
     .then((data) => {
       allRows = data;
       renderStats();
       populateCategoryFilter();
+      populateRegionFilter();
       render();
     })
     .catch(() => {
       $("tableWrap").innerHTML = '<div class="empty-state"><strong>Could not load data.json.</strong></div>';
     });
 
-  ["search", "categoryFilter", "relevanceFilter", "focusOnly", "hideSchool", "hideSeah"].forEach((id) => {
+  ["search", "categoryFilter", "relevanceFilter", "regionFilter", "partnerOnly", "hideSchool", "hideSeah"].forEach((id) => {
     $(id).addEventListener("input", render);
   });
 </script>
