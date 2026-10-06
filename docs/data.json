@@ -1,5 +1,25 @@
 [
   {
+    "fetched_at": "2026-10-06T19:08:01.646730+00:00",
+    "category_id": "surveillance_intimidation",
+    "category_label": "Surveillance, threats & intimidation",
+    "title": "Machete-wielding Muslim disrupts Christian worship in Indonesia",
+    "url": "https://www.christiandaily.com/news/machete-wielding-muslim-disrupts-christian-worship-in-indonesia",
+    "seendate": "20261006T190200Z",
+    "domain": "christiandaily.com",
+    "language": "en",
+    "sourcecountry": "",
+    "tone": "",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "",
+    "matched_term": "threatened",
+    "context_match": "",
+    "scope_tags": "",
+    "country": "Indonesia",
+    "region": "Southeast Asia"
+  },
+  {
     "fetched_at": "2026-10-06T18:45:10.743237+00:00",
     "category_id": "physical_violence",
     "category_label": "Physical violence & killings",
