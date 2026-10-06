@@ -1,5 +1,25 @@
 [
   {
+    "fetched_at": "2026-10-06T20:40:27.758131+00:00",
+    "category_id": "physical_violence",
+    "category_label": "Physical violence & killings",
+    "title": "Violent student unrest in France rages as protestors demand better classroom conditions, clash with riot police",
+    "url": "https://nypost.com/2026/10/06/world-news/violent-student-unrest-in-france-swells-as-protestors-demand-better-classroom-conditions-clash-with-riot-police/",
+    "seendate": "20261006T203200Z",
+    "domain": "nypost.com",
+    "language": "en",
+    "sourcecountry": "",
+    "tone": "",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "",
+    "matched_term": "tear gas",
+    "context_match": "",
+    "scope_tags": "high_school",
+    "country": "France",
+    "region": "Europe"
+  },
+  {
     "fetched_at": "2026-10-06T20:26:00.398454+00:00",
     "category_id": "institutional_sanction",
     "category_label": "Institutional & academic sanctions",
