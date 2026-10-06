@@ -16,9 +16,12 @@ How it works:
   - For each minute: group the 4-word phrases by article, and record an
     article when its full text contains an identity phrase AND a repression
     term (see config/categories.yaml).
-  - Each recorded article is tagged with: the category mentioned most, the
-    focus country mentioned most, and scope tags (high_school, seah) that
-    power the dashboard's "Hide ..." filters.
+  - Each recorded article is tagged with:
+      * category: the repression category mentioned most
+      * country and region: where the story is mainly set (see locate())
+      * watchlist_country: the country again, but only if it is one of
+        SAIH's partner countries (drives the partner badge and filter)
+      * scope_tags: high_school, seah (drive the dashboard's "Hide" filters)
   - URLs that look like listing pages (author, tag, category, search,
     pagination) are skipped.
 
@@ -35,6 +38,7 @@ import json
 import os
 import re
 import tempfile
+from collections import Counter
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from urllib.parse import urlparse
@@ -59,13 +63,17 @@ FIELDNAMES = [
     "language",
     "sourcecountry",  # not available in this dataset (kept for older rows)
     "tone",  # not available in this dataset (kept for older rows)
-    "watchlist_country",  # the focus country mentioned most in the article
+    "watchlist_country",  # the main country, only if it is a partner country
     "relevance",  # reserved for optional AI triage
     "relevance_reason",
     "matched_term",
     "context_match",  # retired: no longer filled in or used
     "scope_tags",  # semicolon-separated: high_school, seah
+    "country",  # the country the story is mainly about (may be blank)
+    "region",  # region of that country, or "Unclear"
 ]
+
+UNCLEAR = "Unclear"
 
 MAX_MINUTES_PER_RUN = 60
 PUBLISH_DELAY_MINUTES = 5
@@ -78,12 +86,14 @@ HEADERS = {
     )
 }
 
-# Thresholds for scope tags, counted over the article's 4-word phrases. A
-# single mention of a word shows up in up to 4 overlapping phrases, so a
-# threshold of 6-8 means roughly 2 mentions. These are starting guesses:
-# check the tags in data/hits.csv after a few days and adjust.
+# Thresholds, counted over the article's 4-word phrases. A single mention of
+# a word shows up in up to 4 overlapping phrases, so a threshold of 6-8
+# means roughly 2 mentions. These are starting guesses: check the tags in
+# data/hits.csv after a few days and adjust.
 HIGH_SCHOOL_MIN_HITS = 6  # and school words must be at least 2x university words
 SEAH_MIN_HITS = 8  # a SEAH word in the headline always counts
+MIN_REGION_HITS = 8  # a region needs this many country mentions to be chosen
+REGION_DOMINANCE = 2  # ...and must have at least this many times the runner-up
 
 # URL path segments that mark listing/archive pages rather than articles.
 NON_ARTICLE_PATH_SEGMENTS = {
@@ -103,6 +113,11 @@ def looks_like_listing_page(url):
 # ---------------------------------------------------------------- matching
 
 _NEVER = re.compile(r"(?!x)x")  # matches nothing (used for empty lists)
+
+
+def _norm(s):
+    """Lowercase, with spaces and hyphens treated the same."""
+    return re.sub(r"[\s\-]+", " ", s.strip().lower())
 
 
 def _alternation(phrases):
@@ -136,7 +151,6 @@ SCHOOL_TITLE_EXTRA = re.compile(
     r"(?<!\w)school (?:protests?|strikes?|closures?)(?!\w)"
 )
 
-
 # One-time rule used ONLY when upgrading older rows (headline is all we
 # have): the French/German school-protest wave dominated the first week of
 # data, and many of its headlines say "student protests in France" without
@@ -146,7 +160,6 @@ LEGACY_SCHOOL_PROTEST_TITLE = re.compile(
     r"(?=.*\b(?:students?|schools?|teens?|teenagers?|pupils?|youth|teachers?)\b)"
     r"(?=.*\b(?:protests?|protesters?|unrest|riots?|blockades?|strikes?|demonstrations?|clashes)\b)"
 )
-
 
 # Same idea for the two SEAH-related cases that dominated the first week
 # (Cornell and Lovely Professional University): their headlines often name
@@ -161,10 +174,39 @@ class Matchers:
         for c in cfg["categories"]:
             terms = [(t.lower(), prefix_re([t])) for t in c["terms"]]
             self.categories.append({"id": c["id"], "label": c["label"], "terms": terms})
-        self.countries = [
-            (c["name"], word_re([c["name"]] + list(c.get("aliases", []))))
-            for c in cfg.get("focus_countries", [])
-        ]
+
+        if "regions" not in cfg or "partner_countries" not in cfg:
+            raise SystemExit(
+                "ERROR: config/categories.yaml has no 'regions' / 'partner_countries' section. "
+                "Replace config/categories.yaml, scripts/fetch_ngrams.py and docs/index.html together."
+            )
+
+        # country name -> region, and every alias (and the name) -> country name
+        self.country_region = {}
+        self.alias_to_country = {}
+        for region in cfg["regions"]:
+            for entry in region["countries"]:
+                parts = [p.strip() for p in str(entry).split("|") if p.strip()]
+                name, aliases = parts[0], parts[1:]
+                if name in self.country_region:
+                    raise ValueError(f"country listed twice in regions: {name}")
+                self.country_region[name] = region["name"]
+                for alias in [name] + aliases:
+                    key = _norm(alias)
+                    if self.alias_to_country.get(key, name) != name:
+                        raise ValueError(
+                            f"alias '{alias}' is used by both {self.alias_to_country[key]} and {name}"
+                        )
+                    self.alias_to_country[key] = name
+
+        self.partners = list(cfg["partner_countries"])
+        for p in self.partners:
+            if p not in self.country_region:
+                raise ValueError(f"partner country '{p}' is not listed under any region")
+
+        alt = _alternation(self.alias_to_country.keys())
+        self.country_re = re.compile(r"(?<!\w)(" + alt + r")s?(?!\w)")
+
         scope = cfg.get("scope_terms", {})
         self.school = word_re(scope.get("high_school", []))
         self.tertiary = word_re(scope.get("tertiary", []))
@@ -190,13 +232,80 @@ def best_category(text, m):
     return best
 
 
-def best_country(text, m):
-    best, best_n = "", 0
-    for name, rx in m.countries:
-        n = len(rx.findall(text))
-        if n > best_n:
-            best, best_n = name, n
-    return best
+# "Pro-Palestinian", "anti-Israel" and similar describe a stance, not a place:
+# a "pro-Palestinian protest" is almost always somewhere else. They are
+# ignored when working out where a story is set.
+STANCE_RE = re.compile(r"(?<!\w)(?:pro|anti)[\s\-](?:palestin\w*|israel\w*|zionis\w*|gaza|hamas)(?!\w)")
+
+
+def rank_countries(text, m):
+    """Countries named in the text, most-mentioned first (ties: whichever
+    appears first). Returns [(country, region, mentions), ...]."""
+    text = STANCE_RE.sub(" ", text)
+    counts, first = Counter(), {}
+    for hit in m.country_re.finditer(text):
+        name = m.alias_to_country.get(_norm(hit.group(1)))
+        if name:
+            counts[name] += 1
+            first.setdefault(name, hit.start())
+    ranked = sorted(counts, key=lambda n: (-counts[n], first[n]))
+    return [(n, m.country_region[n], counts[n]) for n in ranked]
+
+
+# Many headlines end with the outlet's name ("... - Dominican Republic Post",
+# "... | Muscat Daily| Oman News"), which would otherwise count as a mention
+# of that country. Trailing segments that start with a capital letter and are
+# at most 45 characters long are ignored for location purposes.
+_SUFFIX_RE = re.compile(r"(?:\s*\|\s*|\s[-\u2013\u2014]\s)([A-Z\u00C0-\u00DE][^|\u2013\u2014]{1,44})$")
+_US_RE = re.compile(r"(?<![A-Za-z])(?:US|USA|U\.S\.)(?![A-Za-z])")
+
+
+def headline_for_location(title):
+    t = title
+    for _ in range(5):
+        hit = _SUFFIX_RE.search(t)
+        if hit and len(t[: hit.start()].strip()) >= 20:
+            t = t[: hit.start()]
+        else:
+            break
+    # Upper-case "US" is the country; lower-case "us" is a pronoun, and the
+    # matcher lowercases everything, so spot it here while case is intact.
+    if _US_RE.search(t):
+        t += " united states"
+    return t
+
+
+def locate(title, text, m):
+    """Where is the story mainly set? Returns (country, region).
+
+    1. If the headline names countries from a single region, use the one
+       named most (that is what the story is about).
+    2. Otherwise, if the full text is available, pick the region with the
+       most country mentions, but only if it has at least MIN_REGION_HITS
+       and REGION_DOMINANCE times the runner-up.
+    3. Otherwise the region is "Unclear" (a wrong badge is worse than none).
+    """
+    from_title = rank_countries(headline_for_location(title).lower(), m)
+    if from_title and len({region for _, region, _ in from_title}) == 1:
+        return from_title[0][0], from_title[0][1]
+
+    if text:
+        ranked = rank_countries(text, m)
+        by_region = Counter()
+        for _, region, n in ranked:
+            by_region[region] += n
+        top = by_region.most_common(2)
+        if top:
+            region, n = top[0]
+            runner_up = top[1][1] if len(top) > 1 else 0
+            if n >= MIN_REGION_HITS and n >= REGION_DOMINANCE * runner_up:
+                country = next(c for c, r, _ in ranked if r == region)
+                return country, region
+    return "", UNCLEAR
+
+
+def partner_of(country, m):
+    return country if country in m.partners else ""
 
 
 def classify_scope_text(text, title, m):
@@ -229,9 +338,9 @@ def classify_scope_title(title, m):
 
 def ensure_schema(m):
     """Upgrade an older data/hits.csv in place: new header, padded rows, and
-    headline-based scope tags and country for the older rows. Does nothing
-    if the header is already current. Refuses to touch an unrecognised
-    header rather than risk misaligning columns."""
+    headline-based country/region (and, for the very oldest rows, scope
+    tags). Does nothing if the header is already current. Refuses to touch
+    an unrecognised header rather than risk misaligning columns."""
     if not DATA_PATH.exists():
         return
     with open(DATA_PATH, "r", encoding="utf-8", newline="") as f:
@@ -248,27 +357,31 @@ def ensure_schema(m):
         )
 
     idx = {name: i for i, name in enumerate(FIELDNAMES)}
+    has_scope = "scope_tags" in header
     migrated = [FIELDNAMES]
-    n_school = n_seah = 0
+    regions = Counter()
     for row in rows[1:]:
         if len(row) > len(header):
             raise SystemExit("ERROR: a row in data/hits.csv has more columns than its header; stopping.")
         row = row + [""] * (len(FIELDNAMES) - len(row))
         title = row[idx["title"]]
-        row[idx["watchlist_country"]] = best_country(title.lower(), m)
-        tags = classify_scope_title(title, m)
-        row[idx["scope_tags"]] = tags
-        n_school += "high_school" in tags
-        n_seah += "seah" in tags
+        country, region = locate(title, None, m)
+        row[idx["country"]] = country
+        row[idx["region"]] = region
+        row[idx["watchlist_country"]] = partner_of(country, m)
+        if not has_scope:
+            row[idx["scope_tags"]] = classify_scope_title(title, m)
+        regions[region] += 1
         migrated.append(row)
 
     fd, tmp = tempfile.mkstemp(dir=DATA_PATH.parent, suffix=".csv")
     with os.fdopen(fd, "w", encoding="utf-8", newline="") as f:
         csv.writer(f).writerows(migrated)
     os.replace(tmp, DATA_PATH)
+    total = len(migrated) - 1
     print(
-        f"Upgraded data/hits.csv: {len(migrated) - 1} existing rows re-tagged from "
-        f"headlines ({n_school} high_school, {n_seah} seah); added column scope_tags."
+        f"Upgraded data/hits.csv: {total} existing rows given a country and region from their "
+        f"headlines ({regions[UNCLEAR]} unclear); partner-country tags recalculated."
     )
 
 
@@ -392,6 +505,7 @@ def process_minute(dt, m, existing_urls):
             continue
         existing_urls.add(url)
         title = rec.get("title", "")
+        country, region = locate(title, text, m)
         rows.append(
             {
                 "fetched_at": fetched_at,
@@ -404,12 +518,14 @@ def process_minute(dt, m, existing_urls):
                 "language": rec.get("lang", ""),
                 "sourcecountry": "",
                 "tone": "",
-                "watchlist_country": best_country(text, m),
+                "watchlist_country": partner_of(country, m),
                 "relevance": "",
                 "relevance_reason": "",
                 "matched_term": matched_term,
                 "context_match": "",
                 "scope_tags": classify_scope_text(text, title, m),
+                "country": country,
+                "region": region,
             }
         )
     return rows, True
