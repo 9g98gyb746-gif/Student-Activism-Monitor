@@ -1,5 +1,25 @@
 [
   {
+    "fetched_at": "2026-10-06T18:45:10.743237+00:00",
+    "category_id": "physical_violence",
+    "category_label": "Physical violence & killings",
+    "title": "France protests: What we know as schools face nationwide action",
+    "url": "https://www.aljazeera.com/features/2026/10/6/france-protests-what-we-know-as-schools-brace-for-nationwide-action",
+    "seendate": "20261006T183200Z",
+    "domain": "aljazeera.com",
+    "language": "en",
+    "sourcecountry": "",
+    "tone": "",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "",
+    "matched_term": "tear gas",
+    "context_match": "",
+    "scope_tags": "high_school",
+    "country": "France",
+    "region": "Europe"
+  },
+  {
     "fetched_at": "2026-10-06T18:27:49.462049+00:00",
     "category_id": "detention_arrest",
     "category_label": "Arrests & detention",
