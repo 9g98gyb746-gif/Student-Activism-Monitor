@@ -1,0 +1,50 @@
+name: One-off cleanup of hits.csv
+
+on:
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Dry run (only list what would be removed). Untick to really remove."
+        type: boolean
+        default: true
+
+concurrency:
+  group: gdelt-data-writer
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install requests PyYAML
+
+      - name: Clean up rows
+        env:
+          DRY_RUN: ${{ inputs.dry_run && '1' || '0' }}
+        run: python -u scripts/cleanup_rows.py
+
+      - name: Rebuild dashboard data
+        if: ${{ !inputs.dry_run }}
+        run: python -u scripts/build_site_data.py
+
+      - name: Commit and push
+        if: ${{ !inputs.dry_run }}
+        run: |
+          git config user.name "gdelt-monitor-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/hits.csv data/removed_rows_*.csv docs/data.json
+          git diff --cached --quiet && echo "No changes to commit" || git commit -m "One-off cleanup of old-rule and junk rows"
+          git pull --rebase origin main
+          git push
