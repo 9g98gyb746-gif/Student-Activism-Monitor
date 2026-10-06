@@ -57,47 +57,240 @@ categories:
     label: "Visa & immigration retaliation"
     terms: [deported, "visa revoked", "visa cancelled", "visa canceled", denationalized, "denied re-entry"]
 
-# Highlighting aid only (does not restrict the search). The country
-# mentioned most often in the article is the one shown.
-focus_countries:
-  - name: Afghanistan
-    aliases: []
-  - name: Bolivia
-    aliases: []
-  - name: Colombia
-    aliases: []
-  - name: Myanmar
-    aliases: ["Burma"]
-  - name: Norway
-    aliases: []
-  - name: Palestine
-    aliases: ["Gaza", "West Bank", "Palestinian"]
-  - name: South Africa
-    aliases: []
-  - name: Zambia
-    aliases: []
-  - name: Zimbabwe
-    aliases: []
-  - name: Honduras
-    aliases: []
-  - name: United Kingdom
-    aliases: ["UK", "Britain"]
-  - name: Ghana
-    aliases: []
-  - name: Morocco
-    aliases: []
-  - name: Brazil
-    aliases: []
-  - name: Turkey
-    aliases: ["Türkiye"]
-  - name: Chile
-    aliases: []
-  - name: Nicaragua
-    aliases: []
-  - name: Russia
-    aliases: []
-  - name: Indonesia
-    aliases: []
+# PARTNER COUNTRIES: where SAIH's partners work. A story gets the partner
+# badge (and appears under "Partner countries only") when its main country
+# is one of these. Each name must also appear in the regions list below.
+partner_countries:
+  - Bolivia
+  - Colombia
+  - Nicaragua
+  - Zambia
+  - South Africa
+  - Zimbabwe
+  - Eswatini
+  - Afghanistan
+  - Myanmar
+  - Palestine
+
+# REGIONS: every country belongs to exactly one region (these power the
+# dashboard's region dropdown). Each entry is  "Name | alias | alias ...".
+# The name and every alias are matched as whole words in the headline and
+# article text. Notes on judgment calls, all easy to change by moving a line:
+#   - Mexico is in Latin America. Turkey, Russia and the Caucasus are in
+#     Europe (the Amnesty/HRW convention). Afghanistan is in South Asia.
+#     Sudan is in "Rest of Sub-Saharan Africa". Central Asia is grouped
+#     with East Asia.
+#   - Names such as "Georgia (country)" or "Jordan (country)" are written
+#     that way on purpose so the bare word (the US state, a first name) is
+#     NOT matched; only the aliases are.
+#   - Deliberately left out as aliases because they cause wrong matches:
+#     "America/American" (also matches Latin American), "Greek" (US
+#     fraternities), "Polish", "Athens", "Oxford", "New York" (New York
+#     Times citations), and "Washington". Likewise "Palestinian" alone is not
+#     an alias for Palestine (a "Palestinian protest lawsuit" is usually a
+#     US court case); "Palestine", "Gaza" and "West Bank" are. Phrases like
+#     "pro-Palestinian" and "anti-Israel" are ignored for location purposes.
+regions:
+  - name: "North America"
+    countries:
+      - "United States | u.s. | usa | u.s.a. | united states of america | trump | harvard | columbia university | cornell | ucla | yale | stanford | princeton | berkeley | haverford | georgetown | temple university | university of california | california | newsom | mamdani | mahmoud khalil | columbia | chicago | ucsd | usc | yalie | gwu | uc | doj | desantis | temple u | michigan"
+      - "Canada | canadian | toronto | montreal | vancouver | ottawa | british columbia"
+
+  - name: "Latin America & Caribbean"
+    countries:
+      - "Mexico | mexican | ayotzinapa | mexico city"
+      - "Guatemala | guatemalan"
+      - "Belize"
+      - "Honduras | honduran | tegucigalpa"
+      - "El Salvador | salvadoran | san salvador"
+      - "Nicaragua | nicaraguan | managua"
+      - "Costa Rica | costa rican"
+      - "Panama | panamanian"
+      - "Cuba | cuban | havana"
+      - "Haiti | haitian | port-au-prince"
+      - "Dominican Republic"
+      - "Jamaica | jamaican"
+      - "Trinidad and Tobago"
+      - "Colombia | colombian | bogota | bogotá | medellin"
+      - "Venezuela | venezuelan | caracas"
+      - "Ecuador | ecuadorian | quito"
+      - "Peru | peruvian | lima"
+      - "Bolivia | bolivian | la paz"
+      - "Chile | chilean | santiago"
+      - "Argentina | argentine | argentinian | buenos aires"
+      - "Uruguay | uruguayan | montevideo"
+      - "Paraguay | paraguayan | asuncion"
+      - "Brazil | brazilian | brasilia | sao paulo | são paulo | rio de janeiro"
+      - "Guyana"
+      - "Suriname"
+
+  - name: "Europe"
+    countries:
+      - "United Kingdom | uk | britain | british | england | scotland | wales | northern ireland | london | starmer | kclsu | king's college london"
+      - "Ireland | irish | dublin"
+      - "France | french | paris | macron"
+      - "Germany | german | berlin"
+      - "Italy | italian | rome"
+      - "Spain | spanish | madrid | barcelona"
+      - "Portugal | portuguese | lisbon"
+      - "Netherlands | dutch | amsterdam"
+      - "Belgium | belgian | brussels"
+      - "Luxembourg"
+      - "Switzerland | swiss | zurich | geneva"
+      - "Austria | austrian | vienna"
+      - "Denmark | danish | copenhagen"
+      - "Sweden | swedish | stockholm"
+      - "Norway | norwegian | oslo"
+      - "Finland | finnish | helsinki"
+      - "Iceland | icelandic"
+      - "Poland | warsaw"
+      - "Czech Republic | czechia | czech | prague"
+      - "Slovakia | slovak"
+      - "Hungary | hungarian | budapest"
+      - "Romania | romanian | bucharest"
+      - "Bulgaria | bulgarian"
+      - "Greece"
+      - "Serbia | serbian | belgrade | novi sad | vucic | vučić"
+      - "Croatia | croatian | zagreb"
+      - "Slovenia | slovenian"
+      - "Bosnia and Herzegovina | bosnia | sarajevo"
+      - "Montenegro"
+      - "North Macedonia | macedonia | skopje"
+      - "Albania | albanian | tirana"
+      - "Kosovo | pristina"
+      - "Moldova | moldovan"
+      - "Ukraine | ukrainian | kyiv | kiev"
+      - "Belarus | belarusian | minsk"
+      - "Russia | russian | moscow | putin | kremlin"
+      - "Turkey | türkiye | turkish | istanbul | ankara | erdogan | erdoğan"
+      - "Georgia (country) | tbilisi"
+      - "Armenia | armenian | yerevan"
+      - "Azerbaijan | azerbaijani | baku"
+      - "Cyprus | cypriot"
+      - "Malta"
+      - "Estonia | estonian | tallinn"
+      - "Latvia | latvian"
+      - "Lithuania | lithuanian | vilnius"
+
+  - name: "Middle East & North Africa"
+    countries:
+      - "Egypt | egyptian | cairo"
+      - "Libya | libyan"
+      - "Tunisia | tunisian | tunis"
+      - "Algeria | algerian | algiers"
+      - "Morocco | moroccan | rabat"
+      - "Israel | israeli | tel aviv"
+      - "Palestine | gaza | gaza strip | west bank | ramallah"
+      - "Lebanon | lebanese | beirut"
+      - "Syria | syrian | damascus"
+      - "Jordan (country) | jordanian | amman"
+      - "Iraq | iraqi | baghdad"
+      - "Iran | iranian | tehran"
+      - "Saudi Arabia | saudi | riyadh"
+      - "Yemen | yemeni"
+      - "Oman | omani"
+      - "United Arab Emirates | uae | emirati | dubai | abu dhabi"
+      - "Qatar | qatari | doha"
+      - "Kuwait | kuwaiti"
+      - "Bahrain | bahraini"
+      - "Western Sahara | sahrawi"
+
+  - name: "Southern Africa"
+    countries:
+      - "South Africa | south african | johannesburg | cape town | pretoria | rhodes university"
+      - "Zimbabwe | zimbabwean | harare | bulawayo"
+      - "Zambia | zambian | lusaka"
+      - "Eswatini | swaziland | swazi | mbabane"
+      - "Botswana | gaborone"
+      - "Namibia | namibian | windhoek"
+      - "Lesotho | maseru"
+      - "Malawi | malawian | lilongwe"
+      - "Mozambique | mozambican | maputo"
+      - "Angola | angolan | luanda"
+
+  - name: "Rest of Sub-Saharan Africa"
+    countries:
+      - "Nigeria | nigerian | lagos | abuja | ibadan"
+      - "Ghana | ghanaian | accra"
+      - "Kenya | kenyan | nairobi"
+      - "Uganda | ugandan | kampala | makerere"
+      - "Tanzania | tanzanian | dar es salaam"
+      - "Ethiopia | ethiopian | addis ababa"
+      - "Eritrea"
+      - "Somalia | somali | mogadishu"
+      - "Sudan | sudanese | khartoum"
+      - "South Sudan | juba"
+      - "Rwanda | rwandan | kigali"
+      - "Burundi"
+      - "DR Congo | drc | democratic republic of the congo | congolese | kinshasa"
+      - "Cameroon | cameroonian | yaounde"
+      - "Senegal | senegalese | dakar"
+      - "Mali | malian | bamako"
+      - "Niger | nigerien | niamey"
+      - "Burkina Faso | burkinabe | ouagadougou"
+      - "Ivory Coast | côte d'ivoire | cote d'ivoire | ivorian | abidjan"
+      - "Sierra Leone | fourah bay"
+      - "Liberia | liberian | monrovia"
+      - "Togo | togolese"
+      - "Benin | beninese | cotonou"
+      - "Gabon"
+      - "Madagascar | malagasy"
+      - "Mauritius"
+      - "Mauritania"
+      - "Djibouti"
+      - "Gambia | gambian | banjul"
+
+  - name: "South Asia"
+    countries:
+      - "India | indian | delhi | new delhi | mumbai | kolkata | bengaluru | bangalore | hyderabad | chennai | kerala | keralam | assam | modi | jantar mantar | jnu | aisa | aligarh | amu | iit | lpu | lovely professional university | gyanesh kumar | neha bora | prashant bhushan | yogendra yadav | cjp"
+      - "Pakistan | pakistani | islamabad | lahore | karachi | baloch | balochistan"
+      - "Bangladesh | bangladeshi | dhaka | begum rokeya | abu sayed | july martyr"
+      - "Sri Lanka | sri lankan | colombo"
+      - "Nepal | nepali | nepalese | kathmandu"
+      - "Bhutan"
+      - "Maldives | maldivian"
+      - "Afghanistan | afghan | kabul | taliban"
+
+  - name: "Southeast Asia"
+    countries:
+      - "Myanmar | burma | burmese | yangon | mandalay | naypyidaw"
+      - "Thailand | thai | bangkok"
+      - "Vietnam | vietnamese | hanoi"
+      - "Laos | laotian | vientiane"
+      - "Cambodia | cambodian | phnom penh"
+      - "Malaysia | malaysian | kuala lumpur | reformasi"
+      - "Singapore | singaporean"
+      - "Indonesia | indonesian | jakarta"
+      - "Philippines | filipino | philippine | manila"
+      - "Brunei"
+      - "Timor-Leste | east timor | timorese | dili"
+
+  - name: "East & Central Asia"
+    countries:
+      - "China | chinese | beijing | shanghai"
+      - "Hong Kong"
+      - "Taiwan | taiwanese | taipei"
+      - "Japan | japanese | tokyo"
+      - "South Korea | south korean | seoul"
+      - "North Korea | north korean | pyongyang"
+      - "Mongolia | mongolian"
+      - "Kazakhstan | kazakh | astana | almaty"
+      - "Uzbekistan | uzbek | tashkent"
+      - "Kyrgyzstan | kyrgyz | bishkek"
+      - "Tajikistan | tajik | dushanbe"
+      - "Turkmenistan | turkmen"
+      - "Macau"
+
+  - name: "Oceania"
+    countries:
+      - "Australia | australian | sydney | melbourne | canberra"
+      - "New Zealand | auckland"
+      - "Papua New Guinea"
+      - "Fiji | fijian"
+      - "Samoa"
+      - "Tonga"
+      - "Solomon Islands"
+      - "Vanuatu"
 
 # SCOPE TAGS: used by the dashboard's "Hide ..." filters. Each story gets
 # zero or more tags, stored in the scope_tags column of data/hits.csv
