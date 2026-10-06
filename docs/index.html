@@ -44,8 +44,6 @@
   .meta { color: var(--ink-soft); font-size: 0.8rem; margin-top: 0.15rem; }
   .badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 3px; background: var(--ok-bg); color: var(--ink); font-size: 0.75rem; white-space: nowrap; }
   .badge.watchlist { background: var(--alert-bg); color: var(--alert); font-weight: 600; }
-  .badge.relevant { background: var(--alert-bg); color: var(--alert); }
-  .badge.irrelevant { background: var(--ok-bg); color: var(--ink-soft); }
   .badge.scope { background: transparent; border: 1px solid var(--line-strong); color: var(--ink-soft); }
   details.also { margin-top: 0.3rem; font-size: 0.8rem; color: var(--ink-soft); }
   details.also summary { cursor: pointer; }
@@ -76,12 +74,6 @@
   <div class="controls">
     <input type="search" id="search" placeholder="Search title or source…" />
     <select id="categoryFilter"><option value="">All categories</option></select>
-    <select id="relevanceFilter">
-      <option value="">All relevance</option>
-      <option value="relevant">Marked relevant</option>
-      <option value="irrelevant">Marked irrelevant</option>
-      <option value="untriaged">Untriaged</option>
-    </select>
     <select id="regionFilter"><option value="">All regions</option></select>
     <label class="checkbox"><input type="checkbox" id="partnerOnly" /> Partner countries only</label>
     <!-- To start with a filter switched on, add the word "checked" inside its <input> tag. -->
@@ -119,7 +111,6 @@
     "East & Central Asia", "Oceania", "Unclear",
   ];
   function regionOf(row) { return row.region || "Unclear"; }
-  function relevanceOf(row) { return row.relevance ? row.relevance : "untriaged"; }
   function tagsOf(row) { return (row.scope_tags || "").split(";").filter(Boolean); }
 
   // Headlines that start the same way (after removing punctuation and a trailing
@@ -147,7 +138,6 @@
   function render() {
     const q = $("search").value.trim().toLowerCase();
     const cat = $("categoryFilter").value;
-    const rel = $("relevanceFilter").value;
     const region = $("regionFilter").value;
     const partnerOnly = $("partnerOnly").checked;
     const hideSchool = $("hideSchool").checked;
@@ -155,7 +145,6 @@
 
     const filtered = allRows.filter((row) => {
       if (cat && row.category_id !== cat) return false;
-      if (rel && relevanceOf(row) !== rel) return false;
       if (region && regionOf(row) !== region) return false;
       if (partnerOnly && !row.watchlist_country) return false;
       const tags = tagsOf(row);
@@ -188,10 +177,6 @@
       const tagSet = new Set(g.rows.flatMap(tagsOf));
       if (tagSet.has("high_school")) badges.push(`<span class="badge scope">high school</span>`);
       if (tagSet.has("seah")) badges.push(`<span class="badge scope">SEAH</span>`);
-      const relStatus = relevanceOf(main);
-      if (relStatus !== "untriaged") {
-        badges.push(`<span class="badge ${esc(relStatus)}" title="${esc(main.relevance_reason)}">${esc(relStatus)}</span>`);
-      }
 
       let also = "";
       if (g.rows.length > 1) {
@@ -282,7 +267,7 @@
       $("tableWrap").innerHTML = '<div class="empty-state"><strong>Could not load data.json.</strong></div>';
     });
 
-  ["search", "categoryFilter", "relevanceFilter", "regionFilter", "partnerOnly", "hideSchool", "hideSeah"].forEach((id) => {
+  ["search", "categoryFilter", "regionFilter", "partnerOnly", "hideSchool", "hideSeah"].forEach((id) => {
     $(id).addEventListener("input", render);
   });
 </script>
