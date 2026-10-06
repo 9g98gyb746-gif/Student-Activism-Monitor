@@ -2,98 +2,45 @@
 """
 Fetch and scan GDELT's Web NGrams dataset (quadgram files, published every
 minute) for mentions of student activism + repression terms, entirely
-locally — no queries sent to GDELT's strained search API at all.
-
-Why this replaces fetch_gdelt.py: GDELT's DOC 2.0 search API has been
-unreliable for weeks — GDELT's own maintainer confirmed their search/API
-infrastructure is mid-migration to new infrastructure and temporarily
-can't handle normal query volume, and specifically pointed us at this
-ngrams dataset as the recommended alternative in the meantime. Instead of
-querying GDELT, this script downloads small pre-built files GDELT already
-publishes every minute — quadgram (4-word phrase) frequency tables per
-article, plus a table-of-contents mapping each article to its URL/title —
-and searches them locally. There is no query to rate-limit or reject,
-since nothing is being asked of GDELT beyond a plain static file download.
-
-Bonus: this dataset covers each article's FULL TEXT, not just the
-headline (which is all the old DOC API gave us), so country and
-noise-filter matching are both meaningfully more accurate now.
+locally. No queries are sent to GDELT's search API, which has been
+unreliable while GDELT migrates its infrastructure.
 
 How it works:
-  - GDELT publishes a pair of files every minute at a predictable URL:
+  - GDELT publishes a pair of files every minute:
       https://data.gdeltproject.org/gdeltv5/weblegacy/ngrams/<TIMESTAMP>.ngrams.txt.gz
       https://data.gdeltproject.org/gdeltv5/weblegacy/ngrams/<TIMESTAMP>.toc.json.gz
-    TIMESTAMP is YYYYMMDDHHMM00. Files aren't published for every single
-    minute (GDELT's own docs describe a "15 minute heartbeat" with gaps),
-    so a missing file (404) is normal and expected, not an error.
-  - This script keeps a small state file (data/ngrams_state.txt) recording
-    the last minute it attempted, and each run walks forward from there,
-    processing up to MAX_MINUTES_PER_RUN minutes so a single run can't take
-    too long even after a gap (e.g. the very first run, or after an
-    outage).
-  - For each minute: download both files, group quadgrams by document ID,
-    and for each document check whether an identity phrase AND a
-    repression term both appear anywhere in its (reassembled) full text.
-    Matches are tagged with category/term, country, and noise-context the
-    same way the old script did, just checked against full text instead
-    of headline-only.
-  - URLs that look like listing/archive pages (author, tag, category,
-    topic, search, or pagination pages) are skipped even if their text
-    happens to match — see looks_like_listing_page() below for why.
+    TIMESTAMP is YYYYMMDDHHMM00. Not every minute has a file, so a 404 is a
+    normal gap, not an error.
+  - data/ngrams_state.txt records the last minute attempted; each run walks
+    forward from there (at most MAX_MINUTES_PER_RUN minutes per run).
+  - For each minute: group the 4-word phrases by article, and record an
+    article when its full text contains an identity phrase AND a repression
+    term (see config/categories.yaml).
+  - Each recorded article is tagged with: the category mentioned most, the
+    focus country mentioned most, and scope tags (high_school, seah) that
+    power the dashboard's "Hide ..." filters.
+  - URLs that look like listing pages (author, tag, category, search,
+    pagination) are skipped.
 
-Designed to run frequently via GitHub Actions (every 15 minutes; see
-.github/workflows/gdelt-ngrams-monitor.yml) since each run is cheap and
-GDELT describes this as a near-realtime feed, not something meant to be
-queried for a big historical window in one go. Also runs the same
-locally:
+IMPORTANT: if a column is ever added to FIELDNAMES, add it at the END. On
+startup, ensure_schema() upgrades an older data/hits.csv in place (header
+plus padded rows) and refuses to touch a file whose header it doesn't
+recognise, so a mismatch can never silently misalign columns.
 
-    python scripts/fetch_ngrams.py
+Runs the same locally:   python scripts/fetch_ngrams.py
 """
 import csv
 import gzip
 import json
+import os
+import re
+import tempfile
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from urllib.parse import urlparse
 
 import requests
 import yaml
-
-# URL path segments that reliably indicate a listing/archive page rather
-# than a single article — e.g. an author's full post history, a tag or
-# category feed, a search results page, or a pagination page. These pages
-# sometimes carry misleading metadata claiming they're a single article,
-# and because they can contain dozens of unrelated headlines concatenated
-# together, they're much more prone to false matches (two completely
-# unrelated headlines on the same listing page coincidentally satisfying
-# our identity-phrase-plus-repression-term check) than a genuine article
-# is. Checked as an exact path segment (between slashes), not a raw
-# substring, so this won't reject a genuine article whose slug merely
-# contains one of these words (e.g. "-authors-" or "co-author").
-NON_ARTICLE_PATH_SEGMENTS = {
-    "author",
-    "authors",
-    "tag",
-    "tags",
-    "category",
-    "categories",
-    "topic",
-    "topics",
-    "archive",
-    "archives",
-    "search",
-    "page",
-}
-
-
-def looks_like_listing_page(url):
-    try:
-        path = urlparse(url).path.lower()
-    except Exception:
-        return False
-    segments = [s for s in path.split("/") if s]
-    return any(seg in NON_ARTICLE_PATH_SEGMENTS for seg in segments)
-
 
 ROOT = Path(__file__).resolve().parent.parent
 CONFIG_PATH = ROOT / "config" / "categories.yaml"
@@ -110,18 +57,19 @@ FIELDNAMES = [
     "seendate",
     "domain",
     "language",
-    "sourcecountry",
-    "tone",
-    "watchlist_country",
-    "relevance",
+    "sourcecountry",  # not available in this dataset (kept for older rows)
+    "tone",  # not available in this dataset (kept for older rows)
+    "watchlist_country",  # the focus country mentioned most in the article
+    "relevance",  # reserved for optional AI triage
     "relevance_reason",
     "matched_term",
-    "context_match",
+    "context_match",  # retired: no longer filled in or used
+    "scope_tags",  # semicolon-separated: high_school, seah
 ]
 
-MAX_MINUTES_PER_RUN = 60      # bound runtime even after a gap/outage
-PUBLISH_DELAY_MINUTES = 5     # GDELT recommends requesting "5 minutes ago" to be safe
-DEFAULT_LOOKBACK_MINUTES = 30  # if no state file yet, start this far back
+MAX_MINUTES_PER_RUN = 60
+PUBLISH_DELAY_MINUTES = 5
+DEFAULT_LOOKBACK_MINUTES = 30
 REQUEST_TIMEOUT = 20
 HEADERS = {
     "User-Agent": (
@@ -130,23 +78,201 @@ HEADERS = {
     )
 }
 
+# Thresholds for scope tags, counted over the article's 4-word phrases. A
+# single mention of a word shows up in up to 4 overlapping phrases, so a
+# threshold of 6-8 means roughly 2 mentions. These are starting guesses:
+# check the tags in data/hits.csv after a few days and adjust.
+HIGH_SCHOOL_MIN_HITS = 6  # and school words must be at least 2x university words
+SEAH_MIN_HITS = 8  # a SEAH word in the headline always counts
 
-def load_config():
+# URL path segments that mark listing/archive pages rather than articles.
+NON_ARTICLE_PATH_SEGMENTS = {
+    "author", "authors", "tag", "tags", "category", "categories",
+    "topic", "topics", "archive", "archives", "search", "page",
+}
+
+
+def looks_like_listing_page(url):
+    try:
+        path = urlparse(url).path.lower()
+    except Exception:
+        return False
+    return any(seg in NON_ARTICLE_PATH_SEGMENTS for seg in path.split("/") if seg)
+
+
+# ---------------------------------------------------------------- matching
+
+_NEVER = re.compile(r"(?!x)x")  # matches nothing (used for empty lists)
+
+
+def _alternation(phrases):
+    parts = []
+    for p in sorted({p.strip().lower() for p in phrases if p and p.strip()}, key=len, reverse=True):
+        words = [w for w in re.split(r"[\s\-]+", p) if w]
+        parts.append(r"[\s\-]+".join(re.escape(w) for w in words))
+    return "|".join(parts)
+
+
+def prefix_re(phrases):
+    """Match from the start of a word; the end stays open, so plurals and
+    endings still match ('student activist' matches 'student activists')."""
+    alt = _alternation(phrases)
+    return re.compile(r"(?<!\w)(?:" + alt + r")") if alt else _NEVER
+
+
+def word_re(phrases):
+    """Match whole words only (optional plural 's'), so 'uk' cannot match
+    inside 'ukraine' or 'mukherjee', and 'india' cannot match 'indiana'."""
+    alt = _alternation(phrases)
+    return re.compile(r"(?<!\w)(?:" + alt + r")s?(?!\w)") if alt else _NEVER
+
+
+# Headline-only extras, used when re-tagging older rows where only the title
+# is available. Plural "schools" almost always means K-12 ("500 schools
+# closed") unless preceded by a university-type word ("law schools").
+SCHOOL_TITLE_EXTRA = re.compile(
+    r"(?<!\w)(?<!law )(?<!business )(?<!medical )(?<!journalism )(?<!graduate )"
+    r"(?<!grad )(?<!nursing )(?<!art )(?<!film )schools(?!\w)|"
+    r"(?<!\w)school (?:protests?|strikes?|closures?)(?!\w)"
+)
+
+
+# One-time rule used ONLY when upgrading older rows (headline is all we
+# have): the French/German school-protest wave dominated the first week of
+# data, and many of its headlines say "student protests in France" without
+# the word "school". New rows never use this; they are read from full text.
+LEGACY_SCHOOL_PROTEST_TITLE = re.compile(
+    r"(?=.*\b(?:france|french|paris|germany|german)\b)"
+    r"(?=.*\b(?:students?|schools?|teens?|teenagers?|pupils?|youth|teachers?)\b)"
+    r"(?=.*\b(?:protests?|protesters?|unrest|riots?|blockades?|strikes?|demonstrations?|clashes)\b)"
+)
+
+
+# Same idea for the two SEAH-related cases that dominated the first week
+# (Cornell and Lovely Professional University): their headlines often name
+# the case rather than the offence. Older rows only; new rows use full text.
+LEGACY_SEAH_TITLE = re.compile(r"jane doe|justice for survivors|lovely professional university|(?<!\w)lpu(?!\w)")
+
+
+class Matchers:
+    def __init__(self, cfg):
+        self.identity = prefix_re(cfg["identity_phrases"])
+        self.categories = []
+        for c in cfg["categories"]:
+            terms = [(t.lower(), prefix_re([t])) for t in c["terms"]]
+            self.categories.append({"id": c["id"], "label": c["label"], "terms": terms})
+        self.countries = [
+            (c["name"], word_re([c["name"]] + list(c.get("aliases", []))))
+            for c in cfg.get("focus_countries", [])
+        ]
+        scope = cfg.get("scope_terms", {})
+        self.school = word_re(scope.get("high_school", []))
+        self.tertiary = word_re(scope.get("tertiary", []))
+        self.seah = word_re(scope.get("seah", []))
+
+
+def load_matchers():
     with open(CONFIG_PATH, "r", encoding="utf-8") as f:
-        cfg = yaml.safe_load(f)
+        return Matchers(yaml.safe_load(f))
 
-    identity_phrases = [p.lower() for p in cfg["identity_phrases"]]
-    watchlist = cfg.get("focus_countries", cfg.get("watchlist_countries", []))
-    context_terms = [t.lower() for t in cfg.get("context_terms", [])]
 
-    categories = []
-    for c in cfg["categories"]:
-        categories.append(
-            {"id": c["id"], "label": c["label"], "terms": [t.lower() for t in c["terms"]]}
+def best_category(text, m):
+    best, best_score = (None, None, None), 0
+    for c in m.categories:
+        score, top_term, top_n = 0, None, 0
+        for term, rx in c["terms"]:
+            n = len(rx.findall(text))
+            score += n
+            if n > top_n:
+                top_n, top_term = n, term
+        if score > best_score:
+            best, best_score = (c["id"], c["label"], top_term), score
+    return best
+
+
+def best_country(text, m):
+    best, best_n = "", 0
+    for name, rx in m.countries:
+        n = len(rx.findall(text))
+        if n > best_n:
+            best, best_n = name, n
+    return best
+
+
+def classify_scope_text(text, title, m):
+    """Scope tags from an article's full text (new rows)."""
+    tags = []
+    school = len(m.school.findall(text))
+    tertiary = len(m.tertiary.findall(text))
+    if school >= HIGH_SCHOOL_MIN_HITS and school >= 2 * tertiary:
+        tags.append("high_school")
+    if len(m.seah.findall(text)) >= SEAH_MIN_HITS or m.seah.search(title.lower()):
+        tags.append("seah")
+    return ";".join(tags)
+
+
+def classify_scope_title(title, m):
+    """Scope tags from the headline alone (older rows with no full text)."""
+    t = title.lower()
+    tags = []
+    school_like = (
+        m.school.search(t) or SCHOOL_TITLE_EXTRA.search(t) or LEGACY_SCHOOL_PROTEST_TITLE.search(t)
+    )
+    if school_like and not m.tertiary.search(t):
+        tags.append("high_school")
+    if m.seah.search(t) or LEGACY_SEAH_TITLE.search(t):
+        tags.append("seah")
+    return ";".join(tags)
+
+
+# ------------------------------------------------------------ data upgrade
+
+def ensure_schema(m):
+    """Upgrade an older data/hits.csv in place: new header, padded rows, and
+    headline-based scope tags and country for the older rows. Does nothing
+    if the header is already current. Refuses to touch an unrecognised
+    header rather than risk misaligning columns."""
+    if not DATA_PATH.exists():
+        return
+    with open(DATA_PATH, "r", encoding="utf-8", newline="") as f:
+        rows = [r for r in csv.reader(f) if r]
+    if not rows:
+        return
+    header = rows[0]
+    if header == FIELDNAMES:
+        return
+    if FIELDNAMES[: len(header)] != header:
+        raise SystemExit(
+            "ERROR: data/hits.csv has a header this script doesn't recognise, so it "
+            "will not modify the file. Header found: " + ",".join(header)
         )
 
-    return identity_phrases, categories, watchlist, context_terms
+    idx = {name: i for i, name in enumerate(FIELDNAMES)}
+    migrated = [FIELDNAMES]
+    n_school = n_seah = 0
+    for row in rows[1:]:
+        if len(row) > len(header):
+            raise SystemExit("ERROR: a row in data/hits.csv has more columns than its header; stopping.")
+        row = row + [""] * (len(FIELDNAMES) - len(row))
+        title = row[idx["title"]]
+        row[idx["watchlist_country"]] = best_country(title.lower(), m)
+        tags = classify_scope_title(title, m)
+        row[idx["scope_tags"]] = tags
+        n_school += "high_school" in tags
+        n_seah += "seah" in tags
+        migrated.append(row)
 
+    fd, tmp = tempfile.mkstemp(dir=DATA_PATH.parent, suffix=".csv")
+    with os.fdopen(fd, "w", encoding="utf-8", newline="") as f:
+        csv.writer(f).writerows(migrated)
+    os.replace(tmp, DATA_PATH)
+    print(
+        f"Upgraded data/hits.csv: {len(migrated) - 1} existing rows re-tagged from "
+        f"headlines ({n_school} high_school, {n_seah} seah); added column scope_tags."
+    )
+
+
+# --------------------------------------------------------------- pipeline
 
 def load_existing_urls():
     if not DATA_PATH.exists():
@@ -176,20 +302,16 @@ def minute_range(start, end):
 
 
 def fetch_minute_files(dt):
-    """Try to download the ngrams + toc pair for one minute. Returns
-    (ngrams_text, toc_lines) or (None, None) if this minute has no
-    published file — a normal, expected gap, not an error."""
+    """Download the ngrams + toc pair for one minute. Returns
+    (ngrams_text, toc_lines), or (None, None) if there is no file."""
     ts = dt.strftime("%Y%m%d%H%M00")
-    ngrams_url = f"{BASE_URL}/{ts}.ngrams.txt.gz"
-    toc_url = f"{BASE_URL}/{ts}.toc.json.gz"
-
     try:
-        ngrams_resp = requests.get(ngrams_url, headers=HEADERS, timeout=REQUEST_TIMEOUT)
+        ngrams_resp = requests.get(f"{BASE_URL}/{ts}.ngrams.txt.gz", headers=HEADERS, timeout=REQUEST_TIMEOUT)
         if ngrams_resp.status_code == 404:
             return None, None
         ngrams_resp.raise_for_status()
 
-        toc_resp = requests.get(toc_url, headers=HEADERS, timeout=REQUEST_TIMEOUT)
+        toc_resp = requests.get(f"{BASE_URL}/{ts}.toc.json.gz", headers=HEADERS, timeout=REQUEST_TIMEOUT)
         if toc_resp.status_code == 404:
             return None, None
         toc_resp.raise_for_status()
@@ -197,7 +319,6 @@ def fetch_minute_files(dt):
         ngrams_text = gzip.decompress(ngrams_resp.content).decode("utf-8", errors="replace")
         toc_text = gzip.decompress(toc_resp.content).decode("utf-8", errors="replace")
         return ngrams_text, toc_text.splitlines()
-
     except requests.exceptions.RequestException as e:
         print(f"    ! request error for {ts}: {e}")
         return None, None
@@ -218,27 +339,21 @@ def parse_toc(toc_lines):
 
 
 def build_doc_text(ngrams_text):
-    """Group quadgrams by document ID into one lowercased text blob per
-    document, so phrase matches can be checked with simple substring
-    tests (any phrase up to 4 words appears intact in at least one
-    quadgram window, since windows slide by one word at a time)."""
-    doc_chunks = {}
+    """Group the 4-word phrases by article into one lowercased text each."""
+    chunks = {}
     for line in ngrams_text.splitlines():
         parts = line.split("\t")
         if len(parts) < 2:
             continue
-        docid_str, quadgram = parts[0], parts[1]
         try:
-            docid = int(docid_str)
+            docid = int(parts[0])
         except ValueError:
             continue
-        doc_chunks.setdefault(docid, []).append(quadgram.lower())
-    return {docid: " ".join(chunks) for docid, chunks in doc_chunks.items()}
+        chunks.setdefault(docid, []).append(parts[1].lower())
+    return {docid: " ".join(c) for docid, c in chunks.items()}
 
 
 def reformat_date(iso_date):
-    """Convert GDELT's ISO date ("2026-06-30T20:16:00.000Z") into the
-    compact format ("20260630T201600Z") the existing dashboard expects."""
     try:
         dt = datetime.strptime(iso_date[:19], "%Y-%m-%dT%H:%M:%S")
         return dt.strftime("%Y%m%dT%H%M%SZ")
@@ -254,77 +369,49 @@ def domain_from_url(url):
         return ""
 
 
-def has_any(text, phrases):
-    return any(p in text for p in phrases)
-
-
-def match_category(text, categories):
-    for cat in categories:
-        for term in cat["terms"]:
-            if term in text:
-                return cat["id"], cat["label"], term
-    return None, None, None
-
-
-def match_watchlist_country(text, watchlist):
-    for country in watchlist:
-        names = [country["name"].lower()] + [a.lower() for a in country.get("aliases", [])]
-        if any(n in text for n in names):
-            return country["name"]
-    return ""
-
-
-def process_minute(dt, identity_phrases, categories, watchlist, context_terms, existing_urls):
-    """Returns (rows, file_existed). file_existed distinguishes 'GDELT had
-    no file published for this minute' (a normal gap) from 'a file
-    existed but had no relevant matches' (also normal, but a genuinely
-    different, useful thing to know when checking on the pipeline)."""
+def process_minute(dt, m, existing_urls):
+    """Returns (rows, file_existed)."""
     ngrams_text, toc_lines = fetch_minute_files(dt)
     if ngrams_text is None:
-        return [], False  # no file for this minute — normal gap
+        return [], False
 
     toc = parse_toc(toc_lines)
-    doc_text = build_doc_text(ngrams_text)
     fetched_at = datetime.now(timezone.utc).isoformat()
-
     rows = []
-    for docid, text in doc_text.items():
-        if not has_any(text, identity_phrases):
+    for docid, text in build_doc_text(ngrams_text).items():
+        if not m.identity.search(text):
             continue
-        cat_id, cat_label, matched_term = match_category(text, categories)
+        cat_id, cat_label, matched_term = best_category(text, m)
         if cat_id is None:
             continue
-
         rec = toc.get(docid)
         if not rec:
             continue
         url = rec.get("url", "")
-        if not url or url in existing_urls:
-            continue
-        if looks_like_listing_page(url):
+        if not url or url in existing_urls or looks_like_listing_page(url):
             continue
         existing_urls.add(url)
-
+        title = rec.get("title", "")
         rows.append(
             {
                 "fetched_at": fetched_at,
                 "category_id": cat_id,
                 "category_label": cat_label,
-                "title": rec.get("title", ""),
+                "title": title,
                 "url": url,
                 "seendate": reformat_date(rec.get("date", "")),
                 "domain": domain_from_url(url),
                 "language": rec.get("lang", ""),
-                "sourcecountry": "",  # not available in this dataset
-                "tone": "",  # not available in this dataset
-                "watchlist_country": match_watchlist_country(text, watchlist),
-                "matched_term": matched_term,
-                "context_match": "yes" if has_any(text, context_terms) else "no",
+                "sourcecountry": "",
+                "tone": "",
+                "watchlist_country": best_country(text, m),
                 "relevance": "",
                 "relevance_reason": "",
+                "matched_term": matched_term,
+                "context_match": "",
+                "scope_tags": classify_scope_text(text, title, m),
             }
         )
-
     return rows, True
 
 
@@ -341,19 +428,17 @@ def append_rows(rows):
 
 
 def main():
-    identity_phrases, categories, watchlist, context_terms = load_config()
+    m = load_matchers()
+    ensure_schema(m)
     existing_urls = load_existing_urls()
 
-    # Naive UTC throughout for date-range math (matches the state file's
-    # naive format) — timezone.utc is used separately only for the
-    # human-readable fetched_at timestamp stored on each row.
     now = datetime.utcnow().replace(second=0, microsecond=0)
     end = now - timedelta(minutes=PUBLISH_DELAY_MINUTES)
 
     last = load_state()
     if last is None:
         start = end - timedelta(minutes=DEFAULT_LOOKBACK_MINUTES)
-        print(f"No state file found — starting {DEFAULT_LOOKBACK_MINUTES} minutes back.")
+        print(f"No state file found, starting {DEFAULT_LOOKBACK_MINUTES} minutes back.")
     else:
         start = last + timedelta(minutes=1)
 
@@ -367,19 +452,15 @@ def main():
         f"{minutes[0].strftime('%Y-%m-%d %H:%M')} to {minutes[-1].strftime('%Y-%m-%d %H:%M')} UTC"
     )
 
-    total_new = 0
-    files_found = 0
+    total_new = files_found = 0
     for dt in minutes:
-        rows, file_existed = process_minute(
-            dt, identity_phrases, categories, watchlist, context_terms, existing_urls
-        )
-        if file_existed:
-            files_found += 1
+        rows, file_existed = process_minute(dt, m, existing_urls)
+        files_found += file_existed
         if rows:
             append_rows(rows)
             total_new += len(rows)
-            print(f"  {dt.strftime('%H:%M')} — {len(rows)} new match(es)")
-        save_state(dt)  # advance state even on a miss, so we never get stuck retrying
+            print(f"  {dt.strftime('%H:%M')}: {len(rows)} new match(es)")
+        save_state(dt)
 
     print(
         f"\nDone. Checked {len(minutes)} minute(s); GDELT had published files for "
@@ -387,10 +468,8 @@ def main():
     )
     if files_found == 0:
         print(
-            "Note: zero published files found across this entire window. A single "
-            "quiet run is normal, but if this keeps happening across several "
-            "consecutive runs, that would be worth investigating (unlike zero "
-            "MATCHES, which is expected fairly often)."
+            "Note: no published files in this whole window. One quiet run is normal; "
+            "several in a row would be worth investigating."
         )
 
 
