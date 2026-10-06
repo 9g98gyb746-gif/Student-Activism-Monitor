@@ -1,19 +1,18 @@
 # Search terms for the GDELT student-activism monitor.
 #
-# ARCHITECTURE NOTE: this config is used by scripts/fetch_ngrams.py, which
-# scans GDELT's Web NGrams dataset locally rather than querying GDELT's
-# search API. That API has been persistently unreliable (GDELT's own
-# maintainer confirmed their search infrastructure is mid-migration and
-# temporarily can't handle normal load) — the ngrams approach sidesteps
-# this entirely, since it only ever downloads small static files, never
-# sends GDELT a query to reject or rate-limit.
+# Used by scripts/fetch_ngrams.py, which scans GDELT's Web NGrams dataset
+# locally (no queries are sent to GDELT's search API).
 #
-# One consequence: there's no query-complexity limit to work around
-# anymore, so identity_phrases can (and should) be activism-specific
-# rather than the bare "student"/"students" the old DOC-API version had
-# to use for reliability. A real-data check found bare "student" produced
-# 80-100% noise per search term — this tighter list fixes that at the
-# source instead of relying entirely on the noise filter afterward.
+# HOW MATCHING WORKS
+#   - A story is recorded when its text contains at least one identity
+#     phrase AND at least one category term.
+#   - Identity phrases and category terms match from the START of a word
+#     (so "student activist" also matches "student activists", and
+#     "killed" no longer matches inside "skilled").
+#   - Countries and the scope lists below match whole words only.
+#   - Spaces and hyphens are interchangeable ("tear gas" = "tear-gas").
+#   - If a story matches several categories, the one mentioned most wins.
+
 identity_phrases:
   - "student activist"
   - "student protester"
@@ -28,7 +27,9 @@ identity_phrases:
 categories:
   - id: physical_violence
     label: "Physical violence & killings"
-    terms: [beaten, assaulted, "tear gas", shot, killed, murdered, disappeared, tortured]
+    # "shot" was removed: too ambiguous in everyday English ("shot" a photo,
+    # "long shot"). Add it back if you find real misses.
+    terms: [beaten, assaulted, "tear gas", killed, murdered, disappeared, tortured]
 
   - id: detention_arrest
     label: "Arrests & detention"
@@ -36,7 +37,9 @@ categories:
 
   - id: legal_harassment
     label: "Legal harassment & lawfare"
-    terms: [charged, prosecuted, indicted, lawsuit, "criminal case", sedition, "anti-terrorism law", criminalized]
+    # "lawsuit" was removed: most hits were institutions vs. government
+    # (e.g. Harvard funding), not legal action against student activists.
+    terms: [charged, prosecuted, indicted, "criminal case", sedition, "anti-terrorism law", criminalized]
 
   - id: institutional_sanction
     label: "Institutional & academic sanctions"
@@ -54,10 +57,8 @@ categories:
     label: "Visa & immigration retaliation"
     terms: [deported, "visa revoked", "visa cancelled", "visa canceled", denationalized, "denied re-entry"]
 
-# Used to flag rows in the dashboard based on whether a focus country is
-# mentioned anywhere in the article's FULL TEXT (an upgrade from the old
-# headline-only check, since this dataset covers whole articles). Does
-# NOT restrict the search; it's a highlighting aid only.
+# Highlighting aid only (does not restrict the search). The country
+# mentioned most often in the article is the one shown.
 focus_countries:
   - name: Afghanistan
     aliases: []
@@ -98,20 +99,55 @@ focus_countries:
   - name: Indonesia
     aliases: []
 
-# Local relevance filter: full article text must contain an
-# activism-context word for context_match to be "yes". Non-matches are
-# hidden by default in the dashboard, not discarded.
-context_terms:
-  - activist
-  - activism
-  - protest
-  - demonstration
-  - demonstrator
-  - rally
-  - "student union leader"
-  - "student union president"
-  - movement
-  - walkout
-  - boycott
-  - dissident
-  - "sit-in"
+# SCOPE TAGS: used by the dashboard's "Hide ..." filters. Each story gets
+# zero or more tags, stored in the scope_tags column of data/hits.csv
+# (separated by semicolons). To add a new filter later, add a list here
+# and a tag in scripts/fetch_ngrams.py; no new column is needed.
+scope_terms:
+  # A story is tagged "high_school" when school words clearly outnumber
+  # university words (see HIGH_SCHOOL_MIN_HITS in fetch_ngrams.py).
+  high_school:
+    - "high school"
+    - "secondary school"
+    - "middle school"
+    - "school student"
+    - "school pupil"
+    - schoolchild
+    - schoolchildren
+    - schoolboy
+    - schoolgirl
+    - pupil
+    - lycée
+    - lycee
+    - lycéen
+    - lyceen
+  tertiary:
+    - university
+    - universities
+    - college
+    - campus
+    - undergraduate
+    - postgraduate
+    - "graduate student"
+    - professor
+    - faculty
+    - "student union"
+    - tertiary
+    - "higher education"
+    - polytechnic
+    - varsity
+    - vice-chancellor
+  # Sexual exploitation, abuse and harassment
+  seah:
+    - "sexual assault"
+    - "sexual violence"
+    - "sexual harassment"
+    - "sexual abuse"
+    - "sexual exploitation"
+    - "sexual misconduct"
+    - "gang rape"
+    - rape
+    - raped
+    - rapist
+    - "title ix"
+    - seah
