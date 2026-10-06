@@ -1,5 +1,25 @@
 [
   {
+    "fetched_at": "2026-10-06T21:24:17.582843+00:00",
+    "category_id": "legal_harassment",
+    "category_label": "Legal harassment & lawfare",
+    "title": "Cornell taps Sally Yates to lead wide-ranging review of its response to sexual misconduct claims",
+    "url": "https://www.cbsnews.com/newyork/news/cornell-university-sexual-assault-sally-yates-independent-review/",
+    "seendate": "20261006T210100Z",
+    "domain": "cbsnews.com",
+    "language": "en",
+    "sourcecountry": "",
+    "tone": "",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "",
+    "matched_term": "charged",
+    "context_match": "",
+    "scope_tags": "seah",
+    "country": "United States",
+    "region": "North America"
+  },
+  {
     "fetched_at": "2026-10-06T20:40:27.758131+00:00",
     "category_id": "physical_violence",
     "category_label": "Physical violence & killings",
