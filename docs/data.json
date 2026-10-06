@@ -1,5 +1,25 @@
 [
   {
+    "fetched_at": "2026-10-06T15:26:26.559596+00:00",
+    "category_id": "detention_arrest",
+    "category_label": "Arrests & detention",
+    "title": "Rioters Torch Paris School Exit And Trap 100 Students Inside",
+    "url": "http://www.zerohedge.com/political/rioters-torch-paris-school-exit-and-trap-100-students-inside",
+    "seendate": "20261006T150200Z",
+    "domain": "zerohedge.com",
+    "language": "en",
+    "sourcecountry": "",
+    "tone": "",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "",
+    "matched_term": "arrested",
+    "context_match": "",
+    "scope_tags": "high_school",
+    "country": "France",
+    "region": "Europe"
+  },
+  {
     "fetched_at": "2026-10-06T14:55:10.991394+00:00",
     "category_id": "detention_arrest",
     "category_label": "Arrests & detention",
