@@ -1,5 +1,22 @@
 [
   {
+    "fetched_at": "2026-10-06T07:27:33.919218+00:00",
+    "category_id": "detention_arrest",
+    "category_label": "Arrests & detention",
+    "title": "After death of 16-year-old schoolgirl, Malaysian human rights commission calls for nationwide overhaul of safeguards",
+    "url": "https://www.asiaone.com/malaysia/after-death-16-year-old-schoolgirl-malaysian-human-rights-commission-calls-nationwide",
+    "seendate": "20261006T071600Z",
+    "domain": "asiaone.com",
+    "language": "en",
+    "sourcecountry": "",
+    "tone": "",
+    "watchlist_country": "United Kingdom",
+    "relevance": "",
+    "relevance_reason": "",
+    "matched_term": "detained",
+    "context_match": "yes"
+  },
+  {
     "fetched_at": "2026-10-06T07:08:54.851917+00:00",
     "category_id": "physical_violence",
     "category_label": "Physical violence & killings",
