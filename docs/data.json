@@ -1,5 +1,22 @@
 [
   {
+    "fetched_at": "2026-10-06T01:37:13.038294+00:00",
+    "category_id": "legal_harassment",
+    "category_label": "Legal harassment & lawfare",
+    "title": "Appeals court weighs judge's authority to restore Trump administration funding cuts to Harvard",
+    "url": "https://www.wbur.org/news/2026/10/05/harvard-federal-funding-cuts-appeal",
+    "seendate": "20261006T013100Z",
+    "domain": "wbur.org",
+    "language": "en",
+    "sourcecountry": "",
+    "tone": "",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "",
+    "matched_term": "lawsuit",
+    "context_match": "yes"
+  },
+  {
     "fetched_at": "2026-10-05T23:01:58.370515+00:00",
     "category_id": "physical_violence",
     "category_label": "Physical violence & killings",
