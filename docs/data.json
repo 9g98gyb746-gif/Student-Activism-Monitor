@@ -1,5 +1,25 @@
 [
   {
+    "fetched_at": "2026-10-07T03:41:21.874516+00:00",
+    "category_id": "detention_arrest",
+    "category_label": "Arrests & detention",
+    "title": "Nicaraguan Opposition Activist Imprisoned after US Deportation",
+    "url": "https://havanatimes.org/news/nicaraguan-opposition-activist-imprisoned-after-us-deportation/",
+    "seendate": "20261007T033100Z",
+    "domain": "havanatimes.org",
+    "language": "en",
+    "sourcecountry": "",
+    "tone": "",
+    "watchlist_country": "Nicaragua",
+    "relevance": "",
+    "relevance_reason": "",
+    "matched_term": "arrested",
+    "context_match": "",
+    "scope_tags": "",
+    "country": "Nicaragua",
+    "region": "Latin America & Caribbean"
+  },
+  {
     "fetched_at": "2026-10-07T02:52:53.307115+00:00",
     "category_id": "detention_arrest",
     "category_label": "Arrests & detention",
