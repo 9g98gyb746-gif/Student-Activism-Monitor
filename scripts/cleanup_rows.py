@@ -27,7 +27,11 @@ OLD_RULE_TERMS = {"lawsuit", "shot"}
 BAD_DOMAINS = ["digbycourier.ca"]
 
 # 3. Domains that are never news stories about this topic.
-JUNK_DOMAINS = ["lolwot.com"]
+JUNK_DOMAINS = ["lolwot.com", "libcom.org", "newsnow.co.uk", "whmi.com"]
+
+# 3b. Rows to KEEP even if they match a removal rule above (real stories that
+#     were found through an old search term). Matched against the title.
+KEEP_TITLE_PATTERNS = [r"rhodes university", r"saikat", r"mahmoud khalil"]
 
 # 4. URL patterns for listing / author / people pages.
 BAD_URL_PATTERNS = [r"/author/", r"/people/", r"/authors/", r"/tag/", r"/topic/"]
@@ -41,6 +45,8 @@ def reason(row):
     domain = (row.get("domain") or "").lower()
     url = row.get("url") or ""
     title = (row.get("title") or "").strip()
+    if any(re.search(p, title, re.I) for p in KEEP_TITLE_PATTERNS):
+        return None
     if term in OLD_RULE_TERMS:
         return f"old search term '{term}'"
     if any(domain.endswith(d) for d in BAD_DOMAINS):
