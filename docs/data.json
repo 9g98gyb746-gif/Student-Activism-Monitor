@@ -1,5 +1,25 @@
 [
   {
+    "fetched_at": "2026-10-07T13:28:56.573625+00:00",
+    "category_id": "detention_arrest",
+    "category_label": "Arrests & detention",
+    "title": "Trump blames French unrest on mass migration",
+    "url": "http://www.parisguardian.com/news/279357214/trump-blames-french-unrest-on-mass-migration",
+    "seendate": "20261007T131700Z",
+    "domain": "parisguardian.com",
+    "language": "en",
+    "sourcecountry": "",
+    "tone": "",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "",
+    "matched_term": "arrested",
+    "context_match": "",
+    "scope_tags": "weak_match",
+    "country": "France",
+    "region": "Europe"
+  },
+  {
     "fetched_at": "2026-10-07T13:00:45.590915+00:00",
     "category_id": "physical_violence",
     "category_label": "Physical violence & killings",
