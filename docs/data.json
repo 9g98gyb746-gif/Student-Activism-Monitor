@@ -1,5 +1,25 @@
 [
   {
+    "fetched_at": "2026-10-07T01:14:07.774417+00:00",
+    "category_id": "surveillance_intimidation",
+    "category_label": "Surveillance, threats & intimidation",
+    "title": "From Gadigal to Gaza – Honi Soit",
+    "url": "https://honisoit.com/2026/10/from-gadigal-to-gaza/",
+    "seendate": "20261007T010100Z",
+    "domain": "honisoit.com",
+    "language": "en",
+    "sourcecountry": "",
+    "tone": "",
+    "watchlist_country": "Palestine",
+    "relevance": "",
+    "relevance_reason": "",
+    "matched_term": "threatened",
+    "context_match": "",
+    "scope_tags": "",
+    "country": "Palestine",
+    "region": "Middle East & North Africa"
+  },
+  {
     "fetched_at": "2026-10-07T00:59:54.822168+00:00",
     "category_id": "physical_violence",
     "category_label": "Physical violence & killings",
