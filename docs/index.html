@@ -193,7 +193,7 @@
 
   let allRows = [];
   let visible = PAGE_SIZE;
-  let activeTheme = null;        // { stem, label } while a topic card is selected
+  let activeTheme = null;        // the topic card that is currently selected
   const $ = (id) => document.getElementById(id);
   const EMBED = new URLSearchParams(location.search).get("embed") === "1";
   if (EMBED) document.body.classList.add("embed");
@@ -255,6 +255,7 @@
     }
     return groups;
   }
+  function groupCountry(g) { return g.rows.map((r) => r.country).find(Boolean) || ""; }
   function groupDate(g) { return g.rows.map((r) => r.seendate || "").sort().pop() || ""; }
   function newestFirst(groups) {
     return groups.map((g, i) => ({ g, i, d: groupDate(g) }))
@@ -306,18 +307,38 @@
         if (n >= THEME_MIN_STORIES && (!best || n > best.n || (n === best.n && s.length > best.s.length))) best = { s, n };
       });
       if (!best) break;
-      const members = pool.filter((p) => p.stems.has(best.s));
+      const byWord = pool.filter((p) => p.stems.has(best.s));
+      // If the word is really a place name (most of its stories are tagged with that
+      // country), take in every story tagged with that country, so "French" stories
+      // join "France".
+      const cc = new Map();
+      byWord.forEach((p) => { const c = groupCountry(p.g); if (c) cc.set(c, (cc.get(c) || 0) + 1); });
+      const topC = [...cc.entries()].sort((a, b) => b[1] - a[1])[0];
+      const place = topC && topC[1] / byWord.length >= 0.8 && topC[0].toLowerCase().slice(0, 5) === best.s.slice(0, 5) ? topC[0] : "";
+      const members = place ? pool.filter((p) => p.stems.has(best.s) || groupCountry(p.g) === place) : byWord;
       const surface = new Map();
-      members.forEach((p) => { const w = p.stems.get(best.s); surface.set(w, (surface.get(w) || 0) + 1); });
+      byWord.forEach((p) => { const w = p.stems.get(best.s); surface.set(w, (surface.get(w) || 0) + 1); });
       const word = [...surface.entries()].sort((a, b) => b[1] - a[1])[0][0];
-      const latest = newestFirst(members.map((p) => p.g))[0];
+      const name = place || word.charAt(0).toUpperCase() + word.slice(1);
+      // Add "protests" to the name when most of the headlines are about protests.
+      const protestShare = members.filter((p) => /protest/i.test(p.g.rows[0].title || "")).length / members.length;
+      // Show a typical headline: the newest one that shares the most of the topic's common words.
+      const mdf = new Map();
+      members.forEach((p) => p.stems.forEach((_, st) => mdf.set(st, (mdf.get(st) || 0) + 1)));
+      const common = new Set([...mdf.entries()].sort((a, b) => b[1] - a[1]).slice(0, 6).map((e) => e[0]));
+      const score = (p) => [...p.stems.keys()].filter((st) => common.has(st)).length;
+      const typical = newestFirst(members.map((p) => p.g)).map((g) => members.find((p) => p.g === g))
+        .reduce((a, b) => (score(b) > score(a) ? b : a));
+      const latest = typical.g;
       themes.push({
         stem: best.s,
-        label: word.charAt(0).toUpperCase() + word.slice(1),
+        place,
+        name,
+        label: protestShare >= 0.5 ? name + " protests" : name,
         count: members.length,
         latest: latest.rows[0].title || "",
       });
-      pool = pool.filter((p) => !p.stems.has(best.s));
+      pool = pool.filter((p) => !members.includes(p));
     }
     return themes;
   }
@@ -397,7 +418,7 @@
       if (hideSchool && tags.includes("high_school")) return false;
       if (hideSeah && tags.includes("seah")) return false;
       if (hideWeak && tags.includes("weak_match")) return false;
-      if (themeRx && !themeRx.test(row.title || "")) return false;
+      if (themeRx && !(themeRx.test(row.title || "") || (activeTheme.place && row.country === activeTheme.place))) return false;
       if (q && !`${row.title} ${row.domain}`.toLowerCase().includes(q)) return false;
       return true;
     });
@@ -406,7 +427,7 @@
     const bar = $("themeBar");
     if (activeTheme) {
       bar.hidden = false;
-      bar.innerHTML = `<span>Showing stories that mention “${esc(activeTheme.label)}”.</span><button type="button" class="btn small" id="clearTheme">Clear</button>`;
+      bar.innerHTML = `<span>${activeTheme.place ? `Showing stories about ${esc(activeTheme.place)}.` : `Showing stories that mention “${esc(activeTheme.name)}”.`}</span><button type="button" class="btn small" id="clearTheme">Clear</button>`;
     } else { bar.hidden = true; bar.innerHTML = ""; }
 
     const groups = newestFirst(groupRows(filtered));
