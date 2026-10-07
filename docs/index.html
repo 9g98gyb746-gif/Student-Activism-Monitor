@@ -79,6 +79,7 @@
     <!-- To start with a filter switched on, add the word "checked" inside its <input> tag. -->
     <label class="checkbox"><input type="checkbox" id="hideSchool" /> Hide high-school stories</label>
     <label class="checkbox" title="Sexual exploitation, abuse and harassment"><input type="checkbox" id="hideSeah" /> Hide SEAH-related stories</label>
+    <label class="checkbox" title="No repression term was found near a student-activism phrase, so the match may be coincidental"><input type="checkbox" id="hideWeak" /> Hide weak matches</label>
   </div>
 
   <div id="tableWrap"></div>
@@ -87,6 +88,7 @@
 <footer>
   Data from the public <a href="https://www.gdeltproject.org/" target="_blank" rel="noopener">GDELT Project</a> Web NGrams dataset.
   Stories reported by several outlets are grouped into one line. Filters and regions are keyword-based, so they are a guide, not a guarantee.
+  Items marked “weak match” mention a repression term only far from the student-activism phrase; they are left out of the counts at the top.
   The monitor reads English-language sources only, so countries with little English coverage can look quiet even when a lot is happening.
   See the repository README for methodology and limitations.
 </footer>
@@ -142,6 +144,7 @@
     const partnerOnly = $("partnerOnly").checked;
     const hideSchool = $("hideSchool").checked;
     const hideSeah = $("hideSeah").checked;
+    const hideWeak = $("hideWeak").checked;
 
     const filtered = allRows.filter((row) => {
       if (cat && row.category_id !== cat) return false;
@@ -150,6 +153,7 @@
       const tags = tagsOf(row);
       if (hideSchool && tags.includes("high_school")) return false;
       if (hideSeah && tags.includes("seah")) return false;
+      if (hideWeak && tags.includes("weak_match")) return false;
       if (q && !`${row.title} ${row.domain}`.toLowerCase().includes(q)) return false;
       return true;
     });
@@ -177,6 +181,7 @@
       const tagSet = new Set(g.rows.flatMap(tagsOf));
       if (tagSet.has("high_school")) badges.push(`<span class="badge scope">high school</span>`);
       if (tagSet.has("seah")) badges.push(`<span class="badge scope">SEAH</span>`);
+      if (g.rows.every((r) => tagsOf(r).includes("weak_match"))) badges.push(`<span class="badge scope" title="No repression term was found near a student-activism phrase">weak match</span>`);
 
       let also = "";
       if (g.rows.length > 1) {
@@ -209,18 +214,20 @@
   }
 
   function renderStats() {
-    const groups = groupRows(allRows);
+    // Weak matches are left out of the headline numbers.
+    const strongRows = allRows.filter((r) => !tagsOf(r).includes("weak_match"));
+    const groups = groupRows(strongRows);
     const cutoff = new Date();
     cutoff.setDate(cutoff.getDate() - 7);
     const recent = groups.filter((g) => {
       const d = fmtDate(g.rows[0].seendate);
       return d && new Date(d) >= cutoff;
     }).length;
-    const categories = new Set(allRows.map((r) => r.category_id)).size;
+    const categories = new Set(strongRows.map((r) => r.category_id)).size;
     const partners = groups.filter((g) => g.rows.some((r) => r.watchlist_country)).length;
     const stat = (value, label) => `<div class="stat"><span class="value">${value}</span><span class="label">${label}</span></div>`;
     $("stats").innerHTML =
-      stat(groups.length, "stories") + stat(allRows.length, "articles") + stat(recent, "stories, last 7 days") +
+      stat(groups.length, "stories") + stat(strongRows.length, "articles") + stat(recent, "stories, last 7 days") +
       stat(categories, "categories") + stat(partners, "in partner countries");
   }
 
@@ -267,7 +274,7 @@
       $("tableWrap").innerHTML = '<div class="empty-state"><strong>Could not load data.json.</strong></div>';
     });
 
-  ["search", "categoryFilter", "regionFilter", "partnerOnly", "hideSchool", "hideSeah"].forEach((id) => {
+  ["search", "categoryFilter", "regionFilter", "partnerOnly", "hideSchool", "hideSeah", "hideWeak"].forEach((id) => {
     $(id).addEventListener("input", render);
   });
 </script>
