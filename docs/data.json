@@ -1,5 +1,25 @@
 [
   {
+    "fetched_at": "2026-10-07T02:52:53.307115+00:00",
+    "category_id": "detention_arrest",
+    "category_label": "Arrests & detention",
+    "title": "'Islam, mass migration': Trump's claims on reasons behind student protests in France",
+    "url": "https://www.hindustantimes.com/world-news/islam-mass-migration-trumps-claims-on-reasons-behind-student-protests-in-france-paris-macron-us-president-latest-news-101791335130175.html",
+    "seendate": "20261007T024600Z",
+    "domain": "hindustantimes.com",
+    "language": "en",
+    "sourcecountry": "",
+    "tone": "",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "",
+    "matched_term": "arrested",
+    "context_match": "",
+    "scope_tags": "high_school",
+    "country": "France",
+    "region": "Europe"
+  },
+  {
     "fetched_at": "2026-10-07T02:39:20.175324+00:00",
     "category_id": "institutional_sanction",
     "category_label": "Institutional & academic sanctions",
