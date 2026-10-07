@@ -1,5 +1,25 @@
 [
   {
+    "fetched_at": "2026-10-07T01:55:45.486953+00:00",
+    "category_id": "physical_violence",
+    "category_label": "Physical violence & killings",
+    "title": "Universities in Toronto, Montreal and Vancouver brace for Oct. 7 protests",
+    "url": "https://www.theglobeandmail.com/canada/article-october-7-2026-protests-israel-hamas-gaza-toronto-montreal-vancouver/",
+    "seendate": "20261007T014600Z",
+    "domain": "theglobeandmail.com",
+    "language": "en",
+    "sourcecountry": "",
+    "tone": "",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "",
+    "matched_term": "killed",
+    "context_match": "",
+    "scope_tags": "",
+    "country": "Canada",
+    "region": "North America"
+  },
+  {
     "fetched_at": "2026-10-07T01:14:07.774417+00:00",
     "category_id": "surveillance_intimidation",
     "category_label": "Surveillance, threats & intimidation",
