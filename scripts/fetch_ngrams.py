@@ -21,7 +21,10 @@ How it works:
       * country and region: where the story is mainly set (see locate())
       * watchlist_country: the country again, but only if it is one of
         SAIH's partner countries (drives the partner badge and filter)
-      * scope_tags: high_school, seah (drive the dashboard's "Hide" filters)
+      * scope_tags: high_school, seah, weak_match (drive the dashboard's
+        "Hide" filters). weak_match means no repression term was found
+        near an identity phrase (see PROXIMITY_WORDS), so the article may
+        just mention both topics in unrelated places.
   - URLs that look like listing pages (author, tag, category, search,
     pagination) are skipped.
 
@@ -38,7 +41,7 @@ import json
 import os
 import re
 import tempfile
-from collections import Counter
+from collections import Counter, defaultdict, deque
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from urllib.parse import urlparse
@@ -94,6 +97,19 @@ HIGH_SCHOOL_MIN_HITS = 6  # and school words must be at least 2x university word
 SEAH_MIN_HITS = 8  # a SEAH word in the headline always counts
 MIN_REGION_HITS = 8  # a region needs this many country mentions to be chosen
 REGION_DOMINANCE = 2  # ...and must have at least this many times the runner-up
+
+# Proximity check. A repression term only "counts" if it appears within
+# PROXIMITY_WORDS words of an identity phrase. GDELT stores each article as an
+# unordered bag of overlapping 4-word phrases, so the word order is rebuilt by
+# chaining phrases that overlap by three words. A 3-word overlap that occurs
+# more than MAX_TRIGRAM_REPEATS times in an article (boilerplate such as
+# "of the university") is not followed, because it would join unrelated parts
+# of the page. Articles with no term near an identity phrase are still
+# recorded, but tagged weak_match so the dashboard can hide them.
+PROXIMITY_WORDS = 50
+MAX_TRIGRAM_REPEATS = 5
+WEAK_TAG = "weak_match"
+DIAGNOSTIC_MAX_WORDS = 600  # how far to look when logging the distance of weak matches
 
 # URL path segments that mark listing/archive pages rather than articles.
 NON_ARTICLE_PATH_SEGMENTS = {
@@ -174,6 +190,7 @@ class Matchers:
         for c in cfg["categories"]:
             terms = [(t.lower(), prefix_re([t])) for t in c["terms"]]
             self.categories.append({"id": c["id"], "label": c["label"], "terms": terms})
+        self.any_term = prefix_re([t for c in cfg["categories"] for t in c["terms"]])
 
         if "regions" not in cfg or "partner_countries" not in cfg:
             raise SystemExit(
@@ -334,6 +351,64 @@ def classify_scope_title(title, m):
     return ";".join(tags)
 
 
+# --------------------------------------------------------------- proximity
+
+def word_distances(items, sources, limit):
+    """items: [(phrase, count), ...] for one article (phrases lowercased).
+    sources: indexes of phrases to measure from. Returns {index: words away}
+    for every phrase reachable within `limit` steps, following overlaps of
+    three words in either direction."""
+    words = [p.split(" ") for p, _ in items]
+    first3 = defaultdict(list)
+    repeats = Counter()
+    for i, w in enumerate(words):
+        if len(w) == 4:
+            first3[tuple(w[:3])].append(i)
+            repeats[tuple(w[:3])] += items[i][1]
+    succ = [[] for _ in words]
+    pred = [[] for _ in words]
+    for i, w in enumerate(words):
+        if len(w) != 4:
+            continue
+        tri = tuple(w[1:])
+        if repeats.get(tri, 0) > MAX_TRIGRAM_REPEATS:
+            continue
+        for j in first3.get(tri, ()):
+            if j != i:
+                succ[i].append(j)
+                pred[j].append(i)
+    dist = {s: 0 for s in sources}
+    queue = deque(sources)
+    while queue:
+        u = queue.popleft()
+        if dist[u] >= limit:
+            continue
+        for nxt in succ[u] + pred[u]:
+            if nxt not in dist:
+                dist[nxt] = dist[u] + 1
+                queue.append(nxt)
+    return dist
+
+
+def proximity_category(items, m):
+    """Returns (category, nearest_term_distance).
+
+    category is best_category() computed only over phrases within
+    PROXIMITY_WORDS of an identity phrase, or (None, None, None) if there
+    is no such phrase. nearest_term_distance is how far (in words, up to
+    DIAGNOSTIC_MAX_WORDS) the closest repression term is from an identity
+    phrase, or None if none was found within that range."""
+    sources = [i for i, (p, _) in enumerate(items) if m.identity.search(p)]
+    if not sources:
+        return (None, None, None), None
+    dist = word_distances(items, sources, DIAGNOSTIC_MAX_WORDS)
+    term_dists = [d for i, d in dist.items() if m.any_term.search(items[i][0])]
+    nearest = min(term_dists) if term_dists else None
+    limit = PROXIMITY_WORDS + 3  # a phrase is 4 words long
+    near_text = " ".join(items[i][0] for i, d in dist.items() if d <= limit)
+    return best_category(near_text, m), nearest
+
+
 # ------------------------------------------------------------ data upgrade
 
 def ensure_schema(m):
@@ -466,6 +541,26 @@ def build_doc_text(ngrams_text):
     return {docid: " ".join(c) for docid, c in chunks.items()}
 
 
+def build_doc_items(ngrams_text):
+    """Like build_doc_text, but keeps each phrase and its repeat count:
+    {docid: [(phrase, count), ...]}. Phrases are lowercased."""
+    items = {}
+    for line in ngrams_text.splitlines():
+        parts = line.split("\t")
+        if len(parts) < 2:
+            continue
+        try:
+            docid = int(parts[0])
+        except ValueError:
+            continue
+        try:
+            count = max(1, int(parts[2])) if len(parts) > 2 else 1
+        except ValueError:
+            count = 1
+        items.setdefault(docid, []).append((parts[1].lower(), count))
+    return items
+
+
 def reformat_date(iso_date):
     try:
         dt = datetime.strptime(iso_date[:19], "%Y-%m-%dT%H:%M:%S")
@@ -491,12 +586,17 @@ def process_minute(dt, m, existing_urls):
     toc = parse_toc(toc_lines)
     fetched_at = datetime.now(timezone.utc).isoformat()
     rows = []
-    for docid, text in build_doc_text(ngrams_text).items():
+    for docid, doc_items in build_doc_items(ngrams_text).items():
+        text = " ".join(p for p, _ in doc_items)
         if not m.identity.search(text):
             continue
         cat_id, cat_label, matched_term = best_category(text, m)
         if cat_id is None:
             continue
+        near_cat, nearest = proximity_category(doc_items, m)
+        weak = near_cat[0] is None
+        if not weak:
+            cat_id, cat_label, matched_term = near_cat
         rec = toc.get(docid)
         if not rec:
             continue
@@ -505,6 +605,9 @@ def process_minute(dt, m, existing_urls):
             continue
         existing_urls.add(url)
         title = rec.get("title", "")
+        if weak:
+            where = f"{nearest} words away" if nearest is not None else f"more than {DIAGNOSTIC_MAX_WORDS} words away"
+            print(f"    weak match ({where}): {title[:70]}")
         country, region = locate(title, text, m)
         rows.append(
             {
@@ -523,7 +626,9 @@ def process_minute(dt, m, existing_urls):
                 "relevance_reason": "",
                 "matched_term": matched_term,
                 "context_match": "",
-                "scope_tags": classify_scope_text(text, title, m),
+                "scope_tags": ";".join(
+                    t for t in (classify_scope_text(text, title, m), WEAK_TAG if weak else "") if t
+                ),
                 "country": country,
                 "region": region,
             }
