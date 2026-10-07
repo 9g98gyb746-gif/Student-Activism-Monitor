@@ -1,5 +1,25 @@
 [
   {
+    "fetched_at": "2026-10-07T08:57:50.401156+00:00",
+    "category_id": "institutional_sanction",
+    "category_label": "Institutional & academic sanctions",
+    "title": "OSA: 4 suspended student activists may seek review, appeal",
+    "url": "https://varsitarian.net/osa-4-suspended-student-activists-may-seek-review-appeal/",
+    "seendate": "20261007T084700Z",
+    "domain": "varsitarian.net",
+    "language": "en",
+    "sourcecountry": "",
+    "tone": "",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "",
+    "matched_term": "suspended",
+    "context_match": "",
+    "scope_tags": "",
+    "country": "Philippines",
+    "region": "Southeast Asia"
+  },
+  {
     "fetched_at": "2026-10-07T08:07:16.774840+00:00",
     "category_id": "detention_arrest",
     "category_label": "Arrests & detention",
