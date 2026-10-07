@@ -1,5 +1,25 @@
 [
   {
+    "fetched_at": "2026-10-07T06:30:06.835821+00:00",
+    "category_id": "detention_arrest",
+    "category_label": "Arrests & detention",
+    "title": "Rahul Gandhi Detained as India's Opposition Marches on Poll Body",
+    "url": "https://www.hngn.com/articles/273438/20261007/indias-cockroach-protesters-target-referee-election-chief-under-fire.htm",
+    "seendate": "20261007T060200Z",
+    "domain": "hngn.com",
+    "language": "en",
+    "sourcecountry": "",
+    "tone": "",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "",
+    "matched_term": "detained",
+    "context_match": "",
+    "scope_tags": "",
+    "country": "India",
+    "region": "South Asia"
+  },
+  {
     "fetched_at": "2026-10-07T05:40:32.418247+00:00",
     "category_id": "physical_violence",
     "category_label": "Physical violence & killings",
