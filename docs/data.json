@@ -1,5 +1,25 @@
 [
   {
+    "fetched_at": "2026-10-07T22:37:35.766967+00:00",
+    "category_id": "detention_arrest",
+    "category_label": "Arrests & detention",
+    "title": "Europe is in revolt  its leaders are preparing for war",
+    "url": "http://www.chinanationalnews.com/news/279358097/europe-is-in-revolt-its-leaders-are-preparing-for-war",
+    "seendate": "20261007T223200Z",
+    "domain": "chinanationalnews.com",
+    "language": "en",
+    "sourcecountry": "",
+    "tone": "",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "",
+    "matched_term": "arrested",
+    "context_match": "",
+    "scope_tags": "weak_match",
+    "country": "France",
+    "region": "Europe"
+  },
+  {
     "fetched_at": "2026-10-07T21:39:28.701737+00:00",
     "category_id": "detention_arrest",
     "category_label": "Arrests & detention",
