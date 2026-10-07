@@ -1,5 +1,25 @@
 [
   {
+    "fetched_at": "2026-10-07T02:39:20.175324+00:00",
+    "category_id": "institutional_sanction",
+    "category_label": "Institutional & academic sanctions",
+    "title": "Cornell taps Sally Yates to lead internal probe into handling of gang- rape claims",
+    "url": "https://nypost.com/2026/10/06/us-news/cornell-taps-sally-yates-to-lead-internal-probe-into-handling-of-gang-rape-claims/",
+    "seendate": "20261007T023100Z",
+    "domain": "nypost.com",
+    "language": "en",
+    "sourcecountry": "",
+    "tone": "",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "",
+    "matched_term": "expelled",
+    "context_match": "",
+    "scope_tags": "seah",
+    "country": "United States",
+    "region": "North America"
+  },
+  {
     "fetched_at": "2026-10-07T01:55:45.486953+00:00",
     "category_id": "physical_violence",
     "category_label": "Physical violence & killings",
