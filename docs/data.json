@@ -1,5 +1,25 @@
 [
   {
+    "fetched_at": "2026-10-07T08:07:16.774840+00:00",
+    "category_id": "detention_arrest",
+    "category_label": "Arrests & detention",
+    "title": "How student protests grew into a nationwide crisis in France",
+    "url": "https://www.deseret.com/u-s-world/2026/10/06/student-protests-in-france-escalate/",
+    "seendate": "20261007T080200Z",
+    "domain": "deseret.com",
+    "language": "en",
+    "sourcecountry": "",
+    "tone": "",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "",
+    "matched_term": "arrested",
+    "context_match": "",
+    "scope_tags": "high_school",
+    "country": "France",
+    "region": "Europe"
+  },
+  {
     "fetched_at": "2026-10-07T06:30:06.835821+00:00",
     "category_id": "detention_arrest",
     "category_label": "Arrests & detention",
