@@ -1,5 +1,25 @@
 [
   {
+    "fetched_at": "2026-10-08T15:28:27.773291+00:00",
+    "category_id": "surveillance_intimidation",
+    "category_label": "Surveillance, threats & intimidation",
+    "title": "Pro-Palestinian protesters rally at U.S. universities to mark 3 years of Gaza war",
+    "url": "http://www.middleeaststar.com/news/279359462/pro-palestinian-protesters-rally-at-us-universities-to-mark-3-years-of-gaza-war",
+    "seendate": "20261008T150100Z",
+    "domain": "middleeaststar.com",
+    "language": "en",
+    "sourcecountry": "",
+    "tone": "",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "",
+    "matched_term": "surveillance",
+    "context_match": "",
+    "scope_tags": "weak_match",
+    "country": "",
+    "region": "Unclear"
+  },
+  {
     "fetched_at": "2026-10-08T15:05:14.277973+00:00",
     "category_id": "institutional_sanction",
     "category_label": "Institutional & academic sanctions",
