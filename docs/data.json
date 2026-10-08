@@ -1,5 +1,25 @@
 [
   {
+    "fetched_at": "2026-10-08T20:57:30.636670+00:00",
+    "category_id": "physical_violence",
+    "category_label": "Physical violence & killings",
+    "title": "Police fire tear gas at barricaded Paris school demo",
+    "url": "https://www.crookwellgazette.com.au/story/9365357/police-fire-tear-gas-at-barricaded-paris-school-demo/",
+    "seendate": "20261008T204700Z",
+    "domain": "crookwellgazette.com.au",
+    "language": "en",
+    "sourcecountry": "",
+    "tone": "",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "",
+    "matched_term": "tear gas",
+    "context_match": "",
+    "scope_tags": "high_school",
+    "country": "France",
+    "region": "Europe"
+  },
+  {
     "fetched_at": "2026-10-08T20:43:41.934960+00:00",
     "category_id": "physical_violence",
     "category_label": "Physical violence & killings",
