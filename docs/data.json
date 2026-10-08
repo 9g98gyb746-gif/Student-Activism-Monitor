@@ -1,5 +1,25 @@
 [
   {
+    "fetched_at": "2026-10-08T22:26:11.323759+00:00",
+    "category_id": "detention_arrest",
+    "category_label": "Arrests & detention",
+    "title": "Massive protests. Injuries. French students say they're just getting started.",
+    "url": "https://www.wtxl.com/world/europe/massive-demonstrations-injured-teenagers-french-students-say-theyre-just-getting-started",
+    "seendate": "20261008T221700Z",
+    "domain": "wtxl.com",
+    "language": "en",
+    "sourcecountry": "",
+    "tone": "",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "",
+    "matched_term": "detained",
+    "context_match": "",
+    "scope_tags": "weak_match",
+    "country": "France",
+    "region": "Europe"
+  },
+  {
     "fetched_at": "2026-10-08T21:26:22.102743+00:00",
     "category_id": "institutional_sanction",
     "category_label": "Institutional & academic sanctions",
