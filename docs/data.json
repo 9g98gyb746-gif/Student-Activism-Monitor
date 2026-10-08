@@ -1,5 +1,25 @@
 [
   {
+    "fetched_at": "2026-10-08T10:11:46.533190+00:00",
+    "category_id": "detention_arrest",
+    "category_label": "Arrests & detention",
+    "title": "High school students to turn out for new protests across France",
+    "url": "https://www.hurriyetdailynews.com/high-school-students-to-turn-out-for-new-protests-across-france-227868",
+    "seendate": "20261008T100200Z",
+    "domain": "hurriyetdailynews.com",
+    "language": "en",
+    "sourcecountry": "",
+    "tone": "",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "",
+    "matched_term": "arrested",
+    "context_match": "",
+    "scope_tags": "high_school",
+    "country": "France",
+    "region": "Europe"
+  },
+  {
     "fetched_at": "2026-10-08T09:58:52.815803+00:00",
     "category_id": "physical_violence",
     "category_label": "Physical violence & killings",
