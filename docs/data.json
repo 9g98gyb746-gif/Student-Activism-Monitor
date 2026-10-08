@@ -1,5 +1,25 @@
 [
   {
+    "fetched_at": "2026-10-08T18:47:51.587116+00:00",
+    "category_id": "physical_violence",
+    "category_label": "Physical violence & killings",
+    "title": "Students rally in solidarity with Palestine, rebuke GW's ties to Israel in Oct. 7 demonstration – The GW Hatchet",
+    "url": "https://gwhatchet.com/2026/10/08/students-rally-in-solidarity-with-palestine-rebuke-gws-ties-to-israel-in-oct-7-demonstration/",
+    "seendate": "20261008T183200Z",
+    "domain": "gwhatchet.com",
+    "language": "en",
+    "sourcecountry": "",
+    "tone": "",
+    "watchlist_country": "Palestine",
+    "relevance": "",
+    "relevance_reason": "",
+    "matched_term": "killed",
+    "context_match": "",
+    "scope_tags": "",
+    "country": "Palestine",
+    "region": "Middle East & North Africa"
+  },
+  {
     "fetched_at": "2026-10-08T18:29:21.028003+00:00",
     "category_id": "detention_arrest",
     "category_label": "Arrests & detention",
