@@ -1,5 +1,25 @@
 [
   {
+    "fetched_at": "2026-10-08T13:46:18.299790+00:00",
+    "category_id": "detention_arrest",
+    "category_label": "Arrests & detention",
+    "title": "Thousands protest in India's Bengaluru as 'Cockroach' movement demands election chief resign",
+    "url": "https://www.wboc.com/news/international/thousands-protest-in-indias-bengaluru-as-cockroach-movement-demands-election-chief-resign/article_b7b3ba8e-fc45-5730-baa6-b65e3b338db4.html",
+    "seendate": "20261008T133100Z",
+    "domain": "wboc.com",
+    "language": "en",
+    "sourcecountry": "",
+    "tone": "",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "",
+    "matched_term": "detained",
+    "context_match": "",
+    "scope_tags": "weak_match",
+    "country": "India",
+    "region": "South Asia"
+  },
+  {
     "fetched_at": "2026-10-08T13:30:12.168038+00:00",
     "category_id": "physical_violence",
     "category_label": "Physical violence & killings",
