@@ -1,5 +1,25 @@
 [
   {
+    "fetched_at": "2026-10-08T01:39:47.511455+00:00",
+    "category_id": "detention_arrest",
+    "category_label": "Arrests & detention",
+    "title": "Europe is in revolt  its leaders are preparing for war",
+    "url": "http://www.nigeriasun.com/news/279358097/europe-is-in-revolt-its-leaders-are-preparing-for-war",
+    "seendate": "20261008T013200Z",
+    "domain": "nigeriasun.com",
+    "language": "en",
+    "sourcecountry": "",
+    "tone": "",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "",
+    "matched_term": "arrested",
+    "context_match": "",
+    "scope_tags": "weak_match",
+    "country": "France",
+    "region": "Europe"
+  },
+  {
     "fetched_at": "2026-10-08T01:25:57.951051+00:00",
     "category_id": "physical_violence",
     "category_label": "Physical violence & killings",
