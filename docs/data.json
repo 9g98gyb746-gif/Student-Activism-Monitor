@@ -1,5 +1,25 @@
 [
   {
+    "fetched_at": "2026-10-08T09:28:56.353068+00:00",
+    "category_id": "physical_violence",
+    "category_label": "Physical violence & killings",
+    "title": "Shattered jaws, lost hand, tear gas: France sees its 'most violent' student protests in decades; parents slam 'disgusting' handling by cops",
+    "url": "https://www.hindustantimes.com/world-news/france-student-protests-stun-grenade-laurent-nunez-emmanuel-macron-bally-bagayoko-sebastien-lecornu-riot-police-101791439565392.html",
+    "seendate": "20261008T091700Z",
+    "domain": "hindustantimes.com",
+    "language": "en",
+    "sourcecountry": "",
+    "tone": "",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "",
+    "matched_term": "tear gas",
+    "context_match": "",
+    "scope_tags": "high_school",
+    "country": "France",
+    "region": "Europe"
+  },
+  {
     "fetched_at": "2026-10-08T09:11:40.325531+00:00",
     "category_id": "detention_arrest",
     "category_label": "Arrests & detention",
