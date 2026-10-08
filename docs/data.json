@@ -1,5 +1,25 @@
 [
   {
+    "fetched_at": "2026-10-08T06:59:48.708446+00:00",
+    "category_id": "institutional_sanction",
+    "category_label": "Institutional & academic sanctions",
+    "title": "Temple U. student group calls for campus accountability in light of Cornell rape allegations",
+    "url": "https://www.phillytrib.com/news/local_news/temple-u-student-group-calls-for-campus-accountability-in-light-of-cornell-rape-allegations/article_501fcc5e-3926-4491-b161-850e5cb64f7c.html",
+    "seendate": "20261008T063200Z",
+    "domain": "phillytrib.com",
+    "language": "en",
+    "sourcecountry": "",
+    "tone": "",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "",
+    "matched_term": "expelled",
+    "context_match": "",
+    "scope_tags": "seah;weak_match",
+    "country": "United States",
+    "region": "North America"
+  },
+  {
     "fetched_at": "2026-10-08T06:33:00.608416+00:00",
     "category_id": "detention_arrest",
     "category_label": "Arrests & detention",
