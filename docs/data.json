@@ -1,5 +1,25 @@
 [
   {
+    "fetched_at": "2026-10-09T15:26:37.175571+00:00",
+    "category_id": "institutional_sanction",
+    "category_label": "Institutional & academic sanctions",
+    "title": "What Cornell says about universities' MAGA complicity",
+    "url": "https://www.salon.com/2026/10/09/what-cornell-says-about-universities-maga-complicity/",
+    "seendate": "20261009T151700Z",
+    "domain": "salon.com",
+    "language": "en",
+    "sourcecountry": "",
+    "tone": "",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "",
+    "matched_term": "expelled",
+    "context_match": "",
+    "scope_tags": "seah",
+    "country": "United States",
+    "region": "North America"
+  },
+  {
     "fetched_at": "2026-10-09T15:07:06.168275+00:00",
     "category_id": "detention_arrest",
     "category_label": "Arrests & detention",
