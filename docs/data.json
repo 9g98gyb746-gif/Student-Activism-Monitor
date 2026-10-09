@@ -1,5 +1,25 @@
 [
   {
+    "fetched_at": "2026-10-09T03:26:49.269419+00:00",
+    "category_id": "detention_arrest",
+    "category_label": "Arrests & detention",
+    "title": "Books or Bombs? France's Student Revolt vs. NATO's Spending Push",
+    "url": "https://www.pressenza.com/2026/10/books-or-bombs-frances-student-revolt-vs-natos-spending-push/",
+    "seendate": "20261009T031600Z",
+    "domain": "pressenza.com",
+    "language": "en",
+    "sourcecountry": "",
+    "tone": "",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "",
+    "matched_term": "arrested",
+    "context_match": "",
+    "scope_tags": "high_school;weak_match",
+    "country": "France",
+    "region": "Europe"
+  },
+  {
     "fetched_at": "2026-10-09T01:42:07.872900+00:00",
     "category_id": "detention_arrest",
     "category_label": "Arrests & detention",
