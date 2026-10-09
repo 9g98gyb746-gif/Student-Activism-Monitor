@@ -1,5 +1,25 @@
 [
   {
+    "fetched_at": "2026-10-09T06:32:36.380238+00:00",
+    "category_id": "legal_harassment",
+    "category_label": "Legal harassment & lawfare",
+    "title": "Student Protests in France and the Politics of Blaming Islam",
+    "url": "https://www.dailyexcelsior.com/student-protests-in-france-and-the-politics-of-blaming-islam/",
+    "seendate": "20261009T061600Z",
+    "domain": "dailyexcelsior.com",
+    "language": "en",
+    "sourcecountry": "",
+    "tone": "",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "",
+    "matched_term": "charged",
+    "context_match": "",
+    "scope_tags": "weak_match",
+    "country": "France",
+    "region": "Europe"
+  },
+  {
     "fetched_at": "2026-10-09T04:27:34.297400+00:00",
     "category_id": "institutional_sanction",
     "category_label": "Institutional & academic sanctions",
