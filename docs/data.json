@@ -1,5 +1,25 @@
 [
   {
+    "fetched_at": "2026-10-09T09:44:59.627970+00:00",
+    "category_id": "physical_violence",
+    "category_label": "Physical violence & killings",
+    "title": "Again, France high school students protest",
+    "url": "https://dailytrust.com/again-france-high-school-students-protest/",
+    "seendate": "20261009T093200Z",
+    "domain": "dailytrust.com",
+    "language": "en",
+    "sourcecountry": "",
+    "tone": "",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "",
+    "matched_term": "tear gas",
+    "context_match": "",
+    "scope_tags": "high_school",
+    "country": "France",
+    "region": "Europe"
+  },
+  {
     "fetched_at": "2026-10-09T09:29:16.257635+00:00",
     "category_id": "legal_harassment",
     "category_label": "Legal harassment & lawfare",
