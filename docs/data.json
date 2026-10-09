@@ -1,5 +1,25 @@
 [
   {
+    "fetched_at": "2026-10-09T04:27:34.297400+00:00",
+    "category_id": "institutional_sanction",
+    "category_label": "Institutional & academic sanctions",
+    "title": "France Races to Quell Escalating Student Protests",
+    "url": "https://en.tempo.co/read/2121227/france-races-to-quell-escalating-student-protests",
+    "seendate": "20261009T040100Z",
+    "domain": "en.tempo.co",
+    "language": "en",
+    "sourcecountry": "",
+    "tone": "",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "",
+    "matched_term": "suspended",
+    "context_match": "",
+    "scope_tags": "",
+    "country": "France",
+    "region": "Europe"
+  },
+  {
     "fetched_at": "2026-10-09T03:26:49.269419+00:00",
     "category_id": "detention_arrest",
     "category_label": "Arrests & detention",
