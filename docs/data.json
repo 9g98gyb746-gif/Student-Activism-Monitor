@@ -1,5 +1,25 @@
 [
   {
+    "fetched_at": "2026-10-09T21:38:46.509520+00:00",
+    "category_id": "detention_arrest",
+    "category_label": "Arrests & detention",
+    "title": "Europe is in revolt - its leaders are preparing for war",
+    "url": "https://www.sott.net/article/508812-Europe-is-in-revolt-its-leaders-are-preparing-for-war",
+    "seendate": "20261009T213200Z",
+    "domain": "sott.net",
+    "language": "en",
+    "sourcecountry": "",
+    "tone": "",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "",
+    "matched_term": "arrested",
+    "context_match": "",
+    "scope_tags": "weak_match",
+    "country": "France",
+    "region": "Europe"
+  },
+  {
     "fetched_at": "2026-10-09T19:38:40.975031+00:00",
     "category_id": "physical_violence",
     "category_label": "Physical violence & killings",
