@@ -1,5 +1,25 @@
 [
   {
+    "fetched_at": "2026-10-09T00:38:23.146276+00:00",
+    "category_id": "physical_violence",
+    "category_label": "Physical violence & killings",
+    "title": "Moment French riot police violently clash with students in central Paris - as Muslim far-Left mayor at the forefront of protests poses with fans for selfies",
+    "url": "https://www.dailymail.com/news/article-16194839/Moment-French-riot-police-violently-clash-students-central-Paris-Muslim-far-Left-mayor-forefront-protests-poses-fans-selfies.html",
+    "seendate": "20261009T003200Z",
+    "domain": "dailymail.com",
+    "language": "en",
+    "sourcecountry": "",
+    "tone": "",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "",
+    "matched_term": "tear gas",
+    "context_match": "",
+    "scope_tags": "high_school",
+    "country": "France",
+    "region": "Europe"
+  },
+  {
     "fetched_at": "2026-10-08T23:25:04.582818+00:00",
     "category_id": "detention_arrest",
     "category_label": "Arrests & detention",
