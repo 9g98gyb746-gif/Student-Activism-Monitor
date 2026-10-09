@@ -1,5 +1,25 @@
 [
   {
+    "fetched_at": "2026-10-09T18:45:26.439582+00:00",
+    "category_id": "physical_violence",
+    "category_label": "Physical violence & killings",
+    "title": "Mamdani Dines on Oct. 7 Anniversary at Palestinian Restaurant That Accuses Israel of Genocide, Occupation",
+    "url": "https://www.algemeiner.com/2026/10/09/mamdani-dines-oct-7-anniversary-palestinian-restaurant-accuses-israel-genocide-occupation/",
+    "seendate": "20261009T183200Z",
+    "domain": "algemeiner.com",
+    "language": "en",
+    "sourcecountry": "",
+    "tone": "",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "",
+    "matched_term": "killed",
+    "context_match": "",
+    "scope_tags": "",
+    "country": "Israel",
+    "region": "Middle East & North Africa"
+  },
+  {
     "fetched_at": "2026-10-09T18:28:08.382064+00:00",
     "category_id": "detention_arrest",
     "category_label": "Arrests & detention",
