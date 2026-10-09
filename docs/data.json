@@ -1,5 +1,25 @@
 [
   {
+    "fetched_at": "2026-10-09T13:33:21.167594+00:00",
+    "category_id": "detention_arrest",
+    "category_label": "Arrests & detention",
+    "title": "Books or Bombs? France's Student Revolt vs. NATO's Spending Push",
+    "url": "http://www.parisguardian.com/news/279360843/books-or-bombs-france-student-revolt-vs-nato-spending-push",
+    "seendate": "20261009T131700Z",
+    "domain": "parisguardian.com",
+    "language": "en",
+    "sourcecountry": "",
+    "tone": "",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "",
+    "matched_term": "arrested",
+    "context_match": "",
+    "scope_tags": "high_school;weak_match",
+    "country": "France",
+    "region": "Europe"
+  },
+  {
     "fetched_at": "2026-10-09T13:13:48.176529+00:00",
     "category_id": "physical_violence",
     "category_label": "Physical violence & killings",
