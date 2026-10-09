@@ -1,5 +1,25 @@
 [
   {
+    "fetched_at": "2026-10-09T09:29:16.257635+00:00",
+    "category_id": "legal_harassment",
+    "category_label": "Legal harassment & lawfare",
+    "title": "Why the Cornell case ignited a cultural firestorm",
+    "url": "https://www.csmonitor.com/USA/Society/2026/1009/cornell-rape-case-reaction",
+    "seendate": "20261009T091600Z",
+    "domain": "csmonitor.com",
+    "language": "en",
+    "sourcecountry": "",
+    "tone": "",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "",
+    "matched_term": "charged",
+    "context_match": "",
+    "scope_tags": "seah;weak_match",
+    "country": "United States",
+    "region": "North America"
+  },
+  {
     "fetched_at": "2026-10-09T09:11:29.631835+00:00",
     "category_id": "institutional_sanction",
     "category_label": "Institutional & academic sanctions",
