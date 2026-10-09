@@ -1,5 +1,25 @@
 [
   {
+    "fetched_at": "2026-10-09T01:42:07.872900+00:00",
+    "category_id": "detention_arrest",
+    "category_label": "Arrests & detention",
+    "title": "Books or Bombs Frances Student Revolt vs. NATOs Spending Push",
+    "url": "http://www.bignewsnetwork.com/news/279360844/books-or-bombs-frances-student-revolt-vs-natos-spending-push",
+    "seendate": "20261009T013100Z",
+    "domain": "bignewsnetwork.com",
+    "language": "en",
+    "sourcecountry": "",
+    "tone": "",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "",
+    "matched_term": "arrested",
+    "context_match": "",
+    "scope_tags": "high_school;weak_match",
+    "country": "France",
+    "region": "Europe"
+  },
+  {
     "fetched_at": "2026-10-09T00:38:23.146276+00:00",
     "category_id": "physical_violence",
     "category_label": "Physical violence & killings",
