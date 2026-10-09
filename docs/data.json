@@ -1,5 +1,25 @@
 [
   {
+    "fetched_at": "2026-10-09T18:28:08.382064+00:00",
+    "category_id": "detention_arrest",
+    "category_label": "Arrests & detention",
+    "title": "'These Are Systemic Inequalities': Why Wembanyama Supports Student Protesters in France",
+    "url": "https://www.si.com/nba/spurs/onsi/these-are-systemic-inequalities-why-wembanyama-supports-student-protesters-in-france",
+    "seendate": "20261009T181600Z",
+    "domain": "si.com",
+    "language": "en",
+    "sourcecountry": "",
+    "tone": "",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "",
+    "matched_term": "arrested",
+    "context_match": "",
+    "scope_tags": "high_school",
+    "country": "France",
+    "region": "Europe"
+  },
+  {
     "fetched_at": "2026-10-09T17:24:24.501796+00:00",
     "category_id": "institutional_sanction",
     "category_label": "Institutional & academic sanctions",
