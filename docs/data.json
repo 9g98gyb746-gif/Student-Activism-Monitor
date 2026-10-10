@@ -1,5 +1,25 @@
 [
   {
+    "fetched_at": "2026-10-10T10:37:32.115312+00:00",
+    "category_id": "detention_arrest",
+    "category_label": "Arrests & detention",
+    "title": "India cracks down on youth protests as anger grows against Modi and election chief",
+    "url": "https://www.wral.com/news/ap/030b3-india-s-young-return-to-streets-as-anger-against-election-chief-and-modi-grows/",
+    "seendate": "20261010T103200Z",
+    "domain": "wral.com",
+    "language": "en",
+    "sourcecountry": "",
+    "tone": "",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "",
+    "matched_term": "detained",
+    "context_match": "",
+    "scope_tags": "",
+    "country": "India",
+    "region": "South Asia"
+  },
+  {
     "fetched_at": "2026-10-10T10:23:49.858213+00:00",
     "category_id": "detention_arrest",
     "category_label": "Arrests & detention",
