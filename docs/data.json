@@ -1,5 +1,25 @@
 [
   {
+    "fetched_at": "2026-10-10T19:50:03.610941+00:00",
+    "category_id": "detention_arrest",
+    "category_label": "Arrests & detention",
+    "title": "India cracks down on youth protests as anger grows against Modi and election chief",
+    "url": "https://www.ijpr.org/npr-news/2026-10-10/india-cracks-down-on-youth-protests-as-anger-grows-against-modi-and-election-chief",
+    "seendate": "20261010T193100Z",
+    "domain": "ijpr.org",
+    "language": "en",
+    "sourcecountry": "",
+    "tone": "",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "",
+    "matched_term": "detained",
+    "context_match": "",
+    "scope_tags": "",
+    "country": "India",
+    "region": "South Asia"
+  },
+  {
     "fetched_at": "2026-10-10T19:23:15.744798+00:00",
     "category_id": "detention_arrest",
     "category_label": "Arrests & detention",
