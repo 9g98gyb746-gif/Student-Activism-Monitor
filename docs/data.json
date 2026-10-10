@@ -1,5 +1,25 @@
 [
   {
+    "fetched_at": "2026-10-10T20:01:26.462684+00:00",
+    "category_id": "legal_harassment",
+    "category_label": "Legal harassment & lawfare",
+    "title": "Inside the protest playbook to vilify Israel on 'global day of action'",
+    "url": "https://nypost.com/2026/10/10/world-news/inside-the-protest-playbook-to-vilify-israel-on-global-day-of-action/",
+    "seendate": "20261010T194700Z",
+    "domain": "nypost.com",
+    "language": "en",
+    "sourcecountry": "",
+    "tone": "",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "",
+    "matched_term": "charged",
+    "context_match": "",
+    "scope_tags": "weak_match",
+    "country": "Israel",
+    "region": "Middle East & North Africa"
+  },
+  {
     "fetched_at": "2026-10-10T19:50:03.610941+00:00",
     "category_id": "detention_arrest",
     "category_label": "Arrests & detention",
