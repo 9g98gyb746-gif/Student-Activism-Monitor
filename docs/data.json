@@ -1,5 +1,25 @@
 [
   {
+    "fetched_at": "2026-10-10T19:23:15.744798+00:00",
+    "category_id": "detention_arrest",
+    "category_label": "Arrests & detention",
+    "title": "CJP protests: Delhi locked down, turns into mass detention zone",
+    "url": "https://economictimes.indiatimes.com/news/india/cjp-protests-delhi-locked-down-turns-into-mass-detention-zone/articleshow/134859956.cms",
+    "seendate": "20261010T190100Z",
+    "domain": "economictimes.indiatimes.com",
+    "language": "en",
+    "sourcecountry": "",
+    "tone": "",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "",
+    "matched_term": "detained",
+    "context_match": "",
+    "scope_tags": "",
+    "country": "India",
+    "region": "South Asia"
+  },
+  {
     "fetched_at": "2026-10-10T18:43:14.400262+00:00",
     "category_id": "physical_violence",
     "category_label": "Physical violence & killings",
