@@ -1,5 +1,25 @@
 [
   {
+    "fetched_at": "2026-10-10T20:38:09.762955+00:00",
+    "category_id": "detention_arrest",
+    "category_label": "Arrests & detention",
+    "title": "India news: Crackdown on 'Cockroach' movement protests",
+    "url": "https://www.cp24.com/news/world/2026/10/10/india-cracks-down-on-youth-protests-as-anger-grows-against-modi-and-election-chief/",
+    "seendate": "20261010T203100Z",
+    "domain": "cp24.com",
+    "language": "en",
+    "sourcecountry": "",
+    "tone": "",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "",
+    "matched_term": "detained",
+    "context_match": "",
+    "scope_tags": "",
+    "country": "India",
+    "region": "South Asia"
+  },
+  {
     "fetched_at": "2026-10-10T20:23:40.429180+00:00",
     "category_id": "detention_arrest",
     "category_label": "Arrests & detention",
