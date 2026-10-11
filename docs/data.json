@@ -1,5 +1,25 @@
 [
   {
+    "fetched_at": "2026-10-11T21:24:27.888330+00:00",
+    "category_id": "detention_arrest",
+    "category_label": "Arrests & detention",
+    "title": "India detains student leaders in major crackdown on protests",
+    "url": "https://calgarysun.com/news/world/india-detains-student-leaders-in-major-crackdown-on-protests/wcm/77a1827a-d6fb-4f67-8801-f85cb90dbd70",
+    "seendate": "20261011T210100Z",
+    "domain": "calgarysun.com",
+    "language": "en",
+    "sourcecountry": "",
+    "tone": "",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "",
+    "matched_term": "detained",
+    "context_match": "",
+    "scope_tags": "",
+    "country": "India",
+    "region": "South Asia"
+  },
+  {
     "fetched_at": "2026-10-11T19:37:20.031981+00:00",
     "category_id": "physical_violence",
     "category_label": "Physical violence & killings",
