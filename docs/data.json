@@ -1,5 +1,25 @@
 [
   {
+    "fetched_at": "2026-10-11T17:23:51.313782+00:00",
+    "category_id": "detention_arrest",
+    "category_label": "Arrests & detention",
+    "title": "Student union elections: BJB poll candidate sustains head injury in Pipili clash",
+    "url": "https://www.orissapost.com/student-union-elections-bjb-poll-candidate-sustains-head-injury-in-pipili-clash/",
+    "seendate": "20261011T171700Z",
+    "domain": "orissapost.com",
+    "language": "en",
+    "sourcecountry": "",
+    "tone": "",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "",
+    "matched_term": "detained",
+    "context_match": "",
+    "scope_tags": "weak_match",
+    "country": "",
+    "region": "Unclear"
+  },
+  {
     "fetched_at": "2026-10-11T16:38:58.916167+00:00",
     "category_id": "institutional_sanction",
     "category_label": "Institutional & academic sanctions",
