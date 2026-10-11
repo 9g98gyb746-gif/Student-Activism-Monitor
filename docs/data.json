@@ -1,5 +1,25 @@
 [
   {
+    "fetched_at": "2026-10-11T08:53:15.971492+00:00",
+    "category_id": "detention_arrest",
+    "category_label": "Arrests & detention",
+    "title": "Indian police detain thousands | The Arkansas Democrat-Gazette - Arkansas' Best News Source",
+    "url": "https://www.arkansasonline.com/news/2026/oct/11/indian-police-detain-thousands/",
+    "seendate": "20261011T084600Z",
+    "domain": "arkansasonline.com",
+    "language": "en",
+    "sourcecountry": "",
+    "tone": "",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "",
+    "matched_term": "detained",
+    "context_match": "",
+    "scope_tags": "",
+    "country": "India",
+    "region": "South Asia"
+  },
+  {
     "fetched_at": "2026-10-11T08:26:05.092866+00:00",
     "category_id": "surveillance_intimidation",
     "category_label": "Surveillance, threats & intimidation",
