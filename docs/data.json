@@ -1,5 +1,25 @@
 [
   {
+    "fetched_at": "2026-10-11T00:34:52.455929+00:00",
+    "category_id": "physical_violence",
+    "category_label": "Physical violence & killings",
+    "title": "Left-Extremist Rioting Spreads to Brussels, Antifa Infiltration Blamed",
+    "url": "https://www.breitbart.com/politics/2026/10/09/left-extremist-rioting-spreads-to-brussels-antifa-infiltration-blamed/",
+    "seendate": "20261011T000100Z",
+    "domain": "breitbart.com",
+    "language": "en",
+    "sourcecountry": "",
+    "tone": "",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "",
+    "matched_term": "assaulted",
+    "context_match": "",
+    "scope_tags": "weak_match",
+    "country": "Belgium",
+    "region": "Europe"
+  },
+  {
     "fetched_at": "2026-10-10T23:22:52.788554+00:00",
     "category_id": "detention_arrest",
     "category_label": "Arrests & detention",
