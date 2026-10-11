@@ -1,5 +1,25 @@
 [
   {
+    "fetched_at": "2026-10-11T02:53:01.044454+00:00",
+    "category_id": "detention_arrest",
+    "category_label": "Arrests & detention",
+    "title": "France suspends use of stun grenades to police student protests",
+    "url": "http://www.parisguardian.com/news/279360187/france-suspends-use-of-stun-grenades-to-police-student-protests",
+    "seendate": "20261011T024700Z",
+    "domain": "parisguardian.com",
+    "language": "en",
+    "sourcecountry": "",
+    "tone": "",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "",
+    "matched_term": "arrested",
+    "context_match": "",
+    "scope_tags": "high_school;weak_match",
+    "country": "France",
+    "region": "Europe"
+  },
+  {
     "fetched_at": "2026-10-11T02:24:36.386297+00:00",
     "category_id": "detention_arrest",
     "category_label": "Arrests & detention",
