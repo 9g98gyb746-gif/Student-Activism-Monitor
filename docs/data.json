@@ -1,5 +1,25 @@
 [
   {
+    "fetched_at": "2026-10-11T15:24:06.579203+00:00",
+    "category_id": "detention_arrest",
+    "category_label": "Arrests & detention",
+    "title": "French students are in the streets. Donald Trump and Fox News are freaking out",
+    "url": "https://www.salon.com/2026/10/11/french-students-are-in-the-streets-donald-trump-and-fox-news-are-freaking-out/",
+    "seendate": "20261011T151600Z",
+    "domain": "salon.com",
+    "language": "en",
+    "sourcecountry": "",
+    "tone": "",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "",
+    "matched_term": "arrested",
+    "context_match": "",
+    "scope_tags": "",
+    "country": "France",
+    "region": "Europe"
+  },
+  {
     "fetched_at": "2026-10-11T14:52:25.414884+00:00",
     "category_id": "detention_arrest",
     "category_label": "Arrests & detention",
