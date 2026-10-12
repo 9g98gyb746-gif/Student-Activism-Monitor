@@ -1,5 +1,25 @@
 [
   {
+    "fetched_at": "2026-10-12T07:58:20.794296+00:00",
+    "category_id": "surveillance_intimidation",
+    "category_label": "Surveillance, threats & intimidation",
+    "title": "'People, not generals, win wars': Independent student organising in Ukraine",
+    "url": "https://links.org.au/people-not-generals-win-wars-independent-student-organising-ukraine",
+    "seendate": "20261012T073100Z",
+    "domain": "links.org.au",
+    "language": "en",
+    "sourcecountry": "",
+    "tone": "",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "",
+    "matched_term": "surveillance",
+    "context_match": "",
+    "scope_tags": "weak_match",
+    "country": "Ukraine",
+    "region": "Europe"
+  },
+  {
     "fetched_at": "2026-10-12T07:34:49.558284+00:00",
     "category_id": "physical_violence",
     "category_label": "Physical violence & killings",
