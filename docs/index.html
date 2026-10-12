@@ -193,7 +193,7 @@
 
   let allRows = [];
   let visible = PAGE_SIZE;
-  let activeTheme = null;        // the topic card that is currently selected
+  let activeTheme = null;        // { stem, label } while a topic card is selected
   const $ = (id) => document.getElementById(id);
   const EMBED = new URLSearchParams(location.search).get("embed") === "1";
   if (EMBED) document.body.classList.add("embed");
@@ -298,6 +298,7 @@
     let pool = strongGroups
       .filter((g) => fmtDate(groupDate(g)) >= cutoff)
       .map((g) => ({ g, stems: titleStems(g.rows[0].title) }));
+    const all = pool.slice();      // every recent story, used to measure overlap between topics
     const themes = [];
     while (themes.length < THEME_MAX) {
       const df = new Map();
@@ -330,14 +331,34 @@
       const typical = newestFirst(members.map((p) => p.g)).map((g) => members.find((p) => p.g === g))
         .reduce((a, b) => (score(b) > score(a) ? b : a));
       const latest = typical.g;
-      themes.push({
+      // Full set of stories for this topic, counting stories already used by another topic.
+      const full = new Set(all.filter((p) => p.stems.has(best.s) || (place && groupCountry(p.g) === place)));
+      const cand = {
         stem: best.s,
+        stems: [best.s],
         place,
         name,
         label: protestShare >= 0.5 ? name + " protests" : name,
-        count: members.length,
+        full,
+        count: full.size,
         latest: latest.rows[0].title || "",
+      };
+      // If this topic mostly covers the same stories as one we already have (e.g. "Delhi"
+      // and "India"), merge them into one card under the bigger topic's name.
+      const twin = themes.find((t) => {
+        let shared = 0;
+        full.forEach((p) => { if (t.full.has(p)) shared++; });
+        return shared / Math.min(full.size, t.full.size) >= 0.5;
       });
+      if (twin) {
+        const bigger = cand.full.size > twin.full.size ? cand : twin;
+        cand.full.forEach((p) => twin.full.add(p));
+        twin.stems = [...new Set([...twin.stems, ...cand.stems])];
+        if (bigger === cand) { twin.stem = cand.stem; twin.place = cand.place; twin.name = cand.name; twin.label = cand.label; }
+        twin.count = twin.full.size;
+      } else {
+        themes.push(cand);
+      }
       pool = pool.filter((p) => !members.includes(p));
     }
     return themes;
@@ -408,7 +429,7 @@
     const hideSchool = $("hideSchool").checked;
     const hideSeah = $("hideSeah").checked;
     const hideWeak = $("hideWeak").checked;
-    const themeRx = activeTheme ? themeRegex(activeTheme.stem) : null;
+    const themeRxs = activeTheme ? activeTheme.stems.map(themeRegex) : null;
 
     const filtered = allRows.filter((row) => {
       if (cat && row.category_id !== cat) return false;
@@ -418,7 +439,7 @@
       if (hideSchool && tags.includes("high_school")) return false;
       if (hideSeah && tags.includes("seah")) return false;
       if (hideWeak && tags.includes("weak_match")) return false;
-      if (themeRx && !(themeRx.test(row.title || "") || (activeTheme.place && row.country === activeTheme.place))) return false;
+      if (themeRxs && !(themeRxs.some((rx) => rx.test(row.title || "")) || (activeTheme.place && row.country === activeTheme.place))) return false;
       if (q && !`${row.title} ${row.domain}`.toLowerCase().includes(q)) return false;
       return true;
     });
