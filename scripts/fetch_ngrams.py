@@ -26,7 +26,12 @@ How it works:
         near an identity phrase (see PROXIMITY_WORDS), so the article may
         just mention both topics in unrelated places.
   - URLs that look like listing pages (author, tag, category, search,
-    pagination) are skipped.
+    pagination), home pages, very short or generic titles, and the domains
+    listed under "skip" in the config are not recorded at all.
+  - A few ambiguous terms ("suspended", "charged", "killed" ...) only count
+    when a protest/police word appears within a few words of them (the
+    "second_signal" section of the config). Articles whose only repression
+    terms fail that test are not recorded.
 
 IMPORTANT: if a column is ever added to FIELDNAMES, add it at the END. On
 startup, ensure_schema() upgrades an older data/hits.csv in place (header
@@ -192,6 +197,25 @@ class Matchers:
             self.categories.append({"id": c["id"], "label": c["label"], "terms": terms})
         self.any_term = prefix_re([t for c in cfg["categories"] for t in c["terms"]])
 
+        # Second signal: ambiguous terms only count with a context word nearby.
+        ss = cfg.get("second_signal") or {}
+        self.ambiguous = {str(t).strip().lower() for t in ss.get("terms", [])}
+        known = {t.lower() for c in cfg["categories"] for t in c["terms"]}
+        for t in self.ambiguous:
+            if t not in known:
+                raise ValueError(f"second_signal term '{t}' is not a term in any category")
+        self.context = prefix_re(ss.get("context_words", []))
+        self.second_distance = int(ss.get("distance", 12))
+        if self.ambiguous and self.context is _NEVER:
+            raise ValueError("second_signal has terms but no context_words")
+
+        # Records that are never recorded: junk domains and generic titles.
+        sk = cfg.get("skip") or {}
+        self.skip_domains = [str(d).strip().lower() for d in sk.get("domains", []) if str(d).strip()]
+        self.skip_title_res = [re.compile(p, re.I) for p in sk.get("title_patterns", [])]
+        self.min_title_words = int(sk.get("min_title_words", 0))
+        self.min_title_chars = int(sk.get("min_title_chars", 0))
+
         if "regions" not in cfg or "partner_countries" not in cfg:
             raise SystemExit(
                 "ERROR: config/categories.yaml has no 'regions' / 'partner_countries' section. "
@@ -235,18 +259,40 @@ def load_matchers():
         return Matchers(yaml.safe_load(f))
 
 
-def best_category(text, m):
-    best, best_score = (None, None, None), 0
-    for c in m.categories:
-        score, top_term, top_n = 0, None, 0
+def term_hits(phrase, m):
+    """Repression terms found in one phrase: [(category_index, term, count,
+    is_ambiguous), ...]."""
+    out = []
+    if not m.any_term.search(phrase):
+        return out
+    for ci, c in enumerate(m.categories):
         for term, rx in c["terms"]:
-            n = len(rx.findall(text))
-            score += n
-            if n > top_n:
-                top_n, top_term = n, term
-        if score > best_score:
-            best, best_score = (c["id"], c["label"], top_term), score
-    return best
+            n = len(rx.findall(phrase))
+            if n:
+                out.append((ci, term, n, term in m.ambiguous))
+    return out
+
+
+def pick_category(hit_lists, m):
+    """hit_lists: one list of term_hits() per phrase. Returns (category id,
+    label, most-mentioned term), or (None, None, None) if there are no hits.
+    The category mentioned most wins; ties go to the one listed first."""
+    score = Counter()
+    per_term = Counter()
+    for hits in hit_lists:
+        for ci, term, n, _ in hits:
+            score[ci] += n
+            per_term[(ci, term)] += n
+    best_ci, best_score = None, 0
+    for ci in range(len(m.categories)):
+        if score[ci] > best_score:
+            best_ci, best_score = ci, score[ci]
+    if best_ci is None:
+        return None, None, None
+    top_term = max(
+        (t for (ci, t) in per_term if ci == best_ci), key=lambda t: per_term[(best_ci, t)]
+    )
+    return m.categories[best_ci]["id"], m.categories[best_ci]["label"], top_term
 
 
 # "Pro-Palestinian", "anti-Israel" and similar describe a stance, not a place:
@@ -390,23 +436,72 @@ def word_distances(items, sources, limit):
     return dist
 
 
-def proximity_category(items, m):
-    """Returns (category, nearest_term_distance).
+def analyse_doc(items, m):
+    """Decide whether an article is a match, and how good a match.
 
-    category is best_category() computed only over phrases within
-    PROXIMITY_WORDS of an identity phrase, or (None, None, None) if there
-    is no such phrase. nearest_term_distance is how far (in words, up to
-    DIAGNOSTIC_MAX_WORDS) the closest repression term is from an identity
-    phrase, or None if none was found within that range."""
+    items: [(phrase, count), ...] for one article (phrases lowercased).
+    Returns None if the article has no usable repression term, otherwise a
+    dict with:
+      category - (id, label, term), the repression category mentioned most
+      weak     - True if no usable term is within PROXIMITY_WORDS of an
+                 identity phrase (the category is then taken from the whole
+                 article)
+      nearest  - words between an identity phrase and the closest usable
+                 term (up to DIAGNOSTIC_MAX_WORDS), or None
+    Returns {"skip": "needs_context"} if the article has repression terms but
+    all of them are ambiguous ones with no context word nearby.
+
+    A term counts if it is not ambiguous, or if a context word (protest,
+    police, arrest ...) occurs within second_distance words of it."""
+    hits = [term_hits(p, m) for p, _ in items]
+    if not any(hits):
+        return None
+
+    confirmed = set()
+    if any(h[3] for hl in hits for h in hl):
+        ctx_sources = [i for i, (p, _) in enumerate(items) if m.context.search(p)]
+        if ctx_sources:
+            confirmed = set(word_distances(items, ctx_sources, m.second_distance))
+    usable = [[h for h in hl if not h[3] or i in confirmed] for i, hl in enumerate(hits)]
+    if not any(usable):
+        return {"skip": "needs_context"}
+
+    overall = pick_category(usable, m)
     sources = [i for i, (p, _) in enumerate(items) if m.identity.search(p)]
     if not sources:
-        return (None, None, None), None
+        return {"category": overall, "weak": True, "nearest": None}
+
     dist = word_distances(items, sources, DIAGNOSTIC_MAX_WORDS)
-    term_dists = [d for i, d in dist.items() if m.any_term.search(items[i][0])]
+    term_dists = [d for i, d in dist.items() if usable[i]]
     nearest = min(term_dists) if term_dists else None
     limit = PROXIMITY_WORDS + 3  # a phrase is 4 words long
-    near_text = " ".join(items[i][0] for i, d in dist.items() if d <= limit)
-    return best_category(near_text, m), nearest
+    near = [usable[i] if dist.get(i, DIAGNOSTIC_MAX_WORDS + 1) <= limit else [] for i in range(len(items))]
+    near_cat = pick_category(near, m)
+    if near_cat[0] is None:
+        return {"category": overall, "weak": True, "nearest": nearest}
+    return {"category": near_cat, "weak": False, "nearest": nearest}
+
+
+def skip_reason(url, title, m):
+    """Why a record should not be stored at all, or None."""
+    try:
+        parsed = urlparse(url)
+    except Exception:
+        return "bad url"
+    domain = parsed.netloc.lower()
+    domain = domain[4:] if domain.startswith("www.") else domain
+    if any(domain == d or domain.endswith("." + d) for d in m.skip_domains):
+        return "skipped domain"
+    if parsed.path in ("", "/"):
+        return "home page"
+    t = (title or "").strip()
+    if not t:
+        return "no title"
+    if len(t.split()) < m.min_title_words and len(t) < m.min_title_chars:
+        return "title too short"
+    if any(rx.search(t) for rx in m.skip_title_res):
+        return "generic title"
+    return None
 
 
 # ------------------------------------------------------------ data upgrade
@@ -590,21 +685,28 @@ def process_minute(dt, m, existing_urls):
         text = " ".join(p for p, _ in doc_items)
         if not m.identity.search(text):
             continue
-        cat_id, cat_label, matched_term = best_category(text, m)
-        if cat_id is None:
+        if not m.any_term.search(text):
             continue
-        near_cat, nearest = proximity_category(doc_items, m)
-        weak = near_cat[0] is None
-        if not weak:
-            cat_id, cat_label, matched_term = near_cat
         rec = toc.get(docid)
         if not rec:
             continue
         url = rec.get("url", "")
+        title = rec.get("title", "")
         if not url or url in existing_urls or looks_like_listing_page(url):
             continue
+        why = skip_reason(url, title, m)
+        if why:
+            print(f"    skipped ({why}): {title[:60]} | {domain_from_url(url)}")
+            continue
+        result = analyse_doc(doc_items, m)
+        if result is None:
+            continue
+        if "skip" in result:
+            print(f"    skipped (ambiguous term, no context): {title[:70]}")
+            continue
+        cat_id, cat_label, matched_term = result["category"]
+        weak, nearest = result["weak"], result["nearest"]
         existing_urls.add(url)
-        title = rec.get("title", "")
         if weak:
             where = f"{nearest} words away" if nearest is not None else f"more than {DIAGNOSTIC_MAX_WORDS} words away"
             print(f"    weak match ({where}): {title[:70]}")
