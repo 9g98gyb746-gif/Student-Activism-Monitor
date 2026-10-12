@@ -1,5 +1,25 @@
 [
   {
+    "fetched_at": "2026-10-12T12:08:54.263694+00:00",
+    "category_id": "detention_arrest",
+    "category_label": "Arrests & detention",
+    "title": "French student protesters mull fresh demos to maintain momentum",
+    "url": "https://www.dailysabah.com/world/europe/french-student-protesters-mull-fresh-demos-to-maintain-momentum",
+    "seendate": "20261012T114600Z",
+    "domain": "dailysabah.com",
+    "language": "en",
+    "sourcecountry": "",
+    "tone": "",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "",
+    "matched_term": "detained",
+    "context_match": "",
+    "scope_tags": "high_school",
+    "country": "France",
+    "region": "Europe"
+  },
+  {
     "fetched_at": "2026-10-12T11:47:29.186827+00:00",
     "category_id": "physical_violence",
     "category_label": "Physical violence & killings",
