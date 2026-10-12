@@ -1,5 +1,25 @@
 [
   {
+    "fetched_at": "2026-10-12T07:34:49.558284+00:00",
+    "category_id": "physical_violence",
+    "category_label": "Physical violence & killings",
+    "title": "Pro-Palestine student groups rally on Oct. 7 in the face of counter-protesters | News",
+    "url": "https://thelinknewspaper.ca/article/pro-palestine-student-groups-rally-on-oct-7-in-the-face-of-counter-protesters",
+    "seendate": "20261012T071700Z",
+    "domain": "thelinknewspaper.ca",
+    "language": "en",
+    "sourcecountry": "",
+    "tone": "",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "",
+    "matched_term": "killed",
+    "context_match": "",
+    "scope_tags": "weak_match",
+    "country": "Israel",
+    "region": "Middle East & North Africa"
+  },
+  {
     "fetched_at": "2026-10-12T07:13:06.173991+00:00",
     "category_id": "detention_arrest",
     "category_label": "Arrests & detention",
