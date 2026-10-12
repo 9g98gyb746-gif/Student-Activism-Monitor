@@ -1,5 +1,25 @@
 [
   {
+    "fetched_at": "2026-10-12T16:05:59.825994+00:00",
+    "category_id": "detention_arrest",
+    "category_label": "Arrests & detention",
+    "title": "Two Teachers Shot Amid French Protests: 'The Violence Is Intensifying'",
+    "url": "https://www.newsweek.com/two-teachers-shot-in-french-protests-the-violence-is-escalating-12554926",
+    "seendate": "20261012T154700Z",
+    "domain": "newsweek.com",
+    "language": "en",
+    "sourcecountry": "",
+    "tone": "",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "",
+    "matched_term": "arrested",
+    "context_match": "",
+    "scope_tags": "high_school",
+    "country": "France",
+    "region": "Europe"
+  },
+  {
     "fetched_at": "2026-10-12T15:46:09.541008+00:00",
     "category_id": "physical_violence",
     "category_label": "Physical violence & killings",
