@@ -15,6 +15,7 @@
 
 identity_phrases:
   - "student activist"
+  - "student protest"        # also matches "student protests" and "student protesters"
   - "student protester"
   - "student protesters"
   - "student union leader"
@@ -56,6 +57,78 @@ categories:
   - id: visa_immigration
     label: "Visa & immigration retaliation"
     terms: [deported, "visa revoked", "visa cancelled", "visa canceled", denationalized, "denied re-entry"]
+
+# SECOND SIGNAL: some terms are too ambiguous on their own ("suspended" a
+# service, "charged" a battery, "killed" in a war story). The terms listed
+# here are only counted when one of the context words appears within
+# `distance` words of them. Every term listed must also be a term in a
+# category above. Words match from the start ("protest" also matches
+# "protesters"). If an article's only repression terms fail this test, it is
+# not recorded, and the run log says "skipped (ambiguous term, no context)".
+second_signal:
+  distance: 12
+  terms:
+    - suspended
+    - expelled
+    - charged
+    - surveillance
+    - monitored
+    - threatened
+    - "disciplinary action"
+    - discredited
+    - killed
+  context_words:
+    - protest
+    - demonstrat
+    - activist
+    - rally
+    - rallies
+    - encampment
+    - "sit-in"
+    - crackdown
+    - police
+    - "security forces"
+    - riot
+    - clash
+    - unrest
+    - uprising
+    - arrest
+    - detain
+    - "tear gas"
+    - "stun grenade"
+    - "rubber bullet"
+    - baton
+    - blockade
+    - strike
+    - dissent
+    - violen
+    - "pro-palestin"
+    - "anti-israel"
+
+# SKIP: articles that are never recorded, however well they match.
+skip:
+  # Whole domains: aggregators, entertainment/trivia sites, sites that
+  # re-publish old stories as new.
+  domains:
+    - lolwot.com
+    - libcom.org
+    - newsnow.co.uk
+    - whmi.com
+    - listverse.com
+    - onenewspage.com
+    - digbycourier.ca
+  # Titles matching any of these (case-insensitive) are skipped.
+  title_patterns:
+    - "net worth$"
+    - "^morning briefing"
+    - "intelligence brief"
+    - "live feed"
+    - "^[a-z]+ [0-9]{1,2}, [0-9]{4}$"
+  # A title with fewer than min_title_words words AND fewer than
+  # min_title_chars characters is treated as a generic page title
+  # ("Albanian Daily News"). Long titles in scripts without spaces are kept.
+  min_title_words: 4
+  min_title_chars: 25
 
 # PARTNER COUNTRIES: where SAIH's partners work. A story gets the partner
 # badge (and appears under "Partner countries only") when its main country
