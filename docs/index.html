@@ -153,7 +153,7 @@
 <main>
   <section id="themes" hidden>
     <h2>Most covered this week</h2>
-    <p class="section-note">Topics that keep coming up in headlines over the last 7 days, grouped automatically. Select one to see its stories.</p>
+    <p class="section-note">Places and cases that keep coming up in headlines over the last 7 days, grouped automatically. Select one to see its stories.</p>
     <div class="theme-grid" id="themeGrid"></div>
   </section>
 
@@ -189,7 +189,8 @@
   const PIN_MAX = 5;             // partner-country stories pinned at the top
   const THEME_DAYS = 7;          // "most covered" looks at this many days
   const THEME_MIN_STORIES = 4;   // a topic needs at least this many stories to show up
-  const THEME_MAX = 3;           // at most this many topics are shown
+  const TOPIC_PLACES_SKIP = ["United States"]; // too broad to be a topic; its stories can still appear under a named case such as Cornell
+  const THEME_MAX = 6;           // at most this many topics are shown
 
   let allRows = [];
   let visible = PAGE_SIZE;
@@ -263,7 +264,7 @@
       .map((x) => x.g);
   }
 
-  /* ---- Most-covered topics: found automatically from repeated headline words ---- */
+  /* ---- Most-covered topics: found automatically from repeated place and case names ---- */
   const STOP = new Set((
     "about above after again against also another because been before being between both but came come could " +
     "does doing down during each even ever every first from have having here into just keep know last like made " +
@@ -281,23 +282,43 @@
   ).split(/\s+/));
 
   function stemOf(w) { return w.length >= 8 ? w.slice(0, 6) : w; }
-  function titleStems(title) {
-    const t = (title || "").replace(SUFFIX_RX, "").toLowerCase();
+
+  // Topic cards are only about places (a country, or a city/region inside one) and
+  // named things such as a university or a case. A word counts as a name when it is
+  // written with a capital letter and never appears in lower case in any headline,
+  // so "activists", "hundreds" or "faces" can never become a topic.
+  const MONTHS_DAYS = new Set((
+    "january february march april june july august september october november december " +
+    "monday tuesday wednesday thursday friday saturday sunday"
+  ).split(/\s+/));
+  function lowerCaseWords(groups) {
+    const seen = new Set();
+    groups.forEach((g) => {
+      const t = (g.rows[0].title || "").replace(SUFFIX_RX, "");
+      for (const w of t.match(/\p{Ll}[\p{L}]{3,}/gu) || []) seen.add(w.toLowerCase());
+    });
+    return seen;
+  }
+  function titleStems(title, lowerSeen, country) {
+    const t = (title || "").replace(SUFFIX_RX, "");
     const out = new Map(); // stem -> surface word
-    for (const w of t.match(/\p{L}{4,}/gu) || []) {
-      if (STOP.has(w)) continue;
-      const s = stemOf(w);
+    for (const w of t.match(/\p{Lu}[\p{L}]{3,}/gu) || []) {
+      const lw = w.toLowerCase();
+      if (STOP.has(lw) || MONTHS_DAYS.has(lw) || lowerSeen.has(lw)) continue;
+      const s = stemOf(lw);
       if (!out.has(s)) out.set(s, w);
     }
+    if (country && !TOPIC_PLACES_SKIP.includes(country)) out.set("@" + country, country); // the story's country tag counts as a place name
     return out;
   }
   function themeRegex(stem) { return new RegExp("(^|[^\\p{L}])" + escRx(stem), "iu"); }
 
   function findThemes(strongGroups) {
     const cutoff = new Date(Date.now() - THEME_DAYS * 864e5).toISOString().slice(0, 10);
+    const lowerSeen = lowerCaseWords(strongGroups);
     let pool = strongGroups
       .filter((g) => fmtDate(groupDate(g)) >= cutoff)
-      .map((g) => ({ g, stems: titleStems(g.rows[0].title) }));
+      .map((g) => ({ g, stems: titleStems(g.rows[0].title, lowerSeen, groupCountry(g)) }));
     const all = pool.slice();      // every recent story, used to measure overlap between topics
     const themes = [];
     while (themes.length < THEME_MAX) {
@@ -309,18 +330,22 @@
       });
       if (!best) break;
       const byWord = pool.filter((p) => p.stems.has(best.s));
-      // If the word is really a place name (most of its stories are tagged with that
-      // country), take in every story tagged with that country, so "French" stories
-      // join "France".
-      const cc = new Map();
-      byWord.forEach((p) => { const c = groupCountry(p.g); if (c) cc.set(c, (cc.get(c) || 0) + 1); });
-      const topC = [...cc.entries()].sort((a, b) => b[1] - a[1])[0];
-      const place = topC && topC[1] / byWord.length >= 0.8 && topC[0].toLowerCase().slice(0, 5) === best.s.slice(0, 5) ? topC[0] : "";
+      // A name that is really a place (a country tag, or a word that most of its stories
+      // share a country tag with) takes in every story tagged with that country.
+      let place = "";
+      if (best.s.startsWith("@")) {
+        place = best.s.slice(1);
+      } else {
+        const cc = new Map();
+        byWord.forEach((p) => { const c = groupCountry(p.g); if (c) cc.set(c, (cc.get(c) || 0) + 1); });
+        const topC = [...cc.entries()].sort((a, b) => b[1] - a[1])[0];
+        if (topC && topC[1] / byWord.length >= 0.8 && topC[0].toLowerCase().slice(0, 5) === best.s.slice(0, 5)) place = topC[0];
+      }
       const members = place ? pool.filter((p) => p.stems.has(best.s) || groupCountry(p.g) === place) : byWord;
       const surface = new Map();
       byWord.forEach((p) => { const w = p.stems.get(best.s); surface.set(w, (surface.get(w) || 0) + 1); });
       const word = [...surface.entries()].sort((a, b) => b[1] - a[1])[0][0];
-      const name = place || word.charAt(0).toUpperCase() + word.slice(1);
+      const name = place || word;
       // Add "protests" to the name when most of the headlines are about protests.
       const protestShare = members.filter((p) => /protest/i.test(p.g.rows[0].title || "")).length / members.length;
       // Show a typical headline: the newest one that shares the most of the topic's common words.
@@ -429,7 +454,7 @@
     const hideSchool = $("hideSchool").checked;
     const hideSeah = $("hideSeah").checked;
     const hideWeak = $("hideWeak").checked;
-    const themeRxs = activeTheme ? activeTheme.stems.map(themeRegex) : null;
+    const themeRxs = activeTheme ? activeTheme.stems.filter((x) => !x.startsWith("@")).map(themeRegex) : null;
 
     const filtered = allRows.filter((row) => {
       if (cat && row.category_id !== cat) return false;
