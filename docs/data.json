@@ -1,5 +1,25 @@
 [
   {
+    "fetched_at": "2026-10-12T11:47:29.186827+00:00",
+    "category_id": "physical_violence",
+    "category_label": "Physical violence & killings",
+    "title": "'No one listens to us': France's mass student protests expose social and racial inequality",
+    "url": "https://www.middleeasteye.net/news/france-mass-student-protest-exposes-racial-inequality",
+    "seendate": "20261012T113200Z",
+    "domain": "middleeasteye.net",
+    "language": "en",
+    "sourcecountry": "",
+    "tone": "",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "",
+    "matched_term": "tear gas",
+    "context_match": "",
+    "scope_tags": "high_school;weak_match",
+    "country": "France",
+    "region": "Europe"
+  },
+  {
     "fetched_at": "2026-10-12T11:28:59.460103+00:00",
     "category_id": "surveillance_intimidation",
     "category_label": "Surveillance, threats & intimidation",
