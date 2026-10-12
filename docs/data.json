@@ -1,5 +1,25 @@
 [
   {
+    "fetched_at": "2026-10-12T08:58:09.258879+00:00",
+    "category_id": "detention_arrest",
+    "category_label": "Arrests & detention",
+    "title": "French students set for fresh protests",
+    "url": "https://punchng.com/french-students-set-for-fresh-protests/",
+    "seendate": "20261012T083200Z",
+    "domain": "punchng.com",
+    "language": "en",
+    "sourcecountry": "",
+    "tone": "",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "",
+    "matched_term": "detained",
+    "context_match": "",
+    "scope_tags": "high_school;weak_match",
+    "country": "France",
+    "region": "Europe"
+  },
+  {
     "fetched_at": "2026-10-12T08:12:52.362286+00:00",
     "category_id": "detention_arrest",
     "category_label": "Arrests & detention",
