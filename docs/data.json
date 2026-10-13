@@ -1,5 +1,25 @@
 [
   {
+    "fetched_at": "2026-10-13T01:04:18.243175+00:00",
+    "category_id": "detention_arrest",
+    "category_label": "Arrests & detention",
+    "title": "France schools protest rumbles on",
+    "url": "https://dailytrust.com/france-schools-protest-rumbles-on/",
+    "seendate": "20261013T004600Z",
+    "domain": "dailytrust.com",
+    "language": "en",
+    "sourcecountry": "",
+    "tone": "",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "",
+    "matched_term": "arrested",
+    "context_match": "",
+    "scope_tags": "high_school",
+    "country": "France",
+    "region": "Europe"
+  },
+  {
     "fetched_at": "2026-10-13T00:39:48.969022+00:00",
     "category_id": "institutional_sanction",
     "category_label": "Institutional & academic sanctions",
