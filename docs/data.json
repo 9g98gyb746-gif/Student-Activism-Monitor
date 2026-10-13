@@ -1,5 +1,25 @@
 [
   {
+    "fetched_at": "2026-10-13T04:06:03.555844+00:00",
+    "category_id": "physical_violence",
+    "category_label": "Physical violence & killings",
+    "title": "How Gen Z Protests Are Reshaping Politics in Asia",
+    "url": "https://slguardian.org/how-gen-z-protests-are-reshaping-politics-in-asia/",
+    "seendate": "20261013T034600Z",
+    "domain": "slguardian.org",
+    "language": "en",
+    "sourcecountry": "",
+    "tone": "",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "",
+    "matched_term": "killed",
+    "context_match": "",
+    "scope_tags": "",
+    "country": "India",
+    "region": "South Asia"
+  },
+  {
     "fetched_at": "2026-10-13T03:47:39.215253+00:00",
     "category_id": "surveillance_intimidation",
     "category_label": "Surveillance, threats & intimidation",
