@@ -1,5 +1,25 @@
 [
   {
+    "fetched_at": "2026-10-14T12:06:51.857465+00:00",
+    "category_id": "institutional_sanction",
+    "category_label": "Institutional & academic sanctions",
+    "title": "Cornell University faculty to begin debating no-confidence resolution",
+    "url": "https://abc7news.com/story/cornell-university-faculty-begin-debating-no-confidence-resolution/19937500/",
+    "seendate": "20261014T114600Z",
+    "domain": "abc7news.com",
+    "language": "en",
+    "sourcecountry": "",
+    "tone": "",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "",
+    "matched_term": "suspended",
+    "context_match": "",
+    "scope_tags": "seah;weak_match",
+    "country": "United States",
+    "region": "North America"
+  },
+  {
     "fetched_at": "2026-10-14T11:38:50.809839+00:00",
     "category_id": "physical_violence",
     "category_label": "Physical violence & killings",
