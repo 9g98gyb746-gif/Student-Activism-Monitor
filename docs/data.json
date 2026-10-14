@@ -1,5 +1,25 @@
 [
   {
+    "fetched_at": "2026-10-14T21:16:13.370948+00:00",
+    "category_id": "physical_violence",
+    "category_label": "Physical violence & killings",
+    "title": "Cornell president admits he never followed up on gang rape allegation",
+    "url": "https://www.sun-sentinel.com/2026/10/14/cornell-president-gang-rape-allegation/",
+    "seendate": "20261014T210200Z",
+    "domain": "sun-sentinel.com",
+    "language": "en",
+    "sourcecountry": "",
+    "tone": "",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "",
+    "matched_term": "assaulted",
+    "context_match": "",
+    "scope_tags": "seah;weak_match",
+    "country": "United States",
+    "region": "North America"
+  },
+  {
     "fetched_at": "2026-10-14T20:54:51.033663+00:00",
     "category_id": "physical_violence",
     "category_label": "Physical violence & killings",
