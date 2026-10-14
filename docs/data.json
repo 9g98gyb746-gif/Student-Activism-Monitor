@@ -1,5 +1,25 @@
 [
   {
+    "fetched_at": "2026-10-14T11:38:50.809839+00:00",
+    "category_id": "physical_violence",
+    "category_label": "Physical violence & killings",
+    "title": "Violențe la protestele studențești din Albania. Manifestanții au aruncat cu pietre în Ministerul Educației și s-au bătut cu polițiștii",
+    "url": "https://www.antena3.ro/externe/violente-la-protestele-studentesti-din-albania-manifestantii-au-aruncat-cu-pietre-in-ministerul-educatiei-si-s-au-batut-cu-politistii-807171.html",
+    "seendate": "20261014T113200Z",
+    "domain": "antena3.ro",
+    "language": "ro",
+    "sourcecountry": "",
+    "tone": "",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "",
+    "matched_term": "tear gas",
+    "context_match": "",
+    "scope_tags": "",
+    "country": "Albania",
+    "region": "Europe"
+  },
+  {
     "fetched_at": "2026-10-14T11:07:45.547190+00:00",
     "category_id": "legal_harassment",
     "category_label": "Legal harassment & lawfare",
