@@ -152,7 +152,7 @@
 <main>
   <section id="themes" hidden>
     <h2>Most covered this week</h2>
-    <p class="section-note">Places and cases that keep coming up in headlines over the last 7 days, grouped automatically. Select one to see its stories.</p>
+    <p class="section-note">Topics that keep coming up in headlines over the last 7 days, grouped automatically. Select one to see its stories.</p>
     <div class="theme-grid" id="themeGrid"></div>
   </section>
 
@@ -162,8 +162,7 @@
     <select id="regionFilter" aria-label="Region"><option value="">All regions</option></select>
     <label class="checkbox"><input type="checkbox" id="partnerOnly" /> SAIH partner countries only</label>
     <!-- To start with a filter switched on, add the word "checked" inside its <input> tag. -->
-    <label class="checkbox"><input type="checkbox" id="hideSchool" /> Hide high-school stories</label>
-    <label class="checkbox" title="Sexual exploitation, abuse and harassment"><input type="checkbox" id="hideSeah" /> Hide SEAH-related stories</label>
+    <label class="checkbox"><input type="checkbox" id="hideSchool" /> Hide secondary-school stories</label>
   </div>
   <div class="theme-bar" id="themeBar" hidden></div>
 
@@ -260,7 +259,7 @@
       .map((x) => x.g);
   }
 
-  /* ---- Most-covered topics: found automatically from repeated place and case names ---- */
+  /* ---- Most-covered topics: found automatically from repeated headline words ---- */
   const STOP = new Set((
     "about above after again against also another because been before being between both but came come could " +
     "does doing down during each even ever every first from have having here into just keep know last like made " +
@@ -412,8 +411,7 @@
       ? `<span class="badge watchlist" title="SAIH partner country">${esc(partner)}</span>`
       : country ? `<span>${esc(country)}</span>` : "";
     const tagSet = new Set(g.rows.flatMap(tagsOf));
-    if (tagSet.has("high_school")) badges.push(`<span class="badge scope">high school</span>`);
-    if (tagSet.has("seah")) badges.push(`<span class="badge scope">SEAH</span>`);
+    if (tagSet.has("high_school")) badges.push(`<span class="badge scope">secondary school</span>`);
 
     let also = "";
     if (g.rows.length > 1) {
@@ -447,7 +445,6 @@
     const region = $("regionFilter").value;
     const partnerOnly = $("partnerOnly").checked;
     const hideSchool = $("hideSchool").checked;
-    const hideSeah = $("hideSeah").checked;
     const themeRxs = activeTheme ? activeTheme.stems.filter((x) => !x.startsWith("@")).map(themeRegex) : null;
 
     const filtered = allRows.filter((row) => {
@@ -456,7 +453,6 @@
       if (partnerOnly && !row.watchlist_country) return false;
       const tags = tagsOf(row);
       if (hideSchool && tags.includes("high_school")) return false;
-      if (hideSeah && tags.includes("seah")) return false;
       if (themeRxs && !(themeRxs.some((rx) => rx.test(row.title || "")) || (activeTheme.place && row.country === activeTheme.place))) return false;
       if (q && !`${row.title} ${row.domain}`.toLowerCase().includes(q)) return false;
       return true;
@@ -471,7 +467,7 @@
 
     const groups = newestFirst(groupRows(filtered));
 
-    // Pinned: the latest stories in SAIH partner countries
+    // Pinned: the latest strong stories in SAIH partner countries
     let pinned = [];
     let partnerTotal = 0;
     if (!partnerOnly) {
@@ -604,7 +600,7 @@
     });
 
   function filtersChanged() { visible = PAGE_SIZE; render(); }
-  ["search", "categoryFilter", "regionFilter", "partnerOnly", "hideSchool", "hideSeah"].forEach((id) => {
+  ["search", "categoryFilter", "regionFilter", "partnerOnly", "hideSchool"].forEach((id) => {
     $(id).addEventListener("input", filtersChanged);
   });
 
