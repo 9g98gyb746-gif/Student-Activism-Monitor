@@ -13,6 +13,9 @@ are shared with the monitor, so there is one place to edit them):
      "charged", "killed" ...) and whose headline has no protest/police word.
      Only the headline can be checked for old rows, so this rule is the most
      likely to remove something real. Read that part of the dry-run list.
+  4. rows tagged SEAH (sexual misconduct) whose only term is "assaulted" or
+     an ambiguous one: almost always the Cornell-type case coverage, not
+     repression of activists.
 
 Set DRY_RUN=1 (the default) to only list what would be removed.
 Set DRY_RUN=0 to actually rewrite data/hits.csv.
@@ -41,7 +44,7 @@ BAD_URL_PATTERNS = [r"/author/", r"/people/", r"/authors/", r"/tag/", r"/topic/"
 
 # Rows to KEEP even if a rule above would remove them (real stories found
 # through an old search term). Matched against the title.
-KEEP_TITLE_PATTERNS = [r"rhodes university", r"saikat", r"mahmoud khalil"]
+KEEP_TITLE_PATTERNS = [r"rhodes university", r"saikat", r"mahmoud khalil", r"lovely professional"]
 
 
 def load_rules():
@@ -85,6 +88,9 @@ def reason(row, rules):
         return "title too short"
     if any(rx.search(title) for rx in rules["title_res"]):
         return "generic title"
+    tags = (row.get("scope_tags") or "").split(";")
+    if "seah" in tags and (term in rules["ambiguous"] or term == "assaulted"):
+        return f"sexual-misconduct story, term '{term}'"
     if term in rules["ambiguous"] and rules["context_re"] and not rules["context_re"].search(title):
         return f"ambiguous term '{term}', no protest/police word in headline"
     return None
