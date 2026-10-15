@@ -64,7 +64,8 @@ categories:
 # `distance` words of them. Every term listed must also be a term in a
 # category above. Words match from the start ("protest" also matches
 # "protesters"). If an article's only repression terms fail this test, it is
-# not recorded, and the run log says "skipped (ambiguous term, no context)".
+# not recorded, and the run log says "skipped (only ambiguous or
+# sexual-misconduct terms)".
 second_signal:
   distance: 12
   terms:
@@ -105,6 +106,15 @@ second_signal:
     - "pro-palestin"
     - "anti-israel"
 
+# IGNORE PHRASES: a repression term that is part of one of these phrases does
+# not count where the phrase occurs, so "sexually assaulted" is not counted as
+# "assaulted" (violence by police). Words match from the start, like the terms.
+ignore_phrases:
+  - "sexually assaulted"
+  - "sexually abused"
+  - "sexually harassed"
+  - "sexual assault"
+
 # SKIP: articles that are never recorded, however well they match.
 skip:
   # Whole domains: aggregators, entertainment/trivia sites, sites that
@@ -117,12 +127,20 @@ skip:
     - listverse.com
     - onenewspage.com
     - digbycourier.ca
+    - blackagendareport.com
   # Titles matching any of these (case-insensitive) are skipped.
   title_patterns:
     - "net worth$"
     - "^morning briefing"
     - "intelligence brief"
     - "live feed"
+    - "top [0-9]+ stories"
+    - "top news of the day"
+    - "news digest"
+    - "evening wrap"
+    - "^latest from "
+    - "^q&a \\|"
+    - "best (shows|movies)"
     - "^[a-z]+ [0-9]{1,2}, [0-9]{4}$"
   # A title with fewer than min_title_words words AND fewer than
   # min_title_chars characters is treated as a generic page title
