@@ -94,7 +94,6 @@
   .badge { display: inline-block; padding: 0.15rem 0.55rem; border-radius: 999px; background: var(--greyblue); color: var(--dark); font-size: 0.78rem; white-space: nowrap; }
   .badge.watchlist { background: var(--orange); font-weight: 700; }
   .badge.scope { background: transparent; border: 1px solid var(--line-strong); }
-  .badge.weak { background: transparent; border: 1px dashed var(--dark); }
 
   details.also { margin-top: 0.4rem; font-size: 0.84rem; }
   details.also summary { cursor: pointer; }
@@ -165,7 +164,6 @@
     <!-- To start with a filter switched on, add the word "checked" inside its <input> tag. -->
     <label class="checkbox"><input type="checkbox" id="hideSchool" /> Hide high-school stories</label>
     <label class="checkbox" title="Sexual exploitation, abuse and harassment"><input type="checkbox" id="hideSeah" /> Hide SEAH-related stories</label>
-    <label class="checkbox" title="No repression term was found near a student-activism phrase, so the match may be coincidental"><input type="checkbox" id="hideWeak" /> Hide weak matches</label>
   </div>
   <div class="theme-bar" id="themeBar" hidden></div>
 
@@ -178,8 +176,7 @@
 <footer>
   <p>Data from the public <a href="https://www.gdeltproject.org/" target="_blank" rel="noopener">GDELT Project</a> Web NGrams dataset.
   Stories reported by several outlets are grouped into one line. Filters, regions and topics are keyword-based, so they are a guide, not a guarantee.</p>
-  <p>Items marked “weak match” mention a repression term only far from the student-activism phrase; they are left out of the counts at the top.</p>
-  <p>The monitor reads English-language sources only, so countries with little English coverage can look quiet even when a lot is happening.
+  <p>At this stage the monitor only catches English-language stories, so countries with less English-language coverage, such as most of Latin America, will look quieter than they really are.
   See the repository README for methodology and limitations.</p>
 </footer>
 
@@ -232,7 +229,6 @@
   ];
   function regionOf(row) { return row.region || "Unclear"; }
   function tagsOf(row) { return (row.scope_tags || "").split(";").filter(Boolean); }
-  function isWeak(row) { return tagsOf(row).includes("weak_match"); }
 
   // Headlines that start the same way (after removing punctuation and a trailing
   // " - Site name") are treated as the same story reported by several outlets.
@@ -418,7 +414,6 @@
     const tagSet = new Set(g.rows.flatMap(tagsOf));
     if (tagSet.has("high_school")) badges.push(`<span class="badge scope">high school</span>`);
     if (tagSet.has("seah")) badges.push(`<span class="badge scope">SEAH</span>`);
-    if (g.rows.every(isWeak)) badges.push(`<span class="badge weak" title="No repression term was found near a student-activism phrase">weak match</span>`);
 
     let also = "";
     if (g.rows.length > 1) {
@@ -453,7 +448,6 @@
     const partnerOnly = $("partnerOnly").checked;
     const hideSchool = $("hideSchool").checked;
     const hideSeah = $("hideSeah").checked;
-    const hideWeak = $("hideWeak").checked;
     const themeRxs = activeTheme ? activeTheme.stems.filter((x) => !x.startsWith("@")).map(themeRegex) : null;
 
     const filtered = allRows.filter((row) => {
@@ -463,7 +457,6 @@
       const tags = tagsOf(row);
       if (hideSchool && tags.includes("high_school")) return false;
       if (hideSeah && tags.includes("seah")) return false;
-      if (hideWeak && tags.includes("weak_match")) return false;
       if (themeRxs && !(themeRxs.some((rx) => rx.test(row.title || "")) || (activeTheme.place && row.country === activeTheme.place))) return false;
       if (q && !`${row.title} ${row.domain}`.toLowerCase().includes(q)) return false;
       return true;
@@ -478,11 +471,11 @@
 
     const groups = newestFirst(groupRows(filtered));
 
-    // Pinned: the latest strong stories in SAIH partner countries
+    // Pinned: the latest stories in SAIH partner countries
     let pinned = [];
     let partnerTotal = 0;
     if (!partnerOnly) {
-      const pg = groups.filter((g) => g.rows.some((r) => r.watchlist_country) && !g.rows.every(isWeak));
+      const pg = groups.filter((g) => g.rows.some((r) => r.watchlist_country));
       partnerTotal = pg.length;
       pinned = pg.slice(0, PIN_MAX);
     }
@@ -535,9 +528,8 @@
   }
 
   function renderStats() {
-    // Weak matches are left out of the headline numbers.
-    const strongRows = allRows.filter((r) => !isWeak(r));
-    const groups = groupRows(strongRows);
+    const strongRows = allRows;
+    const groups = groupRows(allRows);
     const cutoff = new Date();
     cutoff.setDate(cutoff.getDate() - 7);
     const recent = groups.filter((g) => {
@@ -603,7 +595,7 @@
       renderUpdated();
       populateCategoryFilter();
       populateRegionFilter();
-      themes = findThemes(groupRows(allRows.filter((r) => !isWeak(r))));
+      themes = findThemes(groupRows(allRows));
       renderThemes(themes);
       render();
     })
@@ -612,7 +604,7 @@
     });
 
   function filtersChanged() { visible = PAGE_SIZE; render(); }
-  ["search", "categoryFilter", "regionFilter", "partnerOnly", "hideSchool", "hideSeah", "hideWeak"].forEach((id) => {
+  ["search", "categoryFilter", "regionFilter", "partnerOnly", "hideSchool", "hideSeah"].forEach((id) => {
     $(id).addEventListener("input", filtersChanged);
   });
 
