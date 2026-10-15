@@ -1,5 +1,25 @@
 [
   {
+    "fetched_at": "2026-10-15T21:38:16.541384+00:00",
+    "category_id": "detention_arrest",
+    "category_label": "Arrests & detention",
+    "title": "Donald Trump speaks to Michigan Jews amid Senate election tensions",
+    "url": "http://www.jpost.com/diaspora/article-911886",
+    "seendate": "20261015T211700Z",
+    "domain": "jpost.com",
+    "language": "en",
+    "sourcecountry": "",
+    "tone": "",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "",
+    "matched_term": "detained",
+    "context_match": "",
+    "scope_tags": "",
+    "country": "United States",
+    "region": "North America"
+  },
+  {
     "fetched_at": "2026-10-15T21:09:37.121681+00:00",
     "category_id": "physical_violence",
     "category_label": "Physical violence & killings",
