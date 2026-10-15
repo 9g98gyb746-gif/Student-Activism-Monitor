@@ -21,10 +21,7 @@ How it works:
       * country and region: where the story is mainly set (see locate())
       * watchlist_country: the country again, but only if it is one of
         SAIH's partner countries (drives the partner badge and filter)
-      * scope_tags: high_school, seah, weak_match (drive the dashboard's
-        "Hide" filters). weak_match means no repression term was found
-        near an identity phrase (see PROXIMITY_WORDS), so the article may
-        just mention both topics in unrelated places.
+      * scope_tags: high_school, seah (drive the dashboard's "Hide" filters)
   - URLs that look like listing pages (author, tag, category, search,
     pagination), home pages, very short or generic titles, and the domains
     listed under "skip" in the config are not recorded at all.
@@ -32,6 +29,16 @@ How it works:
     when a protest/police word appears within a few words of them (the
     "second_signal" section of the config). Articles whose only repression
     terms fail that test are not recorded.
+  - A repression term that is part of a phrase listed under "ignore_phrases"
+    in the config ("assaulted" in "sexually assaulted") does not count where
+    that phrase occurs, and an article tagged
+    SEAH whose only terms are ambiguous ones (or "assaulted") is not
+    recorded: those are almost always sexual-misconduct stories, not
+    repression of activists.
+  - The proximity check (PROXIMITY_WORDS) is still used to pick the category
+    from the part of the article closest to the student-activism phrase, but
+    articles with no term nearby are recorded like any other. (They used to be
+    tagged "weak_match"; in practice they were as often real as not.)
 
 IMPORTANT: if a column is ever added to FIELDNAMES, add it at the END. On
 startup, ensure_schema() upgrades an older data/hits.csv in place (header
@@ -103,17 +110,16 @@ SEAH_MIN_HITS = 8  # a SEAH word in the headline always counts
 MIN_REGION_HITS = 8  # a region needs this many country mentions to be chosen
 REGION_DOMINANCE = 2  # ...and must have at least this many times the runner-up
 
-# Proximity check. A repression term only "counts" if it appears within
-# PROXIMITY_WORDS words of an identity phrase. GDELT stores each article as an
-# unordered bag of overlapping 4-word phrases, so the word order is rebuilt by
-# chaining phrases that overlap by three words. A 3-word overlap that occurs
-# more than MAX_TRIGRAM_REPEATS times in an article (boilerplate such as
-# "of the university") is not followed, because it would join unrelated parts
+# Proximity check. A repression term only "counts" for the category if it
+# appears within PROXIMITY_WORDS words of an identity phrase. GDELT stores each
+# article as an unordered bag of overlapping 4-word phrases, so the word order
+# is rebuilt by chaining phrases that overlap by three words. A 3-word overlap
+# that occurs more than MAX_TRIGRAM_REPEATS times in an article (boilerplate such
+# as "of the university") is not followed, because it would join unrelated parts
 # of the page. Articles with no term near an identity phrase are still
-# recorded, but tagged weak_match so the dashboard can hide them.
+# recorded too (the category is then taken from the whole article).
 PROXIMITY_WORDS = 50
 MAX_TRIGRAM_REPEATS = 5
-WEAK_TAG = "weak_match"
 DIAGNOSTIC_MAX_WORDS = 600  # how far to look when logging the distance of weak matches
 
 # URL path segments that mark listing/archive pages rather than articles.
@@ -196,6 +202,15 @@ class Matchers:
             terms = [(t.lower(), prefix_re([t])) for t in c["terms"]]
             self.categories.append({"id": c["id"], "label": c["label"], "terms": terms})
         self.any_term = prefix_re([t for c in cfg["categories"] for t in c["terms"]])
+
+        # Ignore phrases ("sexually assaulted"): a category term inside one of them
+        # ("assaulted") does not count where the phrase occurs.
+        ign = [str(x).lower() for x in cfg.get("ignore_phrases", [])]
+        self.ignore = prefix_re(ign)
+        self.ignore_terms = {
+            t for c in cfg["categories"] for t, rx in ((t.lower(), prefix_re([t])) for t in c["terms"])
+            if any(rx.search(x) for x in ign)
+        }
 
         # Second signal: ambiguous terms only count with a context word nearby.
         ss = cfg.get("second_signal") or {}
@@ -462,7 +477,18 @@ def analyse_doc(items, m):
         ctx_sources = [i for i, (p, _) in enumerate(items) if m.context.search(p)]
         if ctx_sources:
             confirmed = set(word_distances(items, ctx_sources, m.second_distance))
-    usable = [[h for h in hl if not h[3] or i in confirmed] for i, hl in enumerate(hits)]
+    # A term that is part of an ignore phrase ("sexually assaulted") does not count
+    # in or within three words of that phrase (a 4-word phrase can show the term
+    # without the word that comes before it).
+    ignored = set()
+    if m.ignore_terms:
+        ign_sources = [i for i, (p, _) in enumerate(items) if m.ignore.search(p)]
+        if ign_sources:
+            ignored = set(word_distances(items, ign_sources, 3))
+    usable = [
+        [h for h in hl if (not h[3] or i in confirmed) and not (i in ignored and h[1] in m.ignore_terms)]
+        for i, hl in enumerate(hits)
+    ]
     if not any(usable):
         return {"skip": "needs_context"}
 
@@ -702,14 +728,18 @@ def process_minute(dt, m, existing_urls):
         if result is None:
             continue
         if "skip" in result:
-            print(f"    skipped (ambiguous term, no context): {title[:70]}")
+            print(f"    skipped (only ambiguous or sexual-misconduct terms): {title[:70]}")
             continue
         cat_id, cat_label, matched_term = result["category"]
         weak, nearest = result["weak"], result["nearest"]
+        scope = classify_scope_text(text, title, m)
+        if "seah" in scope.split(";") and (matched_term in m.ambiguous or matched_term == "assaulted"):
+            print(f"    skipped (sexual-misconduct story, term '{matched_term}'): {title[:60]}")
+            continue
         existing_urls.add(url)
         if weak:
             where = f"{nearest} words away" if nearest is not None else f"more than {DIAGNOSTIC_MAX_WORDS} words away"
-            print(f"    weak match ({where}): {title[:70]}")
+            print(f"    no term near an identity phrase ({where}): {title[:70]}")
         country, region = locate(title, text, m)
         rows.append(
             {
@@ -728,9 +758,7 @@ def process_minute(dt, m, existing_urls):
                 "relevance_reason": "",
                 "matched_term": matched_term,
                 "context_match": "",
-                "scope_tags": ";".join(
-                    t for t in (classify_scope_text(text, title, m), WEAK_TAG if weak else "") if t
-                ),
+                "scope_tags": scope,
                 "country": country,
                 "region": region,
             }
