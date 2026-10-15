@@ -1,5 +1,25 @@
 [
   {
+    "fetched_at": "2026-10-15T21:09:37.121681+00:00",
+    "category_id": "physical_violence",
+    "category_label": "Physical violence & killings",
+    "title": "Anti-Government Protests in Albania: The Student Revolt and the Escalation of the Political Crisis",
+    "url": "https://www.tiranatimes.com/anti-government-protests-in-albania-the-student-revolt-and-the-escalation-of-the-political-crisis/",
+    "seendate": "20261015T210200Z",
+    "domain": "tiranatimes.com",
+    "language": "en",
+    "sourcecountry": "",
+    "tone": "",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "",
+    "matched_term": "tear gas",
+    "context_match": "",
+    "scope_tags": "",
+    "country": "Albania",
+    "region": "Europe"
+  },
+  {
     "fetched_at": "2026-10-15T20:41:36.507742+00:00",
     "category_id": "institutional_sanction",
     "category_label": "Institutional & academic sanctions",
