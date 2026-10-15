@@ -1,5 +1,25 @@
 [
   {
+    "fetched_at": "2026-10-15T11:07:28.479341+00:00",
+    "category_id": "detention_arrest",
+    "category_label": "Arrests & detention",
+    "title": "Clashes break out for a third day in Albania as anti-government protests swell",
+    "url": "https://www.clickorlando.com/news/2026/10/15/clashes-break-out-for-a-third-day-in-albania-as-anti-government-protests-swell/",
+    "seendate": "20261015T110100Z",
+    "domain": "clickorlando.com",
+    "language": "en",
+    "sourcecountry": "",
+    "tone": "",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "",
+    "matched_term": "detained",
+    "context_match": "",
+    "scope_tags": "",
+    "country": "Albania",
+    "region": "Europe"
+  },
+  {
     "fetched_at": "2026-10-15T10:39:18.747102+00:00",
     "category_id": "physical_violence",
     "category_label": "Physical violence & killings",
