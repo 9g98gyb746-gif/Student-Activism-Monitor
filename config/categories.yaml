@@ -64,8 +64,7 @@ categories:
 # `distance` words of them. Every term listed must also be a term in a
 # category above. Words match from the start ("protest" also matches
 # "protesters"). If an article's only repression terms fail this test, it is
-# not recorded, and the run log says "skipped (only ambiguous or
-# sexual-misconduct terms)".
+# not recorded, and the run log says "skipped (ambiguous term, no context)".
 second_signal:
   distance: 12
   terms:
@@ -105,6 +104,9 @@ second_signal:
     - violen
     - "pro-palestin"
     - "anti-israel"
+    - "academic freedom"
+    - "university autonomy"
+    - academic
 
 # IGNORE PHRASES: a repression term that is part of one of these phrases does
 # not count where the phrase occurs, so "sexually assaulted" is not counted as
