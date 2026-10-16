@@ -1,5 +1,25 @@
 [
   {
+    "fetched_at": "2026-10-16T09:37:31.668742+00:00",
+    "category_id": "detention_arrest",
+    "category_label": "Arrests & detention",
+    "title": "Youths clash with police for a 3rd day in Albania's anti-government protests | World",
+    "url": "http://www.leadertelegram.com/news/world/youths-clash-with-police-for-a-3rd-day-in-albania-s-anti-government-protests/article_79cfd421-3865-5838-88d1-c5771046ee4b.html",
+    "seendate": "20261016T091700Z",
+    "domain": "leadertelegram.com",
+    "language": "en",
+    "sourcecountry": "",
+    "tone": "",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "",
+    "matched_term": "detained",
+    "context_match": "",
+    "scope_tags": "",
+    "country": "Albania",
+    "region": "Europe"
+  },
+  {
     "fetched_at": "2026-10-16T09:09:35.192114+00:00",
     "category_id": "physical_violence",
     "category_label": "Physical violence & killings",
