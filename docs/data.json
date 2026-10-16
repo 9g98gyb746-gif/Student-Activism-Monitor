@@ -1,5 +1,25 @@
 [
   {
+    "fetched_at": "2026-10-16T03:56:20.681131+00:00",
+    "category_id": "detention_arrest",
+    "category_label": "Arrests & detention",
+    "title": "A Hero of the China Underground",
+    "url": "https://www.chinafile.com/library/nyrb-china-archive/hero-china-underground",
+    "seendate": "20261016T034600Z",
+    "domain": "chinafile.com",
+    "language": "en",
+    "sourcecountry": "",
+    "tone": "",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "",
+    "matched_term": "arrested",
+    "context_match": "",
+    "scope_tags": "",
+    "country": "China",
+    "region": "East & Central Asia"
+  },
+  {
     "fetched_at": "2026-10-16T03:15:24.691721+00:00",
     "category_id": "detention_arrest",
     "category_label": "Arrests & detention",
