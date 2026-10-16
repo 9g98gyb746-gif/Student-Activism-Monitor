@@ -1,5 +1,25 @@
 [
   {
+    "fetched_at": "2026-10-16T04:17:58.974996+00:00",
+    "category_id": "surveillance_intimidation",
+    "category_label": "Surveillance, threats & intimidation",
+    "title": "France protests flare as PM accuses radical left of exploiting unrest ahead of elections",
+    "url": "https://timesofindia.indiatimes.com/world/europe/france-protests-flare-as-pm-accuses-radical-left-of-exploiting-unrest-ahead-of-elections/articleshow/134981508.cms",
+    "seendate": "20261016T040200Z",
+    "domain": "timesofindia.indiatimes.com",
+    "language": "en",
+    "sourcecountry": "",
+    "tone": "",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "",
+    "matched_term": "threatened",
+    "context_match": "",
+    "scope_tags": "",
+    "country": "France",
+    "region": "Europe"
+  },
+  {
     "fetched_at": "2026-10-16T03:56:20.681131+00:00",
     "category_id": "detention_arrest",
     "category_label": "Arrests & detention",
