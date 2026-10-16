@@ -1,5 +1,25 @@
 [
   {
+    "fetched_at": "2026-10-16T08:40:19.692309+00:00",
+    "category_id": "institutional_sanction",
+    "category_label": "Institutional & academic sanctions",
+    "title": "Blockades and 60 demos: What to expect on Saturday, October 17th in France",
+    "url": "https://www.thelocal.fr/20261012/france-protests-what-to-expect-on-october-17th",
+    "seendate": "20261016T083100Z",
+    "domain": "thelocal.fr",
+    "language": "en",
+    "sourcecountry": "",
+    "tone": "",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "",
+    "matched_term": "suspended",
+    "context_match": "",
+    "scope_tags": "high_school",
+    "country": "France",
+    "region": "Europe"
+  },
+  {
     "fetched_at": "2026-10-16T08:11:17.800659+00:00",
     "category_id": "detention_arrest",
     "category_label": "Arrests & detention",
