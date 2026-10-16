@@ -1,5 +1,25 @@
 [
   {
+    "fetched_at": "2026-10-16T19:35:47.950132+00:00",
+    "category_id": "physical_violence",
+    "category_label": "Physical violence & killings",
+    "title": "Student protests spread across Europe as police launch water cannons in clashes across Italy and Albania",
+    "url": "https://www.aol.co.uk/articles/student-protests-spread-across-europe-184913000.html",
+    "seendate": "20261016T191700Z",
+    "domain": "aol.co.uk",
+    "language": "en",
+    "sourcecountry": "",
+    "tone": "",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "",
+    "matched_term": "tear gas",
+    "context_match": "",
+    "scope_tags": "",
+    "country": "Italy",
+    "region": "Europe"
+  },
+  {
     "fetched_at": "2026-10-16T19:09:47.336469+00:00",
     "category_id": "detention_arrest",
     "category_label": "Arrests & detention",
