@@ -1,5 +1,25 @@
 [
   {
+    "fetched_at": "2026-10-16T06:15:35.887101+00:00",
+    "category_id": "detention_arrest",
+    "category_label": "Arrests & detention",
+    "title": "Clashes break out for a third day in Albania as anti-government protests swell",
+    "url": "http://www.sitkasentinel.com/stories/clashes-break-out-for-a-third-day-in-albania-as-anti-government-protests-swell,178790",
+    "seendate": "20261016T060200Z",
+    "domain": "sitkasentinel.com",
+    "language": "en",
+    "sourcecountry": "",
+    "tone": "",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "",
+    "matched_term": "detained",
+    "context_match": "",
+    "scope_tags": "",
+    "country": "Albania",
+    "region": "Europe"
+  },
+  {
     "fetched_at": "2026-10-16T05:53:14.527848+00:00",
     "category_id": "detention_arrest",
     "category_label": "Arrests & detention",
