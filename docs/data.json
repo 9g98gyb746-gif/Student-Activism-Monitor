@@ -1,5 +1,25 @@
 [
   {
+    "fetched_at": "2026-10-16T01:21:24.516188+00:00",
+    "category_id": "detention_arrest",
+    "category_label": "Arrests & detention",
+    "title": "Youths clash with police for a 3rd day in Albania's anti-government protests",
+    "url": "https://isp.netscape.com:443/news/world/story/0001/20261015/2c04ef79a5bbbfcf054b161111c85b50",
+    "seendate": "20261016T004600Z",
+    "domain": "isp.netscape.com:443",
+    "language": "en",
+    "sourcecountry": "",
+    "tone": "",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "",
+    "matched_term": "detained",
+    "context_match": "",
+    "scope_tags": "",
+    "country": "Albania",
+    "region": "Europe"
+  },
+  {
     "fetched_at": "2026-10-15T23:46:24.456327+00:00",
     "category_id": "detention_arrest",
     "category_label": "Arrests & detention",
