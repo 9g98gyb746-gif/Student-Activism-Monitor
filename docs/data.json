@@ -1,5 +1,25 @@
 [
   {
+    "fetched_at": "2026-10-17T01:22:55.363178+00:00",
+    "category_id": "physical_violence",
+    "category_label": "Physical violence & killings",
+    "title": "The Hindu Morning Digest: October 17, 2026",
+    "url": "https://www.thehindu.com/news/morning-digest-october-17-2026/article71594336.ece",
+    "seendate": "20261017T011600Z",
+    "domain": "thehindu.com",
+    "language": "en",
+    "sourcecountry": "",
+    "tone": "",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "",
+    "matched_term": "killed",
+    "context_match": "",
+    "scope_tags": "",
+    "country": "India",
+    "region": "South Asia"
+  },
+  {
     "fetched_at": "2026-10-16T23:56:26.381859+00:00",
     "category_id": "detention_arrest",
     "category_label": "Arrests & detention",
