@@ -1,5 +1,25 @@
 [
   {
+    "fetched_at": "2026-10-17T12:09:20.392937+00:00",
+    "category_id": "institutional_sanction",
+    "category_label": "Institutional & academic sanctions",
+    "title": "Protesters across France rally over rising living costs, joining students' grievances",
+    "url": "https://www.niagarafallsreview.ca/news/world/europe/protesters-across-france-rally-over-rising-living-costs-joining-students-grievances/article_22699945-b64a-5bcd-a2d2-05326981a42d.html",
+    "seendate": "20261017T120100Z",
+    "domain": "niagarafallsreview.ca",
+    "language": "en",
+    "sourcecountry": "",
+    "tone": "",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "",
+    "matched_term": "suspended",
+    "context_match": "",
+    "scope_tags": "high_school",
+    "country": "France",
+    "region": "Europe"
+  },
+  {
     "fetched_at": "2026-10-17T11:46:46.420147+00:00",
     "category_id": "physical_violence",
     "category_label": "Physical violence & killings",
