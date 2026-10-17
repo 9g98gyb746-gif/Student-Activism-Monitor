@@ -1,5 +1,25 @@
 [
   {
+    "fetched_at": "2026-10-17T02:15:06.598125+00:00",
+    "category_id": "surveillance_intimidation",
+    "category_label": "Surveillance, threats & intimidation",
+    "title": "JNU students' hunger strike enters fifth day over campus issues",
+    "url": "https://www.thehindu.com/news/cities/Delhi/jnu-students-hunger-strike-enters-fifth-day-over-campus-issues/article71560283.ece",
+    "seendate": "20261017T020100Z",
+    "domain": "thehindu.com",
+    "language": "en",
+    "sourcecountry": "",
+    "tone": "",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "",
+    "matched_term": "monitored",
+    "context_match": "",
+    "scope_tags": "",
+    "country": "India",
+    "region": "South Asia"
+  },
+  {
     "fetched_at": "2026-10-17T01:52:00.570573+00:00",
     "category_id": "detention_arrest",
     "category_label": "Arrests & detention",
