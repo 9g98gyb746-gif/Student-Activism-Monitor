@@ -1,5 +1,25 @@
 [
   {
+    "fetched_at": "2026-10-18T03:05:20.170910+00:00",
+    "category_id": "detention_arrest",
+    "category_label": "Arrests & detention",
+    "title": "Fires and clashes rock France amid massive nationwide protests",
+    "url": "http://www.parisguardian.com/news/279381700/fires-and-clashes-rock-france-amid-massive-nationwide-protests",
+    "seendate": "20261018T024600Z",
+    "domain": "parisguardian.com",
+    "language": "en",
+    "sourcecountry": "",
+    "tone": "",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "",
+    "matched_term": "arrested",
+    "context_match": "",
+    "scope_tags": "high_school",
+    "country": "France",
+    "region": "Europe"
+  },
+  {
     "fetched_at": "2026-10-18T02:41:06.398897+00:00",
     "category_id": "institutional_sanction",
     "category_label": "Institutional & academic sanctions",
