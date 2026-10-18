@@ -1,5 +1,25 @@
 [
   {
+    "fetched_at": "2026-10-18T02:14:44.474321+00:00",
+    "category_id": "institutional_sanction",
+    "category_label": "Institutional & academic sanctions",
+    "title": "Clashes, fires and looting break out as protesters rally across France, joining students",
+    "url": "https://www.twincities.com/2026/10/17/clashes-fires-and-looting-break-out-as-protesters-rally-across-france-joining-students/",
+    "seendate": "20261018T020100Z",
+    "domain": "twincities.com",
+    "language": "en",
+    "sourcecountry": "",
+    "tone": "",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "",
+    "matched_term": "suspended",
+    "context_match": "",
+    "scope_tags": "high_school",
+    "country": "France",
+    "region": "Europe"
+  },
+  {
     "fetched_at": "2026-10-18T01:51:56.931291+00:00",
     "category_id": "physical_violence",
     "category_label": "Physical violence & killings",
