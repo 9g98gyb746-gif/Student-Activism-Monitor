@@ -1,5 +1,25 @@
 [
   {
+    "fetched_at": "2026-10-19T19:17:29.983196+00:00",
+    "category_id": "physical_violence",
+    "category_label": "Physical violence & killings",
+    "title": "'I have never felt anything so painful in my life': Irish caught in French riots – The Irish Times",
+    "url": "https://www.irishtimes.com/world/europe/2026/10/19/it-was-like-having-tabasco-poured-in-my-eyes-irish-caught-in-french-riots-recall-chaos/",
+    "seendate": "20261019T190200Z",
+    "domain": "irishtimes.com",
+    "language": "en",
+    "sourcecountry": "",
+    "tone": "",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "",
+    "matched_term": "tear gas",
+    "context_match": "",
+    "scope_tags": "",
+    "country": "Ireland",
+    "region": "Europe"
+  },
+  {
     "fetched_at": "2026-10-19T18:44:31.112688+00:00",
     "category_id": "detention_arrest",
     "category_label": "Arrests & detention",
