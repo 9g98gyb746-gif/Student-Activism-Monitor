@@ -65,6 +65,8 @@ categories:
 # category above. Words match from the start ("protest" also matches
 # "protesters"). If an article's only repression terms fail this test, it is
 # not recorded, and the run log says "skipped (ambiguous term, no context)".
+# This applies to new articles only; the cleanup tool checks headlines with
+# the generic context words.
 second_signal:
   distance: 12
   terms:
@@ -107,6 +109,32 @@ second_signal:
     - "academic freedom"
     - "university autonomy"
     - academic
+  # STRICTER TERMS: these terms (they must also be listed under `terms` above)
+  # are only counted when one of the student words below is near, not just any
+  # context word. "Suspended" in a riot story (a metro line, a flight) then no
+  # longer counts as a student suspension, but "students suspended" or
+  # "suspended activists" still does.
+  student_context_terms:
+    - suspended
+    - expelled
+    - "disciplinary action"
+  student_context_words:
+    - student
+    - pupil
+    - school
+    - universit
+    - college
+    - campus
+    - lecturer
+    - professor
+    - teacher
+    - academic
+    - undergraduate
+    - faculty
+    - vice-chancellor
+    - classes
+    - classroom
+    - activist
 
 # IGNORE PHRASES: a repression term that is part of one of these phrases does
 # not count where the phrase occurs, so "sexually assaulted" is not counted as
