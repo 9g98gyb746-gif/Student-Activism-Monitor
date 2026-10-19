@@ -28,7 +28,9 @@ How it works:
   - A few ambiguous terms ("suspended", "charged", "killed" ...) only count
     when a protest/police word appears within a few words of them (the
     "second_signal" section of the config). Articles whose only repression
-    terms fail that test are not recorded.
+    terms fail that test are not recorded. "Suspended", "expelled" and
+    "disciplinary action" need a student/school word nearby instead of any
+    protest word.
   - A repression term that is part of a phrase listed under "ignore_phrases"
     in the config ("assaulted" in "sexually assaulted") does not count where
     that phrase occurs, and an article tagged
@@ -110,12 +112,12 @@ SEAH_MIN_HITS = 8  # a SEAH word in the headline always counts
 MIN_REGION_HITS = 8  # a region needs this many country mentions to be chosen
 REGION_DOMINANCE = 2  # ...and must have at least this many times the runner-up
 
-# Proximity check. A repression term only "counts" for the category if it
-# appears within PROXIMITY_WORDS words of an identity phrase. GDELT stores each
-# article as an unordered bag of overlapping 4-word phrases, so the word order
-# is rebuilt by chaining phrases that overlap by three words. A 3-word overlap
-# that occurs more than MAX_TRIGRAM_REPEATS times in an article (boilerplate such
-# as "of the university") is not followed, because it would join unrelated parts
+# Proximity check. A repression term only "counts" if it appears within
+# PROXIMITY_WORDS words of an identity phrase. GDELT stores each article as an
+# unordered bag of overlapping 4-word phrases, so the word order is rebuilt by
+# chaining phrases that overlap by three words. A 3-word overlap that occurs
+# more than MAX_TRIGRAM_REPEATS times in an article (boilerplate such as
+# "of the university") is not followed, because it would join unrelated parts
 # of the page. Articles with no term near an identity phrase are still
 # recorded too (the category is then taken from the whole article).
 PROXIMITY_WORDS = 50
@@ -221,6 +223,16 @@ class Matchers:
                 raise ValueError(f"second_signal term '{t}' is not a term in any category")
         self.context = prefix_re(ss.get("context_words", []))
         self.second_distance = int(ss.get("distance", 12))
+        # Stricter terms: these need a student/school word nearby, not just any
+        # protest or police word (a "suspended" metro line in a riot story is not
+        # a student suspension).
+        self.strict_terms = {str(t).strip().lower() for t in ss.get("student_context_terms", [])}
+        for t in self.strict_terms:
+            if t not in self.ambiguous:
+                raise ValueError(f"student_context_terms '{t}' must also be listed under second_signal terms")
+        self.student_context = prefix_re(ss.get("student_context_words", []))
+        if self.strict_terms and self.student_context is _NEVER:
+            raise ValueError("student_context_terms has terms but no student_context_words")
         if self.ambiguous and self.context is _NEVER:
             raise ValueError("second_signal has terms but no context_words")
 
@@ -467,7 +479,9 @@ def analyse_doc(items, m):
     all of them are ambiguous ones with no context word nearby.
 
     A term counts if it is not ambiguous, or if a context word (protest,
-    police, arrest ...) occurs within second_distance words of it."""
+    police, arrest ...) occurs within second_distance words of it. The terms
+    listed under student_context_terms ("suspended", "expelled" ...) need a
+    student word (student, school, university, activist ...) nearby instead."""
     hits = [term_hits(p, m) for p, _ in items]
     if not any(hits):
         return None
@@ -477,6 +491,11 @@ def analyse_doc(items, m):
         ctx_sources = [i for i, (p, _) in enumerate(items) if m.context.search(p)]
         if ctx_sources:
             confirmed = set(word_distances(items, ctx_sources, m.second_distance))
+    confirmed_strict = set()
+    if m.strict_terms and any(h[1] in m.strict_terms for hl in hits for h in hl):
+        st_sources = [i for i, (p, _) in enumerate(items) if m.student_context.search(p)]
+        if st_sources:
+            confirmed_strict = set(word_distances(items, st_sources, m.second_distance))
     # A term that is part of an ignore phrase ("sexually assaulted") does not count
     # in or within three words of that phrase (a 4-word phrase can show the term
     # without the word that comes before it).
@@ -486,7 +505,9 @@ def analyse_doc(items, m):
         if ign_sources:
             ignored = set(word_distances(items, ign_sources, 3))
     usable = [
-        [h for h in hl if (not h[3] or i in confirmed) and not (i in ignored and h[1] in m.ignore_terms)]
+        [h for h in hl
+         if (not h[3] or i in (confirmed_strict if h[1] in m.strict_terms else confirmed))
+         and not (i in ignored and h[1] in m.ignore_terms)]
         for i, hl in enumerate(hits)
     ]
     if not any(usable):
