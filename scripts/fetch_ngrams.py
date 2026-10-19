@@ -28,9 +28,9 @@ How it works:
   - A few ambiguous terms ("suspended", "charged", "killed" ...) only count
     when a protest/police word appears within a few words of them (the
     "second_signal" section of the config). Articles whose only repression
-    terms fail that test are not recorded. "Suspended", "expelled" and
-    "disciplinary action" need a student/school word nearby instead of any
-    protest word.
+    terms fail that test are not recorded, and the run log names the terms
+    that failed. "Suspended", "expelled" and "disciplinary action" need a
+    student/school word nearby instead of any protest word.
   - A repression term that is part of a phrase listed under "ignore_phrases"
     in the config ("assaulted" in "sexually assaulted") does not count where
     that phrase occurs, and an article tagged
@@ -475,8 +475,9 @@ def analyse_doc(items, m):
                  article)
       nearest  - words between an identity phrase and the closest usable
                  term (up to DIAGNOSTIC_MAX_WORDS), or None
-    Returns {"skip": "needs_context"} if the article has repression terms but
-    all of them are ambiguous ones with no context word nearby.
+    Returns {"skip": "needs_context", "terms": [...]} if the article has
+    repression terms but all of them are ambiguous ones with no context word
+    nearby ("terms" lists the ones that failed, for the run log).
 
     A term counts if it is not ambiguous, or if a context word (protest,
     police, arrest ...) occurs within second_distance words of it. The terms
@@ -511,7 +512,12 @@ def analyse_doc(items, m):
         for i, hl in enumerate(hits)
     ]
     if not any(usable):
-        return {"skip": "needs_context"}
+        # Say which terms failed, so the run log shows why the article was skipped.
+        failed = sorted({
+            h[1] + (" [needs student word]" if h[1] in m.strict_terms else "")
+            for hl in hits for h in hl
+        })
+        return {"skip": "needs_context", "terms": failed}
 
     overall = pick_category(usable, m)
     sources = [i for i, (p, _) in enumerate(items) if m.identity.search(p)]
@@ -749,7 +755,8 @@ def process_minute(dt, m, existing_urls):
         if result is None:
             continue
         if "skip" in result:
-            print(f"    skipped (only ambiguous or sexual-misconduct terms): {title[:70]}")
+            failed = ", ".join(result.get("terms", []))
+            print(f"    skipped (only ambiguous terms without context: {failed}): {title[:70]}")
             continue
         cat_id, cat_label, matched_term = result["category"]
         weak, nearest = result["weak"], result["nearest"]
