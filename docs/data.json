@@ -1,5 +1,25 @@
 [
   {
+    "fetched_at": "2026-10-19T22:15:32.987583+00:00",
+    "category_id": "detention_arrest",
+    "category_label": "Arrests & detention",
+    "title": "Extreme Left groups call on British youths and workers to 'rise' at massive demo inspired by mayhem on streets of France",
+    "url": "https://www.dailymail.com/news/article-16221275/Extreme-Left-groups-call-British-youths-massive-demo.html",
+    "seendate": "20261019T220200Z",
+    "domain": "dailymail.com",
+    "language": "en",
+    "sourcecountry": "",
+    "tone": "",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "",
+    "matched_term": "arrested",
+    "context_match": "",
+    "scope_tags": "",
+    "country": "United Kingdom",
+    "region": "Europe"
+  },
+  {
     "fetched_at": "2026-10-19T21:53:11.556457+00:00",
     "category_id": "physical_violence",
     "category_label": "Physical violence & killings",
