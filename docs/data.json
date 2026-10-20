@@ -1,5 +1,25 @@
 [
   {
+    "fetched_at": "2026-10-20T13:10:18.876085+00:00",
+    "category_id": "detention_arrest",
+    "category_label": "Arrests & detention",
+    "title": "UN experts urge India to curb force against unarmed student protesters",
+    "url": "https://www.thehindu.com/news/national/un-experts-urge-india-to-curb-force-against-unarmed-student-protesters/article71604310.ece",
+    "seendate": "20261020T121700Z",
+    "domain": "thehindu.com",
+    "language": "en",
+    "sourcecountry": "",
+    "tone": "",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "",
+    "matched_term": "detained",
+    "context_match": "",
+    "scope_tags": "",
+    "country": "India",
+    "region": "South Asia"
+  },
+  {
     "fetched_at": "2026-10-20T11:55:11.010042+00:00",
     "category_id": "physical_violence",
     "category_label": "Physical violence & killings",
