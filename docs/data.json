@@ -1,5 +1,25 @@
 [
   {
+    "fetched_at": "2026-10-21T10:40:33.521707+00:00",
+    "category_id": "detention_arrest",
+    "category_label": "Arrests & detention",
+    "title": "Delhi HC refuses relief to CJP leaders challenging judicial custody",
+    "url": "https://www.orissapost.com/delhi-hc-refuses-relief-to-cjp-leaders-challenging-judicial-custody/",
+    "seendate": "20261021T103200Z",
+    "domain": "orissapost.com",
+    "language": "en",
+    "sourcecountry": "",
+    "tone": "",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "",
+    "matched_term": "detained",
+    "context_match": "",
+    "scope_tags": "",
+    "country": "India",
+    "region": "South Asia"
+  },
+  {
     "fetched_at": "2026-10-21T10:12:03.507710+00:00",
     "category_id": "surveillance_intimidation",
     "category_label": "Surveillance, threats & intimidation",
