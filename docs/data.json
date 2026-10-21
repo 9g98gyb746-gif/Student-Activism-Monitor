@@ -1,5 +1,25 @@
 [
   {
+    "fetched_at": "2026-10-21T03:19:16.800220+00:00",
+    "category_id": "detention_arrest",
+    "category_label": "Arrests & detention",
+    "title": "AP News in Brief at 9:04 p.m. EDT",
+    "url": "http://www.idahostatejournal.com/news/national/ap-news-in-brief-at-9-04-p-m-edt/article_d96791c7-0751-5452-9fb5-f2edd4113d2e.html",
+    "seendate": "20261021T030200Z",
+    "domain": "idahostatejournal.com",
+    "language": "en",
+    "sourcecountry": "",
+    "tone": "",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "",
+    "matched_term": "arrested",
+    "context_match": "",
+    "scope_tags": "seah",
+    "country": "",
+    "region": "Unclear"
+  },
+  {
     "fetched_at": "2026-10-21T02:56:03.757390+00:00",
     "category_id": "institutional_sanction",
     "category_label": "Institutional & academic sanctions",
