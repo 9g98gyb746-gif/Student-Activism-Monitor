@@ -1,5 +1,25 @@
 [
   {
+    "fetched_at": "2026-10-23T11:39:15.436105+00:00",
+    "category_id": "physical_violence",
+    "category_label": "Physical violence & killings",
+    "title": "Beatings, cyberattacks, and threats: the reality in Serbia ahead of elections",
+    "url": "https://bnn-news.com/world/beatings-cyberattacks-and-threats-the-reality-in-serbia-ahead-of-elections-dr83tvw",
+    "seendate": "20261023T113200Z",
+    "domain": "bnn-news.com",
+    "language": "en",
+    "sourcecountry": "",
+    "tone": "",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "",
+    "matched_term": "beaten",
+    "context_match": "",
+    "scope_tags": "",
+    "country": "Serbia",
+    "region": "Europe"
+  },
+  {
     "fetched_at": "2026-10-23T11:09:28.510385+00:00",
     "category_id": "detention_arrest",
     "category_label": "Arrests & detention",
