@@ -1,5 +1,25 @@
 [
   {
+    "fetched_at": "2026-10-23T03:38:11.689527+00:00",
+    "category_id": "detention_arrest",
+    "category_label": "Arrests & detention",
+    "title": "World News: Macron tightens protest curbs",
+    "url": "https://www.gdnonline.com:443/Details/1410608/Macron-tightens-protest-curbs",
+    "seendate": "20261023T031700Z",
+    "domain": "gdnonline.com:443",
+    "language": "en",
+    "sourcecountry": "",
+    "tone": "",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "",
+    "matched_term": "arrested",
+    "context_match": "",
+    "scope_tags": "",
+    "country": "France",
+    "region": "Europe"
+  },
+  {
     "fetched_at": "2026-10-23T03:10:38.117869+00:00",
     "category_id": "physical_violence",
     "category_label": "Physical violence & killings",
