@@ -1,5 +1,25 @@
 [
   {
+    "fetched_at": "2026-10-24T12:03:56.193362+00:00",
+    "category_id": "physical_violence",
+    "category_label": "Physical violence & killings",
+    "title": "Paris riots LIVE: Protest chaos in France today as capital braces for more violence | World | News",
+    "url": "https://www.express.co.uk/news/world/2260002/paris-riots-live-protest-france",
+    "seendate": "20261024T113100Z",
+    "domain": "express.co.uk",
+    "language": "en",
+    "sourcecountry": "",
+    "tone": "",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "",
+    "matched_term": "tear gas",
+    "context_match": "",
+    "scope_tags": "",
+    "country": "France",
+    "region": "Europe"
+  },
+  {
     "fetched_at": "2026-10-24T11:34:42.754622+00:00",
     "category_id": "institutional_sanction",
     "category_label": "Institutional & academic sanctions",
