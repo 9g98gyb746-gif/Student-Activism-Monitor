@@ -4,6 +4,12 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Student Activism Monitor – SAIH</title>
+<meta name="description" content="An automated news scan for reports of repression and attacks against student activists around the world. A pilot from SAIH." />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Student Activism Monitor – SAIH" />
+<meta property="og:description" content="An automated news scan for reports of repression and attacks against student activists around the world. A pilot from SAIH." />
+<meta property="og:url" content="https://9g98gyb746-gif.github.io/Student-Activism-Monitor/" />
+<meta name="twitter:card" content="summary" />
 <style>
   /* ---- SAIH fonts (files live in docs/Fonts/, capital F) ---- */
   @font-face { font-family: "Aeonik"; font-weight: 400; font-style: normal; font-display: swap;
@@ -36,17 +42,21 @@
     outline: 3px solid var(--dark); outline-offset: 2px;
   }
 
-  header { background: var(--yellow); padding: 2.5rem 1.5rem 1.75rem; }
+  header { background: var(--yellow); padding: 1.75rem 1.5rem 1.25rem; }
   .header-inner, main, footer { max-width: 68rem; margin: 0 auto; }
-  h1 { font-family: var(--font-head); font-weight: 400; font-size: clamp(2.3rem, 6vw, 3.6rem); line-height: 1.02; margin: 0 0 0.75rem; letter-spacing: -0.01em; }
+  h1 { font-family: var(--font-head); font-weight: 400; font-size: clamp(2.1rem, 5vw, 3rem); line-height: 1.02; margin: 0 0 0.5rem; letter-spacing: -0.01em; }
   h1 em { font-style: italic; }
   h2 { font-family: var(--font-head); font-weight: 400; font-size: 1.7rem; line-height: 1.1; margin: 0 0 0.3rem; }
   .subtitle { max-width: 40rem; margin: 0; font-size: 1.02rem; }
-  .pilot { max-width: 40rem; margin: 1rem 0 0; padding-left: 0.9rem; border-left: 4px solid var(--dark); font-size: 0.9rem; }
-  .stats { display: flex; gap: 1.5rem 2.75rem; margin-top: 1.75rem; flex-wrap: wrap; }
-  .stat .value { font-family: var(--font-head); font-size: 2.4rem; display: block; line-height: 1; }
-  .stat .label { font-size: 0.82rem; margin-top: 0.3rem; display: block; max-width: 9rem; }
-  .updated { margin: 1.25rem 0 0; font-size: 0.82rem; }
+  .pilot { max-width: 40rem; margin: 0.8rem 0 0; padding-left: 0.9rem; border-left: 4px solid var(--dark); font-size: 0.88rem; }
+  .pilot summary { cursor: pointer; }
+  .pilot .pilot-more { text-decoration: underline; white-space: nowrap; }
+  .pilot p { margin: 0.5rem 0 0; }
+  .stats { display: flex; gap: 0.5rem 2.25rem; margin-top: 1.1rem; flex-wrap: wrap; }
+  .stat { display: flex; align-items: baseline; gap: 0.5rem; }
+  .stat .value { font-family: var(--font-head); font-size: 1.9rem; line-height: 1; }
+  .stat .label { font-size: 0.82rem; max-width: 9rem; line-height: 1.2; }
+  .updated { margin: 0.8rem 0 0; font-size: 0.8rem; }
 
   main { padding: 1.75rem 1.5rem; }
   .section-note { margin: 0 0 0.9rem; font-size: 0.84rem; }
@@ -77,7 +87,6 @@
   button.btn.small:hover { background: var(--raised); }
   button.linklike { font: inherit; font-size: 0.86rem; color: var(--dark); background: none; border: 0; padding: 0; text-decoration: underline; cursor: pointer; }
 
-  /* ---- Highlight boxes: side by side on wide screens, stacked on phones ---- */
   .hl-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(19rem, 1fr)); gap: 1rem; align-items: start; margin-bottom: 2rem; }
   .hl-grid:not(:has(.hl-box:not([hidden]))) { display: none; }
   .hl-box { padding: 0.9rem 1rem 0.5rem; background: var(--raised); border: 1px solid var(--line-strong); border-radius: 6px; min-width: 0; }
@@ -88,6 +97,7 @@
   .hl-box li a { text-decoration: none; }
   .hl-box li a:hover { text-decoration: underline; }
   .hl-box li .meta { font-size: 0.76rem; margin-top: 0.2rem; gap: 0.15rem 0.5rem; }
+  .hl-box li .meta span:first-child { font-weight: 700; }
   .hl-box li .badge { font-size: 0.7rem; padding: 0.02rem 0.45rem; }
   .hl-box .pin-more { margin: 0.1rem 0 0.6rem; }
 
@@ -121,17 +131,16 @@
   body.embed header { padding: 1rem 1.25rem 0.9rem; }
   body.embed h1, body.embed .subtitle, body.embed footer { display: none; }
   body.embed .pilot { margin-top: 0; font-size: 0.82rem; }
-  body.embed .stats { margin-top: 0.9rem; }
-  body.embed .stat .value { font-size: 1.8rem; }
+  body.embed .stats { margin-top: 0.8rem; }
+  body.embed .stat .value { font-size: 1.6rem; }
   body.embed .updated { margin-top: 0.7rem; }
   body.embed main { padding: 1.25rem; }
   .embed-link { display: none; font-size: 0.82rem; padding: 0 1.25rem 1.25rem; max-width: 68rem; margin: 0 auto; }
   body.embed .embed-link { display: block; }
 
   @media (max-width: 640px) {
-    header { padding: 1.75rem 1rem 1.25rem; }
+    header { padding: 1.4rem 1rem 1rem; }
     main { padding: 1.25rem 1rem; }
-    .stat .value { font-size: 2rem; }
     thead th:nth-child(1), tbody td:nth-child(1) { display: none; } /* hide Category column on phones */
     tbody td { padding: 0.7rem 0.4rem; }
     tbody tr.day-row th { padding-left: 0.4rem; }
@@ -145,21 +154,29 @@
   <div class="header-inner">
     <h1>Student activism <em>monitor</em></h1>
     <p class="subtitle">
-      Automated news scan for reports of repression and attacks against student
-      activists, via the GDELT Project.
+      Automated news scan for reports of repression and attacks against student activists, via the GDELT Project.
     </p>
-    <p class="pilot">
-      This pilot is part of SAIH’s ongoing work to raise awareness of attacks on student
-      activism worldwide. It is a work in progress: stories are found automatically through
-      keyword matching, and AI tools were used to help build it. The results are not verified
-      incidents, and some stories will be wrong or missing.
-    </p>
+    <details class="pilot">
+      <summary>A SAIH pilot and work in progress. Stories are found automatically and are not verified. <span class="pilot-more">How this works</span></summary>
+      <p>
+        This pilot is part of SAIH’s ongoing work to raise awareness of attacks on student
+        activism worldwide. Stories are found automatically through keyword matching, and AI tools
+        were used to help build it. The results are not verified incidents, and some stories will be
+        wrong or missing. The monitor only catches English-language stories for now.
+      </p>
+    </details>
     <div class="stats" id="stats"></div>
     <p class="updated" id="updated"></p>
   </div>
 </header>
 
 <main>
+  <div class="hl-grid">
+    <div id="penBox" class="hl-box" hidden></div>
+    <div id="palBox" class="hl-box" hidden></div>
+    <div id="partnerPin" class="hl-box" hidden></div>
+  </div>
+
   <section id="themes" hidden>
     <h2>Most covered this week</h2>
     <p class="section-note">Topics that keep coming up in headlines over the last 7 days, grouped automatically. Select one to see its stories.</p>
@@ -176,11 +193,6 @@
   </div>
   <div class="theme-bar" id="themeBar" hidden></div>
 
-  <div class="hl-grid">
-    <div id="penBox" class="hl-box" hidden></div>
-    <div id="palBox" class="hl-box" hidden></div>
-    <div id="partnerPin" class="hl-box" hidden></div>
-  </div>
   <div id="tableWrap"></div>
 </main>
 
@@ -242,6 +254,17 @@
     "Southern Africa", "Rest of Sub-Saharan Africa", "South Asia", "Southeast Asia",
     "East & Central Asia", "Oceania", "Unclear",
   ];
+  // Shorter category names for the page (the data keeps the long ones).
+  const CAT_SHORT = {
+    detention_arrest: "Arrests & detention",
+    physical_violence: "Violence & killings",
+    institutional_sanction: "Sanctions",
+    surveillance_intimidation: "Surveillance & threats",
+    legal_harassment: "Legal harassment",
+    delegitimization: "Smear campaigns",
+    visa_immigration: "Visa & immigration",
+  };
+  function catLabel(row) { return CAT_SHORT[row.category_id] || row.category_label || row.category_id; }
   function regionOf(row) { return row.region || "Unclear"; }
   function tagsOf(row) { return (row.scope_tags || "").split(";").filter(Boolean); }
 
@@ -494,7 +517,7 @@
 
     return `
       <tr class="story">
-        <td><span class="badge">${esc(main.category_label || main.category_id)}</span></td>
+        <td><span class="badge">${esc(catLabel(main))}</span></td>
         <td class="title-cell">
           <a href="${esc(main.url)}" target="_blank" rel="noopener">${esc(main.title || main.url)}</a>
           <div class="meta">${meta}</div>
@@ -513,12 +536,12 @@
     const meta = [
       `<span>${esc(shortDate(groupDate(g)))}</span>`,
       main.domain ? `<span>${esc(main.domain)}</span>` : "", place, more,
-      `<span class="badge">${esc(main.category_label || main.category_id)}</span>`,
+      `<span class="badge">${esc(catLabel(main))}</span>`,
     ].filter(Boolean).join("");
     return `<li><a href="${esc(main.url)}" target="_blank" rel="noopener">${esc(main.title || main.url)}</a><div class="meta">${meta}</div></li>`;
   }
 
-  const TABLE_HEAD = `<thead><tr><th style="width:11rem">Category</th><th>Story</th></tr></thead>`;
+  const TABLE_HEAD = `<thead><tr><th style="width:10rem">Category</th><th>Story</th></tr></thead>`;
 
   function render() {
     const q = $("search").value.trim().toLowerCase();
@@ -624,7 +647,6 @@
   }
 
   function renderStats() {
-    const strongRows = allRows;
     const groups = groupRows(allRows);
     const cutoff = new Date();
     cutoff.setDate(cutoff.getDate() - 7);
@@ -632,12 +654,10 @@
       const d = fmtDate(g.rows[0].seendate);
       return d && new Date(d) >= cutoff;
     }).length;
-    const categories = new Set(strongRows.map((r) => r.category_id)).size;
     const partners = groups.filter(isPartnerStory).length;
     const stat = (value, label) => `<div class="stat"><span class="value">${value}</span><span class="label">${label}</span></div>`;
     $("stats").innerHTML =
-      stat(groups.length, "stories") + stat(strongRows.length, "articles") + stat(recent, "stories, last 7 days") +
-      stat(categories, "categories") + stat(partners, "in SAIH partner countries");
+      stat(recent, "stories, last 7 days") + stat(groups.length, "stories in total") + stat(partners, "in SAIH partner countries");
   }
 
   // The newest fetched_at in the data = when the monitor last added an article.
@@ -655,7 +675,7 @@
   function populateCategoryFilter() {
     const select = $("categoryFilter");
     const seen = new Map();
-    allRows.forEach((r) => seen.set(r.category_id, r.category_label || r.category_id));
+    allRows.forEach((r) => seen.set(r.category_id, catLabel(r)));
     [...seen.entries()].sort((a, b) => a[1].localeCompare(b[1])).forEach(([id, label]) => {
       const opt = document.createElement("option");
       opt.value = id;
