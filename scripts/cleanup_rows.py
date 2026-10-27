@@ -44,7 +44,7 @@ BAD_URL_PATTERNS = [r"/author/", r"/people/", r"/authors/", r"/tag/", r"/topic/"
 
 # Rows to KEEP even if a rule above would remove them (real stories found
 # through an old search term). Matched against the title.
-KEEP_TITLE_PATTERNS = [r"rhodes university", r"saikat", r"mahmoud khalil", r"lovely professional"]
+KEEP_TITLE_PATTERNS = [r"rhodes university", r"saikat", r"mahmoud khalil", r"lovely professional", r"vu[cč]i[cć]", r"student list", r"serb", r"student movement"]
 
 
 def load_rules():
