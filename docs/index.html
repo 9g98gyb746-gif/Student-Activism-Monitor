@@ -77,9 +77,19 @@
   button.btn.small:hover { background: var(--raised); }
   button.linklike { font: inherit; font-size: 0.86rem; color: var(--dark); background: none; border: 0; padding: 0; text-decoration: underline; cursor: pointer; }
 
-  .hl-box { margin-bottom: 2rem; padding: 1.1rem 1.1rem 0.4rem; background: var(--raised); border: 1px solid var(--line-strong); border-radius: 6px; }
-  .hl-box table { margin-top: 0.4rem; }
-  .hl-box .pin-more { margin: 0.2rem 0 0.8rem; }
+  /* ---- Highlight boxes: side by side on wide screens, stacked on phones ---- */
+  .hl-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(19rem, 1fr)); gap: 1rem; align-items: start; margin-bottom: 2rem; }
+  .hl-grid:not(:has(.hl-box:not([hidden]))) { display: none; }
+  .hl-box { padding: 0.9rem 1rem 0.5rem; background: var(--raised); border: 1px solid var(--line-strong); border-radius: 6px; min-width: 0; }
+  .hl-box h2 { font-size: 1.35rem; }
+  .hl-box .section-note { font-size: 0.76rem; margin-bottom: 0.4rem; }
+  .hl-box ul { list-style: none; margin: 0; padding: 0; }
+  .hl-box li { padding: 0.6rem 0; border-top: 1px solid var(--line); font-size: 0.9rem; line-height: 1.35; }
+  .hl-box li a { text-decoration: none; }
+  .hl-box li a:hover { text-decoration: underline; }
+  .hl-box li .meta { font-size: 0.76rem; margin-top: 0.2rem; gap: 0.15rem 0.5rem; }
+  .hl-box li .badge { font-size: 0.7rem; padding: 0.02rem 0.45rem; }
+  .hl-box .pin-more { margin: 0.1rem 0 0.6rem; }
 
   table { width: 100%; border-collapse: collapse; font-size: 0.92rem; }
   thead th { text-align: left; font-weight: 700; font-size: 0.8rem; padding: 0 0.7rem 0.55rem; border-bottom: 1px solid var(--line-strong); }
@@ -166,9 +176,11 @@
   </div>
   <div class="theme-bar" id="themeBar" hidden></div>
 
-  <div id="penBox" class="hl-box" hidden></div>
-  <div id="palBox" class="hl-box" hidden></div>
-  <div id="partnerPin" class="hl-box" hidden></div>
+  <div class="hl-grid">
+    <div id="penBox" class="hl-box" hidden></div>
+    <div id="palBox" class="hl-box" hidden></div>
+    <div id="partnerPin" class="hl-box" hidden></div>
+  </div>
   <div id="tableWrap"></div>
 </main>
 
@@ -424,6 +436,13 @@
   const PAL_PLACE_RX = /palestin|gaza|west bank|ramallah/i;
   const PAL_STANCE_RX = /(?:pro|anti)[\s-]palestin|solidarity with palestin|support(?:ing)?(?: for)? palestin|in support of palestin|free palestin|for palestin/i;
 
+  // Known people whose cases belong under "Palestine solidarity". Edit this list by hand. A name must be
+  // written in full, and the headline must also contain a penalty word (PEN_CUE_RX), so memoir reviews,
+  // interviews and speeches are not picked up. Remove a name when the case is over.
+  const PAL_PEOPLE_RX = new RegExp([
+    "mahmoud khalil", "r[uü]meysa [oö]zt[uü]rk", "mohsen mahdawi", "badar khan suri", "yunseo chung", "leqaa kordia",
+  ].join("|"), "i");
+
   function groupTitle(g) { return g.rows[0].title || ""; }
   function groupHasTag(g, tag) { return g.rows.some((r) => tagsOf(r).includes(tag)); }
   function isRecent(g, days) {
@@ -432,16 +451,21 @@
   }
   function isPenalised(g) {
     const t = groupTitle(g), cat = g.rows[0].category_id;
-    if (groupHasTag(g, "seah") || PEN_EXCLUDE_RX.test(t) || !PEN_CATS.has(cat)) return false;
+    if (groupHasTag(g, "seah") || PEN_EXCLUDE_RX.test(t) || !PEN_CATS.has(cat) || isKnownPalPerson(g)) return false;
     return CAMPUS_RX.test(t) && PEN_CUE_RX.test(t);
   }
   function isPartnerStory(g) {
     const t = groupTitle(g);
     return g.rows.some((r) => r.watchlist_country && (r.watchlist_country !== "Palestine" || (PAL_PLACE_RX.test(t) && !PAL_STANCE_RX.test(t))));
   }
+  function isKnownPalPerson(g) {
+    const t = groupTitle(g);
+    return PAL_PEOPLE_RX.test(t) && PEN_CUE_RX.test(t);
+  }
   function isPalCampus(g) {
     const t = groupTitle(g);
-    return !groupHasTag(g, "seah") && PAL_RX.test(t) && STUDENT_RX.test(t) && !PAL_EXCLUDE_RX.test(t);
+    if (groupHasTag(g, "seah")) return false;
+    return isKnownPalPerson(g) || (PAL_RX.test(t) && STUDENT_RX.test(t) && !PAL_EXCLUDE_RX.test(t));
   }
 
   function storyRowHtml(g, withDate) {
@@ -477,6 +501,21 @@
           ${also}
         </td>
       </tr>`;
+  }
+
+  // Compact list item for the highlight boxes: headline first, then date, source, place and category.
+  function boxItemHtml(g) {
+    const main = g.rows[0];
+    const partner = g.rows.map((r) => r.watchlist_country).find(Boolean);
+    const country = g.rows.map((r) => r.country).find(Boolean);
+    const place = partner ? `<span class="badge watchlist" title="SAIH partner country">${esc(partner)}</span>` : country ? `<span>${esc(country)}</span>` : "";
+    const more = g.rows.length > 1 ? `<span>+${g.rows.length - 1} more outlet${g.rows.length > 2 ? "s" : ""}</span>` : "";
+    const meta = [
+      `<span>${esc(shortDate(groupDate(g)))}</span>`,
+      main.domain ? `<span>${esc(main.domain)}</span>` : "", place, more,
+      `<span class="badge">${esc(main.category_label || main.category_id)}</span>`,
+    ].filter(Boolean).join("");
+    return `<li><a href="${esc(main.url)}" target="_blank" rel="noopener">${esc(main.title || main.url)}</a><div class="meta">${meta}</div></li>`;
   }
 
   const TABLE_HEAD = `<thead><tr><th style="width:11rem">Category</th><th>Story</th></tr></thead>`;
@@ -529,7 +568,7 @@
       box.innerHTML = `
         <h2>${title}</h2>
         <p class="section-note">${note}</p>
-        <table>${TABLE_HEAD}<tbody>${list.map((g) => storyRowHtml(g, true)).join("")}</tbody></table>
+        <ul>${list.map(boxItemHtml).join("")}</ul>
         ${more}`;
     }
     const penAll = partnerOnly ? [] : groups.filter((g) => isRecent(g, BOX_DAYS) && isPenalised(g));
@@ -538,10 +577,10 @@
     const palSet = new Set(palAll);
     const partnerAll = partnerOnly ? [] : groups.filter((g) => !penSet.has(g) && !palSet.has(g) && isPartnerStory(g));
     fillBox("penBox", "Students penalised for activism",
-      `Stories from the last ${BOX_DAYS} days where students or academics are sanctioned, prosecuted or put under surveillance over activism. Picked automatically from headline words, so check each story.`,
+      `Last ${BOX_DAYS} days. Students or academics sanctioned, prosecuted or watched over activism. Picked automatically, so check each story.`,
       penAll, "pen");
     fillBox("palBox", "Palestine solidarity on campuses",
-      `Stories from the last ${BOX_DAYS} days about Palestine solidarity activism at universities around the world. Picked automatically from headline words.`,
+      `Last ${BOX_DAYS} days. Palestine solidarity activism, on campuses and beyond, incl. known cases such as Mahmoud Khalil. Picked automatically.`,
       palAll, "pal");
     fillBox("partnerPin", "In SAIH partner countries",
       "The latest stories set in countries where SAIH has partners.",
