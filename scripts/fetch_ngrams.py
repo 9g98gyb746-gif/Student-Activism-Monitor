@@ -324,8 +324,12 @@ def pick_category(hit_lists, m):
 
 # "Pro-Palestinian", "anti-Israel" and similar describe a stance, not a place:
 # a "pro-Palestinian protest" is almost always somewhere else. They are
-# ignored when working out where a story is set.
-STANCE_RE = re.compile(r"(?<!\w)(?:pro|anti)[\s\-](?:palestin\w*|israel\w*|zionis\w*|gaza|hamas)(?!\w)")
+# ignored when working out where a story is set. The same goes for "solidarity
+# with Palestine", "support for Palestine", "free Palestine" and "for Palestine".
+STANCE_RE = re.compile(
+    r"(?<!\w)(?:pro|anti)[\s\-](?:palestin\w*|israel\w*|zionis\w*|gaza|hamas)(?!\w)"
+    r"|(?<!\w)(?:solidarity with|support(?:ing)?(?: for)?|in support of|stand(?:ing)? with|free|for) palestin\w*"
+)
 
 
 def rank_countries(text, m):
@@ -374,13 +378,19 @@ def locate(title, text, m):
        most country mentions, but only if it has at least MIN_REGION_HITS
        and REGION_DOMINANCE times the runner-up.
     3. Otherwise the region is "Unclear" (a wrong badge is worse than none).
+
+    Palestine is only ever taken from the headline (step 1), never from the
+    full text: campus solidarity stories in the US or UK mention Palestine
+    dozens of times, which used to give them the Palestine (partner country)
+    badge. A headline that names Gaza, the West Bank or Palestine as the
+    place still gets it.
     """
     from_title = rank_countries(headline_for_location(title).lower(), m)
     if from_title and len({region for _, region, _ in from_title}) == 1:
         return from_title[0][0], from_title[0][1]
 
     if text:
-        ranked = rank_countries(text, m)
+        ranked = [x for x in rank_countries(text, m) if x[0] != "Palestine"]
         by_region = Counter()
         for _, region, n in ranked:
             by_region[region] += n
