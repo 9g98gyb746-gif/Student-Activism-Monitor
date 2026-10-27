@@ -108,6 +108,8 @@ second_signal:
     - "anti-israel"
     - detention
     - repress
+    - spyware
+    - pegasus
     - "academic freedom"
     - "university autonomy"
     - academic
@@ -174,6 +176,7 @@ skip:
     - "^q&a \\|"
     - "best (shows|movies)"
     - "^[a-z]+ [0-9]{1,2}, [0-9]{4}$"
+    - "\\. and, "              # newsletter-style headlines: "Story one. And, story two"
   # A title with fewer than min_title_words words AND fewer than
   # min_title_chars characters is treated as a generic page title
   # ("Albanian Daily News"). Long titles in scripts without spaces are kept.
@@ -465,5 +468,8 @@ scope_terms:
     - rape
     - raped
     - rapist
+    - "sexually assaulted"
+    - "sexually abused"
+    - "sexually harassed"
     - "title ix"
     - seah
