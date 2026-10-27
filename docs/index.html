@@ -77,9 +77,9 @@
   button.btn.small:hover { background: var(--raised); }
   button.linklike { font: inherit; font-size: 0.86rem; color: var(--dark); background: none; border: 0; padding: 0; text-decoration: underline; cursor: pointer; }
 
-  #partnerPin { margin-bottom: 2rem; padding: 1.1rem 1.1rem 0.4rem; background: var(--raised); border: 1px solid var(--line-strong); border-radius: 6px; }
-  #partnerPin table { margin-top: 0.4rem; }
-  #partnerPin .pin-more { margin: 0.2rem 0 0.8rem; }
+  .hl-box { margin-bottom: 2rem; padding: 1.1rem 1.1rem 0.4rem; background: var(--raised); border: 1px solid var(--line-strong); border-radius: 6px; }
+  .hl-box table { margin-top: 0.4rem; }
+  .hl-box .pin-more { margin: 0.2rem 0 0.8rem; }
 
   table { width: 100%; border-collapse: collapse; font-size: 0.92rem; }
   thead th { text-align: left; font-weight: 700; font-size: 0.8rem; padding: 0 0.7rem 0.55rem; border-bottom: 1px solid var(--line-strong); }
@@ -166,7 +166,9 @@
   </div>
   <div class="theme-bar" id="themeBar" hidden></div>
 
-  <div id="partnerPin" hidden></div>
+  <div id="penBox" class="hl-box" hidden></div>
+  <div id="palBox" class="hl-box" hidden></div>
+  <div id="partnerPin" class="hl-box" hidden></div>
   <div id="tableWrap"></div>
 </main>
 
@@ -182,15 +184,17 @@
 <script>
   /* ---- Settings you may want to change ---- */
   const PAGE_SIZE = 15;          // stories shown at first, and added by each "Show more"
-  const PIN_MAX = 5;             // partner-country stories pinned at the top
   const THEME_DAYS = 7;          // "most covered" looks at this many days
   const THEME_MIN_STORIES = 4;   // a topic needs at least this many stories to show up
   const TOPIC_PLACES_SKIP = ["United States"]; // too broad to be a topic; its stories can still appear under a named case such as Cornell
   const THEME_MAX = 6;           // at most this many topics are shown
+  const BOX_MAX = 5;             // stories shown in each highlight box before "Show all"
+  const BOX_DAYS = 30;           // the two highlight boxes look back this many days
 
   let allRows = [];
   let visible = PAGE_SIZE;
   let activeTheme = null;        // { stem, label } while a topic card is selected
+  const boxOpen = { pen: false, pal: false }; // highlight boxes expanded with "Show all"
   const $ = (id) => document.getElementById(id);
   const EMBED = new URLSearchParams(location.search).get("embed") === "1";
   if (EMBED) document.body.classList.add("embed");
@@ -273,7 +277,8 @@
     "nationwide country world global city state states united america american americans government " +
     "arrested arrest detained detain detention killed shot injured clashes clash march marches rally rallies " +
     "demand demands call calls calling against amid over after plans plan face faces facing hold holds " +
-    "leader leaders member members union unions council officials official minister ministry president"
+    "leader leaders member members union unions council officials official minister ministry president " +
+    "supreme court courts judge justice parliament senate congress federal constitutional high"
   ).split(/\s+/));
 
   function stemOf(w) { return w.length >= 8 ? w.slice(0, 6) : w; }
@@ -402,6 +407,43 @@
     window.parent.postMessage({ type: "sam-height", height: document.documentElement.scrollHeight }, "*");
   }
 
+  /* ---- Highlight boxes: found from the headline and the category (not verified) ---- */
+  // "Students penalised for activism": a sanction-type category AND a student/campus word AND a
+  // penalty word in the headline. Arrests and violence are left out on purpose: they are
+  // dominated by nationwide protests.
+  const PEN_CATS = new Set(["institutional_sanction", "legal_harassment", "visa_immigration", "delegitimization", "surveillance_intimidation"]);
+  const CAMPUS_RX = /universit|campus|college|rector|vice-chancellor|\bVC\b|lecturer|professor|academic|faculty|student union|students.? union|students?\b|pupil/i;
+  const PEN_CUE_RX = /suspen|expel|\bban(?:s|ned)?\b|disciplin|sanction|punish|probe|investigat|crackdown|surveil|spyware|pegasus|deport|visa|revok|charged|prosecut|\bsue[sd]?\b|lawsuit|fired|dismiss|terminat|monitor|threat|target|silenc|censor|restrict|retaliat|blacklist|cancel|academic freedom|free speech|code of conduct|repress|intimidat|harass|foreign agent|speech|arrest|detain/i;
+  const PEN_EXCLUDE_RX = /fraternit|sororit|sexual|\brape|assault probe/i;
+  // "Palestine solidarity on campuses": a Palestine/Gaza word AND a student/campus word in the headline.
+  const PAL_RX = /palestin|gaza|anti-israel|zionis|hamas|oct\.? 7|intifada/i;
+  const STUDENT_RX = /student|universit|campus|college|faculty|professor|academic|encampment/i;
+  const PAL_EXCLUDE_RX = /riot|nationwide|turmoil/i;
+  // Older rows were given the Palestine (partner country) badge when a story only mentioned Palestine
+  // a lot. For those, the headline must name Palestine, Gaza or the West Bank as a place, not as a stance.
+  const PAL_PLACE_RX = /palestin|gaza|west bank|ramallah/i;
+  const PAL_STANCE_RX = /(?:pro|anti)[\s-]palestin|solidarity with palestin|support(?:ing)?(?: for)? palestin|in support of palestin|free palestin|for palestin/i;
+
+  function groupTitle(g) { return g.rows[0].title || ""; }
+  function groupHasTag(g, tag) { return g.rows.some((r) => tagsOf(r).includes(tag)); }
+  function isRecent(g, days) {
+    const cutoff = new Date(Date.now() - days * 864e5).toISOString().slice(0, 10);
+    return fmtDate(groupDate(g)) >= cutoff;
+  }
+  function isPenalised(g) {
+    const t = groupTitle(g), cat = g.rows[0].category_id;
+    if (groupHasTag(g, "seah") || PEN_EXCLUDE_RX.test(t) || !PEN_CATS.has(cat)) return false;
+    return CAMPUS_RX.test(t) && PEN_CUE_RX.test(t);
+  }
+  function isPartnerStory(g) {
+    const t = groupTitle(g);
+    return g.rows.some((r) => r.watchlist_country && (r.watchlist_country !== "Palestine" || (PAL_PLACE_RX.test(t) && !PAL_STANCE_RX.test(t))));
+  }
+  function isPalCampus(g) {
+    const t = groupTitle(g);
+    return !groupHasTag(g, "seah") && PAL_RX.test(t) && STUDENT_RX.test(t) && !PAL_EXCLUDE_RX.test(t);
+  }
+
   function storyRowHtml(g, withDate) {
     const main = g.rows[0];
     const badges = [];
@@ -467,29 +509,48 @@
 
     const groups = newestFirst(groupRows(filtered));
 
-    // Pinned: the latest strong stories in SAIH partner countries
-    let pinned = [];
-    let partnerTotal = 0;
-    if (!partnerOnly) {
-      const pg = groups.filter((g) => g.rows.some((r) => r.watchlist_country));
-      partnerTotal = pg.length;
-      pinned = pg.slice(0, PIN_MAX);
+    // Highlight boxes. A story is shown once, in the first box it qualifies for:
+    // "Students penalised for activism", then "Palestine solidarity on campuses",
+    // then "In SAIH partner countries" (stories set in a partner country).
+    const shownInBoxes = new Set();
+    function fillBox(boxId, title, note, all, key) {
+      const box = $(boxId);
+      if (!all.length) { box.hidden = true; box.innerHTML = ""; return; }
+      const open = key ? boxOpen[key] : false;
+      const list = open ? all : all.slice(0, BOX_MAX);
+      list.forEach((g) => shownInBoxes.add(g));
+      let more = "";
+      if (all.length > BOX_MAX) {
+        const id = key ? (open ? "showFewer" : "showAll") : "showAllPartner";
+        const label = key ? (open ? "Show fewer" : `Show all ${all.length} stories`) : `Show all ${all.length} stories from partner countries`;
+        more = `<p class="pin-more"><button type="button" class="linklike" id="${id}" data-box="${key || ""}">${label}</button></p>`;
+      }
+      box.hidden = false;
+      box.innerHTML = `
+        <h2>${title}</h2>
+        <p class="section-note">${note}</p>
+        <table>${TABLE_HEAD}<tbody>${list.map((g) => storyRowHtml(g, true)).join("")}</tbody></table>
+        ${more}`;
     }
-    const pinBox = $("partnerPin");
-    if (pinned.length) {
-      pinBox.hidden = false;
-      pinBox.innerHTML = `
-        <h2>In SAIH partner countries</h2>
-        <p class="section-note">The latest stories from countries where SAIH has partners.</p>
-        <table>${TABLE_HEAD}<tbody>${pinned.map((g) => storyRowHtml(g, true)).join("")}</tbody></table>
-        ${partnerTotal > pinned.length ? `<p class="pin-more"><button type="button" class="linklike" id="showAllPartner">Show all ${partnerTotal} stories from partner countries</button></p>` : ""}`;
-    } else { pinBox.hidden = true; pinBox.innerHTML = ""; }
+    const penAll = partnerOnly ? [] : groups.filter((g) => isRecent(g, BOX_DAYS) && isPenalised(g));
+    const penSet = new Set(penAll);
+    const palAll = partnerOnly ? [] : groups.filter((g) => !penSet.has(g) && isRecent(g, BOX_DAYS) && isPalCampus(g));
+    const palSet = new Set(palAll);
+    const partnerAll = partnerOnly ? [] : groups.filter((g) => !penSet.has(g) && !palSet.has(g) && isPartnerStory(g));
+    fillBox("penBox", "Students penalised for activism",
+      `Stories from the last ${BOX_DAYS} days where students or academics are sanctioned, prosecuted or put under surveillance over activism. Picked automatically from headline words, so check each story.`,
+      penAll, "pen");
+    fillBox("palBox", "Palestine solidarity on campuses",
+      `Stories from the last ${BOX_DAYS} days about Palestine solidarity activism at universities around the world. Picked automatically from headline words.`,
+      palAll, "pal");
+    fillBox("partnerPin", "In SAIH partner countries",
+      "The latest stories set in countries where SAIH has partners.",
+      partnerAll, null);
 
-    const pinnedSet = new Set(pinned);
-    const rest = groups.filter((g) => !pinnedSet.has(g));
+    const rest = groups.filter((g) => !shownInBoxes.has(g));
     const wrap = $("tableWrap");
 
-    if (rest.length === 0 && pinned.length === 0) {
+    if (rest.length === 0 && shownInBoxes.size === 0) {
       wrap.innerHTML = `
         <div class="empty-state">
           <strong>Nothing matches these filters.</strong>
@@ -510,11 +571,11 @@
 
     const remaining = rest.length - shown.length;
     const countLine = remaining > 0
-      ? `Showing ${shown.length} of ${rest.length} ${pinned.length ? "other " : ""}stories`
-      : `Showing all ${rest.length} ${pinned.length ? "other " : ""}${rest.length === 1 ? "story" : "stories"}`;
+      ? `Showing ${shown.length} of ${rest.length} ${shownInBoxes.size ? "other " : ""}stories`
+      : `Showing all ${rest.length} ${shownInBoxes.size ? "other " : ""}${rest.length === 1 ? "story" : "stories"}`;
 
     wrap.innerHTML = rest.length === 0 ? "" : `
-      ${pinned.length ? `<h2>Other stories</h2>` : ""}
+      ${shownInBoxes.size ? `<h2>Other stories</h2>` : ""}
       <table>${TABLE_HEAD}<tbody>${bodyHtml}</tbody></table>
       <div class="more">
         <p>${countLine}</p>
@@ -533,7 +594,7 @@
       return d && new Date(d) >= cutoff;
     }).length;
     const categories = new Set(strongRows.map((r) => r.category_id)).size;
-    const partners = groups.filter((g) => g.rows.some((r) => r.watchlist_country)).length;
+    const partners = groups.filter(isPartnerStory).length;
     const stat = (value, label) => `<div class="stat"><span class="value">${value}</span><span class="label">${label}</span></div>`;
     $("stats").innerHTML =
       stat(groups.length, "stories") + stat(strongRows.length, "articles") + stat(recent, "stories, last 7 days") +
@@ -611,6 +672,7 @@
     if (t.id === "showMore") { visible += PAGE_SIZE; render(); }
     else if (t.id === "clearTheme") { activeTheme = null; renderThemes(themes); filtersChanged(); }
     else if (t.id === "showAllPartner") { $("partnerOnly").checked = true; filtersChanged(); }
+    else if (t.id === "showAll" || t.id === "showFewer") { boxOpen[t.dataset.box] = t.id === "showAll"; render(); }
     else if (t.classList.contains("theme")) {
       const th = themes[Number(t.dataset.i)];
       activeTheme = activeTheme && activeTheme.stem === th.stem ? null : th;
