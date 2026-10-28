@@ -211,7 +211,7 @@
   const THEME_DAYS = 7;          // "most covered" looks at this many days
   const THEME_MIN_STORIES = 4;   // a topic needs at least this many stories to show up
   const TOPIC_PLACES_SKIP = ["United States"]; // too broad to be a topic; its stories can still appear under a named case such as Cornell
-  const THEME_MAX = 6;           // at most this many topics are shown
+  const THEME_MAX = 4;           // at most this many topics are shown (4 fits in one row on a wide screen)
   const BOX_MAX = 5;             // stories shown in each highlight box before "Show all"
   const BOX_DAYS = 30;           // the two highlight boxes look back this many days
 
@@ -313,7 +313,8 @@
     "arrested arrest detained detain detention killed shot injured clashes clash march marches rally rallies " +
     "demand demands call calls calling against amid over after plans plan face faces facing hold holds " +
     "leader leaders member members union unions council officials official minister ministry president " +
-    "supreme court courts judge justice parliament senate congress federal constitutional high"
+    "supreme court courts judge justice parliament senate congress federal constitutional high " +
+    "brief briefs roundup headlines bulletin digest newsletter morning evening daily weekly edition podcast recap highlights"
   ).split(/\s+/));
 
   function stemOf(w) { return w.length >= 8 ? w.slice(0, 6) : w; }
