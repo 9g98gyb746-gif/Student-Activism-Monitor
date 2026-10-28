@@ -77,8 +77,6 @@
     border: 1px solid var(--line-strong); border-radius: 4px; background: var(--raised); color: var(--dark);
   }
   .controls input[type="search"] { flex: 1 1 14rem; min-width: 10rem; }
-  label.checkbox { display: flex; align-items: center; gap: 0.45rem; font-size: 0.9rem; }
-  label.checkbox input { accent-color: var(--green); width: 1.05rem; height: 1.05rem; }
   .theme-bar { display: flex; flex-wrap: wrap; align-items: center; gap: 0.6rem; margin: -0.5rem 0 1.25rem; font-size: 0.92rem; }
 
   button.btn { font: inherit; font-size: 0.9rem; color: var(--dark); background: var(--yellow); border: 1.5px solid var(--dark); border-radius: 999px; padding: 0.45rem 1.1rem; cursor: pointer; }
@@ -187,9 +185,6 @@
     <input type="search" id="search" placeholder="Search title or source…" aria-label="Search title or source" />
     <select id="categoryFilter" aria-label="Category"><option value="">All categories</option></select>
     <select id="regionFilter" aria-label="Region"><option value="">All regions</option></select>
-    <label class="checkbox"><input type="checkbox" id="partnerOnly" /> SAIH partner countries only</label>
-    <!-- To start with a filter switched on, add the word "checked" inside its <input> tag. -->
-    <label class="checkbox"><input type="checkbox" id="hideSchool" /> Hide secondary-school stories</label>
   </div>
   <div class="theme-bar" id="themeBar" hidden></div>
 
@@ -218,7 +213,7 @@
   let allRows = [];
   let visible = PAGE_SIZE;
   let activeTheme = null;        // { stem, label } while a topic card is selected
-  const boxOpen = { pen: false, pal: false }; // highlight boxes expanded with "Show all"
+  const boxOpen = { pen: false, pal: false, par: false }; // highlight boxes expanded with "Show all"
   const $ = (id) => document.getElementById(id);
   const EMBED = new URLSearchParams(location.search).get("embed") === "1";
   if (EMBED) document.body.classList.add("embed");
@@ -548,16 +543,11 @@
     const q = $("search").value.trim().toLowerCase();
     const cat = $("categoryFilter").value;
     const region = $("regionFilter").value;
-    const partnerOnly = $("partnerOnly").checked;
-    const hideSchool = $("hideSchool").checked;
     const themeRxs = activeTheme ? activeTheme.stems.filter((x) => !x.startsWith("@")).map(themeRegex) : null;
 
     const filtered = allRows.filter((row) => {
       if (cat && row.category_id !== cat) return false;
       if (region && regionOf(row) !== region) return false;
-      if (partnerOnly && !row.watchlist_country) return false;
-      const tags = tagsOf(row);
-      if (hideSchool && tags.includes("high_school")) return false;
       if (themeRxs && !(themeRxs.some((rx) => rx.test(row.title || "")) || (activeTheme.place && row.country === activeTheme.place))) return false;
       if (q && !`${row.title} ${row.domain}`.toLowerCase().includes(q)) return false;
       return true;
@@ -579,14 +569,14 @@
     function fillBox(boxId, title, note, all, key) {
       const box = $(boxId);
       if (!all.length) { box.hidden = true; box.innerHTML = ""; return; }
-      const open = key ? boxOpen[key] : false;
+      const open = boxOpen[key];
       const list = open ? all : all.slice(0, BOX_MAX);
       list.forEach((g) => shownInBoxes.add(g));
       let more = "";
       if (all.length > BOX_MAX) {
-        const id = key ? (open ? "showFewer" : "showAll") : "showAllPartner";
-        const label = key ? (open ? "Show fewer" : `Show all ${all.length} stories`) : `Show all ${all.length} stories from partner countries`;
-        more = `<p class="pin-more"><button type="button" class="linklike" id="${id}" data-box="${key || ""}">${label}</button></p>`;
+        const id = open ? "showFewer" : "showAll";
+        const label = open ? "Show fewer" : `Show all ${all.length} stories`;
+        more = `<p class="pin-more"><button type="button" class="linklike" id="${id}" data-box="${key}">${label}</button></p>`;
       }
       box.hidden = false;
       box.innerHTML = `
@@ -595,11 +585,11 @@
         <ul>${list.map(boxItemHtml).join("")}</ul>
         ${more}`;
     }
-    const penAll = partnerOnly ? [] : groups.filter((g) => isRecent(g, BOX_DAYS) && isPenalised(g));
+    const penAll = groups.filter((g) => isRecent(g, BOX_DAYS) && isPenalised(g));
     const penSet = new Set(penAll);
-    const palAll = partnerOnly ? [] : groups.filter((g) => !penSet.has(g) && isRecent(g, BOX_DAYS) && isPalCampus(g));
+    const palAll = groups.filter((g) => !penSet.has(g) && isRecent(g, BOX_DAYS) && isPalCampus(g));
     const palSet = new Set(palAll);
-    const partnerAll = partnerOnly ? [] : groups.filter((g) => !penSet.has(g) && !palSet.has(g) && isPartnerStory(g));
+    const partnerAll = groups.filter((g) => !penSet.has(g) && !palSet.has(g) && isPartnerStory(g));
     fillBox("penBox", "Students penalised for activism",
       `Last ${BOX_DAYS} days. Students or academics sanctioned, prosecuted or watched over activism. Picked automatically, so check each story.`,
       penAll, "pen");
@@ -608,7 +598,7 @@
       palAll, "pal");
     fillBox("partnerPin", "In SAIH partner countries",
       "The latest stories set in countries where SAIH has partners.",
-      partnerAll, null);
+      partnerAll, "par");
 
     const rest = groups.filter((g) => !shownInBoxes.has(g));
     const wrap = $("tableWrap");
@@ -721,7 +711,7 @@
     });
 
   function filtersChanged() { visible = PAGE_SIZE; render(); }
-  ["search", "categoryFilter", "regionFilter", "partnerOnly", "hideSchool"].forEach((id) => {
+  ["search", "categoryFilter", "regionFilter"].forEach((id) => {
     $(id).addEventListener("input", filtersChanged);
   });
 
@@ -731,7 +721,6 @@
     if (!t) return;
     if (t.id === "showMore") { visible += PAGE_SIZE; render(); }
     else if (t.id === "clearTheme") { activeTheme = null; renderThemes(themes); filtersChanged(); }
-    else if (t.id === "showAllPartner") { $("partnerOnly").checked = true; filtersChanged(); }
     else if (t.id === "showAll" || t.id === "showFewer") { boxOpen[t.dataset.box] = t.id === "showAll"; render(); }
     else if (t.classList.contains("theme")) {
       const th = themes[Number(t.dataset.i)];
