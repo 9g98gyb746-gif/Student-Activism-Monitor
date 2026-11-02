@@ -28,6 +28,10 @@ How it works:
   - URLs that look like listing pages (author, tag, category, search,
     pagination), home pages, very short or generic titles, and the domains
     listed under "skip" in the config are not recorded at all.
+  - Old articles that GDELT picked up again are skipped: when the web address
+    contains a date (/2024/05/08/ or 2024-05-08) that is more than
+    URL_MAX_AGE_DAYS older than the date GDELT gives for the article, it is
+    not recorded. Addresses without a date cannot be checked.
   - A few ambiguous terms ("suspended", "charged", "killed" ...) only count
     when a protest/police word appears within a few words of them (the
     "second_signal" section of the config). Articles whose only repression
@@ -100,6 +104,7 @@ MAX_MINUTES_PER_RUN = 1440  # at most a day of GDELT files per run (so a run can
 MAX_RUN_SECONDS = 15 * 60  # stop starting new minutes after this long, so the run ends and commits
 PUBLISH_DELAY_MINUTES = 5
 DEFAULT_LOOKBACK_MINUTES = 30
+URL_MAX_AGE_DAYS = 365  # skip articles whose web address carries a date this much older than GDELT's date
 REQUEST_TIMEOUT = 20
 HEADERS = {
     "User-Agent": (
@@ -550,6 +555,48 @@ def analyse_doc(items, m):
     return {"category": near_cat, "weak": False, "nearest": nearest}
 
 
+# A date in the web address (WordPress-style /2024/05/08/ or /2024/05/, or a
+# 2024-05-08 in the page name) tells us when the article was really published.
+# GDELT's own date is when it saw the page, which can be much later for old
+# pages that are updated, linked or re-shared.
+_URL_DATE_PATH = re.compile(r"/((?:19|20)\d\d)/(0?[1-9]|1[0-2])(?:/(0?[1-9]|[12]\d|3[01]))?(?=/|$)")
+_URL_DATE_SLUG = re.compile(r"(?<!\d)((?:19|20)\d\d)[-_](0[1-9]|1[0-2])[-_](0[1-9]|[12]\d|3[01])(?!\d)")
+
+
+def url_date(url):
+    """The publication date written in a web address, or None. When only the
+    month is given, the 28th is used (so a doubtful case is never judged older
+    than it is)."""
+    try:
+        path = urlparse(url).path
+    except Exception:
+        return None
+    hit = _URL_DATE_PATH.search(path) or _URL_DATE_SLUG.search(path)
+    if not hit:
+        return None
+    y, mo, d = int(hit.group(1)), int(hit.group(2)), int(hit.group(3) or 28)
+    try:
+        return datetime(y, mo, d)
+    except ValueError:
+        return None
+
+
+def url_is_old(url, seen_iso):
+    """If the web address carries a date more than URL_MAX_AGE_DAYS before the
+    date GDELT gives (an ISO string such as 2026-10-29T14:02:00), return that
+    date as text, otherwise None."""
+    ud = url_date(url)
+    if ud is None:
+        return None
+    try:
+        seen = datetime.strptime((seen_iso or "")[:10], "%Y-%m-%d")
+    except ValueError:
+        return None
+    if (seen - ud).days > URL_MAX_AGE_DAYS:
+        return ud.strftime("%Y-%m-%d")
+    return None
+
+
 def skip_reason(url, title, m):
     """Why a record should not be stored at all, or None."""
     try:
@@ -765,6 +812,10 @@ def process_minute(dt, m, existing_urls):
         why = skip_reason(url, title, m)
         if why:
             print(f"    skipped ({why}): {title[:60]} | {domain_from_url(url)}")
+            continue
+        old_date = url_is_old(url, rec.get("date", ""))
+        if old_date:
+            print(f"    skipped (old article, the web address says {old_date}): {title[:60]} | {domain_from_url(url)}")
             continue
         result = analyse_doc(doc_items, m)
         if result is None:
