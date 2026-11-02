@@ -79,6 +79,11 @@ second_signal:
     - "disciplinary action"
     - discredited
     - killed
+    - arrested
+    - detained
+    - jailed
+    - "tear gas"
+    - sedition
   context_words:
     - protest
     - demonstrat
@@ -117,11 +122,20 @@ second_signal:
   # are only counted when one of the student words below is near, not just any
   # context word. "Suspended" in a riot story (a metro line, a flight) then no
   # longer counts as a student suspension, but "students suspended" or
-  # "suspended activists" still does.
+  # "suspended activists" still does. The same goes for the broad terms
+  # "killed", "arrested", "detained" ... which otherwise pick up crime and
+  # party-politics stories that merely mention a student somewhere.
   student_context_terms:
     - suspended
     - expelled
     - "disciplinary action"
+    - killed
+    - threatened
+    - arrested
+    - detained
+    - jailed
+    - "tear gas"
+    - sedition
   student_context_words:
     - student
     - pupil
@@ -177,6 +191,12 @@ skip:
     - "best (shows|movies)"
     - "^[a-z]+ [0-9]{1,2}, [0-9]{4}$"
     - "\\. and, "              # newsletter-style headlines: "Story one. And, story two"
+    - "^today'?s news"
+    - "^(top |daily |weekly )?(news )?(roundup|round-up|headlines|bulletin|digest|newsletter)"
+    - "^[a-z]+ 20[0-9]{2} \\|"   # "October 2026 | FlaglerLive"
+    - "^(sunday|saturday|monday|tuesday|wednesday|thursday|friday) (morning|evening)"
+    - "cocktails?$"
+    - "recipes?$"
   # A title with fewer than min_title_words words AND fewer than
   # min_title_chars characters is treated as a generic page title
   # ("Albanian Daily News"). Long titles in scripts without spaces are kept.
