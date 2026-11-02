@@ -16,6 +16,9 @@ are shared with the monitor, so there is one place to edit them):
   4. rows tagged SEAH (sexual misconduct) whose only term is "assaulted" or
      an ambiguous one: almost always the Cornell-type case coverage, not
      repression of activists.
+  5. old articles: rows whose web address carries a date (/2024/05/08/ or
+     2024-05-08) more than a year older than the date GDELT gave. This rule
+     is checked first, so it also applies to rows on the keep list below.
 
 Set DRY_RUN=1 (the default) to only list what would be removed.
 Set DRY_RUN=0 to actually rewrite data/hits.csv.
@@ -35,6 +38,29 @@ ROOT = Path(__file__).resolve().parent.parent
 CSV_PATH = ROOT / "data" / "hits.csv"
 CONFIG_PATH = ROOT / "config" / "categories.yaml"
 DRY_RUN = os.environ.get("DRY_RUN", "1") != "0"
+
+# 5. Old articles: same rule and same settings as scripts/fetch_ngrams.py.
+URL_MAX_AGE_DAYS = 365
+_URL_DATE_PATH = re.compile(r"/((?:19|20)\d\d)/(0?[1-9]|1[0-2])(?:/(0?[1-9]|[12]\d|3[01]))?(?=/|$)")
+_URL_DATE_SLUG = re.compile(r"(?<!\d)((?:19|20)\d\d)[-_](0[1-9]|1[0-2])[-_](0[1-9]|[12]\d|3[01])(?!\d)")
+
+
+def old_url_date(url, seendate):
+    """The date in the web address if it is more than URL_MAX_AGE_DAYS older than
+    the seendate (20261029T140200Z), otherwise None."""
+    try:
+        path = urlparse(url).path
+        hit = _URL_DATE_PATH.search(path) or _URL_DATE_SLUG.search(path)
+        if not hit:
+            return None
+        ud = datetime(int(hit.group(1)), int(hit.group(2)), int(hit.group(3) or 28))
+        seen = datetime.strptime((seendate or "")[:8], "%Y%m%d")
+    except ValueError:
+        return None
+    except Exception:
+        return None
+    return ud.strftime("%Y-%m-%d") if (seen - ud).days > URL_MAX_AGE_DAYS else None
+
 
 # 1. Rows matched by search terms that were later removed from categories.yaml.
 OLD_RULE_TERMS = {"lawsuit", "shot"}
@@ -69,6 +95,9 @@ def reason(row, rules):
     domain = (row.get("domain") or "").lower()
     url = row.get("url") or ""
     title = (row.get("title") or "").strip()
+    old_date = old_url_date(url, row.get("seendate"))
+    if old_date:
+        return f"old article (web address says {old_date})"
     if any(re.search(p, title, re.I) for p in KEEP_TITLE_PATTERNS):
         return None
     if term in OLD_RULE_TERMS:
@@ -117,6 +146,7 @@ def main():
     counts = {}
     for _, why in removed:
         key = re.sub(r"'[^']*'", "'...'", why)
+        key = re.sub(r"\d{4}-\d{2}-\d{2}", "date", key)
         counts[key] = counts.get(key, 0) + 1
     for why, n in sorted(counts.items(), key=lambda x: -x[1]):
         print(f"  {n:4d}  {why}")
