@@ -2,7 +2,7 @@ name: GDELT ngrams student activism monitor
 
 on:
   schedule:
-    - cron: "*/15 * * * *" # every 15 minutes — this dataset is near-realtime
+    - cron: "7,22,37,52 * * * *" # every 15 minutes — this dataset is near-realtime
   workflow_dispatch: {}
   
 concurrency:
