@@ -10,7 +10,7 @@ are shared with the monitor, so there is one place to edit them):
   2. skipped domains, listing/author pages, home pages, generic or very
      short titles
   3. rows whose only repression term is an ambiguous one ("suspended",
-     "charged", "killed" ...) and whose headline has no protest/police word.
+     "charged" ...) and whose headline has no protest/police word.
      Only the headline can be checked for old rows, so this rule is the most
      likely to remove something real. Read that part of the dry-run list.
   4. rows tagged SEAH (sexual misconduct) whose only term is "assaulted" or
@@ -19,6 +19,10 @@ are shared with the monitor, so there is one place to edit them):
   5. old articles: rows whose web address carries a date (/2024/05/08/ or
      2024-05-08) more than a year older than the date GDELT gave. This rule
      is checked first, so it also applies to rows on the keep list below.
+  6. broad terms ("killed", "arrested", "detained", "jailed", "tear gas",
+     "sedition", "threatened"): the headline must have a student/school word
+     or a protest word (revolt, youth, Gaza, Jamia ...), otherwise the row is
+     almost always crime or party politics.
 
 Set DRY_RUN=1 (the default) to only list what would be removed.
 Set DRY_RUN=0 to actually rewrite data/hits.csv.
@@ -67,6 +71,19 @@ OLD_RULE_TERMS = {"lawsuit", "shot"}
 
 # 2. URL patterns for listing / author / people pages.
 BAD_URL_PATTERNS = [r"/author/", r"/people/", r"/authors/", r"/tag/", r"/topic/"]
+
+# 6. Broad terms that only count when the story is about students or protest.
+# (Same terms as student_context_terms in categories.yaml.) In the cleanup the
+# headline must have a student/school word or a protest word.
+BROAD_TERMS = {"killed", "threatened", "arrested", "detained", "jailed", "tear gas", "sedition"}
+BROAD_HEADLINE_RE = re.compile(
+    r"(?<!\w)(?:student|pupil|school|universit|college|campus|lecturer|professor|teacher|academic|"
+    r"undergraduate|faculty|vice-chancellor|classes|activist|protest|demonstrat|rally|rallies|"
+    r"encampment|sit-in|crackdown|unrest|uprising|riot|clash|walkout|boycott|youth|young|teen|gen[\s\-]?z|"
+    r"revolt|revolution|streets|march(?:es|ers)?\b|solidarity|palestin|gaza|zionis|ice\b|deport|visa|"
+    r"movement|cockroach|rebel|political prisoner|m\u00f3tm\u00e6l|ungmenn|sjp|jamia|jnu|khalil|"
+    r"studi|\u03c6\u03bf\u03b9\u03c4|\u03b4\u03b9\u03b1\u03b4\u03b7\u03bb|\u03b5\u03c0\u03b5\u03b9\u03c3|"
+    r"\u0441\u0442\u0443\u0434|\u043f\u0440\u043e\u0442\u0435\u0441\u0442|nemir|tudiant|estudiant|lyc\u00e9|manif|sch\u00fcler|demo\b)", re.I)
 
 # Rows to KEEP even if a rule above would remove them (real stories found
 # through an old search term). Matched against the title.
@@ -120,7 +137,9 @@ def reason(row, rules):
     tags = (row.get("scope_tags") or "").split(";")
     if "seah" in tags and (term in rules["ambiguous"] or term == "assaulted"):
         return f"sexual-misconduct story, term '{term}'"
-    if term in rules["ambiguous"] and rules["context_re"] and not rules["context_re"].search(title):
+    if term in BROAD_TERMS and not BROAD_HEADLINE_RE.search(title):
+        return f"broad term '{term}', no student/protest word in headline"
+    if term in rules["ambiguous"] and term not in BROAD_TERMS and rules["context_re"] and not rules["context_re"].search(title):
         return f"ambiguous term '{term}', no protest/police word in headline"
     return None
 
