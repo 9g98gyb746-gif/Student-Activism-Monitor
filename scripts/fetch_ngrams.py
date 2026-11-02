@@ -12,7 +12,10 @@ How it works:
     TIMESTAMP is YYYYMMDDHHMM00. Not every minute has a file, so a 404 is a
     normal gap, not an error.
   - data/ngrams_state.txt records the last minute attempted; each run walks
-    forward from there (at most MAX_MINUTES_PER_RUN minutes per run).
+    forward from there (at most MAX_MINUTES_PER_RUN minutes, and for at most
+    MAX_RUN_SECONDS seconds, per run). A run that finds itself far behind
+    just keeps going until its time budget is used up; the next run
+    continues from the saved position.
   - For each minute: group the 4-word phrases by article, and record an
     article when its full text contains an identity phrase AND a repression
     term (see config/categories.yaml).
@@ -55,6 +58,7 @@ import json
 import os
 import re
 import tempfile
+import time
 from collections import Counter, defaultdict, deque
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
@@ -92,7 +96,8 @@ FIELDNAMES = [
 
 UNCLEAR = "Unclear"
 
-MAX_MINUTES_PER_RUN = 60
+MAX_MINUTES_PER_RUN = 1440  # at most a day of GDELT files per run (so a run can catch up after a gap)
+MAX_RUN_SECONDS = 15 * 60  # stop starting new minutes after this long, so the run ends and commits
 PUBLISH_DELAY_MINUTES = 5
 DEFAULT_LOOKBACK_MINUTES = 30
 REQUEST_TIMEOUT = 20
@@ -841,8 +846,12 @@ def main():
         f"{minutes[0].strftime('%Y-%m-%d %H:%M')} to {minutes[-1].strftime('%Y-%m-%d %H:%M')} UTC"
     )
 
-    total_new = files_found = 0
+    total_new = files_found = done = 0
+    t0 = time.monotonic()
     for dt in minutes:
+        if time.monotonic() - t0 > MAX_RUN_SECONDS:
+            print(f"Time budget of {MAX_RUN_SECONDS // 60} minutes used up; the next run continues from here.")
+            break
         rows, file_existed = process_minute(dt, m, existing_urls)
         files_found += file_existed
         if rows:
@@ -850,9 +859,14 @@ def main():
             total_new += len(rows)
             print(f"  {dt.strftime('%H:%M')}: {len(rows)} new match(es)")
         save_state(dt)
+        done += 1
+        last_dt = dt
 
+    if done:
+        behind = (end - last_dt).total_seconds() / 3600
+        print(f"Position: {last_dt.strftime('%Y-%m-%d %H:%M')} UTC, {behind:.1f} hours behind the newest available minute.")
     print(
-        f"\nDone. Checked {len(minutes)} minute(s); GDELT had published files for "
+        f"\nDone. Checked {done} minute(s); GDELT had published files for "
         f"{files_found} of them; added {total_new} new row(s)."
     )
     if files_found == 0:
