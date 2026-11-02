@@ -25,6 +25,59 @@ identity_phrases:
   - "student demonstrators"
   - "student movement"
 
+# PARTNER NAMES: student unions, education campaigns and other education
+# partners of SAIH. A story that names one of them counts like an identity
+# phrase above (it still needs a repression term, with the same context
+# rules). Names match whole words only, in lower or upper case. A name can be
+# at most 4 words: GDELT stores text in 4-word pieces, so a longer name is
+# written as its first 3-4 distinctive words. Abbreviations that are also
+# ordinary words or other organisations are NOT listed (UCAS is the UK
+# admissions service, ANDES is a mountain range, SRC is a student council):
+# use the full name instead.
+# Names in Spanish only work once Spanish repression terms are added.
+# No partners are named for Myanmar (security situation).
+partner_phrases:
+  # Palestine
+  - birzeit
+  - "right to education campaign"
+  - "college of applied sciences"      # University College of Applied Sciences (UCAS), Gaza
+  # Zimbabwe
+  - zinasu
+  - "zimbabwe national students union"
+  - ecozi
+  - "education coalition of zimbabwe"
+  - "college lecturers association"    # COLAZ / COALZ
+  - colaz
+  - coalz
+  - ptuz
+  - "progressive teachers union"
+  - saywhat
+  - "students and youth working"
+  - "youth empowerment transformation trust"
+  # Zambia
+  - zanasu
+  - "zambia national students union"
+  - zanec
+  - "zambia national education coalition"
+  # South Africa: see partner_phrases_generic below
+  # Colombia (Spanish)
+  - "asociación colombiana de estudiantes"
+  - "asociacion colombiana de estudiantes"
+  - "asociación nacional de estudiantes"
+  - "asociacion nacional de estudiantes"
+  - "çxhab wala kiwe"
+  # Bolivia (Spanish)
+  - "funproeib andes"
+  # NOT included, to keep the monitor on students and education. Add a line
+  # above if SAIH wants them: ZLHR (Zimbabwe Lawyers for Human Rights), GALZ,
+  # SRC (Sexual Rights Centre), GALA, GDX (Gender DynamiX), CSA&G, PCN,
+  # NOMADESC, CRIC, ADESPROC, CDIMA, Fe y Alegría.
+
+# Partner names that are also ordinary words. They count as an identity
+# phrase, but NOT as a student word for the stricter terms ("arrested" ...).
+partner_phrases_generic:
+  - "equal education"                  # Equal Education, South Africa
+
 categories:
   - id: physical_violence
     label: "Physical violence & killings"
@@ -125,6 +178,7 @@ second_signal:
   # "suspended activists" still does. The same goes for the broad terms
   # "killed", "arrested", "detained" ... which otherwise pick up crime and
   # party-politics stories that merely mention a student somewhere.
+  # A partner name (partner_phrases above) also counts as a student word.
   student_context_terms:
     - suspended
     - expelled
@@ -326,7 +380,7 @@ regions:
       - "Algeria | algerian | algiers"
       - "Morocco | moroccan | rabat"
       - "Israel | israeli | tel aviv"
-      - "Palestine | gaza | gaza strip | west bank | ramallah"
+      - "Palestine | gaza | gaza strip | west bank | ramallah | birzeit"
       - "Lebanon | lebanese | beirut"
       - "Syria | syrian | damascus"
       - "Jordan (country) | jordanian | amman"
@@ -344,8 +398,8 @@ regions:
   - name: "Southern Africa"
     countries:
       - "South Africa | south african | johannesburg | cape town | pretoria | rhodes university"
-      - "Zimbabwe | zimbabwean | harare | bulawayo"
-      - "Zambia | zambian | lusaka"
+      - "Zimbabwe | zimbabwean | harare | bulawayo | zinasu | ecozi"
+      - "Zambia | zambian | lusaka | zanasu | zanec"
       - "Eswatini | swaziland | swazi | mbabane"
       - "Botswana | gaborone"
       - "Namibia | namibian | windhoek"
