@@ -12,13 +12,11 @@ How it works:
     TIMESTAMP is YYYYMMDDHHMM00. Not every minute has a file, so a 404 is a
     normal gap, not an error.
   - data/ngrams_state.txt records the last minute attempted; each run walks
-    forward from there (at most MAX_MINUTES_PER_RUN minutes, and for at most
-    MAX_RUN_SECONDS seconds, per run). A run that finds itself far behind
-    just keeps going until its time budget is used up; the next run
-    continues from the saved position.
+    forward from there (at most MAX_MINUTES_PER_RUN minutes per run).
   - For each minute: group the 4-word phrases by article, and record an
-    article when its full text contains an identity phrase AND a repression
-    term (see config/categories.yaml).
+    article when its full text contains an identity phrase (or the name of
+    one of SAIH's partners) AND a repression term (see
+    config/categories.yaml).
   - Each recorded article is tagged with:
       * category: the repression category mentioned most
       * country and region: where the story is mainly set (see locate())
@@ -35,9 +33,10 @@ How it works:
   - A few ambiguous terms ("suspended", "charged", "killed" ...) only count
     when a protest/police word appears within a few words of them (the
     "second_signal" section of the config). Articles whose only repression
-    terms fail that test are not recorded, and the run log names the terms
-    that failed. "Suspended", "expelled" and "disciplinary action" need a
-    student/school word nearby instead of any protest word.
+    terms fail that test are not recorded. "Suspended", "expelled",
+    "disciplinary action", "killed", "arrested", "detained" and a few more
+    need a student/school word (or a partner name) nearby instead of any
+    protest word.
   - A repression term that is part of a phrase listed under "ignore_phrases"
     in the config ("assaulted" in "sexually assaulted") does not count where
     that phrase occurs, and an article tagged
@@ -206,9 +205,28 @@ LEGACY_SCHOOL_PROTEST_TITLE = re.compile(
 LEGACY_SEAH_TITLE = re.compile(r"jane doe|justice for survivors|lovely professional university|(?<!\w)lpu(?!\w)")
 
 
+class _AnyOf:
+    """Several compiled patterns used as one: search() is true if any matches."""
+    def __init__(self, *patterns):
+        self.patterns = [p for p in patterns if p is not _NEVER]
+
+    def search(self, text):
+        for p in self.patterns:
+            hit = p.search(text)
+            if hit:
+                return hit
+        return None
+
+
 class Matchers:
     def __init__(self, cfg):
-        self.identity = prefix_re(cfg["identity_phrases"])
+        # Identity = the general phrases (matched from the start of a word) plus
+        # the names of SAIH's partners (whole words only, so "cric" cannot match
+        # "cricket"). A partner name counts like an identity phrase: the article
+        # still needs a repression term, with the same context rules.
+        partner = cfg.get("partner_phrases") or []
+        generic = cfg.get("partner_phrases_generic") or []
+        self.identity = _AnyOf(prefix_re(cfg["identity_phrases"]), word_re(partner), word_re(generic))
         self.categories = []
         for c in cfg["categories"]:
             terms = [(t.lower(), prefix_re([t])) for t in c["terms"]]
@@ -240,8 +258,10 @@ class Matchers:
         for t in self.strict_terms:
             if t not in self.ambiguous:
                 raise ValueError(f"student_context_terms '{t}' must also be listed under second_signal terms")
-        self.student_context = prefix_re(ss.get("student_context_words", []))
-        if self.strict_terms and self.student_context is _NEVER:
+        # A partner name also counts as a student word: "police arrested the ZINASU
+        # secretary general" is about students even without the word "student".
+        self.student_context = _AnyOf(prefix_re(ss.get("student_context_words", [])), word_re(partner))
+        if self.strict_terms and not self.student_context.patterns:
             raise ValueError("student_context_terms has terms but no student_context_words")
         if self.ambiguous and self.context is _NEVER:
             raise ValueError("second_signal has terms but no context_words")
@@ -334,8 +354,7 @@ def pick_category(hit_lists, m):
 
 # "Pro-Palestinian", "anti-Israel" and similar describe a stance, not a place:
 # a "pro-Palestinian protest" is almost always somewhere else. They are
-# ignored when working out where a story is set. The same goes for "solidarity
-# with Palestine", "support for Palestine", "free Palestine" and "for Palestine".
+# ignored when working out where a story is set.
 STANCE_RE = re.compile(
     r"(?<!\w)(?:pro|anti)[\s\-](?:palestin\w*|israel\w*|zionis\w*|gaza|hamas)(?!\w)"
     r"|(?<!\w)(?:solidarity with|support(?:ing)?(?: for)?|in support of|stand(?:ing)? with|free|for) palestin\w*"
@@ -495,9 +514,8 @@ def analyse_doc(items, m):
                  article)
       nearest  - words between an identity phrase and the closest usable
                  term (up to DIAGNOSTIC_MAX_WORDS), or None
-    Returns {"skip": "needs_context", "terms": [...]} if the article has
-    repression terms but all of them are ambiguous ones with no context word
-    nearby ("terms" lists the ones that failed, for the run log).
+    Returns {"skip": "needs_context"} if the article has repression terms but
+    all of them are ambiguous ones with no context word nearby.
 
     A term counts if it is not ambiguous, or if a context word (protest,
     police, arrest ...) occurs within second_distance words of it. The terms
