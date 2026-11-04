@@ -7,10 +7,11 @@ data/removed_rows_<date>.csv, with the reason, so any of them can be put back.
 Rules (the lists in config/categories.yaml under "skip" and "second_signal"
 are shared with the monitor, so there is one place to edit them):
   1. rows found through search terms that were later removed
-  2. skipped domains, listing/author pages, home pages, generic or very
-     short titles
+  2. skipped domains and web-address patterns (such as the film/TV sections
+     of entertainment trade press), listing/author pages, home pages, generic
+     or very short titles
   3. rows whose only repression term is an ambiguous one ("suspended",
-     "charged" ...) and whose headline has no protest/police word.
+     "charged", "killed" ...) and whose headline has no protest/police word.
      Only the headline can be checked for old rows, so this rule is the most
      likely to remove something real. Read that part of the dry-run list.
   4. rows tagged SEAH (sexual misconduct) whose only term is "assaulted" or
@@ -23,6 +24,10 @@ are shared with the monitor, so there is one place to edit them):
      "sedition", "threatened"): the headline must have a student/school word
      or a protest word (revolt, youth, Gaza, Jamia ...), otherwise the row is
      almost always crime or party politics.
+
+Rules 3 and 6 look at the headline only, so they are applied only to rows the
+monitor saw before FULL_TEXT_RULES_FROM (set below). Later rows were already
+checked on the full text by the monitor itself.
 
 Set DRY_RUN=1 (the default) to only list what would be removed.
 Set DRY_RUN=0 to actually rewrite data/hits.csv.
@@ -66,14 +71,23 @@ def old_url_date(url, seendate):
     return ud.strftime("%Y-%m-%d") if (seen - ud).days > URL_MAX_AGE_DAYS else None
 
 
+# Rows the monitor saw on or after this date were already judged on the full
+# article text with the current rules (second signal, student words), so the
+# blunt headline-only checks below (rules 3 and 6) are not applied to them.
+# They would wrongly remove real stories whose headline lacks a protest word,
+# such as "Suspended Sanskrit University Students Move Supreme Court".
+FULL_TEXT_RULES_FROM = "20261103"
+
 # 1. Rows matched by search terms that were later removed from categories.yaml.
 OLD_RULE_TERMS = {"lawsuit", "shot"}
 
 # 2. URL patterns for listing / author / people pages.
 BAD_URL_PATTERNS = [r"/author/", r"/people/", r"/authors/", r"/tag/", r"/topic/"]
 
-# 6. Broad terms that only count when the story is about students or protest.
-# (Same terms as student_context_terms in categories.yaml.) In the cleanup the
+# Rows to KEEP even if a rule above would remove them (real stories found
+# through an old search term). Matched against the title.
+# Broad terms that only count when the story is about students or protest.
+# (Same list as student_context_terms in categories.yaml.) In the cleanup the
 # headline must have a student/school word or a protest word.
 BROAD_TERMS = {"killed", "threatened", "arrested", "detained", "jailed", "tear gas", "sedition"}
 BROAD_HEADLINE_RE = re.compile(
@@ -85,8 +99,6 @@ BROAD_HEADLINE_RE = re.compile(
     r"studi|\u03c6\u03bf\u03b9\u03c4|\u03b4\u03b9\u03b1\u03b4\u03b7\u03bb|\u03b5\u03c0\u03b5\u03b9\u03c3|"
     r"\u0441\u0442\u0443\u0434|\u043f\u0440\u043e\u0442\u0435\u0441\u0442|nemir|tudiant|estudiant|lyc\u00e9|manif|sch\u00fcler|demo\b)", re.I)
 
-# Rows to KEEP even if a rule above would remove them (real stories found
-# through an old search term). Matched against the title.
 KEEP_TITLE_PATTERNS = [r"rhodes university", r"saikat", r"mahmoud khalil", r"lovely professional", r"vu[cč]i[cć]", r"student list", r"serb", r"student movement"]
 
 
@@ -100,6 +112,7 @@ def load_rules():
     return {
         "domains": [d.strip().lower() for d in skip.get("domains", [])],
         "title_res": [re.compile(p, re.I) for p in skip.get("title_patterns", [])],
+        "url_res": [re.compile(p, re.I) for p in skip.get("url_patterns", [])],
         "min_words": int(skip.get("min_title_words", 0)),
         "min_chars": int(skip.get("min_title_chars", 0)),
         "ambiguous": {str(t).strip().lower() for t in ss.get("terms", [])},
@@ -121,6 +134,8 @@ def reason(row, rules):
         return f"old search term '{term}'"
     if any(domain == d or domain.endswith("." + d) for d in rules["domains"]):
         return "skipped domain"
+    if any(rx.search(url) for rx in rules["url_res"]):
+        return "skipped web address (entertainment section)"
     if any(re.search(p, url) for p in BAD_URL_PATTERNS):
         return "listing/author page"
     try:
@@ -137,6 +152,8 @@ def reason(row, rules):
     tags = (row.get("scope_tags") or "").split(";")
     if "seah" in tags and (term in rules["ambiguous"] or term == "assaulted"):
         return f"sexual-misconduct story, term '{term}'"
+    if (row.get("seendate") or "")[:8] >= FULL_TEXT_RULES_FROM:
+        return None
     if term in BROAD_TERMS and not BROAD_HEADLINE_RE.search(title):
         return f"broad term '{term}', no student/protest word in headline"
     if term in rules["ambiguous"] and term not in BROAD_TERMS and rules["context_re"] and not rules["context_re"].search(title):
