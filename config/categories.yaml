@@ -230,6 +230,20 @@ skip:
     - onenewspage.com
     - digbycourier.ca
     - blackagendareport.com
+    # Entertainment trade press (film, TV and music news). A film plot or a
+    # review can mention student protesters and arrests without being news
+    # about activists.
+    - deadline.com
+    - hollywoodreporter.com
+    - indiewire.com
+    - screendaily.com
+  # Web addresses matching any of these (case-insensitive regular expressions,
+  # tested against the whole address) are skipped. Use this when only part of
+  # a site is a problem: variety.com has real news but its film, TV and music
+  # sections are entertainment. Start with ^https?://(www\.)? so that a
+  # similar name (mvariety.com) is not caught.
+  url_patterns:
+    - "^https?://(www\\.)?variety\\.com/\\d{4}/(film|tv|music|legit|artisans|awards|gaming|lists|digital)/"
   # Titles matching any of these (case-insensitive) are skipped.
   title_patterns:
     - "net worth$"
