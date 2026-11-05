@@ -77,6 +77,8 @@
     border: 1px solid var(--line-strong); border-radius: 4px; background: var(--raised); color: var(--dark);
   }
   .controls input[type="search"] { flex: 1 1 14rem; min-width: 10rem; }
+  label.checkbox { display: flex; align-items: center; gap: 0.45rem; font-size: 0.9rem; }
+  label.checkbox input { accent-color: var(--green); width: 1.05rem; height: 1.05rem; }
   .theme-bar { display: flex; flex-wrap: wrap; align-items: center; gap: 0.6rem; margin: -0.5rem 0 1.25rem; font-size: 0.92rem; }
 
   button.btn { font: inherit; font-size: 0.9rem; color: var(--dark); background: var(--yellow); border: 1.5px solid var(--dark); border-radius: 999px; padding: 0.45rem 1.1rem; cursor: pointer; }
@@ -484,7 +486,11 @@
   function isPalCampus(g) {
     const t = groupTitle(g);
     if (groupHasTag(g, "seah")) return false;
-    return isKnownPalPerson(g) || (PAL_RX.test(t) && STUDENT_RX.test(t) && !PAL_EXCLUDE_RX.test(t));
+    if (isKnownPalPerson(g)) return true;
+    // A story set in Gaza or the West Bank (Palestine is a partner country) belongs in the
+    // partner box, not here. Stance headlines ("pro-Palestinian students ...") stay here.
+    if (isPartnerStory(g)) return false;
+    return PAL_RX.test(t) && STUDENT_RX.test(t) && !PAL_EXCLUDE_RX.test(t);
   }
 
   function storyRowHtml(g, withDate) {
@@ -638,6 +644,7 @@
   }
 
   function renderStats() {
+    const strongRows = allRows;
     const groups = groupRows(allRows);
     const cutoff = new Date();
     cutoff.setDate(cutoff.getDate() - 7);
