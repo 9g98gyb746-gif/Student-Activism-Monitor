@@ -1,5 +1,25 @@
 [
   {
+    "fetched_at": "2026-11-09T02:07:24.097939+00:00",
+    "category_id": "surveillance_intimidation",
+    "category_label": "Surveillance, threats & intimidation",
+    "title": "Lawsuit: Google's Gemini AI Helped 13-Year-Old Girl Plan Suicide and Funeral on School-Issued Chromebook",
+    "url": "https://www.breitbart.com/politics/2026/11/08/lawsuit-googles-gemini-ai-helped-13-year-old-girl-plan-suicide-and-funeral-on-school-issued-chromebook/",
+    "seendate": "20261109T011600Z",
+    "domain": "breitbart.com",
+    "language": "en",
+    "sourcecountry": "",
+    "tone": "",
+    "watchlist_country": "",
+    "relevance": "",
+    "relevance_reason": "",
+    "matched_term": "threatened",
+    "context_match": "",
+    "scope_tags": "",
+    "country": "China",
+    "region": "East & Central Asia"
+  },
+  {
     "fetched_at": "2026-11-08T22:49:40.547080+00:00",
     "category_id": "physical_violence",
     "category_label": "Physical violence & killings",
