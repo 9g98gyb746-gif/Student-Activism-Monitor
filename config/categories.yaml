@@ -137,6 +137,10 @@ second_signal:
     - jailed
     - "tear gas"
     - sedition
+    - disappeared
+    - beaten
+    - tortured
+    - murdered
   context_words:
     - protest
     - demonstrat
@@ -178,6 +182,9 @@ second_signal:
   # "suspended activists" still does. The same goes for the broad terms
   # "killed", "arrested", "detained" ... which otherwise pick up crime and
   # party-politics stories that merely mention a student somewhere.
+  # "Disappeared", "beaten", "tortured" and "murdered" were added on 16 Nov:
+  # nearly all their matches were stories where the word was used loosely
+  # (a syndicated opinion column, a sports result, a film review).
   # A partner name (partner_phrases above) also counts as a student word.
   student_context_terms:
     - suspended
@@ -190,6 +197,10 @@ second_signal:
     - jailed
     - "tear gas"
     - sedition
+    - disappeared
+    - beaten
+    - tortured
+    - murdered
   student_context_words:
     - student
     - pupil
@@ -237,6 +248,10 @@ skip:
     - hollywoodreporter.com
     - indiewire.com
     - screendaily.com
+    # Lifestyle and culture sites that matched by accident.
+    - boredpanda.com
+    - yourtango.com
+    - schonmagazine.com
   # Web addresses matching any of these (case-insensitive regular expressions,
   # tested against the whole address) are skipped. Use this when only part of
   # a site is a problem: variety.com has real news but its film, TV and music
@@ -265,6 +280,12 @@ skip:
     - "^(sunday|saturday|monday|tuesday|wednesday|thursday|friday) (morning|evening)"
     - "cocktails?$"
     - "recipes?$"
+    - "^(movie |film |tv |book |theatre |theater |album )?review\\s?[:|]"   # "Review: ...", "Movie review: ..."
+    - "news in brief"          # "Iran News in Brief - November 8, 2026"
+    - "news briefs"            # "International News Briefs for Friday ..."
+    - "^this week in history"
+    - "weekly round-?up"       # "LiveLaw Kerala High Court Weekly Round-Up"
+    - "^letters? ?[-|:]"
   # A title with fewer than min_title_words words AND fewer than
   # min_title_chars characters is treated as a generic page title
   # ("Albanian Daily News"). Long titles in scripts without spaces are kept.
