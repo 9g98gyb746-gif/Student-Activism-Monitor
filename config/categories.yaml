@@ -25,8 +25,8 @@ identity_phrases:
   - "student demonstrators"
   - "student movement"
 
-# PARTNER NAMES: student unions, education campaigns and other education
-# partners of SAIH. A story that names one of them counts like an identity
+# PARTNER NAMES: student unions, education campaigns and other partners of
+# SAIH. A story that names one of them counts like an identity
 # phrase above (it still needs a repression term, with the same context
 # rules). Names match whole words only, in lower or upper case. A name can be
 # at most 4 words: GDELT stores text in 4-word pieces, so a longer name is
@@ -54,12 +54,23 @@ partner_phrases:
   - saywhat
   - "students and youth working"
   - "youth empowerment transformation trust"
+  - "youth empowerment and transformation"   # YETT (the "and" version of the name)
+  - yett
+  # Zimbabwe: rights partners (added 23 Nov, a story about them is a partner story)
+  - zlhr
+  - "zimbabwe lawyers for human rights"
+  - galz
+  - "gays and lesbians of zimbabwe"
+  - "sexual rights centre"                 # SRC, Zimbabwe (full name only: "src" is also a student council)
   # Zambia
   - zanasu
   - "zambia national students union"
   - zanec
   - "zambia national education coalition"
-  # South Africa: see partner_phrases_generic below
+  # South Africa: see also partner_phrases_generic below
+  - "gender dynamix"                       # GDX
+  - "gay and lesbian memory"               # GALA
+  - "centre for sexualities"               # CSA&G
   # Colombia (Spanish)
   - "asociación colombiana de estudiantes"
   - "asociacion colombiana de estudiantes"
@@ -68,10 +79,17 @@ partner_phrases:
   - "çxhab wala kiwe"
   # Bolivia (Spanish)
   - "funproeib andes"
-  # NOT included, to keep the monitor on students and education. Add a line
-  # above if SAIH wants them: ZLHR (Zimbabwe Lawyers for Human Rights), GALZ,
-  # SRC (Sexual Rights Centre), GALA, GDX (Gender DynamiX), CSA&G, PCN,
-  # NOMADESC, CRIC, ADESPROC, CDIMA, Fe y Alegría.
+  - adesproc
+  - cdima
+  - "fe y alegría"
+  - "fe y alegria"
+  # Colombia, rights and community partners (added 23 Nov)
+  - nomadesc
+  - "proceso de comunidades negras"        # PCN
+  - "consejo regional indígena"            # CRIC
+  - "consejo regional indigena"
+  # Abbreviations NOT listed because they are also ordinary words or other
+  # organisations: SRC, GALA, CRIC, PCN. Their full names are listed above.
 
 # Partner names that are also ordinary words. They count as an identity
 # phrase, but NOT as a student word for the stricter terms ("arrested" ...).
@@ -286,6 +304,12 @@ skip:
     - "^this week in history"
     - "weekly round-?up"       # "LiveLaw Kerala High Court Weekly Round-Up"
     - "^letters? ?[-|:]"
+    - "world in brief"         # "World in brief: November 18, 2026"
+    - "^life & style"
+    - "national book awards?"  # a novel's plot can mention arrests and protests
+    - "grand theft auto"
+    - "\\bnew (benefit )?single\\b"   # music releases
+    - "history explained"
   # A title with fewer than min_title_words words AND fewer than
   # min_title_chars characters is treated as a generic page title
   # ("Albanian Daily News"). Long titles in scripts without spaces are kept.
@@ -346,7 +370,7 @@ regions:
       - "Dominican Republic"
       - "Jamaica | jamaican"
       - "Trinidad and Tobago"
-      - "Colombia | colombian | bogota | bogotá | medellin"
+      - "Colombia | colombian | bogota | bogotá | medellin | nomadesc"
       - "Venezuela | venezuelan | caracas"
       - "Ecuador | ecuadorian | quito"
       - "Peru | peruvian | lima"
@@ -432,8 +456,8 @@ regions:
 
   - name: "Southern Africa"
     countries:
-      - "South Africa | south african | johannesburg | cape town | pretoria | rhodes university"
-      - "Zimbabwe | zimbabwean | harare | bulawayo | zinasu | ecozi"
+      - "South Africa | south african | johannesburg | cape town | pretoria | rhodes university | gender dynamix"
+      - "Zimbabwe | zimbabwean | harare | bulawayo | zinasu | ecozi | zlhr | galz | yett | saywhat"
       - "Zambia | zambian | lusaka | zanasu | zanec"
       - "Eswatini | swaziland | swazi | mbabane"
       - "Botswana | gaborone"
@@ -496,7 +520,7 @@ regions:
       - "Malaysia | malaysian | kuala lumpur | reformasi"
       - "Singapore | singaporean"
       - "Indonesia | indonesian | jakarta"
-      - "Philippines | filipino | philippine | manila"
+      - "Philippines | filipino | philippine | manila | msu-iit | iligan | mindanao | davao | umak"
       - "Brunei"
       - "Timor-Leste | east timor | timorese | dili"
 
