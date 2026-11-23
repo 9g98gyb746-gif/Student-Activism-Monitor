@@ -473,6 +473,8 @@
   function isPenalised(g) {
     const t = groupTitle(g), cat = g.rows[0].category_id;
     if (groupHasTag(g, "seah") || PEN_EXCLUDE_RX.test(t) || !PEN_CATS.has(cat) || isKnownPalPerson(g)) return false;
+    // A story set in a partner country (or about a partner organisation) goes in the partner box.
+    if (isPartnerStory(g)) return false;
     return CAMPUS_RX.test(t) && PEN_CUE_RX.test(t);
   }
   function isPartnerStory(g) {
@@ -568,9 +570,9 @@
 
     const groups = newestFirst(groupRows(filtered));
 
-    // Highlight boxes. A story is shown once, in the first box it qualifies for:
-    // "Students penalised for activism", then "Palestine solidarity on campuses",
-    // then "In SAIH partner countries" (stories set in a partner country).
+    // Highlight boxes. A story is shown once. Stories set in a partner country go in
+    // "In SAIH partner countries" first; the rest go to "Students penalised for activism",
+    // then "Palestine solidarity on campuses" (known cases such as Mahmoud Khalil excepted).
     const shownInBoxes = new Set();
     function fillBox(boxId, title, note, all, key) {
       const box = $(boxId);
